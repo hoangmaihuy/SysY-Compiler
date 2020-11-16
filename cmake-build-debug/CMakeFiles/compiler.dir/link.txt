@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/compiler.dir/src/main.cpp.o CMakeFiles/compiler.dir/src/sysy2eeyore/tree.cpp.o CMakeFiles/compiler.dir/sysy_lexer.cpp.o CMakeFiles/compiler.dir/sysy_parser.cpp.o  -o compiler 

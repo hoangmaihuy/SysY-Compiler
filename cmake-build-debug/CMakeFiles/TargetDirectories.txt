@@ -1,3 +1,0 @@
-/home/mew/Git/SysY-Cpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/mew/Git/SysY-Cpp/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/mew/Git/SysY-Cpp/cmake-build-debug/CMakeFiles/compiler.dir
