@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mew/Git/SysY-Cpp/src/main.cpp
+getopt.h
+-
+sysy2eeyore/globals.hpp
+/home/mew/Git/SysY-Cpp/src/sysy2eeyore/globals.hpp
+sysy2eeyore/tree.hpp
+/home/mew/Git/SysY-Cpp/src/sysy2eeyore/tree.hpp
+source.tab.hpp
+/home/mew/Git/SysY-Cpp/src/source.tab.hpp
+
+/home/mew/Git/SysY-Cpp/src/sysy2eeyore/globals.hpp
+cstdio
+-
+cstdlib
+-
+iostream
+-
+string
+-
+cstring
+-
+stdio.h
+-
+vector
+-
+
+/home/mew/Git/SysY-Cpp/src/sysy2eeyore/tree.hpp
+globals.hpp
+/home/mew/Git/SysY-Cpp/src/sysy2eeyore/globals.hpp
+
+source.tab.hpp
+
