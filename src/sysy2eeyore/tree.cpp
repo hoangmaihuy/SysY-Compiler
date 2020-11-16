@@ -1,6 +1,7 @@
 #include "globals.hpp"
 #include "tree.hpp"
 #include "source.tab.hpp"
+#include "util.hpp"
 
 /* TreeNode */
 void TreeNode::print(int indent, bool end, ostream& out) 
@@ -140,7 +141,7 @@ NBinaryExpr::NBinaryExpr(NExpression& lhs, int op, NExpression& rhs) : lhs(lhs),
 void NBinaryExpr::print(int indent, bool end, ostream& out)
 {
     this->printIndent(indent, end, out);
-    out << "BinaryExpr: op=" << op << "\n";
+    out << "BinaryExpr: " << get_token_str(op) << "\n";
     lhs.print(indent+1, end, out);
     rhs.print(indent+1, true, out);
 }
@@ -151,7 +152,7 @@ NUnaryExpr::NUnaryExpr(int op, NExpression& rhs) : op(op), rhs(rhs) { }
 void NUnaryExpr::print(int indent, bool end, ostream& out)
 {
     this->printIndent(indent, end, out);
-    out << "UnaryExpr: op=" << op << "\n";
+    out << "UnaryExpr: " << get_token_str(op) << "\n";
     rhs.print(indent+1, true, out);
 }
 
@@ -193,7 +194,7 @@ NFuncDef::NFuncDef(int return_type, NIdentifier& ident, NFuncDefArgs& args, NBlo
 void NFuncDef::print(int indent, bool end, ostream& out)
 {
     this->printIndent(indent, end, out);
-    out << "FuncDef: return_type=" << return_type << "\n";
+    out << "FuncDef: return_type=" << get_token_str(return_type) << "\n";
     ident.print(indent+1, false, out);
     args.print(indent+1, false, out);
     body.print(indent+1, true, out);
@@ -205,7 +206,7 @@ NFuncDefArg::NFuncDefArg(int type, NIdentifier& ident) : type(type), ident(ident
 void NFuncDefArg::print(int indent, bool end, ostream& out)
 {
     this->printIndent(indent, end, out);
-    out << "FuncDefArg: type=" << type << "\n";
+    out << "FuncDefArg: type=" << get_token_str(type) << "\n";
     ident.print(indent+1, true, out);
 }
 
