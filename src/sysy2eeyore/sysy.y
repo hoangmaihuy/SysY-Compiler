@@ -213,7 +213,7 @@ FuncFParamArray : FuncFParamOne L_SQUARE R_SQUARE {
                     auto ident = new NIdentifier($1->ident.name);
                     auto array_ident = new NArrayIdentifier(*ident);
                     array_ident->shape.push_back(new NNumber(1));
-                    $$ = new NFuncDefArg($1->type, *array_ident);
+                    $$ = new NFuncDefArg($1->type, *array_ident, true);
                 }
                 | FuncFParamArray L_SQUARE Exp R_SQUARE {  
                     $$ = $1;

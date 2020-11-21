@@ -1,5 +1,7 @@
 int a = 2;
 int b = 3;
+int arr[3][4];
+const int arr2[2] = {1, 2};
 
 int main()
 {

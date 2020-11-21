@@ -20,6 +20,13 @@ void TreeNode::printIndent(int indent, bool end, ostream& out) {
     out << "├──";
 };
 
+
+void TreeNode::printSpace(int indent, ostream& out)
+{
+    for (int i = 0; i < indent; i++)
+        out << "  ";
+}
+
 /* CompUnit */
 void NCompUnit::print(int indent, bool end, ostream& out)
 {
@@ -45,8 +52,6 @@ void NArrayIdentifier::print(int indent, bool end, ostream& out)
 {
     this->printIndent(indent, end, out);
     out << "ArrayIdentifier" << "\n";
-
-    this->printIndent(indent+1, false, out);
     ident.print(indent+1, false, out);
 
     this->printIndent(indent+1, true, out);
@@ -201,7 +206,7 @@ void NFuncDef::print(int indent, bool end, ostream& out)
 }
 
 /* FuncDefArg */
-NFuncDefArg::NFuncDefArg(int type, NIdentifier& ident) : type(type), ident(ident) { }
+NFuncDefArg::NFuncDefArg(int type, NIdentifier& ident, bool is_array) : type(type), ident(ident), is_array(is_array) { }
 
 void NFuncDefArg::print(int indent, bool end, ostream& out)
 {

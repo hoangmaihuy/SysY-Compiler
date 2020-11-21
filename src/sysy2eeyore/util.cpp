@@ -23,6 +23,37 @@ string get_token_str(int token)
         case DIV: return "/"; break;
         case MOD: return "%"; break;
         case NOT: return "!"; break;
-        default: return "undefined"; break;
+        default: return ""; break;
     }
+}
+
+string get_file_prefix(string filename)
+{
+    string prefix = filename;
+    while (prefix.back() != '.') prefix.pop_back();
+    return prefix;
+}
+
+int get_array_size(const vector<int>& shape)
+{
+    int size = 1;
+    for (auto i : shape) size *= i;
+    return size;
+}
+
+int get_array_index(const vector<int>& shape, const vector<int>& indexes)
+{
+    int array_size = get_array_size(shape);
+    int index = 0;
+    for (int i = 0; i < shape.size(); i++)
+    {
+        array_size /= shape[i];
+        index += indexes[i] * array_size;
+    }
+    return index;
+}
+
+string get_array_item_eeyore(string ee_name, int index)
+{
+    return ee_name + " [" + to_string(index*INT_SIZE) + "]";
 }

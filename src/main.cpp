@@ -1,21 +1,36 @@
 #include <getopt.h>
+#include <iostream>
+#include <fstream>
 #include "sysy2eeyore/globals.hpp"
 #include "sysy2eeyore/tree.hpp"
 #include "source.tab.hpp"
+#include "sysy2eeyore/util.hpp"
 
 extern FILE* yyin;
 extern NCompUnit* parse();
 
-string in_file;
-string out_file;
+string in_file, out_file, file_prefix;
 
 bool compileEeyore, compileTigger, compileRISCV;
 
 void compileToEeyore()
 {
+    Context ctx;
     yyin = fopen(in_file.c_str(), "r");
+    ofstream log_out(file_prefix + "log");
+    ofstream eeyore_out;
+    
+    if (!compileTigger)
+        eeyore_out.open(out_file);
+    else
+        eeyore_out.open(file_prefix + "e");
+    
     auto root = parse();
-    root->print();
+    root->print(0, false, log_out);
+    root->generate_eeyore(ctx, 0, eeyore_out);
+
+    log_out.close();
+    eeyore_out.close();
     return;
 }
 
@@ -51,6 +66,7 @@ int main(int argc, char * argv[])
         }
     }
     in_file = argv[optind];
+    file_prefix = get_file_prefix(in_file);
     if (compileEeyore) 
         compileToEeyore();
 }

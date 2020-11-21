@@ -1,0 +1,60 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──VarDeclareWithInit: is_const=0
+│   │   │   └──Identifier: a
+│   │   │   └──Number: 2
+│   ├──DeclareStmt
+│   │   └──VarDeclareWithInit: is_const=0
+│   │   │   └──Identifier: b
+│   │   │   └──Number: 3
+│   ├──DeclareStmt
+│   │   └──ArrayDeclare
+│   │   │   └──ArrayIdentifier
+│   │   │   │   ├──Identifier: arr
+│   │   │   │   └──ArrayShape
+│   │   │   │   │   ├──Number: 3
+│   │   │   │   │   └──Number: 4
+│   ├──DeclareStmt
+│   │   └──ArrayDeclareWithInit: is_const=1
+│   │   │   ├──ArrayIdentifier
+│   │   │   │   ├──Identifier: arr2
+│   │   │   │   └──ArrayShape
+│   │   │   │   │   └──Number: 2
+│   │   │   └──ArrayDeclareInitValue: is_number=0
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 1
+│   │   │   │   └──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 2
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: c
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   └──Number: 4
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: d
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: getint
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: e
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   │   └──Identifier: c
+│   │   │   │   │   │   │   └──Identifier: d
+│   │   │   └──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: e
