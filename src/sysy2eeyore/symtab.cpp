@@ -14,7 +14,11 @@ Context::Context()
     create_scope();
     eeyore_lists.push_back(EeyoreList("__global__", 0));
     insert_func("getint", INT, 0, true);
+    insert_func("getch", INT, 0, true);
+    insert_func("getarray", INT, 1, true);
     insert_func("putint", VOID, 1, true);
+    insert_func("putch", VOID, 1, true);
+    insert_func("putarray", VOID, 2, true);
 }
 
 void Context::create_scope()

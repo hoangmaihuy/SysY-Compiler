@@ -336,7 +336,7 @@ void NIfStmt::generate_eeyore(Context& ctx, int indent)
 {
     cond.generate_eeyore(ctx, indent);
     string else_jump = ctx.create_jump();
-    ctx.insert_eeyore_stmt(EGotoStmt(else_jump, cond.ee_name, false));
+    ctx.insert_eeyore_stmt(EGotoStmt(else_jump, cond.ee_name, false), indent);
     then_stmt.generate_eeyore(ctx, indent+1);
     ctx.insert_eeyore_stmt(EJumpLoc(else_jump), indent);
 }
