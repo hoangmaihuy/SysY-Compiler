@@ -17,6 +17,17 @@ public:
     SymbolInfo(string ee_name, vector<int> value={}, bool is_const=false, bool is_array=false, vector<int> shape={});
 };
 
+class EeyoreList
+{
+public:
+    string func_name;
+    int args_num;
+    vector<string> decls;
+    vector<string> stmts;
+    
+    EeyoreList(string func_name, int args_num);
+};
+
 typedef unordered_map<string, SymbolInfo> SymbolTable;
 typedef unordered_map<string, int> FuncTable;
 
@@ -25,8 +36,8 @@ class Context
 public:
     int glob_id, temp_id, jump_id;
     vector<SymbolTable> sym_tabs;
-    vector<string> init_value_stmts;
     vector< pair<string, string> > loops;
+    vector<EeyoreList> eeyore_lists;
     FuncTable func_tabs;
 
     Context();
@@ -41,7 +52,7 @@ public:
 
     int get_array_item(string name, int index);
 
-    void insert_func(string name, int return_type);
+    void insert_func(string func_name, int return_type, int args_num=0, bool built_in=false);
     int get_func_return_type(string name);
 
 
@@ -55,4 +66,9 @@ public:
     void end_loop();
     pair<string, string> get_current_loop();
     bool is_global();
+
+    void insert_eeyore_decl(string decl);
+    void insert_eeyore_stmt(string stmt, int indent=0);
+
+    void print_eeyore(ostream& out=cout);
 };

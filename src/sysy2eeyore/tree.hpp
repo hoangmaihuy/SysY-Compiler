@@ -8,7 +8,7 @@ public:
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
     void printIndent(int indent=0, bool end=false, ostream& out=cerr);
     void printSpace(int indent=0, ostream& out=cout);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NCompUnit : public TreeNode
@@ -16,7 +16,7 @@ class NCompUnit : public TreeNode
 public:
     vector<TreeNode*> body;
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NExpression : public TreeNode
@@ -24,7 +24,7 @@ class NExpression : public TreeNode
 public:
     string ee_name;
     virtual int eval(Context& ctx);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NCondExpr : public NExpression
@@ -33,7 +33,7 @@ public:
     NExpression& value;
     NCondExpr(NExpression& value);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NIdentifier : public NExpression
@@ -42,7 +42,7 @@ public:
     string name;
     NIdentifier(string name);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
     virtual int eval(Context& ctx);
 };
 
@@ -55,7 +55,7 @@ public:
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
     virtual int eval(Context& ctx);
     virtual vector<int> get_shape(Context& ctx);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NNumber : public NExpression
@@ -65,7 +65,7 @@ public:
     NNumber(const string& value);
     NNumber(int value);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
     virtual int eval(Context& ctx);
 };
 
@@ -85,7 +85,7 @@ public:
 
     NDeclareStmt(int type);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NVarDeclareWithInit : public NDeclare
@@ -96,7 +96,7 @@ public:
     bool is_const;
     NVarDeclareWithInit(NIdentifier& ident, NExpression& value, bool is_const=false);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NVarDeclare : public NDeclare
@@ -105,7 +105,7 @@ public:
     NIdentifier& ident;
     NVarDeclare(NIdentifier& ident);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NArrayDeclareInitValue : public NExpression 
@@ -117,7 +117,7 @@ public:
     NArrayDeclareInitValue(bool is_number, NExpression* value);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
     virtual void write_values(Context& ctx, int start_index, vector<int>& shape, vector<int>& init_values);
-    virtual void generate_eeyore(Context& ctx, string ee_name, vector<int>& shape, int start_index, int indent, ostream& out);
+    virtual void generate_eeyore(Context& ctx, string ee_name, vector<int>& shape, int start_index, int indent);
 };
 
 class NArrayDeclareWithInit : public NDeclare
@@ -128,7 +128,7 @@ public:
     bool is_const;
     NArrayDeclareWithInit(NArrayIdentifier& ident, NArrayDeclareInitValue& value, bool is_const=false);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NArrayDeclare : public NDeclare
@@ -137,7 +137,7 @@ public:
     NArrayIdentifier& ident;    
     NArrayDeclare(NArrayIdentifier& ident);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NBinaryExpr : public NExpression
@@ -148,7 +148,7 @@ public:
     NExpression& rhs;
     NBinaryExpr(NExpression& lhs, int op, NExpression& rhs);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
     virtual int eval(Context& ctx);
 };
 
@@ -159,7 +159,7 @@ public:
     NExpression& rhs;
     NUnaryExpr(int op, NExpression& rhs);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
     virtual int eval(Context& ctx);
 };
 
@@ -177,7 +177,7 @@ public:
     NFuncCallArgs& args;
     NFuncCall(NIdentifier& ident, NFuncCallArgs& args);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NFuncDefArg : public NExpression
@@ -202,7 +202,7 @@ class NBlock : public TreeNode
 public:
     vector<NStatement*> body;
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NFuncDef : public TreeNode
@@ -214,7 +214,7 @@ public:
     NBlock& body;
     NFuncDef(int return_type, NIdentifier& ident, NFuncDefArgs& args, NBlock& body);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 
@@ -224,14 +224,14 @@ public:
     NExpression& value;
     NEvalStmt(NExpression& value);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NVoidStmt : public NStatement
 {
 public:
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NAssignStmt : public NStatement
@@ -241,7 +241,7 @@ public:
     NExpression& rhs;
     NAssignStmt(NIdentifier& lhs, NExpression& rhs);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NIfStmt : public NStatement
@@ -251,7 +251,7 @@ public:
     NStatement& then_stmt;
     NIfStmt(NCondExpr& cond, NStatement& then_stmt);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NIfElseStmt : public NStatement
@@ -262,7 +262,7 @@ public:
     NStatement& else_stmt;
     NIfElseStmt(NCondExpr& cond, NStatement& then_stmt, NStatement& else_stmt);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NReturnStmt : public NStatement
@@ -271,7 +271,7 @@ public:
     NExpression* value;
     NReturnStmt(NExpression* value = nullptr);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NWhileStmt : public NStatement
@@ -281,19 +281,19 @@ public:
     NStatement& do_stmt;
     NWhileStmt(NCondExpr& cond, NStatement& do_stmt);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NContinueStmt : public NStatement
 {
 public:
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };
 
 class NBreakStmt : public NStatement
 {
 public:
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
-    virtual void generate_eeyore(Context& ctx, int indent, ostream& out=cout);
+    virtual void generate_eeyore(Context& ctx, int indent);
 };

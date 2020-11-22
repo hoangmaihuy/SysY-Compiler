@@ -23,14 +23,15 @@ void compileToEeyore()
     if (!compileTigger)
         eeyore_out.open(out_file);
     else
-        eeyore_out.open(file_prefix + "e");
+        eeyore_out.open(file_prefix + "eeyore");
     
     auto root = parse();
     cerr << "Done Parse" << "\n";
     root->print(0, false, log_out);
     log_out.close();
     cerr << "Done Print Tree" << "\n";
-    root->generate_eeyore(ctx, 0, eeyore_out);
+    root->generate_eeyore(ctx, 0);
+    ctx.print_eeyore(eeyore_out);
     cerr << "Done Eeyore\n";
     eeyore_out.close();
 

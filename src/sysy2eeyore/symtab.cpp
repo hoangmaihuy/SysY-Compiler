@@ -12,8 +12,9 @@ Context::Context()
 {
     glob_id = temp_id = jump_id = 0;
     create_scope();
-    insert_func("getint", INT);
-    insert_func("putint", VOID);
+    eeyore_lists.push_back(EeyoreList("__global__", 0));
+    insert_func("getint", INT, 0, true);
+    insert_func("putint", VOID, 1, true);
 }
 
 void Context::create_scope()
@@ -100,9 +101,11 @@ int Context::get_array_item(string name, int index)
     return symbol.value[index];
 }
 
-void Context::insert_func(string name, int return_type)
+void Context::insert_func(string func_name, int return_type, int args_num, bool built_in)
 {
-    func_tabs.insert({name, return_type});
+    func_tabs.insert({func_name, return_type});
+    if (!built_in)
+        eeyore_lists.push_back(EeyoreList(func_name, args_num));
 }
 
 int Context::get_func_return_type(string name)
@@ -132,4 +135,50 @@ void Context::end_loop()
 pair<string, string> Context::get_current_loop()
 {
     return loops.back();
+}
+
+EeyoreList::EeyoreList(string func_name, int args_num) : func_name(func_name), args_num(args_num) { }
+
+void Context::insert_eeyore_decl(string decl)
+{
+    if (is_global())
+        eeyore_lists[0].decls.push_back(decl);
+    else 
+        eeyore_lists.back().decls.push_back(decl);
+}
+
+void Context::insert_eeyore_stmt(string stmt, int indent)
+{
+    for (int i = 0; i < indent; i++) stmt = "  " + stmt;
+    if (is_global())
+        eeyore_lists[0].stmts.push_back(stmt);
+    else 
+        eeyore_lists.back().stmts.push_back(stmt);
+} 
+
+void Context::print_eeyore(ostream& out)
+{
+    for (auto eeyore_list : eeyore_lists)
+    {
+        string func_name = eeyore_list.func_name;
+        int args_num = eeyore_list.args_num;
+        if (func_name == "__global__")
+        {
+            for (auto decl : eeyore_list.decls) 
+                out << decl << "\n";
+            continue;
+        } 
+
+        out << "f_" + func_name + " [" + to_string(args_num) + "]" << "\n";
+        if (func_name == "main")
+        {
+            for (auto stmt : eeyore_lists[0].stmts)
+                out << "  " << stmt << "\n";
+        }
+        for (auto decl : eeyore_list.decls)
+            out << "  " << decl << "\n";
+        for (auto stmt : eeyore_list.stmts)
+            out << stmt << "\n";
+        out << "end f_" + func_name << "\n";
+    }
 }
