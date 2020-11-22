@@ -26,11 +26,14 @@ void compileToEeyore()
         eeyore_out.open(file_prefix + "e");
     
     auto root = parse();
+    cerr << "Done Parse" << "\n";
     root->print(0, false, log_out);
-    root->generate_eeyore(ctx, 0, eeyore_out);
-
     log_out.close();
+    cerr << "Done Print Tree" << "\n";
+    root->generate_eeyore(ctx, 0, eeyore_out);
+    cerr << "Done Eeyore\n";
     eeyore_out.close();
+
     return;
 }
 

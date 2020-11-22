@@ -40,6 +40,7 @@ SymbolInfo& Context::find_symbol(string name)
         if (find != sym_tabs[i].end())
             return find->second;
     }
+    cerr << "No symbol: " << name << "\n";
 }
 
 bool Context::is_global()

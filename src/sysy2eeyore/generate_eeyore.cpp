@@ -200,14 +200,15 @@ void NArrayDeclareInitValue::generate_eeyore(Context& ctx, string ee_name, vecto
         {
             value->value->generate_eeyore(ctx, indent, out);
             string item_name = get_array_item_eeyore(ee_name, start_index++);
+            string value_name = value->value->ee_name;
             if (!ctx.is_global())
             {
                 printSpace(indent, out);
-                printUnaryExpr(item_name, 0, value->ee_name, out);
+                printUnaryExpr(item_name, 0, value_name, out);
             }
             else 
             {
-                ctx.init_value_stmts.push_back(strUnaryExpr(item_name, 0, value->ee_name));
+                ctx.init_value_stmts.push_back(strUnaryExpr(item_name, 0, value_name));
             }
         }
         else 
@@ -363,13 +364,15 @@ void NFuncDef::generate_eeyore(Context& ctx, int indent, ostream& out)
         string ee_name = "p" + to_string(args_num++);
         if (!arg->is_array)
         {
-            ctx.insert_var(ident.name, ee_name);
+            string arg_name = arg->ident.name;
+            ctx.insert_var(arg_name, ee_name);
         }
         else 
         {
-            auto array_ident = (NArrayIdentifier&)arg->ident;
+            NArrayIdentifier& array_ident = (NArrayIdentifier&)arg->ident;
             vector<int> array_shape = array_ident.get_shape(ctx);
-            ctx.insert_array(array_ident.ident.name, ee_name, array_shape);
+            string arg_name = array_ident.ident.name;
+            ctx.insert_array(arg_name, ee_name, array_shape);
         }
     }
     body.generate_eeyore(ctx, indent, out);
@@ -424,14 +427,17 @@ void NIfElseStmt::generate_eeyore(Context& ctx, int indent, ostream& out)
 
 void NReturnStmt::generate_eeyore(Context& ctx, int indent, ostream& out)
 {
-    printSpace(indent, out);
     if (value) 
     {
         value->generate_eeyore(ctx, indent, out);
+        printSpace(indent, out);
         out << "return " << value->ee_name << "\n";
     }
     else 
+    {
+        printSpace(indent, out);
         out << "return" << "\n";
+    }
 }
 
 void NWhileStmt::generate_eeyore(Context& ctx, int indent, ostream& out)
