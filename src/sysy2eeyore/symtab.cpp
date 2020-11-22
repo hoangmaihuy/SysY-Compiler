@@ -10,7 +10,7 @@ SymbolInfo::SymbolInfo(string ee_name, vector<int> value, bool is_const, bool is
 
 Context::Context()
 {
-    glob_id = temp_id = 0;
+    glob_id = temp_id = jump_id = 0;
     create_scope();
     insert_func("getint", INT);
     insert_func("putint", VOID);
@@ -112,5 +112,10 @@ int Context::get_func_return_type(string name)
         return func_tabs.find(name)->second;
     else 
         cerr << "No func def";
+}
+
+string Context::create_jump()
+{
+    return "l" + to_string(jump_id++); 
 }
 

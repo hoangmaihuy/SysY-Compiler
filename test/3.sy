@@ -1,0 +1,22 @@
+const int a = 5;
+
+int main()
+{
+    int b;
+    b = getint();
+    int ans;
+    if (b < a)
+    {
+        ans = -1;
+    }
+    else if (a == b)
+    {
+        ans = 0;
+    }
+    else 
+    {
+        ans = 1;
+    }
+    putint(ans);
+    return 0;
+}

@@ -1,0 +1,67 @@
+├──CompUnit
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclareWithInit: is_const=0
+│   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   ├──Number: 4
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──ArrayDeclareInitValue: is_number=0
+│   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 3
+│   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 4
+│   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 5
+│   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 6
+│   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 7
+│   │   │   │   │   │   └──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 8
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclareWithInit: is_const=0
+│   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   ├──Number: 4
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──ArrayDeclareInitValue: is_number=0
+│   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=0
+│   │   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   ├──Number: 0
+│   │   │   │   │   │   │   │   │   │   └──Number: 0
+│   │   │   │   │   │   │   └──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   ├──Number: 0
+│   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=0
+│   │   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   │   └──Number: 3
+│   │   │   │   │   │   │   └──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   │   └──Number: 4
+│   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=0
+│   │   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   │   └──Number: 5
+│   │   │   │   │   │   │   └──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   │   └──Number: 6
+│   │   │   │   │   │   └──ArrayDeclareInitValue: is_number=0
+│   │   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   │   └──Number: 7
+│   │   │   │   │   │   │   └──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   │   └──Number: 8
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

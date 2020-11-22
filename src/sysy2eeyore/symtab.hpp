@@ -23,7 +23,7 @@ typedef unordered_map<string, int> FuncTable;
 class Context
 {
 public:
-    int glob_id, temp_id;
+    int glob_id, temp_id, jump_id;
     vector<SymbolTable> sym_tabs;
     vector<string> init_value_stmts;
     FuncTable func_tabs;
@@ -47,6 +47,7 @@ public:
     SymbolInfo& find_symbol(string name);
     string create_eeyore_temp_var();
     string create_eeyore_glob_var();
+    string create_jump();
     void create_scope();
     void end_scope();
     bool is_global();

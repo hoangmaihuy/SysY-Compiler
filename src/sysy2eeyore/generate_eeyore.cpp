@@ -221,7 +221,8 @@ void NArrayDeclareInitValue::generate_eeyore(Context& ctx, string ee_name, vecto
 
 void NCondExpr::generate_eeyore(Context& ctx, int indent, ostream& out)
 {
-
+    value.generate_eeyore(ctx, indent, out);
+    ee_name = value.ee_name;
 }
 
 void NBinaryExpr::generate_eeyore(Context& ctx, int indent, ostream& out)
@@ -253,10 +254,14 @@ void NUnaryExpr::generate_eeyore(Context& ctx, int indent, ostream& out)
     if (!ctx.is_global())
     {
         printSpace(indent, out);
+        printDeclareVar(ee_name, out);
+
+        printSpace(indent, out);
         printUnaryExpr(this->ee_name, op, rhs.ee_name, out);
     }
     else 
     {
+        ctx.init_value_stmts.push_back("var " + ee_name);
         ctx.init_value_stmts.push_back(strUnaryExpr(this->ee_name, op, rhs.ee_name));
     }
 }
@@ -417,12 +422,35 @@ void NAssignStmt::generate_eeyore(Context& ctx, int indent, ostream& out)
 
 void NIfStmt::generate_eeyore(Context& ctx, int indent, ostream& out)
 {
+    cond.generate_eeyore(ctx, indent, out);
+    string else_jump = ctx.create_jump();
+    
+    printSpace(indent, out);
+    out << "if " << cond.ee_name << " == 0 goto " << else_jump << "\n";
 
+    then_stmt.generate_eeyore(ctx, indent+1, out);
+    printSpace(indent, out);
+    out << else_jump << ":\n";
 }
 
 void NIfElseStmt::generate_eeyore(Context& ctx, int indent, ostream& out)
 {
+    cond.generate_eeyore(ctx, indent, out);
+    string else_jump = ctx.create_jump();
+    string end_else_jump = ctx.create_jump();
+    printSpace(indent, out);
+    out << "if " << cond.ee_name << " == 0 goto " << else_jump << "\n";
 
+    then_stmt.generate_eeyore(ctx, indent+1, out);
+    printSpace(indent+1, out);
+    out << "goto " << end_else_jump << "\n";
+
+    printSpace(indent, out);
+    out << else_jump << ":\n";
+
+    else_stmt.generate_eeyore(ctx, indent+1, out);
+    printSpace(indent, out);
+    out << end_else_jump << ":\n";
 }
 
 void NReturnStmt::generate_eeyore(Context& ctx, int indent, ostream& out)
