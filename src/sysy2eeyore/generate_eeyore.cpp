@@ -7,7 +7,7 @@
 string EVarStmt(string name, int size=0)
 {
     if (size)
-        return "var " + to_string(size) + name;
+        return "var " + to_string(size) + " " + name;
     else 
         return "var " + name;
 }
