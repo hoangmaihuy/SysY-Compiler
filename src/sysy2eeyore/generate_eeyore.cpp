@@ -280,16 +280,55 @@ void NArrayIdentifier::generate_eeyore(Context& ctx, int indent, ostream& out)
         i->generate_eeyore(ctx, indent, out);
 
     string index_name = ctx.create_eeyore_temp_var();
+    if (!ctx.is_global())
+    {
+        printSpace(indent, out);
+        printDeclareVar(index_name, out);
+        printSpace(indent, out);
+        printUnaryExpr(index_name, 0, "0", out);
+    }
+    else 
+    {
+        ctx.init_value_stmts.push_back("var " + index_name);
+        ctx.init_value_stmts.push_back(strUnaryExpr(index_name, 0, "0"));
+    }
     int array_size = get_array_size(array_shape);
     for (int i = 0; i < array_shape.size(); i++)
     {
         array_size /= array_shape[i];
-        printSpace(indent, out);
-        out << index_name << " = " << index_name << " + " << shape[i]->ee_name << "\n";
+        if (!ctx.is_global())
+        {
+            printSpace(indent, out);
+            printBinaryExpr(index_name, index_name, PLUS, shape[i]->ee_name, out);
+        }
+        else 
+        {
+            ctx.init_value_stmts.push_back(strBinaryExpr(index_name, index_name, PLUS, shape[i]->ee_name));
+        }
     }
-
-    printSpace(indent, out);
-    ee_name = symbol.ee_name + " [" + index_name + "]";
+    if (!ctx.is_global())
+    {
+        printSpace(indent, out);
+        printBinaryExpr(index_name, index_name, MUL, "4", out);
+    }
+    else 
+    {
+        ctx.init_value_stmts.push_back(strBinaryExpr(index_name, index_name, MUL, "4"));
+    }
+    ee_name = ctx.create_eeyore_temp_var();
+    string rhs = symbol.ee_name + " [" + index_name + "]";
+    if (!ctx.is_global())
+    {
+        printSpace(indent, out);
+        printDeclareVar(ee_name, out);
+        printSpace(indent, out);
+        printUnaryExpr(ee_name, 0, rhs, out);
+    }
+    else 
+    {
+        ctx.init_value_stmts.push_back("var " + ee_name);
+        ctx.init_value_stmts.push_back(strUnaryExpr(ee_name, 0, rhs));
+    }
 }
 
 
