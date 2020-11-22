@@ -216,11 +216,20 @@ void NNumber::generate_eeyore(Context& ctx, int indent)
 
 void NIdentifier::generate_eeyore(Context& ctx, int indent)
 {
+    generate_eeyore(ctx, indent, false);
+}
+
+void NIdentifier::generate_eeyore(Context& ctx, int indent, bool is_lhs)
+{
     auto symbol = ctx.find_symbol(name);
     ee_name = symbol.ee_name;
 }
 
 void NArrayIdentifier::generate_eeyore(Context& ctx, int indent)
+{
+    generate_eeyore(ctx, indent, false);
+}
+void NArrayIdentifier::generate_eeyore(Context& ctx, int indent, bool is_lhs)
 {
     auto symbol = ctx.find_symbol(ident.name);
     vector<int> array_shape = symbol.shape;
@@ -243,10 +252,17 @@ void NArrayIdentifier::generate_eeyore(Context& ctx, int indent)
     }
     ctx.insert_eeyore_stmt(EBinaryExpr(index_name, index_name, MUL, "4"), indent);
     
-    ee_name = ctx.create_eeyore_temp_var();
-    string rhs = symbol.ee_name + " [" + index_name + "]";
-    ctx.insert_eeyore_decl(EVarStmt(ee_name));
-    ctx.insert_eeyore_stmt(EUnaryExpr(ee_name, 0, rhs), indent);
+    string item_name = symbol.ee_name + " [" + index_name + "]";
+    if (!is_lhs)
+    {
+        ee_name = ctx.create_eeyore_temp_var();
+        ctx.insert_eeyore_decl(EVarStmt(ee_name));
+        ctx.insert_eeyore_stmt(EUnaryExpr(ee_name, 0, item_name), indent);
+    }
+    else 
+    {
+        ee_name = item_name;
+    }
 }
 
 void NBlock::generate_eeyore(Context& ctx, int indent)
@@ -311,7 +327,7 @@ void NFuncCall::generate_eeyore(Context& ctx, int indent)
 
 void NAssignStmt::generate_eeyore(Context& ctx, int indent)
 {
-    lhs.generate_eeyore(ctx, indent);
+    lhs.generate_eeyore(ctx, indent, true);
     rhs.generate_eeyore(ctx, indent);
     ctx.insert_eeyore_stmt(EUnaryExpr(lhs.ee_name, 0, rhs.ee_name), indent);
 }

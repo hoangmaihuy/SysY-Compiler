@@ -43,6 +43,7 @@ public:
     NIdentifier(string name);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
     virtual void generate_eeyore(Context& ctx, int indent);
+    virtual void generate_eeyore(Context& ctx, int indent, bool is_lhs=false);
     virtual int eval(Context& ctx);
 };
 
@@ -56,6 +57,7 @@ public:
     virtual int eval(Context& ctx);
     virtual vector<int> get_shape(Context& ctx);
     virtual void generate_eeyore(Context& ctx, int indent);
+    virtual void generate_eeyore(Context& ctx, int indent, bool is_lhs=false);
 };
 
 class NNumber : public NExpression
