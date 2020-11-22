@@ -217,7 +217,7 @@ FuncFParamArray : FuncFParamOne L_SQUARE R_SQUARE {
                 }
                 | FuncFParamArray L_SQUARE Exp R_SQUARE {  
                     $$ = $1;
-                    auto array_ident = (NArrayIdentifier)$$->ident;
+                    NArrayIdentifier& array_ident = (NArrayIdentifier&)$$->ident;
                     array_ident.shape.push_back($3);
                 } 
                 ;

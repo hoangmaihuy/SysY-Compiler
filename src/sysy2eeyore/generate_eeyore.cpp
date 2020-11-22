@@ -233,17 +233,20 @@ void NArrayIdentifier::generate_eeyore(Context& ctx, int indent)
     ctx.insert_eeyore_stmt(EUnaryExpr(index_name, 0, "0"), indent);
     
     int array_size = get_array_size(array_shape);
+    string tmp_name = ctx.create_eeyore_temp_var();
+    ctx.insert_eeyore_decl(EVarStmt(tmp_name));
     for (int i = 0; i < array_shape.size(); i++)
     {
         array_size /= array_shape[i];
-        ctx.insert_eeyore_stmt(EBinaryExpr(index_name, index_name, PLUS, shape[i]->ee_name), indent);
+        ctx.insert_eeyore_stmt(EBinaryExpr(tmp_name, shape[i]->ee_name, MUL, to_string(array_size)),indent);
+        ctx.insert_eeyore_stmt(EBinaryExpr(index_name, index_name, PLUS, tmp_name), indent);
     }
     ctx.insert_eeyore_stmt(EBinaryExpr(index_name, index_name, MUL, "4"), indent);
     
     ee_name = ctx.create_eeyore_temp_var();
     string rhs = symbol.ee_name + " [" + index_name + "]";
     ctx.insert_eeyore_decl(EVarStmt(ee_name));
-    ctx.insert_eeyore_stmt(EUnaryExpr(ee_name, 0, rhs));
+    ctx.insert_eeyore_stmt(EUnaryExpr(ee_name, 0, rhs), indent);
 }
 
 void NBlock::generate_eeyore(Context& ctx, int indent)
@@ -292,7 +295,18 @@ void NFuncCall::generate_eeyore(Context& ctx, int indent)
     {
         ctx.insert_eeyore_stmt(EParamStmt(arg->ee_name), indent);
     }
-    ee_name = EFuncCall(func_name);
+    int return_type = ctx.get_func_return_type(func_name);
+    if (return_type == VOID)
+    {
+        ee_name = EFuncCall(func_name);
+        ctx.insert_eeyore_stmt(EFuncCall(func_name), indent);
+    }
+    else 
+    {
+        ee_name = ctx.create_eeyore_temp_var();
+        ctx.insert_eeyore_decl(EVarStmt(ee_name));
+        ctx.insert_eeyore_stmt(EUnaryExpr(ee_name, 0, EFuncCall(func_name)), indent);
+    }
 }
 
 void NAssignStmt::generate_eeyore(Context& ctx, int indent)
@@ -375,5 +389,4 @@ void NVoidStmt::generate_eeyore(Context& ctx, int indent)
 void NEvalStmt::generate_eeyore(Context& ctx, int indent)
 {
     value.generate_eeyore(ctx, indent);
-    ctx.insert_eeyore_stmt(value.ee_name, indent);
 }
