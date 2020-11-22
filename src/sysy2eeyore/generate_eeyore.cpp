@@ -12,14 +12,25 @@ void printDeclareVar(string name, ostream& out, int size=0)
         out << "var " << name << "\n";
 }
 
+string strBinaryExpr(string res, string lhs, int op, string rhs)
+{
+    return res + " = " + lhs + " " + get_token_str(op) + " " + rhs;
+}
+
 void printBinaryExpr(string res, string lhs, int op, string rhs, ostream& out)
 {
     out << res << " = " << lhs << " " << get_token_str(op) << " " << rhs << "\n";
 }
 
+string strUnaryExpr(string res, int op, string rhs)
+{
+    return res + " = " + get_token_str(op) + rhs;
+}
+
 void printUnaryExpr(string res, int op, string rhs, ostream& out)
 {
-    out << res << " = " << get_token_str(op) << rhs << "\n";
+    string s = strUnaryExpr(res, op, rhs);
+    out << s << "\n";
 }
 
 void TreeNode::generate_eeyore(Context& ctx, int indent, ostream& out)
@@ -48,14 +59,21 @@ void NVarDeclare::generate_eeyore(Context& ctx, int indent, ostream& out)
     printSpace(indent, out);
     printDeclareVar(ee_name, out);
 
-    printSpace(indent, out);
-    printUnaryExpr(ee_name, 0, "0", out);
+    if (!ctx.is_global())
+    {
+        printSpace(indent, out);
+        printUnaryExpr(ee_name, 0, "0", out);
+    }
+    else 
+    {
+        ctx.init_value_stmts.push_back(strUnaryExpr(ee_name, 0, "0"));
+    }
 }
 
 void NVarDeclareWithInit::generate_eeyore(Context& ctx, int indent, ostream& out)
 {
     string ee_name = ctx.create_eeyore_glob_var();
-    ctx.insert_var(ident.name, ee_name);
+    ctx.insert_var(ident.name, ee_name, is_const);
 
     printSpace(indent, out);
     printDeclareVar(ee_name, out);
@@ -63,14 +81,28 @@ void NVarDeclareWithInit::generate_eeyore(Context& ctx, int indent, ostream& out
     {
         int eval_value = value.eval(ctx);
         ctx.assign_var(ident.name, eval_value);
-        printSpace(indent, out);
-        printUnaryExpr(ee_name, 0, to_string(eval_value), out);
+        if (!ctx.is_global())
+        {
+            printSpace(indent, out);
+            printUnaryExpr(ee_name, 0, to_string(eval_value), out);
+        }
+        else 
+        {
+            ctx.init_value_stmts.push_back(strUnaryExpr(ee_name, 0, to_string(eval_value)));
+        }
     }
     else 
     {
         value.generate_eeyore(ctx, indent, out);
-        printSpace(indent, out);
-        printUnaryExpr(ee_name, 0, value.ee_name, out);
+        if (!ctx.is_global())
+        {
+            printSpace(indent, out);
+            printUnaryExpr(ee_name, 0, value.ee_name, out);
+        }
+        else 
+        {
+            ctx.init_value_stmts.push_back(strUnaryExpr(ee_name, 0, value.ee_name));
+        }
     }
 
 }
@@ -91,8 +123,15 @@ void NArrayDeclare::generate_eeyore(Context& ctx, int indent, ostream& out)
     for (int i = 0; i < array_size; i++)
     {
         string item_name = get_array_item_eeyore(ee_name, i);
-        printSpace(indent, out);
-        printUnaryExpr(item_name, 0, "0", out);
+        if (!ctx.is_global())
+        {
+            printSpace(indent, out);
+            printUnaryExpr(item_name, 0, "0", out);
+        }
+        else 
+        {
+            ctx.init_value_stmts.push_back(strUnaryExpr(item_name, 0, "0"));
+        }
     }
 }
 
@@ -116,8 +155,15 @@ void NArrayDeclareWithInit::generate_eeyore(Context& ctx, int indent, ostream& o
         for (int i = 0; i < array_size; i++)
         {
             string item_name = get_array_item_eeyore(ee_name, i);
-            printSpace(indent, out);
-            printUnaryExpr(item_name, 0, to_string(init_values[i]), out);
+            if (!ctx.is_global())
+            {
+                printSpace(indent, out);
+                printUnaryExpr(item_name, 0, to_string(init_values[i]), out);
+            }
+            else 
+            {
+                ctx.init_value_stmts.push_back(strUnaryExpr(item_name, 0, to_string(init_values[i])));
+            }
         }
     }
     else 
@@ -126,8 +172,15 @@ void NArrayDeclareWithInit::generate_eeyore(Context& ctx, int indent, ostream& o
         for (int i = 0; i < array_size; i++)
         {
             string item_name = get_array_item_eeyore(ee_name, i);
-            printSpace(indent, out);
-            printUnaryExpr(item_name, 0, "0", out);
+            if (!ctx.is_global())
+            {
+                printSpace(indent, out);
+                printUnaryExpr(item_name, 0, "0", out);
+            }
+            else 
+            {
+                ctx.init_value_stmts.push_back(strUnaryExpr(item_name, 0, "0"));
+            }
         }
         value.generate_eeyore(ctx, ee_name, array_shape, 0, indent, out);
     }
@@ -147,8 +200,15 @@ void NArrayDeclareInitValue::generate_eeyore(Context& ctx, string ee_name, vecto
         {
             value->value->generate_eeyore(ctx, indent, out);
             string item_name = get_array_item_eeyore(ee_name, start_index++);
-            printSpace(indent, out);
-            printUnaryExpr(item_name, 0, value->ee_name, out);
+            if (!ctx.is_global())
+            {
+                printSpace(indent, out);
+                printUnaryExpr(item_name, 0, value->ee_name, out);
+            }
+            else 
+            {
+                ctx.init_value_stmts.push_back(strUnaryExpr(item_name, 0, value->ee_name));
+            }
         }
         else 
         {
@@ -169,11 +229,19 @@ void NBinaryExpr::generate_eeyore(Context& ctx, int indent, ostream& out)
     rhs.generate_eeyore(ctx, indent, out);
     this->ee_name = ctx.create_eeyore_temp_var();
 
-    printSpace(indent, out);
-    printDeclareVar(this->ee_name, out);
+    if (!ctx.is_global())
+    {
+        printSpace(indent, out);
+        printDeclareVar(this->ee_name, out);
 
-    printSpace(indent, out);
-    printBinaryExpr(this->ee_name, lhs.ee_name, op, rhs.ee_name, out);
+        printSpace(indent, out);
+        printBinaryExpr(this->ee_name, lhs.ee_name, op, rhs.ee_name, out);
+    }
+    else 
+    {
+        ctx.init_value_stmts.push_back("var " + this->ee_name);
+        ctx.init_value_stmts.push_back(strBinaryExpr(this->ee_name, lhs.ee_name, op, rhs.ee_name));
+    }
 }
 
 void NUnaryExpr::generate_eeyore(Context& ctx, int indent, ostream& out)
@@ -181,8 +249,15 @@ void NUnaryExpr::generate_eeyore(Context& ctx, int indent, ostream& out)
     rhs.generate_eeyore(ctx, indent, out);
     this->ee_name = ctx.create_eeyore_temp_var();
 
-    printSpace(indent, out);
-    printUnaryExpr(this->ee_name, op, rhs.ee_name, out);
+    if (!ctx.is_global())
+    {
+        printSpace(indent, out);
+        printUnaryExpr(this->ee_name, op, rhs.ee_name, out);
+    }
+    else 
+    {
+        ctx.init_value_stmts.push_back(strUnaryExpr(this->ee_name, op, rhs.ee_name));
+    }
 }
 
 void NNumber::generate_eeyore(Context& ctx, int indent, ostream& out)
@@ -230,6 +305,17 @@ void NFuncDef::generate_eeyore(Context& ctx, int indent, ostream& out)
 {
     string f_name = "f_" + ident.name;
     ctx.insert_func(ident.name, return_type);
+    printSpace(indent, out);
+    out << f_name << " [" << args.args.size() << "]" << "\n";
+    if (ident.name == "main")
+    {
+        for (auto stmt : ctx.init_value_stmts)
+        {
+            printSpace(indent+1, out);
+            out << stmt << "\n";
+        }
+        ctx.init_value_stmts.clear();
+    }
     int args_num = 0; 
     // create new scope for function arguments
     ctx.create_scope();
@@ -247,9 +333,6 @@ void NFuncDef::generate_eeyore(Context& ctx, int indent, ostream& out)
             ctx.insert_array(array_ident.ident.name, ee_name, array_shape);
         }
     }
-
-    printSpace(indent, out);
-    out << f_name << " [" << args_num << "]" << "\n";
     body.generate_eeyore(ctx, indent, out);
     printSpace(indent, out);
     out << "end " << f_name << "\n";

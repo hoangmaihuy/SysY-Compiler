@@ -1,7 +1,7 @@
 int a = 2;
 int b = 3;
 int arr[3][4];
-const int arr2[2] = {1, 2};
+const int arr2[2] = {1, 2*3};
 
 int main()
 {
@@ -9,4 +9,5 @@ int main()
     int d = getint();
     int e = a * b + c * d;
     putint(e);
+    return 0;
 }

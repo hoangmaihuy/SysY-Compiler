@@ -59,7 +59,11 @@ int NIdentifier::eval(Context& ctx)
 vector<int> NArrayIdentifier::get_shape(Context& ctx)
 {
     vector<int> eval_shape;
-    for (auto i : shape) eval_shape.push_back(i->eval(ctx));
+    for (auto i : shape) 
+    {
+        int val = i->eval(ctx);
+        eval_shape.push_back(val);
+    }
     return eval_shape;
 }
 

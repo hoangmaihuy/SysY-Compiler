@@ -71,9 +71,8 @@ void Context::insert_array(string name, string ee_name, vector<int>& shape, bool
 
 void Context::assign_var(string name, int value)
 {
-    auto symbol = find_symbol(name);
-    if (!symbol.is_const)
-        symbol.value[0] = value;
+    SymbolInfo& symbol = find_symbol(name);
+    symbol.value[0] = value;
 }
 
 int Context::get_var(string name)
@@ -90,13 +89,13 @@ void Context::assign_array_item(string name, int index, int value)
 
 void Context::assign_array(string name, vector<int>& value)
 {
-    auto symbol = find_symbol(name);
+    SymbolInfo& symbol = find_symbol(name);
     symbol.value = value;
 }
 
 int Context::get_array_item(string name, int index)
 {
-    auto symbol = find_symbol(name);
+    SymbolInfo& symbol = find_symbol(name);
     return symbol.value[index];
 }
 

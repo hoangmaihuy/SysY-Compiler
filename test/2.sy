@@ -1,0 +1,6 @@
+const int N = 6;
+int a[N];
+
+int main(){
+    return 0;
+}

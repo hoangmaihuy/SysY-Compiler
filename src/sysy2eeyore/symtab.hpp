@@ -25,6 +25,7 @@ class Context
 public:
     int glob_id, temp_id;
     vector<SymbolTable> sym_tabs;
+    vector<string> init_value_stmts;
     FuncTable func_tabs;
 
     Context();

@@ -24,7 +24,9 @@
 │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
 │   │   │   │   │   └──Number: 1
 │   │   │   │   └──ArrayDeclareInitValue: is_number=1
-│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   └──Number: 3
 │   └──FuncDef: return_type=int
 │   │   ├──Identifier: main
 │   │   ├──FuncDefArgs
@@ -53,8 +55,10 @@
 │   │   │   │   │   │   └──BinaryExpr: *
 │   │   │   │   │   │   │   └──Identifier: c
 │   │   │   │   │   │   │   └──Identifier: d
-│   │   │   └──EvalStmt
+│   │   │   ├──EvalStmt
 │   │   │   │   └──FuncCall
 │   │   │   │   │   ├──Identifier: putint
 │   │   │   │   │   └──FuncCallArgs
 │   │   │   │   │   │   └──Identifier: e
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0
