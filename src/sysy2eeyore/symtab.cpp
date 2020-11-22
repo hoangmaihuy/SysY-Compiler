@@ -119,3 +119,17 @@ string Context::create_jump()
     return "l" + to_string(jump_id++); 
 }
 
+void Context::create_loop(string begin_loop, string end_loop)
+{
+    loops.push_back(make_pair(begin_loop, end_loop));
+}
+
+void Context::end_loop()
+{
+    loops.pop_back();
+}
+
+pair<string, string> Context::get_current_loop()
+{
+    return loops.back();
+}

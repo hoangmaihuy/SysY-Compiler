@@ -26,6 +26,7 @@ public:
     int glob_id, temp_id, jump_id;
     vector<SymbolTable> sym_tabs;
     vector<string> init_value_stmts;
+    vector< pair<string, string> > loops;
     FuncTable func_tabs;
 
     Context();
@@ -50,5 +51,8 @@ public:
     string create_jump();
     void create_scope();
     void end_scope();
+    void create_loop(string begin_loop, string end_loop);
+    void end_loop();
+    pair<string, string> get_current_loop();
     bool is_global();
 };

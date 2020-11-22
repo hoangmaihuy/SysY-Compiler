@@ -470,17 +470,38 @@ void NReturnStmt::generate_eeyore(Context& ctx, int indent, ostream& out)
 
 void NWhileStmt::generate_eeyore(Context& ctx, int indent, ostream& out)
 {
+    string begin_loop = ctx.create_jump();
+    string end_loop = ctx.create_jump();
+    ctx.create_loop(begin_loop, end_loop);
 
+    printSpace(indent, out);
+    out << begin_loop << ":\n";
+    cond.generate_eeyore(ctx, indent+1, out);
+
+    printSpace(indent+1, out);
+    out << "if " << cond.ee_name << " == 0 goto " << end_loop << "\n";
+
+    do_stmt.generate_eeyore(ctx, indent+1, out); 
+    printSpace(indent+1, out);
+    out << "goto " << begin_loop << "\n";
+
+    printSpace(indent, out);
+    out << end_loop << ":\n";
+    ctx.end_loop();
 }
 
 void NContinueStmt::generate_eeyore(Context& ctx, int indent, ostream& out)
 {
-
+    pair<string, string> loop = ctx.get_current_loop();
+    printSpace(indent, out);
+    out << "goto " << loop.first << "\n";
 }
 
 void NBreakStmt::generate_eeyore(Context& ctx, int indent, ostream& out)
 {
-
+    pair<string, string> loop = ctx.get_current_loop();
+    printSpace(indent, out);
+    out << "goto " << loop.second << "\n";
 }
 
 void NVoidStmt::generate_eeyore(Context& ctx, int indent, ostream& out)
