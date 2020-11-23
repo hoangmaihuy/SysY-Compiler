@@ -321,6 +321,10 @@ void NFuncDef::generate_eeyore(Context& ctx, int indent)
         }
     }
     body.generate_eeyore(ctx, indent);
+    if (return_type == VOID)
+        ctx.insert_eeyore_stmt(EReturnStmt(), indent+1);
+    else 
+        ctx.insert_eeyore_stmt(EReturnStmt("0"), indent+1);
     ctx.end_scope();
 }
 
