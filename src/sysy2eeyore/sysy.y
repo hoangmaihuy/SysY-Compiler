@@ -180,7 +180,7 @@ FuncRParams     : FuncRParams COMMA AddExp { $$ = $1; $$->args.push_back($3); }
 
 PrimaryExp      : LVal
                 | Number
-                | L_PAREN Exp R_PAREN { $$ = $2; }
+                | L_PAREN Cond R_PAREN { $$ = $2; }
                 | AssignStmtNoSemi
                 ;
 
