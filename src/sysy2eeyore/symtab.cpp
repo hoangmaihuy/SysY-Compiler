@@ -19,6 +19,8 @@ Context::Context()
     insert_func("putint", VOID, 1, true);
     insert_func("putch", VOID, 1, true);
     insert_func("putarray", VOID, 2, true);
+    insert_func("starttime", VOID, 0, true);
+    insert_func("stoptime", VOID, 0, true);
 }
 
 void Context::create_scope()

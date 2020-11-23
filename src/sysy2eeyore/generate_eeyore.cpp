@@ -194,11 +194,33 @@ void NCondExpr::generate_eeyore(Context& ctx, int indent)
 void NBinaryExpr::generate_eeyore(Context& ctx, int indent)
 {
     lhs.generate_eeyore(ctx, indent);
-    rhs.generate_eeyore(ctx, indent);
-    this->ee_name = ctx.create_eeyore_temp_var();
+    ee_name = ctx.create_eeyore_temp_var();
+    ctx.insert_eeyore_decl(EVarStmt(ee_name));
 
-    ctx.insert_eeyore_decl(EVarStmt(this->ee_name));
-    ctx.insert_eeyore_stmt(EBinaryExpr(this->ee_name, lhs.ee_name, op, rhs.ee_name), indent);
+    if (op == AND)
+    {
+        string end_jump = ctx.create_jump();
+        ctx.insert_eeyore_stmt(EUnaryExpr(ee_name, 0, lhs.ee_name), indent);
+        ctx.insert_eeyore_stmt(EGotoStmt(end_jump, ee_name, false), indent);
+        rhs.generate_eeyore(ctx, indent);
+        ctx.insert_eeyore_stmt(EBinaryExpr(ee_name, ee_name, op, rhs.ee_name), indent);
+        ctx.insert_eeyore_stmt(EJumpLoc(end_jump), indent);
+    }
+    else if (op == OR)
+    {
+        string end_jump = ctx.create_jump();
+        ctx.insert_eeyore_stmt(EUnaryExpr(ee_name, 0, lhs.ee_name), indent);
+        ctx.insert_eeyore_stmt(EGotoStmt(end_jump, ee_name, true), indent);
+        rhs.generate_eeyore(ctx, indent);
+        ctx.insert_eeyore_stmt(EBinaryExpr(ee_name, ee_name, op, rhs.ee_name), indent);
+        ctx.insert_eeyore_stmt(EJumpLoc(end_jump), indent);
+    }
+    else 
+    {
+        rhs.generate_eeyore(ctx, indent);
+        ctx.insert_eeyore_stmt(EBinaryExpr(this->ee_name, lhs.ee_name, op, rhs.ee_name), indent);
+    }
+
 }
 
 void NUnaryExpr::generate_eeyore(Context& ctx, int indent)
