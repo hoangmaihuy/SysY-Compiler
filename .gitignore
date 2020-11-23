@@ -33,3 +33,5 @@
 build/*
 cmake-build-debug/*
 .vscode
+
+test/test.eeyore
