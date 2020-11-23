@@ -1,0 +1,102 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: deepWhileBr
+│   │   ├──FuncDefArgs
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: a
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: b
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: c
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: c
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──Identifier: b
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   ├──Identifier: c
+│   │   │   │   │   └──Number: 75
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──DeclareStmt
+│   │   │   │   │   │   └──VarDeclare
+│   │   │   │   │   │   │   └──Identifier: d
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: d
+│   │   │   │   │   │   └──Number: 42
+│   │   │   │   │   └──IfStmt
+│   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   │   │   ├──Identifier: c
+│   │   │   │   │   │   │   └──Number: 100
+│   │   │   │   │   │   ├──ThenStmt
+│   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   ├──Identifier: c
+│   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   └──Identifier: c
+│   │   │   │   │   │   │   │   │   └──Identifier: d
+│   │   │   │   │   │   │   └──IfStmt
+│   │   │   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   │   │   ├──BinaryExpr: >
+│   │   │   │   │   │   │   │   │   ├──Identifier: c
+│   │   │   │   │   │   │   │   │   └──Number: 99
+│   │   │   │   │   │   │   │   ├──ThenStmt
+│   │   │   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   │   │   ├──DeclareStmt
+│   │   │   │   │   │   │   │   │   │   └──VarDeclare
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: e
+│   │   │   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: e
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: d
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   │   │   │   └──IfStmt
+│   │   │   │   │   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   │   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   │   │   │   │   │   │   ├──Number: 1
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   │   │   │   ├──ThenStmt
+│   │   │   │   │   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: c
+│   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: e
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Number: 2
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: c
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: p
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: p
+│   │   │   │   └──Number: 2
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: ans
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: ans
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: deepWhileBr
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   ├──Identifier: p
+│   │   │   │   │   │   └──Identifier: p
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: ans
+│   │   │   └──ReturnStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: deepWhileBr
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   ├──Identifier: p
+│   │   │   │   │   │   └──Identifier: p
