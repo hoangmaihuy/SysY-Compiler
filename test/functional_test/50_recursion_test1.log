@@ -1,0 +1,46 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: fact
+│   │   ├──FuncDefArgs
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: n
+│   │   └──Block
+│   │   │   ├──IfStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   ├──Identifier: n
+│   │   │   │   │   └──Number: 0
+│   │   │   │   ├──ThenStmt
+│   │   │   │   └──Block
+│   │   │   │   │   └──ReturnStmt
+│   │   │   │   │   │   └──Number: 1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: nn
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: nn
+│   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   └──Identifier: n
+│   │   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   └──Identifier: n
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: fact
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   └──Identifier: nn
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: n
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: n
+│   │   │   │   └──Number: 4
+│   │   │   └──ReturnStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: fact
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: n

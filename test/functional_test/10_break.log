@@ -1,0 +1,30 @@
+├──CompUnit
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──Number: 10
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: >
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──Number: 0
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──IfStmt
+│   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   └──Number: 5
+│   │   │   │   │   │   ├──ThenStmt
+│   │   │   │   │   │   └──BreakStmt
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: a

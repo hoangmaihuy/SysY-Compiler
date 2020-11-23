@@ -1,0 +1,93 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: dec2bin
+│   │   ├──FuncDefArgs
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: a
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: res
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: k
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: i
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: temp
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: res
+│   │   │   │   └──Number: 0
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: k
+│   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: temp
+│   │   │   │   └──Identifier: a
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: !=
+│   │   │   │   │   ├──Identifier: temp
+│   │   │   │   │   └──Number: 0
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   └──BinaryExpr: %
+│   │   │   │   │   │   │   └──Identifier: temp
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: res
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   │   │   └──Identifier: k
+│   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   └──Identifier: res
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: k
+│   │   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   │   └──Identifier: k
+│   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: temp
+│   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   └──Identifier: temp
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: res
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 400
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: res
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: res
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: dec2bin
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: res
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: res
+│   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: res
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

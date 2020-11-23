@@ -1,0 +1,108 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: FourWhile
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 5
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: b
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: c
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──Number: 6
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: c
+│   │   │   │   └──Number: 7
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: d
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: d
+│   │   │   │   └──Number: 10
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──Number: 20
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   └──Number: 3
+│   │   │   │   │   ├──WhileStmt
+│   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   │   ├──DoStmt
+│   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   ├──WhileStmt
+│   │   │   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   │   │   │   │   ├──Identifier: c
+│   │   │   │   │   │   │   │   │   └──Number: 7
+│   │   │   │   │   │   │   │   ├──DoStmt
+│   │   │   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: c
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: c
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   │   │   ├──WhileStmt
+│   │   │   │   │   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   │   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   │   │   │   │   │   │   ├──Identifier: d
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 20
+│   │   │   │   │   │   │   │   │   │   ├──DoStmt
+│   │   │   │   │   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: d
+│   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: d
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Number: 3
+│   │   │   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: d
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: d
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   ├──Identifier: c
+│   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   └──Identifier: c
+│   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   └──ReturnStmt
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   └──Identifier: d
+│   │   │   │   │   └──Identifier: c
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   └──ReturnStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: FourWhile
+│   │   │   │   │   └──FuncCallArgs

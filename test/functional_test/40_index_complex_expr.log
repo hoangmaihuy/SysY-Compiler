@@ -1,0 +1,129 @@
+├──CompUnit
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: b
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: c
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: d
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclare
+│   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Number: 5
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 5
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──Number: 5
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: c
+│   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: d
+│   │   │   │   └──UnaryExpr: -
+│   │   │   │   │   └──Number: 2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 0
+│   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 1
+│   │   │   │   └──Number: 2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 2
+│   │   │   │   └──Number: 3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 3
+│   │   │   │   └──Number: 4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 4
+│   │   │   │   └──Number: 5
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: t
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: t
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──BinaryExpr: %
+│   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: d
+│   │   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   │   │   │   │   └──Number: 4
+│   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   │   └──BinaryExpr: %
+│   │   │   │   │   │   │   │   │   └──UnaryExpr: -
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: c
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 3
+│   │   │   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   │   └──Number: 5
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: t
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: t
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──BinaryExpr: %
+│   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: %
+│   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: c
+│   │   │   │   │   │   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 67
+│   │   │   │   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   │   └──UnaryExpr: -
+│   │   │   │   │   │   │   │   │   └──BinaryExpr: %
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: c
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   │   └──Number: 5
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: t
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

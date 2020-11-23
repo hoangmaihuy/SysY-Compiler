@@ -1,0 +1,64 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: n
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: i
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: j
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: getint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: j
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: getint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: temp
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: temp
+│   │   │   │   └──Identifier: i
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i
+│   │   │   │   └──Identifier: j
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: j
+│   │   │   │   └──Identifier: temp
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: i
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: temp
+│   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: temp
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: j
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: temp
+│   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: temp
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

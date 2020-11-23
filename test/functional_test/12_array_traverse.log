@@ -1,0 +1,79 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──ArrayDeclare
+│   │   │   └──ArrayIdentifier
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──ArrayShape
+│   │   │   │   │   ├──Number: 3
+│   │   │   │   │   └──Number: 4
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: i
+│   │   │   │   │   └──Number: 0
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: cnt
+│   │   │   │   │   └──Number: 0
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: <=
+│   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Number: 3
+│   │   │   │   │   │   │   └──Number: 4
+│   │   │   │   │   │   └──Number: 2
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──DeclareStmt
+│   │   │   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   │   │   └──Identifier: j
+│   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   ├──WhileStmt
+│   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   ├──BinaryExpr: >=
+│   │   │   │   │   │   │   ├──Identifier: j
+│   │   │   │   │   │   │   └──Number: 0
+│   │   │   │   │   │   ├──DoStmt
+│   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   ├──IfStmt
+│   │   │   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   │   │   ├──BinaryExpr: &&
+│   │   │   │   │   │   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: j
+│   │   │   │   │   │   │   │   │   │   └──Number: 4
+│   │   │   │   │   │   │   │   │   └──BinaryExpr: <
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: j
+│   │   │   │   │   │   │   │   │   │   └──Number: 3
+│   │   │   │   │   │   │   │   ├──ThenStmt
+│   │   │   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   │   ├──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: j
+│   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: j
+│   │   │   │   │   │   │   │   │   │   └──Identifier: cnt
+│   │   │   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: cnt
+│   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   ├──Identifier: j
+│   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   └──Identifier: j
+│   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

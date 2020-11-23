@@ -1,0 +1,15 @@
+├──CompUnit
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: getint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: a

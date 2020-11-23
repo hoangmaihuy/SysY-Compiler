@@ -1,0 +1,208 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: g
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: h
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: f
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: e
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: EightWhile
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 5
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: b
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: c
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──Number: 6
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: c
+│   │   │   │   └──Number: 7
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: d
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: d
+│   │   │   │   └──Number: 10
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──Number: 20
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   └──Number: 3
+│   │   │   │   │   ├──WhileStmt
+│   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   │   ├──DoStmt
+│   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   ├──WhileStmt
+│   │   │   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   │   │   │   │   ├──Identifier: c
+│   │   │   │   │   │   │   │   │   └──Number: 7
+│   │   │   │   │   │   │   │   ├──DoStmt
+│   │   │   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: c
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: c
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   │   │   ├──WhileStmt
+│   │   │   │   │   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   │   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   │   │   │   │   │   │   ├──Identifier: d
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 20
+│   │   │   │   │   │   │   │   │   │   ├──DoStmt
+│   │   │   │   │   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: d
+│   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: d
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Number: 3
+│   │   │   │   │   │   │   │   │   │   │   ├──WhileStmt
+│   │   │   │   │   │   │   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   │   │   │   │   │   │   ├──BinaryExpr: >
+│   │   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: e
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   │   │   │   │   │   ├──DoStmt
+│   │   │   │   │   │   │   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: e
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: e
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   │   │   │   │   │   │   ├──WhileStmt
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──BinaryExpr: >
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──DoStmt
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: f
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──WhileStmt
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: g
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Number: 3
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──DoStmt
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: g
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: g
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──WhileStmt
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: h
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──DoStmt
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: h
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: h
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Number: 8
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: h
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: h
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: g
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: g
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Number: 8
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: f
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: e
+│   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: e
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: d
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: d
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   ├──Identifier: c
+│   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   └──Identifier: c
+│   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   └──ReturnStmt
+│   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   │   └──Identifier: d
+│   │   │   │   │   │   └──Identifier: c
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   └──Identifier: e
+│   │   │   │   │   │   │   │   └──Identifier: d
+│   │   │   │   │   │   │   └──Identifier: g
+│   │   │   │   │   │   └──Identifier: h
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: g
+│   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: h
+│   │   │   │   └──Number: 2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: e
+│   │   │   │   └──Number: 4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: f
+│   │   │   │   └──Number: 6
+│   │   │   └──ReturnStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: EightWhile
+│   │   │   │   │   └──FuncCallArgs

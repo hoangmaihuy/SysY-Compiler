@@ -1,0 +1,73 @@
+├──CompUnit
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: b
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: c
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: d
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──Number: 8
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: c
+│   │   │   │   └──UnaryExpr: -
+│   │   │   │   │   └──Number: 4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: d
+│   │   │   │   └──Number: 15
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: t
+│   │   │   ├──IfStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: ||
+│   │   │   │   │   ├──BinaryExpr: &&
+│   │   │   │   │   │   ├──BinaryExpr: !=
+│   │   │   │   │   │   │   ├──BinaryExpr: %
+│   │   │   │   │   │   │   │   ├──Identifier: d
+│   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   └──Number: 0
+│   │   │   │   │   │   └──BinaryExpr: >
+│   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   └──Number: 0
+│   │   │   │   │   └──BinaryExpr: &&
+│   │   │   │   │   │   └──BinaryExpr: ==
+│   │   │   │   │   │   │   └──BinaryExpr: %
+│   │   │   │   │   │   │   │   └──Identifier: d
+│   │   │   │   │   │   │   │   └──Number: 3
+│   │   │   │   │   │   │   └──Number: 0
+│   │   │   │   │   │   └──BinaryExpr: >
+│   │   │   │   │   │   │   └──Identifier: c
+│   │   │   │   │   │   │   └──Number: 0
+│   │   │   │   ├──ThenStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: t
+│   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   └──Identifier: d
+│   │   │   │   │   │   │   │   └──Identifier: c
+│   │   │   │   │   │   │   └──UnaryExpr: -
+│   │   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   └──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Identifier: t
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

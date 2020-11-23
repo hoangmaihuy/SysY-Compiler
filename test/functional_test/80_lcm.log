@@ -1,0 +1,101 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: n
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: gcd
+│   │   ├──FuncDefArgs
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: m
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: n
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: b
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Identifier: m
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──Identifier: n
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: t
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: r
+│   │   │   ├──IfStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   ├──Identifier: m
+│   │   │   │   │   └──Identifier: n
+│   │   │   │   ├──ThenStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: t
+│   │   │   │   │   │   └──Identifier: m
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: m
+│   │   │   │   │   │   └──Identifier: n
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: n
+│   │   │   │   │   │   └──Identifier: t
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: r
+│   │   │   │   └──BinaryExpr: %
+│   │   │   │   │   └──Identifier: m
+│   │   │   │   │   └──Identifier: n
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: !=
+│   │   │   │   │   ├──Identifier: r
+│   │   │   │   │   └──Number: 0
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: m
+│   │   │   │   │   │   └──Identifier: n
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: n
+│   │   │   │   │   │   └──Identifier: r
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: r
+│   │   │   │   │   │   └──BinaryExpr: %
+│   │   │   │   │   │   │   └──Identifier: m
+│   │   │   │   │   │   │   └──Identifier: n
+│   │   │   └──ReturnStmt
+│   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   └──Identifier: n
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: i
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: m
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: getint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: m
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: getint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   └──ReturnStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: gcd
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   └──Identifier: m

@@ -1,1 +1,0 @@
-https://gitlab+deploy-token-249:e29sE_HWhz8fFhQTuA87@gitlab.eduxiji.net/hoangmaihuy/sysy-compiler.git

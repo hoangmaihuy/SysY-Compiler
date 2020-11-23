@@ -1,0 +1,112 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: func1
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: a
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: func2
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 2
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: a
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: func3
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 4
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: a
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: func4
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──Block
+│   │   │   │   ├──DeclareStmt
+│   │   │   │   │   └──VarDeclare
+│   │   │   │   │   │   └──Identifier: b
+│   │   │   │   ├──AssignStmt
+│   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   └──Number: 8
+│   │   │   │   └──AssignStmt
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──Identifier: b
+│   │   │   ├──Block
+│   │   │   │   ├──DeclareStmt
+│   │   │   │   │   └──VarDeclare
+│   │   │   │   │   │   └──Identifier: b
+│   │   │   │   ├──AssignStmt
+│   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   └──Number: 16
+│   │   │   │   └──AssignStmt
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   └──Identifier: b
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: a
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: b
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: c
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 32
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──Number: 32
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: c
+│   │   │   │   └──Number: 32
+│   │   │   └──ReturnStmt
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   │   │   ├──Identifier: func1
+│   │   │   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   │   │   ├──Identifier: func2
+│   │   │   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: func3
+│   │   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   ├──Identifier: func4
+│   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   └──Identifier: c

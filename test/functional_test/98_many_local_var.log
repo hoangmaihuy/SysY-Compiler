@@ -1,0 +1,442 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: n
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a0
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a2
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a3
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a4
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a5
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a6
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a7
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a8
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a9
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a10
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a11
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a12
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a13
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a14
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a15
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a16
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a17
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a18
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a19
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a20
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a21
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a22
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a23
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a24
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a25
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a26
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a27
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a28
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a29
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: b
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: getint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   └──Number: 5
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a0
+│   │   │   │   └──Number: 0
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a0
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a1
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a2
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a3
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a5
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a4
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a6
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a5
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a7
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a6
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a8
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a7
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a9
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a8
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a10
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a9
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a11
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a10
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a12
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a11
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a13
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a12
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a14
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a13
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a15
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a14
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a16
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a15
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a17
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a16
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a18
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a17
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a19
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a18
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a20
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a19
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a21
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a20
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a22
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a21
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a23
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a22
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a24
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a23
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a25
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a24
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a26
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a25
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a27
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a26
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a28
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a27
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a29
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a28
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: t
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a0
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a1
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a2
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a3
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a4
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a5
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a6
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a7
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a8
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a9
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a11
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a12
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a13
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a14
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a15
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a16
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a17
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a18
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a19
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a20
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a21
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a22
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a23
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a24
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a25
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a26
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a27
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a28
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a29
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: newline
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: newline
+│   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: newline
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: b
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: newline
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: a25

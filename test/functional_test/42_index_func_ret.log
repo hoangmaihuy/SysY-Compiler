@@ -1,0 +1,105 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: _getMaxOfAll
+│   │   ├──FuncDefArgs
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 1
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: size
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: maxNum
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: maxNum
+│   │   │   │   └──UnaryExpr: -
+│   │   │   │   │   └──Number: 999999
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: size
+│   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   └──Identifier: size
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: >
+│   │   │   │   │   ├──Identifier: size
+│   │   │   │   │   └──UnaryExpr: -
+│   │   │   │   │   │   └──Number: 1
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──IfStmt
+│   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   ├──BinaryExpr: >
+│   │   │   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   └──Identifier: size
+│   │   │   │   │   │   │   └──Identifier: maxNum
+│   │   │   │   │   │   ├──ThenStmt
+│   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   ├──Identifier: maxNum
+│   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   └──Identifier: size
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: size
+│   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   └──Identifier: size
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: maxNum
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclare
+│   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Number: 3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 0
+│   │   │   │   └──UnaryExpr: -
+│   │   │   │   │   └──Number: 2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 1
+│   │   │   │   └──Number: 2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 2
+│   │   │   │   └──UnaryExpr: -
+│   │   │   │   │   └──Number: 7
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: x
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: x
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: _getMaxOfAll
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   │   │   │   └──Number: 3
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: x
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

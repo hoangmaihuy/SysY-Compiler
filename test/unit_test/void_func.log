@@ -1,0 +1,24 @@
+├──CompUnit
+│   ├──FuncDef: return_type=void
+│   │   ├──Identifier: f
+│   │   ├──FuncDefArgs
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: a
+│   │   └──Block
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 5
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

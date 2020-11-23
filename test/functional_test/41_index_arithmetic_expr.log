@@ -1,0 +1,65 @@
+├──CompUnit
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: b
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclare
+│   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Number: 3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 56
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──Number: 12
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 0
+│   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 1
+│   │   │   │   └──Number: 2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 2
+│   │   │   │   └──Number: 3
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: t
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: t
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: result
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   └──BinaryExpr: %
+│   │   │   │   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   │   └──Number: 5
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: t
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

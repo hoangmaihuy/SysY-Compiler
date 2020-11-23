@@ -1,0 +1,34 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: a
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: b
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: getint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: getint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   └──IfStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──Identifier: b
+│   │   │   │   ├──ThenStmt
+│   │   │   │   ├──Block
+│   │   │   │   │   └──ReturnStmt
+│   │   │   │   │   │   └──Number: 1
+│   │   │   │   ├──ElseStmt
+│   │   │   │   └──Block
+│   │   │   │   │   └──ReturnStmt
+│   │   │   │   │   │   └──Number: 0

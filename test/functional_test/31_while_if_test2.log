@@ -1,0 +1,69 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: ifWhile
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 0
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: b
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──Number: 3
+│   │   │   ├──IfStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──Number: 5
+│   │   │   │   ├──ThenStmt
+│   │   │   │   ├──Block
+│   │   │   │   │   ├──WhileStmt
+│   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   ├──DoStmt
+│   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   └──Number: 25
+│   │   │   │   ├──ElseStmt
+│   │   │   │   └──WhileStmt
+│   │   │   │   │   ├──Condition
+│   │   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   └──Number: 5
+│   │   │   │   │   ├──DoStmt
+│   │   │   │   │   └──Block
+│   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: b
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   └──ReturnStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: ifWhile
+│   │   │   │   │   └──FuncCallArgs

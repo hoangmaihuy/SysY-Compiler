@@ -1,0 +1,28 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   ├──VarDeclare
+│   │   │   └──Identifier: a
+│   │   └──VarDeclare
+│   │   │   └──Identifier: b
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 10
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──Number: 5
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: c
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   └──Number: 3
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: c

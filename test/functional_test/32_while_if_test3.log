@@ -82,18 +82,6 @@
 │   │   │   ├──DeclareStmt
 │   │   │   │   └──VarDeclare
 │   │   │   │   │   └──Identifier: ans
-│   │   │   ├──AssignStmt
-│   │   │   │   ├──Identifier: ans
-│   │   │   │   └──FuncCall
-│   │   │   │   │   ├──Identifier: deepWhileBr
-│   │   │   │   │   └──FuncCallArgs
-│   │   │   │   │   │   ├──Identifier: p
-│   │   │   │   │   │   └──Identifier: p
-│   │   │   ├──EvalStmt
-│   │   │   │   └──FuncCall
-│   │   │   │   │   ├──Identifier: putint
-│   │   │   │   │   └──FuncCallArgs
-│   │   │   │   │   │   └──Identifier: ans
 │   │   │   └──ReturnStmt
 │   │   │   │   └──FuncCall
 │   │   │   │   │   ├──Identifier: deepWhileBr

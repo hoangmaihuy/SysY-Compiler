@@ -1,0 +1,55 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──VarDeclareWithInit: is_const=0
+│   │   │   └──Identifier: a
+│   │   │   └──Number: 5
+│   ├──DeclareStmt
+│   │   └──ArrayDeclareWithInit: is_const=0
+│   │   │   ├──ArrayIdentifier
+│   │   │   │   ├──Identifier: s
+│   │   │   │   └──ArrayShape
+│   │   │   │   │   └──Number: 10
+│   │   │   └──ArrayDeclareInitValue: is_number=0
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 9
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 8
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 7
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 6
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 5
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 4
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 3
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 2
+│   │   │   │   └──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 1
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: i
+│   │   │   │   │   └──Number: 0
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: >=
+│   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: s
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: i

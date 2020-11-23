@@ -1,0 +1,203 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: N
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: insert
+│   │   ├──FuncDefArgs
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 1
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: x
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: p
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: i
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: p
+│   │   │   │   └──Number: 0
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: &&
+│   │   │   │   │   ├──BinaryExpr: >
+│   │   │   │   │   │   ├──Identifier: x
+│   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   └──Identifier: p
+│   │   │   │   │   └──BinaryExpr: <
+│   │   │   │   │   │   └──Identifier: p
+│   │   │   │   │   │   └──Identifier: N
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──AssignStmt
+│   │   │   │   │   ├──Identifier: p
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──Identifier: p
+│   │   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i
+│   │   │   │   └──Identifier: N
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: >
+│   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   └──Identifier: p
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   └──Identifier: p
+│   │   │   │   │   │   └──Identifier: x
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: N
+│   │   │   │   └──Number: 10
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclare
+│   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Number: 11
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 0
+│   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 1
+│   │   │   │   └──Number: 3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 2
+│   │   │   │   └──Number: 4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 3
+│   │   │   │   └──Number: 7
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 4
+│   │   │   │   └──Number: 8
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 5
+│   │   │   │   └──Number: 11
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 6
+│   │   │   │   └──Number: 13
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 7
+│   │   │   │   └──Number: 18
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 8
+│   │   │   │   └──Number: 56
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 9
+│   │   │   │   └──Number: 78
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: x
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: i
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i
+│   │   │   │   └──Number: 0
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: x
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: getint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: x
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: insert
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   └──Identifier: x
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   └──Identifier: N
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: x
+│   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Identifier: x
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: x
+│   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Identifier: x
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

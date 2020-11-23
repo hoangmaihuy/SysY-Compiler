@@ -1,0 +1,82 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: N
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: newline
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: factor
+│   │   ├──FuncDefArgs
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: n
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: i
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: sum
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: sum
+│   │   │   │   └──Number: 0
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i
+│   │   │   │   └──Number: 1
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──Identifier: n
+│   │   │   │   │   │   └──Number: 1
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──IfStmt
+│   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   │   │   ├──BinaryExpr: %
+│   │   │   │   │   │   │   │   ├──Identifier: n
+│   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   └──Number: 0
+│   │   │   │   │   │   ├──ThenStmt
+│   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   ├──Identifier: sum
+│   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   └──Identifier: sum
+│   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: sum
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: N
+│   │   │   │   └──Number: 4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: newline
+│   │   │   │   └──Number: 10
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: i
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: m
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: m
+│   │   │   │   └──Number: 1478
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: t
+│   │   │   └──ReturnStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: factor
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: m

@@ -1,0 +1,55 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: ifElseElseIf
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 66
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: b
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──Number: 8923
+│   │   │   ├──IfStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──Number: 5
+│   │   │   │   ├──ThenStmt
+│   │   │   │   ├──Block
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   └──Number: 25
+│   │   │   │   ├──ElseStmt
+│   │   │   │   └──IfStmt
+│   │   │   │   │   ├──Condition
+│   │   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   ├──ThenStmt
+│   │   │   │   │   ├──Block
+│   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   │   └──Number: 42
+│   │   │   │   │   ├──ElseStmt
+│   │   │   │   │   └──Block
+│   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   │   └──Number: 2
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: b
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   └──ReturnStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: ifElseElseIf
+│   │   │   │   │   └──FuncCallArgs

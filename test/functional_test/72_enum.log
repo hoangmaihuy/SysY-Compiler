@@ -1,0 +1,101 @@
+├──CompUnit
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: i
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: j
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: k
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: t
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i
+│   │   │   │   └──Number: 0
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: j
+│   │   │   │   └──Number: 0
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: k
+│   │   │   │   └──Number: 0
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   └──Number: 21
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──WhileStmt
+│   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   │   │   ├──Identifier: j
+│   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   └──Number: 101
+│   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   ├──DoStmt
+│   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   ├──Identifier: k
+│   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   └──Number: 100
+│   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   └──Identifier: j
+│   │   │   │   │   │   │   ├──IfStmt
+│   │   │   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   │   │   │   │   ├──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   ├──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   ├──BinaryExpr: *
+│   │   │   │   │   │   │   │   │   │   │   │   ├──Number: 5
+│   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: j
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: k
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   │   │   │   └──Number: 100
+│   │   │   │   │   │   │   │   ├──ThenStmt
+│   │   │   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: j
+│   │   │   │   │   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: k
+│   │   │   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: t
+│   │   │   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   │   │   │   │   └──EvalStmt
+│   │   │   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: t
+│   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   ├──Identifier: j
+│   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   └──Identifier: j
+│   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

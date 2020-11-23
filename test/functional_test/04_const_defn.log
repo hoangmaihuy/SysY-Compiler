@@ -1,0 +1,11 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──VarDeclareWithInit: is_const=1
+│   │   │   └──Identifier: x
+│   │   │   └──Number: 4
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: x

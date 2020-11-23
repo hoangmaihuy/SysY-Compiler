@@ -1,0 +1,79 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: fsqrt
+│   │   ├──FuncDefArgs
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: a
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: x0
+│   │   │   │   │   └──Number: 0
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: x1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: x1
+│   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──Number: 2
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: !=
+│   │   │   │   │   ├──BinaryExpr: -
+│   │   │   │   │   │   ├──Identifier: x0
+│   │   │   │   │   │   └──Identifier: x1
+│   │   │   │   │   └──Number: 0
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: x0
+│   │   │   │   │   │   └──Identifier: x1
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: x1
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: x0
+│   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   │   └──Identifier: x0
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: x1
+│   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   └──Identifier: x1
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: x1
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 400
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: res
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: res
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: fsqrt
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: res
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: res
+│   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: res
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

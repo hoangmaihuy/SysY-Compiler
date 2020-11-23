@@ -1,0 +1,41 @@
+├──CompUnit
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: b
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──UnaryExpr: -
+│   │   │   │   │   └──Number: 2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   └──UnaryExpr: -
+│   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   └──BinaryExpr: %
+│   │   │   │   │   │   └──UnaryExpr: -
+│   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   └──UnaryExpr: -
+│   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   │   └──Identifier: b
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

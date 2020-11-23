@@ -1,0 +1,54 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: a
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: r
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: fac
+│   │   ├──FuncDefArgs
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: x
+│   │   └──Block
+│   │   │   ├──IfStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   ├──Identifier: x
+│   │   │   │   │   └──Number: 2
+│   │   │   │   ├──ThenStmt
+│   │   │   │   └──ReturnStmt
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   └──Identifier: x
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: r
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: fac
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: r
+│   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   └──Identifier: x
+│   │   │   │   │   └──Identifier: r
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: r
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 5
+│   │   │   └──ReturnStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: fac
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: a

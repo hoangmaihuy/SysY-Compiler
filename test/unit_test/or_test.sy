@@ -1,0 +1,11 @@
+int main()
+{
+    int a, b;
+    a = getint();
+    b = getint();
+    if (((a < 0) && (b == 0)) || (a > b))
+        putint(1);
+    else
+        putint(0);
+    return 0;
+}

@@ -1,0 +1,19 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──ArrayDeclare
+│   │   │   └──ArrayIdentifier
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──ArrayShape
+│   │   │   │   │   └──Number: 10
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 0
+│   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

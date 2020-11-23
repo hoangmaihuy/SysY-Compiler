@@ -1,0 +1,41 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: a
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: b
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: c
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: getint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: getint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: c
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: getint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: d
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: d
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   └──Identifier: c
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: d

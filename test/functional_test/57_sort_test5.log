@@ -1,0 +1,358 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: n
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: swap
+│   │   ├──FuncDefArgs
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: array
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 1
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: i
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: j
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: temp
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: temp
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: array
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Identifier: i
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: array
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Identifier: i
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: array
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Identifier: j
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: array
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Identifier: j
+│   │   │   │   └──Identifier: temp
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: heap_ajust
+│   │   ├──FuncDefArgs
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 1
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: start
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: end
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: dad
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: dad
+│   │   │   │   └──Identifier: start
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: son
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: son
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   └──Identifier: dad
+│   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   ├──Identifier: son
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──Identifier: end
+│   │   │   │   │   │   └──Number: 1
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──IfStmt
+│   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   ├──BinaryExpr: &&
+│   │   │   │   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   │   │   │   ├──Identifier: son
+│   │   │   │   │   │   │   │   └──Identifier: end
+│   │   │   │   │   │   │   └──BinaryExpr: <
+│   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   └──Identifier: son
+│   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: son
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   ├──ThenStmt
+│   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   ├──Identifier: son
+│   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   └──Identifier: son
+│   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──IfStmt
+│   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   ├──BinaryExpr: >
+│   │   │   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   └──Identifier: dad
+│   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   └──Identifier: son
+│   │   │   │   │   │   ├──ThenStmt
+│   │   │   │   │   │   ├──ReturnStmt
+│   │   │   │   │   │   │   └──Number: 0
+│   │   │   │   │   │   ├──ElseStmt
+│   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   ├──Identifier: dad
+│   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   ├──Identifier: swap
+│   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: dad
+│   │   │   │   │   │   │   │   │   │   └──Identifier: son
+│   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   ├──Identifier: dad
+│   │   │   │   │   │   │   │   └──Identifier: son
+│   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   ├──Identifier: son
+│   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   │   │   │   │   └──Identifier: dad
+│   │   │   │   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: heap_sort
+│   │   ├──FuncDefArgs
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 1
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: len
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: i
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: tmp
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i
+│   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   └──Identifier: len
+│   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: >
+│   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   └──UnaryExpr: -
+│   │   │   │   │   │   └──Number: 1
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: tmp
+│   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   └──Identifier: len
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: tmp
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: heap_ajust
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   │   │   └──Identifier: tmp
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i
+│   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   └──Identifier: len
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: >
+│   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   └──Number: 0
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──DeclareStmt
+│   │   │   │   │   │   └──VarDeclare
+│   │   │   │   │   │   │   └──Identifier: tmp0
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: tmp0
+│   │   │   │   │   │   └──Number: 0
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: tmp
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: swap
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   ├──Identifier: tmp0
+│   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: tmp
+│   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: tmp
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: heap_ajust
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   ├──Identifier: tmp0
+│   │   │   │   │   │   │   │   └──Identifier: tmp
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: n
+│   │   │   │   └──Number: 10
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclare
+│   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Number: 10
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 0
+│   │   │   │   └──Number: 4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 1
+│   │   │   │   └──Number: 3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 2
+│   │   │   │   └──Number: 9
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 3
+│   │   │   │   └──Number: 2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 4
+│   │   │   │   └──Number: 0
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 5
+│   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 6
+│   │   │   │   └──Number: 6
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 7
+│   │   │   │   └──Number: 5
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 8
+│   │   │   │   └──Number: 7
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 9
+│   │   │   │   └──Number: 8
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: i
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i
+│   │   │   │   └──Number: 0
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: heap_sort
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   └──Identifier: n
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   └──Identifier: n
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──DeclareStmt
+│   │   │   │   │   │   └──VarDeclare
+│   │   │   │   │   │   │   └──Identifier: tmp
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: tmp
+│   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Identifier: tmp
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: tmp
+│   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Identifier: tmp
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

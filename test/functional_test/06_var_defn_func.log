@@ -1,0 +1,19 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: defn
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 4
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: defn
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: a

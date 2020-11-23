@@ -1,0 +1,27 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──ArrayDeclareWithInit: is_const=1
+│   │   │   ├──ArrayIdentifier
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──ArrayShape
+│   │   │   │   │   └──Number: 5
+│   │   │   └──ArrayDeclareInitValue: is_number=0
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 0
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 1
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 2
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 3
+│   │   │   │   └──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 4
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   └──ReturnStmt
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 4

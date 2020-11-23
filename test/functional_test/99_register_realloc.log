@@ -1,0 +1,584 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: func
+│   │   ├──FuncDefArgs
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: a
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: b
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: i
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──Identifier: b
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: c1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: c2
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: c3
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: c4
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: d1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: d2
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: d3
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: d4
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: e1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: e2
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: e3
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: e4
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: f1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: f2
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: f3
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: f4
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: g1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: g2
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: g3
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: g4
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: h1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: h2
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: h3
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: h4
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: i1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: i2
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: i3
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: i4
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: j1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: j2
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: j3
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: j4
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: k1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: k2
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: k3
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: k4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: c1
+│   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: c2
+│   │   │   │   └──Number: 2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: c3
+│   │   │   │   └──Number: 3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: c4
+│   │   │   │   └──Number: 4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: d1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──Identifier: c1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: d2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: c2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: d3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──Identifier: c3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: d4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──Identifier: c4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: e1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──Identifier: d1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: e2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: d2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: e3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──Identifier: d3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: e4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──Identifier: d4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: f1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──Identifier: e1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: f2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: e2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: f3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──Identifier: e3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: f4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──Identifier: e4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: g1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──Identifier: f1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: g2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: f2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: g3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──Identifier: f3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: g4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──Identifier: f4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: h1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──Identifier: g1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: h2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: g2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: h3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──Identifier: g3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: h4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──Identifier: g4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──Identifier: h1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: h2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──Identifier: h3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──Identifier: h4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: j1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──Identifier: i1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: j2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: i2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: j3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──Identifier: i3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: j4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──Identifier: i4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: k1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──Identifier: j1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: k2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: j2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: k3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──Identifier: j3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: k4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──Identifier: j4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   └──Number: 10
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: k1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──Identifier: j1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: k2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: j2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: k3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──Identifier: j3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: k4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──Identifier: j4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: j1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──Identifier: i1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: j2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: i2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: j3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──Identifier: i3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: j4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──Identifier: i4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──Identifier: h1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: h2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──Identifier: h3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──Identifier: h4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: h1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──Identifier: g1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: h2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: g2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: h3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──Identifier: g3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: h4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──Identifier: g4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: g1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──Identifier: f1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: g2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: f2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: g3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──Identifier: f3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: g4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──Identifier: f4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: f1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──Identifier: e1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: f2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: e2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: f3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──Identifier: e3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: f4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──Identifier: e4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: e1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──Identifier: d1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: e2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: d2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: e3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──Identifier: d3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: e4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──Identifier: d4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: d1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──Identifier: c1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: d2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: c2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: d3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──Identifier: c3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: d4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──Identifier: c4
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: c1
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──Identifier: k1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: c2
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: k2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: c3
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──Identifier: k3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: c4
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──Identifier: k4
+│   │   │   └──ReturnStmt
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: c1
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: c2
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: c3
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: c4
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: d1
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: d2
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: d3
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: d4
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: e1
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: e2
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: e3
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: e4
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: f1
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: f2
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: f3
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: f4
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: g1
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: g2
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: g3
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: g4
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: h1
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: h2
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: h3
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: h4
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: i1
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: i2
+│   │   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: i3
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: i4
+│   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: j1
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: j2
+│   │   │   │   │   │   │   │   │   │   └──Identifier: j3
+│   │   │   │   │   │   │   │   │   └──Identifier: j4
+│   │   │   │   │   │   │   │   └──Identifier: k1
+│   │   │   │   │   │   │   └──Identifier: k2
+│   │   │   │   │   │   └──Identifier: k3
+│   │   │   │   │   └──Identifier: k4
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: b
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   └──Number: 9
+│   │   │   └──ReturnStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: func
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   └──Identifier: b

@@ -1,0 +1,98 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──ArrayDeclare
+│   │   │   └──ArrayIdentifier
+│   │   │   │   ├──Identifier: field
+│   │   │   │   └──ArrayShape
+│   │   │   │   │   └──Number: 2
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: func
+│   │   ├──FuncDefArgs
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: array
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 1
+│   │   └──Block
+│   │   │   └──ReturnStmt
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: array
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   └──Number: 3
+│   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   ├──Identifier: field
+│   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   └──Number: 0
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclare
+│   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclare
+│   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: j
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Number: 3
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: k
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: field
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 0
+│   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: field
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 1
+│   │   │   │   └──Number: 2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: j
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Number: 0
+│   │   │   │   │   │   │   └──Number: 0
+│   │   │   │   └──UnaryExpr: -
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: j
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 1
+│   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: j
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Number: 0
+│   │   │   │   │   └──Number: 2
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: k
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: j
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: j
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 2
+│   │   │   │   └──Number: 16
+│   │   │   └──ReturnStmt
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: func
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Identifier: j
+│   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──Identifier: k

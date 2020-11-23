@@ -1,0 +1,77 @@
+├──CompUnit
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclare
+│   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: string
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Number: 500
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: temp
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: i
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: count
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: count
+│   │   │   │   └──Number: 0
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: i
+│   │   │   │   └──Number: 0
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: temp
+│   │   │   │   └──Number: 0
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: !=
+│   │   │   │   │   ├──Identifier: temp
+│   │   │   │   │   └──Number: 10
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: temp
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: getch
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   ├──IfStmt
+│   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   ├──BinaryExpr: ||
+│   │   │   │   │   │   │   ├──BinaryExpr: &&
+│   │   │   │   │   │   │   │   ├──BinaryExpr: >
+│   │   │   │   │   │   │   │   │   ├──Identifier: temp
+│   │   │   │   │   │   │   │   │   └──Number: 40
+│   │   │   │   │   │   │   │   └──BinaryExpr: <
+│   │   │   │   │   │   │   │   │   └──Identifier: temp
+│   │   │   │   │   │   │   │   │   └──Number: 91
+│   │   │   │   │   │   │   └──BinaryExpr: &&
+│   │   │   │   │   │   │   │   └──BinaryExpr: >
+│   │   │   │   │   │   │   │   │   └──Identifier: temp
+│   │   │   │   │   │   │   │   │   └──Number: 96
+│   │   │   │   │   │   │   │   └──BinaryExpr: <
+│   │   │   │   │   │   │   │   │   └──Identifier: temp
+│   │   │   │   │   │   │   │   │   └──Number: 123
+│   │   │   │   │   │   ├──ThenStmt
+│   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   │   │   ├──Identifier: count
+│   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   └──Identifier: count
+│   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: count
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

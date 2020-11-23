@@ -1,0 +1,71 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: a
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: myFunc
+│   │   ├──FuncDefArgs
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: a
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: b
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: c
+│   │   └──Block
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 2
+│   │   │   ├──Block
+│   │   │   │   ├──DeclareStmt
+│   │   │   │   │   └──VarDeclare
+│   │   │   │   │   │   └──Identifier: c
+│   │   │   │   ├──AssignStmt
+│   │   │   │   │   ├──Identifier: c
+│   │   │   │   │   └──Number: 0
+│   │   │   │   └──IfStmt
+│   │   │   │   │   ├──Condition
+│   │   │   │   │   ├──BinaryExpr: !=
+│   │   │   │   │   │   ├──Identifier: c
+│   │   │   │   │   │   └──Number: 0
+│   │   │   │   │   ├──ThenStmt
+│   │   │   │   │   └──Block
+│   │   │   │   │   │   └──ReturnStmt
+│   │   │   │   │   │   │   └──Number: 0
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: >
+│   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   └──Number: 0
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──Identifier: b
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──Number: 3
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: b
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: myFunc
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   ├──Number: 1
+│   │   │   │   │   │   ├──Number: 2
+│   │   │   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──Identifier: b

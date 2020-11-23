@@ -22,7 +22,5 @@ int main() {
   int p;
   p = 2;
   int ans;
-  ans = deepWhileBr(p, p);
-  putint(ans);
   return deepWhileBr(p, p);
 }

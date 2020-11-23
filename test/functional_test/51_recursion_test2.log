@@ -1,0 +1,64 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: fib
+│   │   ├──FuncDefArgs
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: n
+│   │   └──Block
+│   │   │   ├──IfStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   ├──Identifier: n
+│   │   │   │   │   └──Number: 0
+│   │   │   │   ├──ThenStmt
+│   │   │   │   └──ReturnStmt
+│   │   │   │   │   └──Number: 0
+│   │   │   ├──IfStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   ├──Identifier: n
+│   │   │   │   │   └──Number: 1
+│   │   │   │   ├──ThenStmt
+│   │   │   │   └──ReturnStmt
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: p
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: p
+│   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   └──Identifier: n
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: q
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: q
+│   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   └──Identifier: n
+│   │   │   │   │   └──Number: 2
+│   │   │   └──ReturnStmt
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: fib
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   └──Identifier: p
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: fib
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   └──Identifier: q
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: tmp
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: tmp
+│   │   │   │   └──Number: 10
+│   │   │   └──ReturnStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: fib
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: tmp

@@ -1,0 +1,130 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: palindrome
+│   │   ├──FuncDefArgs
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: n
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclare
+│   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Number: 4
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: j
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: flag
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: j
+│   │   │   │   └──Number: 0
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   ├──Identifier: j
+│   │   │   │   │   └──Number: 4
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   └──Identifier: j
+│   │   │   │   │   │   └──BinaryExpr: %
+│   │   │   │   │   │   │   └──Identifier: n
+│   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: n
+│   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   └──Identifier: n
+│   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: j
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: j
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   ├──IfStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: &&
+│   │   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   └──Number: 0
+│   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   └──Number: 3
+│   │   │   │   │   └──BinaryExpr: ==
+│   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   ├──ThenStmt
+│   │   │   │   ├──Block
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: flag
+│   │   │   │   │   │   └──Number: 1
+│   │   │   │   ├──ElseStmt
+│   │   │   │   └──Block
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: flag
+│   │   │   │   │   │   └──Number: 0
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: flag
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: test
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: test
+│   │   │   │   └──Number: 1221
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: flag
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: flag
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: palindrome
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: test
+│   │   │   ├──IfStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   ├──Identifier: flag
+│   │   │   │   │   └──Number: 1
+│   │   │   │   ├──ThenStmt
+│   │   │   │   ├──EvalStmt
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   └──Identifier: test
+│   │   │   │   ├──ElseStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   ├──Identifier: flag
+│   │   │   │   │   │   └──Number: 0
+│   │   │   │   │   └──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Identifier: flag
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: flag
+│   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: flag
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

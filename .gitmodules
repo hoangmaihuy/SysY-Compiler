@@ -1,0 +1,3 @@
+[submodule "MiniVM"]
+	path = MiniVM
+	url = https://github.com/pku-minic/MiniVM.git

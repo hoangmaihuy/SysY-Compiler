@@ -1,0 +1,97 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──VarDeclare
+│   │   │   └──Identifier: n
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: f
+│   │   ├──FuncDefArgs
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: x
+│   │   └──Block
+│   │   │   ├──IfStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   ├──Identifier: x
+│   │   │   │   │   └──Number: 1
+│   │   │   │   ├──ThenStmt
+│   │   │   │   └──ReturnStmt
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──IfStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   ├──Identifier: x
+│   │   │   │   │   └──Number: 2
+│   │   │   │   ├──ThenStmt
+│   │   │   │   └──ReturnStmt
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: a
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: b
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   └──Identifier: x
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   └──Identifier: x
+│   │   │   │   │   └──Number: 2
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: c
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: c
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   └──Identifier: b
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: c
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: n
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: getint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: t
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: xx
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: t
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: n
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: t
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: newline
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: newline
+│   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: newline
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: t
