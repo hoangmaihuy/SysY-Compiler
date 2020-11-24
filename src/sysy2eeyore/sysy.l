@@ -5,6 +5,7 @@
 
 #define SAVE_TOKEN  yylval.string = new std::string(yytext, yyleng)
 #define TOKEN(t)    (yylval.token = t)
+#define FIX_LINE    for (auto i : std::string(yytext_ptr)) { if (i == '\n') yylineno++; }
 extern void yyerror(const char* s);
 %}
 
@@ -48,6 +49,9 @@ whitespace      [ \t]+
 "const"                     return TOKEN(CONST);
 "int"                       return TOKEN(INT);
 "void"                      return TOKEN(VOID);
+"starttime"[ \t\n]*"("      FIX_LINE; yylval.string = new std::string("_sysy_starttime"); *yy_cp = yy_hold_char; yy_hold_char='(';yy_cp--; yyleng--; yy_c_buf_p--; *yy_c_buf_p='_';yy_c_buf_p--; *yy_c_buf_p='_';yy_c_buf_p--; *yy_c_buf_p='E';yy_c_buf_p--; *yy_c_buf_p='N';yy_c_buf_p--; *yy_c_buf_p='I';yy_c_buf_p--; *yy_c_buf_p='L';yy_c_buf_p--; *yy_c_buf_p='_';yy_c_buf_p--; *yy_c_buf_p='_';yy_c_buf_p--; return IDENTIFIER;
+"stoptime"[ \t\n]*"("       FIX_LINE; yylval.string = new std::string("_sysy_stoptime"); *yy_cp = yy_hold_char; yy_hold_char='(';yy_cp--; yyleng--; yy_c_buf_p--; *yy_c_buf_p='_';yy_c_buf_p--; *yy_c_buf_p='_';yy_c_buf_p--; *yy_c_buf_p='E';yy_c_buf_p--; *yy_c_buf_p='N';yy_c_buf_p--; *yy_c_buf_p='I';yy_c_buf_p--; *yy_c_buf_p='L';yy_c_buf_p--; *yy_c_buf_p='_';yy_c_buf_p--; *yy_c_buf_p='_';yy_c_buf_p--; return IDENTIFIER;
+"__LINE__"                  yylval.string = new std::string(std::to_string(yyget_lineno())); return INTEGER;
 {identifier}                SAVE_TOKEN; return IDENTIFIER;
 {integer}                   SAVE_TOKEN; return INTEGER;
 "0x"[0-9a-fA-F]+            SAVE_TOKEN; return INTEGER;

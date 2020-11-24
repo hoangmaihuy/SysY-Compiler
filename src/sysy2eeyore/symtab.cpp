@@ -21,6 +21,8 @@ Context::Context()
     insert_func("putarray", VOID, 2, true);
     insert_func("starttime", VOID, 0, true);
     insert_func("stoptime", VOID, 0, true);
+    insert_func("_sysy_starttime", VOID, 1, true);
+    insert_func("_sysy_stoptime", VOID, 0, true);
 }
 
 void Context::create_scope()
