@@ -19,7 +19,7 @@ letter_digit    [a-zA-Z0-9_]
 integer         {number}+
 identifier      {letter_}{letter_digit}* 
 newline         \n
-whitespace      [ \t]+
+whitespace      [ \t\r]+
 
 
 
