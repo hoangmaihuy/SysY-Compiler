@@ -1,9 +1,0 @@
-int main()
-{
-    int a;
-    a = getint();
-    int b;
-    b = !a;
-    putint(b);
-    return 0;
-}

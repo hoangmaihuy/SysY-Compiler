@@ -266,7 +266,7 @@ void NArrayIdentifier::generate_eeyore(Context& ctx, int indent, bool is_lhs)
     int array_size = get_array_size(array_shape);
     string tmp_name = ctx.create_eeyore_temp_var();
     ctx.insert_eeyore_decl(EVarStmt(tmp_name));
-    for (int i = 0; i < array_shape.size(); i++)
+    for (int i = 0; i < shape.size(); i++)
     {
         array_size /= array_shape[i];
         ctx.insert_eeyore_stmt(EBinaryExpr(tmp_name, shape[i]->ee_name, MUL, to_string(array_size)),indent);
