@@ -63,7 +63,7 @@ public:
 class NNumber : public NExpression
 {
 public:
-    int value;
+    long long value;
     NNumber(const string& value);
     NNumber(int value);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);

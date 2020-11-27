@@ -103,25 +103,25 @@
 │   │   │   ├──WhileStmt
 │   │   │   │   ├──Condition
 │   │   │   │   ├──BinaryExpr: &&
-│   │   │   │   │   ├──BinaryExpr: !=
-│   │   │   │   │   │   ├──ArrayIdentifier
-│   │   │   │   │   │   │   ├──Identifier: src
-│   │   │   │   │   │   │   └──ArrayShape
-│   │   │   │   │   │   │   │   └──Identifier: i
-│   │   │   │   │   │   └──Number: 0
-│   │   │   │   │   └──BinaryExpr: &&
+│   │   │   │   │   ├──BinaryExpr: &&
+│   │   │   │   │   │   ├──BinaryExpr: !=
+│   │   │   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   │   │   ├──Identifier: src
+│   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   └──Number: 0
 │   │   │   │   │   │   └──BinaryExpr: >
 │   │   │   │   │   │   │   └──ArrayIdentifier
 │   │   │   │   │   │   │   │   ├──Identifier: src
 │   │   │   │   │   │   │   │   └──ArrayShape
 │   │   │   │   │   │   │   │   │   └──Identifier: i
 │   │   │   │   │   │   │   └──Number: 47
-│   │   │   │   │   │   └──BinaryExpr: <
-│   │   │   │   │   │   │   └──ArrayIdentifier
-│   │   │   │   │   │   │   │   ├──Identifier: src
-│   │   │   │   │   │   │   │   └──ArrayShape
-│   │   │   │   │   │   │   │   │   └──Identifier: i
-│   │   │   │   │   │   │   └──Number: 58
+│   │   │   │   │   └──BinaryExpr: <
+│   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: src
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   └──Number: 58
 │   │   │   │   ├──DoStmt
 │   │   │   │   └──Block
 │   │   │   │   │   ├──AssignStmt

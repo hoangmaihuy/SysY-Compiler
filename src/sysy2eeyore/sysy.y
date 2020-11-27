@@ -14,6 +14,8 @@ NCompUnit* root;
 
 %}
 
+%define parse.trace
+
 %union {
     int token;
     NCompUnit* comp_unit;
@@ -139,12 +141,11 @@ Exp             : AddExp
                 ;
 
 
-LOrExp          : LAndExp OR LAndExp { $$ = new NBinaryExpr(*$1, $2, *$3); }
-                | LOrExp OR LOrExp { $$ = new NBinaryExpr(*$1, $2, *$3); }
+LOrExp          : LOrExp OR LAndExp { $$ = new NBinaryExpr(*$1, $2, *$3); }
                 | LAndExp
                 ;
 
-LAndExp         : LAndExp AND LAndExp { $$ = new NBinaryExpr(*$1, $2, *$3); }
+LAndExp         : LAndExp AND EqExp { $$ = new NBinaryExpr(*$1, $2, *$3); }
                 | EqExp
                 ;
 

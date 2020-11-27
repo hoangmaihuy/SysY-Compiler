@@ -63,7 +63,10 @@ void NArrayIdentifier::print(int indent, bool end, ostream& out)
 /* Number */
 NNumber::NNumber(int value) : value(value) { }
 
-NNumber::NNumber(const string& value) : value(stoi(value, 0, 0)) { }
+NNumber::NNumber(const string& value) 
+{ 
+    this->value = stol(value, 0, 0);
+}
 
 void NNumber::print(int indent, bool end, ostream& out)
 {
