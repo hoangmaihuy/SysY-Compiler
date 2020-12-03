@@ -1,0 +1,44 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: f
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 0
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: g
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 1
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   └──ReturnStmt
+│   │   │   │   └──BinaryExpr: ||
+│   │   │   │   │   └──BinaryExpr: &&
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: g
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   └──BinaryExpr: &&
+│   │   │   │   │   │   └──UnaryExpr: !
+│   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: g
+│   │   │   │   │   │   │   └──FuncCallArgs

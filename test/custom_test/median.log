@@ -1,0 +1,272 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: median
+│   │   ├──FuncDefArgs
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 1
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: N
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: i
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: j
+│   │   └──Block
+│   │   │   ├──IfStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: ||
+│   │   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   └──Identifier: N
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──BinaryExpr: ==
+│   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   └──Identifier: N
+│   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   ├──ThenStmt
+│   │   │   │   └──Block
+│   │   │   │   │   └──ReturnStmt
+│   │   │   │   │   │   └──Identifier: i
+│   │   │   ├──IfStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: ||
+│   │   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   │   ├──Identifier: j
+│   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   └──Identifier: N
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──BinaryExpr: ==
+│   │   │   │   │   │   └──Identifier: j
+│   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   └──Identifier: N
+│   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   ├──ThenStmt
+│   │   │   │   └──Block
+│   │   │   │   │   └──ReturnStmt
+│   │   │   │   │   │   └──Identifier: j
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: middle
+│   │   │   │   │   └──Identifier: i
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: temp
+│   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Identifier: i
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: k
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   └──Number: 1
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: <=
+│   │   │   │   │   ├──Identifier: k
+│   │   │   │   │   └──Identifier: j
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──IfStmt
+│   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   └──Identifier: k
+│   │   │   │   │   │   │   └──Identifier: temp
+│   │   │   │   │   │   ├──ThenStmt
+│   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   ├──IfStmt
+│   │   │   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   │   │   │   │   ├──Identifier: k
+│   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   └──Identifier: middle
+│   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   │   ├──ThenStmt
+│   │   │   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: middle
+│   │   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: k
+│   │   │   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: middle
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   │   │   │   └──Identifier: temp
+│   │   │   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: middle
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: middle
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: k
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: k
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   │   │   └──ContinueStmt
+│   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   └──Identifier: middle
+│   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   └──Identifier: k
+│   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   └──Identifier: k
+│   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: middle
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: middle
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   │   └──Identifier: temp
+│   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   ├──Identifier: middle
+│   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   └──Identifier: middle
+│   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   ├──AssignStmt
+│   │   │   │   │   │   │   │   ├──Identifier: k
+│   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   └──Identifier: k
+│   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   └──ContinueStmt
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: k
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: k
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   ├──IfStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: ||
+│   │   │   │   │   ├──BinaryExpr: ==
+│   │   │   │   │   │   ├──Identifier: middle
+│   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   └──Identifier: N
+│   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──BinaryExpr: ==
+│   │   │   │   │   │   └──Identifier: middle
+│   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   └──Identifier: N
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   ├──ThenStmt
+│   │   │   │   └──Block
+│   │   │   │   │   └──ReturnStmt
+│   │   │   │   │   │   └──Identifier: middle
+│   │   │   └──IfStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: >
+│   │   │   │   │   ├──Identifier: middle
+│   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: N
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   └──Number: 2
+│   │   │   │   ├──ThenStmt
+│   │   │   │   ├──Block
+│   │   │   │   │   └──ReturnStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: median
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   ├──Identifier: N
+│   │   │   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   │   └──Identifier: middle
+│   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   ├──ElseStmt
+│   │   │   │   └──Block
+│   │   │   │   │   └──ReturnStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: median
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   │   ├──Identifier: N
+│   │   │   │   │   │   │   │   ├──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   ├──Identifier: middle
+│   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   │   │   └──Identifier: j
+│   ├──DeclareStmt
+│   │   └──ArrayDeclare
+│   │   │   └──ArrayIdentifier
+│   │   │   │   ├──Identifier: arr
+│   │   │   │   └──ArrayShape
+│   │   │   │   │   └──Number: 100005
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: N
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: getarray
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   └──Identifier: arr
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: _sysy_starttime
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 48
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: med
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: median
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   │   ├──Identifier: N
+│   │   │   │   │   │   │   ├──Number: 0
+│   │   │   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   │   │   └──Identifier: N
+│   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: _sysy_stoptime
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 50
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: med
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 10
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

@@ -1,0 +1,307 @@
+├──CompUnit
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclare
+│   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Number: 20
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: n
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: getarray
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   └──Identifier: a
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: i
+│   │   │   │   │   └──Number: 0
+│   │   │   ├──WhileStmt
+│   │   │   │   ├──Condition
+│   │   │   │   ├──BinaryExpr: <
+│   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   └──Identifier: n
+│   │   │   │   ├──DoStmt
+│   │   │   │   └──Block
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   └──Number: 3
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   └──Number: 6
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   └──Number: 7
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   └──Number: 14
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   └──Number: 31
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   └──Number: 641
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   └──Number: 2147483647
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   └──UnaryExpr: -
+│   │   │   │   │   │   │   │   │   │   └──Number: 2147483648
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   └──Number: 1000000007
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   ├──IfStmt
+│   │   │   │   │   │   ├──Condition
+│   │   │   │   │   │   ├──BinaryExpr: >
+│   │   │   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   └──Number: 0
+│   │   │   │   │   │   ├──ThenStmt
+│   │   │   │   │   │   └──Block
+│   │   │   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 4
+│   │   │   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 16
+│   │   │   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 32
+│   │   │   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 1024
+│   │   │   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 65536
+│   │   │   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: /
+│   │   │   │   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   │   │   │   │   └──Number: 1048576
+│   │   │   │   │   │   │   └──EvalStmt
+│   │   │   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   ├──EvalStmt
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   │   └──Number: 10
+│   │   │   │   │   └──AssignStmt
+│   │   │   │   │   │   ├──Identifier: i
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: i
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0

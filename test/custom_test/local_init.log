@@ -1,0 +1,53 @@
+├──CompUnit
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──Number: 1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclareWithInit: is_const=0
+│   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──ArrayDeclareInitValue: is_number=0
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclareWithInit: is_const=0
+│   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: c
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──ArrayDeclareInitValue: is_number=0
+│   │   │   │   │   │   └──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclareWithInit: is_const=0
+│   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: d
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──ArrayDeclareInitValue: is_number=0
+│   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   └──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   └──ReturnStmt
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   └──Number: 0
+│   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: c
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: d
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Number: 1

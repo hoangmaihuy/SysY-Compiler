@@ -1,0 +1,93 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: func8
+│   │   ├──FuncDefArgs
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: a
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: b
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: c
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: d
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: e
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: f
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: g
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: h
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclareWithInit: is_const=0
+│   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Number: 1024
+│   │   │   │   │   └──ArrayDeclareInitValue: is_number=0
+│   │   │   └──ReturnStmt
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   │   │   │   │   └──Identifier: c
+│   │   │   │   │   │   │   │   │   └──Identifier: d
+│   │   │   │   │   │   │   │   └──BinaryExpr: *
+│   │   │   │   │   │   │   │   │   └──Identifier: e
+│   │   │   │   │   │   │   │   │   └──Identifier: f
+│   │   │   │   │   │   │   └──Identifier: g
+│   │   │   │   │   │   └──Identifier: h
+│   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: arr
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   └──Number: 0
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: func4
+│   │   ├──FuncDefArgs
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: a
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: b
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──Identifier: c
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: d
+│   │   └──Block
+│   │   │   └──ReturnStmt
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   └──Identifier: c
+│   │   │   │   │   └──Identifier: d
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   └──ReturnStmt
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: func8
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   ├──Number: 1
+│   │   │   │   │   │   │   ├──Number: 2
+│   │   │   │   │   │   │   ├──Number: 3
+│   │   │   │   │   │   │   ├──Number: 4
+│   │   │   │   │   │   │   ├──Number: 5
+│   │   │   │   │   │   │   ├──Number: 6
+│   │   │   │   │   │   │   ├──Number: 7
+│   │   │   │   │   │   │   └──Number: 8
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: func4
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   ├──Number: 4
+│   │   │   │   │   │   │   ├──Number: 3
+│   │   │   │   │   │   │   ├──Number: 2
+│   │   │   │   │   │   │   └──Number: 1

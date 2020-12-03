@@ -1,0 +1,79 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: test
+│   │   ├──FuncDefArgs
+│   │   │   ├──FuncDefArg: type=int
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   ├──Number: 1
+│   │   │   │   │   │   └──Number: 4
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──Identifier: n
+│   │   └──Block
+│   │   │   └──ReturnStmt
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   ├──Number: 0
+│   │   │   │   │   │   └──Identifier: n
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclare
+│   │   │   │   │   └──Identifier: n
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclareWithInit: is_const=0
+│   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   ├──Number: 1
+│   │   │   │   │   │   │   ├──Number: 1
+│   │   │   │   │   │   │   └──Number: 4
+│   │   │   │   │   └──ArrayDeclareInitValue: is_number=0
+│   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 0
+│   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   └──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 3
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──Identifier: n
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: getint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──ArrayDeclareWithInit: is_const=0
+│   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   ├──Number: 2
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   └──ArrayDeclareInitValue: is_number=0
+│   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 1
+│   │   │   │   │   │   └──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   │   │   └──Number: 2
+│   │   │   └──ReturnStmt
+│   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: test
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   └──Number: 0
+│   │   │   │   │   │   │   └──Identifier: n
+│   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   ├──Number: 1
+│   │   │   │   │   │   │   └──Number: 0

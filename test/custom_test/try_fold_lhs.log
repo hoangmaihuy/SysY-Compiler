@@ -1,0 +1,335 @@
+├──CompUnit
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: f
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 233
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: g1
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: b
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   └──Number: 456
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: c
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   └──Number: 123
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: c
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: g2
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: b
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   └──Number: 456
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: c
+│   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   └──Number: 123
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: c
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: g3
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: b
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   └──Number: 456
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: c
+│   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   └──Number: 123
+│   │   │   │   │   │   └──Identifier: b
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: c
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: g4
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: b
+│   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   └──Number: 456
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: c
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   └──Number: 123
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: c
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: g5
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: b
+│   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   └──Number: 456
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: c
+│   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   └──Number: 123
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: c
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: g6
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: b
+│   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   │   │   │   └──Number: 456
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: c
+│   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   └──Number: 123
+│   │   │   │   │   │   └──Identifier: b
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: c
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: g7
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: b
+│   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   └──Number: 456
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: c
+│   │   │   │   │   └──BinaryExpr: +
+│   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   └──Number: 123
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: c
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: g8
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: b
+│   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   └──Number: 456
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: c
+│   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   └──Identifier: b
+│   │   │   │   │   │   └──Number: 123
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: c
+│   ├──FuncDef: return_type=int
+│   │   ├──Identifier: g9
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: a
+│   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: b
+│   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   └──Number: 456
+│   │   │   │   │   │   └──Identifier: a
+│   │   │   ├──DeclareStmt
+│   │   │   │   └──VarDeclareWithInit: is_const=0
+│   │   │   │   │   └──Identifier: c
+│   │   │   │   │   └──BinaryExpr: -
+│   │   │   │   │   │   └──Number: 123
+│   │   │   │   │   │   └──Identifier: b
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Identifier: c
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: g1
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: g2
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: g3
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: g4
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: g5
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: g6
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: g7
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: g8
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──FuncCall
+│   │   │   │   │   │   │   ├──Identifier: g9
+│   │   │   │   │   │   │   └──FuncCallArgs
+│   │   │   └──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 10

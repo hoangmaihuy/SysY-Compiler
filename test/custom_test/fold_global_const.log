@@ -1,0 +1,283 @@
+├──CompUnit
+│   ├──DeclareStmt
+│   │   └──ArrayDeclareWithInit: is_const=0
+│   │   │   ├──ArrayIdentifier
+│   │   │   │   ├──Identifier: a
+│   │   │   │   └──ArrayShape
+│   │   │   │   │   ├──Number: 3
+│   │   │   │   │   ├──Number: 4
+│   │   │   │   │   └──Number: 5
+│   │   │   └──ArrayDeclareInitValue: is_number=0
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 0
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 1
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 2
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 3
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 4
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 5
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 6
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 7
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 8
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 9
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 10
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 11
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 12
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 13
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 14
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 15
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 16
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 17
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 18
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 19
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 20
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 21
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 22
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 23
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 24
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 25
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 26
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 27
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 28
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 29
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 30
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 31
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 32
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 33
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 34
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 35
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 36
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 37
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 38
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 39
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 40
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 41
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 42
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 43
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 44
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 45
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 46
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 47
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 48
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 49
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 50
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 51
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 52
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 53
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 54
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 55
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 56
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 57
+│   │   │   │   ├──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 58
+│   │   │   │   └──ArrayDeclareInitValue: is_number=1
+│   │   │   │   │   └──Number: 59
+│   ├──DeclareStmt
+│   │   └──ArrayDeclare
+│   │   │   └──ArrayIdentifier
+│   │   │   │   ├──Identifier: b
+│   │   │   │   └──ArrayShape
+│   │   │   │   │   └──Number: 100
+│   ├──DeclareStmt
+│   │   └──ArrayDeclare
+│   │   │   └──ArrayIdentifier
+│   │   │   │   ├──Identifier: d
+│   │   │   │   └──ArrayShape
+│   │   │   │   │   └──Number: 100
+│   ├──DeclareStmt
+│   │   └──VarDeclareWithInit: is_const=0
+│   │   │   └──Identifier: c
+│   │   │   └──Number: 50
+│   ├──FuncDef: return_type=void
+│   │   ├──Identifier: f
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   ├──Number: 1
+│   │   │   │   │   │   │   │   ├──Number: 2
+│   │   │   │   │   │   │   │   └──Number: 3
+│   │   │   │   └──Number: 5
+│   │   │   └──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Identifier: c
+│   │   │   │   └──Number: 7
+│   ├──FuncDef: return_type=void
+│   │   ├──Identifier: g
+│   │   ├──FuncDefArgs
+│   │   │   └──FuncDefArg: type=int
+│   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: x
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Number: 1
+│   │   └──Block
+│   │   │   └──AssignStmt
+│   │   │   │   ├──ArrayIdentifier
+│   │   │   │   │   ├──Identifier: x
+│   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   └──Identifier: c
+│   │   │   │   └──Number: 9
+│   └──FuncDef: return_type=int
+│   │   ├──Identifier: main
+│   │   ├──FuncDefArgs
+│   │   └──Block
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   ├──Number: 2
+│   │   │   │   │   │   │   │   ├──Number: 3
+│   │   │   │   │   │   │   │   └──Number: 3
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   ├──Number: 2
+│   │   │   │   │   │   │   │   ├──Number: 3
+│   │   │   │   │   │   │   │   └──Number: 4
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   ├──Number: 2
+│   │   │   │   │   │   │   │   ├──Number: 3
+│   │   │   │   │   │   │   │   └──Number: 4
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: c
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: f
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: b
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   │   │   ├──Identifier: a
+│   │   │   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   │   │   ├──Number: 1
+│   │   │   │   │   │   │   │   │   │   ├──Number: 2
+│   │   │   │   │   │   │   │   │   │   └──Number: 3
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 10
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: g
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Identifier: d
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putint
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──ArrayIdentifier
+│   │   │   │   │   │   │   ├──Identifier: d
+│   │   │   │   │   │   │   └──ArrayShape
+│   │   │   │   │   │   │   │   └──Identifier: c
+│   │   │   ├──EvalStmt
+│   │   │   │   └──FuncCall
+│   │   │   │   │   ├──Identifier: putch
+│   │   │   │   │   └──FuncCallArgs
+│   │   │   │   │   │   └──Number: 10
+│   │   │   └──ReturnStmt
+│   │   │   │   └──Number: 0
