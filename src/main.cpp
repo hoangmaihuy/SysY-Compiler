@@ -1,10 +1,10 @@
 #include <getopt.h>
 #include <iostream>
 #include <fstream>
-#include "sysy2eeyore/globals.hpp"
-#include "sysy2eeyore/tree.hpp"
+#include "globals.hpp"
+#include "front/tree.hpp"
 #include "sysy.tab.hpp"
-#include "sysy2eeyore/util.hpp"
+#include "front/util.hpp"
 
 extern FILE* yyin;
 extern NCompUnit* parse();
