@@ -3,7 +3,7 @@
 #include <fstream>
 #include "sysy2eeyore/globals.hpp"
 #include "sysy2eeyore/tree.hpp"
-#include "source.tab.hpp"
+#include "sysy.tab.hpp"
 #include "sysy2eeyore/util.hpp"
 
 extern FILE* yyin;

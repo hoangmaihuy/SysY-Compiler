@@ -15,7 +15,7 @@ flex_target(SysYLexer
 )
 bison_target(SysYParser 
     src/sysy2eeyore/sysy.y 
-    ${CMAKE_CURRENT_BINARY_DIR}/source.tab.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sysy.tab.cpp
 )
 add_flex_bison_dependency(SysYLexer SysYParser)
 

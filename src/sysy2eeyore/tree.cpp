@@ -1,6 +1,6 @@
 #include "globals.hpp"
 #include "tree.hpp"
-#include "source.tab.hpp"
+#include "sysy.tab.hpp"
 #include "util.hpp"
 
 /* TreeNode */

@@ -1,7 +1,7 @@
 #include "globals.hpp"
 #include "symtab.hpp"
 #include "tree.hpp"
-#include "source.tab.hpp"
+#include "sysy.tab.hpp"
 #include "util.hpp"
 
 int NExpression::eval(Context& ctx)

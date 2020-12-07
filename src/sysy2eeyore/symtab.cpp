@@ -1,7 +1,7 @@
 #include <iostream> 
 #include "symtab.hpp"
 #include "tree.hpp"
-#include "source.tab.hpp"
+#include "sysy.tab.hpp"
 
 
 SymbolInfo::SymbolInfo(string ee_name, vector<int> value, bool is_const, bool is_array, vector<int> shape) : ee_name(ee_name), value(value), is_const(is_const), is_array(is_array), shape(shape)

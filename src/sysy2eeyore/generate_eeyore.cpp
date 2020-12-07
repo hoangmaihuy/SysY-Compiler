@@ -2,7 +2,7 @@
 #include "symtab.hpp"
 #include "tree.hpp"
 #include "util.hpp"
-#include "source.tab.hpp"
+#include "sysy.tab.hpp"
 
 string EVarStmt(string name, int size=0)
 {

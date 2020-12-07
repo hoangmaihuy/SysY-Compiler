@@ -1,7 +1,7 @@
 %{
 #include "globals.hpp"
 #include "tree.hpp"
-#include "source.tab.hpp"
+#include "sysy.tab.hpp"
 
 #define SAVE_TOKEN  yylval.string = new std::string(yytext, yyleng)
 #define TOKEN(t)    (yylval.token = t)

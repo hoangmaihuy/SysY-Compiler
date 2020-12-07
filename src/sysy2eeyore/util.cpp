@@ -1,6 +1,6 @@
 #include "util.hpp"
 #include "tree.hpp"
-#include "source.tab.hpp"
+#include "sysy.tab.hpp"
 
 string get_token_str(int token)
 {
