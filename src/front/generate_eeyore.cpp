@@ -81,7 +81,7 @@ void NArrayDeclareWithInit::generate_eeyore(Context& ctx, int indent)
         ctx.assign_array(ident.name, init_values);
         for (int i = 0; i < array_size; i++)
         {
-            ELeftVal* item_name = new ELeftVal(ee_var, new ERightVal(i), true);
+            ELeftVal* item_name = new ELeftVal(ee_var, new ERightVal(i * INT_SIZE), true);
             ctx.insert_eeyore_stmt(new EAssignStmt(item_name, init_values[i]), indent);
         }
     }
@@ -90,7 +90,7 @@ void NArrayDeclareWithInit::generate_eeyore(Context& ctx, int indent)
         // init all array as 0 
         for (int i = 0; i < array_size; i++)
         {
-            ELeftVal* item_name = new ELeftVal(ee_var, new ERightVal(i), true);
+            ELeftVal* item_name = new ELeftVal(ee_var, new ERightVal(i * INT_SIZE), true);
             ctx.insert_eeyore_stmt(new EAssignStmt(item_name, 0), indent);
         }
         value.generate_eeyore(ctx, ee_var, array_shape, 0, indent);
@@ -110,9 +110,10 @@ void NArrayDeclareInitValue::generate_eeyore(Context& ctx, EVariable* ee_var, ve
         if (value->is_number) 
         {
             value->value->generate_eeyore(ctx, indent);
-            ELeftVal* item_name = new ELeftVal(ee_var, new ERightVal(start_index++), true);
+            ELeftVal* item_name = new ELeftVal(ee_var, new ERightVal(start_index * INT_SIZE), true);
             ERightVal* value_name = (ERightVal*)value->value->e_value;
             ctx.insert_eeyore_stmt(new EAssignStmt(item_name, value_name), indent);
+            start_index++;
         }
         else 
         {
@@ -211,7 +212,7 @@ void NArrayIdentifier::generate_eeyore(Context& ctx, int indent, bool is_lhs)
         ctx.insert_eeyore_stmt(new EBinaryExpr(tmp_name, shape[i]->e_value, MUL, new ERightVal(array_size)),indent);
         ctx.insert_eeyore_stmt(new EBinaryExpr(index_name, index_name, PLUS, tmp_name), indent);
     }
-    ctx.insert_eeyore_stmt(new EBinaryExpr(index_name, index_name, MUL, new ERightVal(4)), indent);
+    ctx.insert_eeyore_stmt(new EBinaryExpr(index_name, index_name, MUL, new ERightVal(INT_SIZE)), indent);
     
     ELeftVal* item_name = new ELeftVal(new EVariable(symbol.ee_name), index_name, true);
     if (!is_lhs)
