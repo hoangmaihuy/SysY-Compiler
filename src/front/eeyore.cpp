@@ -152,5 +152,8 @@ EReturnStmt::EReturnStmt(EValue* value) : value(value) {}
 
 string EReturnStmt::to_string()
 {
-    return "return " + value->to_string();
+    if (value)
+        return "return " + value->to_string();
+    else 
+        return "return";
 }
