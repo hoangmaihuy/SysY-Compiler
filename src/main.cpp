@@ -10,6 +10,7 @@ extern FILE* yyin;
 extern NCompUnit* parse();
 
 string in_file, out_file, file_prefix;
+bool DEBUG = false;
 
 bool compileEeyore, compileTigger, compileRISCV;
 
@@ -17,17 +18,19 @@ void compileToEeyore()
 {
     Context ctx;
     yyin = fopen(in_file.c_str(), "r");
-    ofstream log_out(file_prefix + "log");
     ofstream eeyore_out;
     
     if (!compileTigger)
         eeyore_out.open(out_file);
     else
         eeyore_out.open(file_prefix + "eeyore");
-    
+
     auto root = parse();
-    root->print(0, false, log_out);
-    log_out.close();
+    if (DEBUG) 
+    {
+        cerr << "Done parse\n";
+        root->print(0, false, cerr);
+    }
     root->generate_eeyore(ctx, 0);
     ctx.print_eeyore(eeyore_out);
     eeyore_out.close();
@@ -38,7 +41,7 @@ void compileToEeyore()
 int main(int argc, char * argv[]) 
 {
     char opt;
-    while ((opt = getopt(argc, argv, ":Setho:")) != -1)
+    while ((opt = getopt(argc, argv, ":Sethdo:")) != -1)
     {
         switch (opt)
         {
@@ -47,6 +50,7 @@ int main(int argc, char * argv[])
                 printf("-S -e   : Compile SysY to Eeyore\n");
                 printf("-S -t   : Compile Eeyore to Tigger\n");
                 printf("-o      : Output file");
+                printf("-d      : Print debug information");
                 break;
             case 'S':        
                 compileEeyore = compileTigger = compileRISCV = true;
@@ -58,6 +62,9 @@ int main(int argc, char * argv[])
                 break;
             case 'o':
                 out_file = optarg;
+                break;
+            case 'd':
+                DEBUG = true;
                 break;
             case '?':
                 printf("Unknown option: %c\n", optopt);

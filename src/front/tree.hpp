@@ -22,7 +22,7 @@ public:
 class NExpression : public TreeNode
 {
 public:
-    string ee_name;
+    EValue* e_value;
     virtual int eval(Context& ctx);
     virtual void generate_eeyore(Context& ctx, int indent);
 };
@@ -119,7 +119,7 @@ public:
     NArrayDeclareInitValue(bool is_number, NExpression* value);
     virtual void print(int indent=0, bool end=false, ostream& out=cerr);
     virtual void write_values(Context& ctx, int start_index, vector<int>& shape, vector<int>& init_values);
-    virtual void generate_eeyore(Context& ctx, string ee_name, vector<int>& shape, int start_index, int indent);
+    virtual void generate_eeyore(Context& ctx, EVariable* ee_var, vector<int>& shape, int start_index, int indent);
 };
 
 class NArrayDeclareWithInit : public NDeclare

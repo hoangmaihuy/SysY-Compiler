@@ -146,7 +146,7 @@ pair<string, string> Context::get_current_loop()
 
 EeyoreList::EeyoreList(string func_name, int args_num) : func_name(func_name), args_num(args_num) { }
 
-void Context::insert_eeyore_decl(string decl)
+void Context::insert_eeyore_decl(EStmt* decl)
 {
     if (is_global())
         eeyore_lists[0].decls.push_back(decl);
@@ -154,13 +154,18 @@ void Context::insert_eeyore_decl(string decl)
         eeyore_lists.back().decls.push_back(decl);
 }
 
-void Context::insert_eeyore_stmt(string stmt, int indent)
+void Context::insert_eeyore_stmt(EStmt* stmt, int indent)
 {
-    for (int i = 0; i < indent; i++) stmt = "  " + stmt;
     if (is_global())
+    {
+        eeyore_lists[0].stmt_indents.push_back(indent);
         eeyore_lists[0].stmts.push_back(stmt);
+    }
     else 
+    {
+        eeyore_lists.back().stmt_indents.push_back(indent);
         eeyore_lists.back().stmts.push_back(stmt);
+    }
 } 
 
 void Context::print_eeyore(ostream& out)
@@ -172,20 +177,28 @@ void Context::print_eeyore(ostream& out)
         if (func_name == "__global__")
         {
             for (auto decl : eeyore_list.decls) 
-                out << decl << "\n";
+                out << decl->to_string() << "\n";
             continue;
         } 
 
         out << "f_" + func_name + " [" + to_string(args_num) + "]" << "\n";
         if (func_name == "main")
         {
+            int i = 0;
             for (auto stmt : eeyore_lists[0].stmts)
-                out << "  " << stmt << "\n";
+            {
+                for (int j = 0; j < eeyore_lists[0].stmt_indents[i++]; j++) out << " ";
+                out << "  " << stmt->to_string() << "\n";
+            }
         }
         for (auto decl : eeyore_list.decls)
-            out << "  " << decl << "\n";
+            out << "  " << decl->to_string() << "\n";
+        int i = 0;
         for (auto stmt : eeyore_list.stmts)
-            out << stmt << "\n";
+        {
+            for (int j = 0; j < eeyore_list.stmt_indents[i++]; j++) out << "  ";
+            out << stmt->to_string() << "\n";
+        }
         out << "end f_" + func_name << "\n";
     }
 }

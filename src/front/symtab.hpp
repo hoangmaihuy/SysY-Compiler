@@ -2,6 +2,7 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+#include "eeyore.hpp"
 
 using namespace std;
 
@@ -22,8 +23,9 @@ class EeyoreList
 public:
     string func_name;
     int args_num;
-    vector<string> decls;
-    vector<string> stmts;
+    vector<EStmt*> decls;
+    vector<EStmt*> stmts;
+    vector<int> stmt_indents;
     
     EeyoreList(string func_name, int args_num);
 };
@@ -67,8 +69,8 @@ public:
     pair<string, string> get_current_loop();
     bool is_global();
 
-    void insert_eeyore_decl(string decl);
-    void insert_eeyore_stmt(string stmt, int indent=0);
+    void insert_eeyore_decl(EStmt* decl);
+    void insert_eeyore_stmt(EStmt* stmt, int indent=0);
 
     void print_eeyore(ostream& out=cout);
 };
