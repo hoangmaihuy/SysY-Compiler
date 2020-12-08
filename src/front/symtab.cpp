@@ -187,7 +187,8 @@ void Context::print_eeyore(ostream& out)
             int i = 0;
             for (auto stmt : eeyore_lists[0].stmts)
             {
-                for (int j = 0; j < eeyore_lists[0].stmt_indents[i++]; j++) out << " ";
+                for (int j = 0; j < eeyore_lists[0].stmt_indents[i]; j++) out << " ";
+                i++;
                 out << "  " << stmt->to_string() << "\n";
             }
         }
@@ -196,7 +197,8 @@ void Context::print_eeyore(ostream& out)
         int i = 0;
         for (auto stmt : eeyore_list.stmts)
         {
-            for (int j = 0; j < eeyore_list.stmt_indents[i++]; j++) out << "  ";
+            for (int j = 0; j < eeyore_list.stmt_indents[i]; j++) out << "  ";
+            i++;
             out << stmt->to_string() << "\n";
         }
         out << "end f_" + func_name << "\n";
