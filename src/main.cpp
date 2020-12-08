@@ -32,6 +32,7 @@ void compileToEeyore()
         root->print(0, false, cerr);
     }
     root->generate_eeyore(ctx, 0);
+    ctx.fix_eeyore();
     ctx.print_eeyore(eeyore_out);
     eeyore_out.close();
 

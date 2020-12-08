@@ -4,8 +4,8 @@
 #include "sysy.tab.hpp"
 
 
-SymbolInfo::SymbolInfo(string ee_name, vector<int> value, bool is_const, bool is_array, vector<int> shape) 
-  : ee_name(ee_name), value(value), is_const(is_const), is_array(is_array), shape(shape) {}
+SymbolInfo::SymbolInfo(EVariable* ee_var, vector<int> value, bool is_const, bool is_array, vector<int> shape) 
+  : ee_var(ee_var), value(value), is_const(is_const), is_array(is_array), shape(shape) {}
 
 Context::Context()
 {
@@ -34,10 +34,9 @@ void Context::end_scope()
     sym_tabs.pop_back();
 }
 
-string Context::insert_symbol(string name, SymbolInfo value)
+void Context::insert_symbol(string name, SymbolInfo value)
 {
     sym_tabs.back().insert({name, value});
-    return value.ee_name;
 }
 
 SymbolInfo& Context::find_symbol(string name)
@@ -66,15 +65,15 @@ string Context::create_eeyore_glob_var()
     return "T" + to_string(glob_id++);
 }
 
-void Context::insert_var(string name, string ee_name, bool is_const)
+void Context::insert_var(string name, EVariable* ee_var, bool is_const)
 {
-    SymbolInfo symbol(ee_name, {0}, is_const, false);
+    SymbolInfo symbol(ee_var, {0}, is_const, false);
     insert_symbol(name, symbol);
 }
 
-void Context::insert_array(string name, string ee_name, vector<int>& shape, bool is_const)
+void Context::insert_array(string name, EVariable* ee_var, vector<int>& shape, bool is_const)
 {
-    SymbolInfo symbol(ee_name, {}, is_const, true, shape);
+    SymbolInfo symbol(ee_var, {}, is_const, true, shape);
     insert_symbol(name, symbol);
 }
 
@@ -168,38 +167,59 @@ void Context::insert_eeyore_stmt(EStmt* stmt, int indent)
     }
 } 
 
+void Context::fix_eeyore()
+{
+    for (EeyoreList& eeyore_list : eeyore_lists)
+    {
+        string func_name = eeyore_list.func_name;
+        int args_num = eeyore_list.args_num;
+
+
+        if (func_name == "__global__")
+            continue;
+        
+
+        if (func_name == "main")
+        {
+            vector<EStmt*> tmp_decls;
+            for (auto decl : eeyore_lists[0].decls)
+            {
+                EVariable* name = (EVariable*)((EVarStmt*)decl)->name;
+                if (name->is_temp)
+                    eeyore_list.decls.push_back(decl);
+                else 
+                    tmp_decls.push_back(decl);
+            }
+            eeyore_lists[0].decls = tmp_decls;
+
+            eeyore_list.stmts.insert(eeyore_list.stmts.begin(), eeyore_lists[0].stmts.begin(), eeyore_lists[0].stmts.end());
+            eeyore_list.stmt_indents.insert(eeyore_list.stmt_indents.begin(), eeyore_lists[0].stmt_indents.begin(), eeyore_lists[0].stmt_indents.end());
+
+            eeyore_lists[0].stmts.clear();
+            eeyore_lists[0].stmt_indents.clear();
+        }
+    }
+}
+
 void Context::print_eeyore(ostream& out)
 {
     for (auto eeyore_list : eeyore_lists)
     {
         string func_name = eeyore_list.func_name;
-        int args_num = eeyore_list.args_num;
-        if (func_name == "__global__")
-        {
-            for (auto decl : eeyore_list.decls) 
-                out << decl->to_string() << "\n";
-            continue;
-        } 
+        if (func_name != "__global__")
+            out << "f_" + func_name << " [" << std::to_string(eeyore_list.args_num) << "]" << "\n";
 
-        out << "f_" + func_name + " [" + to_string(args_num) + "]" << "\n";
-        if (func_name == "main")
-        {
-            int i = 0;
-            for (auto stmt : eeyore_lists[0].stmts)
-            {
-                for (int j = 0; j < eeyore_lists[0].stmt_indents[i]; j++) out << " ";
-                i++;
-                out << "  " << stmt->to_string() << "\n";
-            }
-        }
         for (auto decl : eeyore_list.decls)
-            out << "  " << decl->to_string() << "\n";
-        int i = 0;
-        for (auto stmt : eeyore_list.stmts)
+        {
+            if (func_name != "__global__") out << "  ";
+            out << decl->to_string() << "\n";
+        }
+
+        if (func_name == "__global__") continue;
+        for (int i = 0; i < eeyore_list.stmts.size(); i++)
         {
             for (int j = 0; j < eeyore_list.stmt_indents[i]; j++) out << "  ";
-            i++;
-            out << stmt->to_string() << "\n";
+            out << eeyore_list.stmts[i]->to_string() << "\n";
         }
         out << "end f_" + func_name << "\n";
     }

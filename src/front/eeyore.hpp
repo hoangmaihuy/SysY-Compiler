@@ -23,8 +23,8 @@ class EVariable : public EValue
 {
 public:
     string name;
-    bool is_array;
-    EVariable(string name, bool is_array=false);
+    bool is_temp;
+    EVariable(string name, bool is_temp=true);
     virtual string to_string();
 };
 
@@ -53,17 +53,16 @@ class EVarStmt : public EStmt
 {
 public:
     EValue* name;
-    EVarStmt(string name);
     EVarStmt(EValue* name);
     virtual string to_string();
 };
 
-class EVarArrayStmt : public EStmt 
+class EVarArrayStmt : public EVarStmt 
 {
 public:
-    EVariable* name;
+    EValue* name;
     int size;
-    EVarArrayStmt(string name, int size);
+    EVarArrayStmt(EValue* name, int size);
     virtual string to_string();
 };
 
@@ -72,8 +71,6 @@ class EAssignStmt : public EStmt
 public:
     EValue* res;
     EValue* value;
-    EAssignStmt(string name, int value);
-    EAssignStmt(string name, EValue* value);
     EAssignStmt(EValue* res, int value);
     EAssignStmt(EValue* res, EValue* value);
     virtual string to_string();
@@ -147,6 +144,23 @@ class EReturnStmt : public EStmt
 public:
     EValue* value;
     EReturnStmt(EValue* value=nullptr);
+    virtual string to_string();
+};
+
+class EFuncDef : public EStmt 
+{
+public: 
+    string func_name;
+    int args_num;
+    EFuncDef(string func_name, int args_num);
+    virtual string to_string();
+};
+
+class EFuncEnd : public EStmt 
+{
+public:
+    string func_name;
+    EFuncEnd(string func_name);
     virtual string to_string();
 };
 

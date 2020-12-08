@@ -26,28 +26,29 @@ void NDeclareStmt::generate_eeyore(Context& ctx, int indent)
 void NVarDeclare::generate_eeyore(Context& ctx, int indent)
 {
     string ee_name = ctx.create_eeyore_glob_var();
-    ctx.insert_var(ident.name, ee_name);
-    ctx.insert_eeyore_decl(new EVarStmt(ee_name));
+    EVariable* ee_var = new EVariable(ee_name, false);
+    ctx.insert_var(ident.name, ee_var);
+    ctx.insert_eeyore_decl(new EVarStmt(ee_var));
 }
 
 void NVarDeclareWithInit::generate_eeyore(Context& ctx, int indent)
 {
     string ee_name = ctx.create_eeyore_glob_var();
-    ctx.insert_var(ident.name, ee_name, is_const);
-    ctx.insert_eeyore_decl(new EVarStmt(ee_name));
+    EVariable* ee_var = new EVariable(ee_name, false);
+    ctx.insert_var(ident.name, ee_var, is_const);
+    ctx.insert_eeyore_decl(new EVarStmt(ee_var));
 
     if (is_const)
     {
         int eval_value = value.eval(ctx);
         ctx.assign_var(ident.name, eval_value);
-        ctx.insert_eeyore_stmt(new EAssignStmt(ee_name, eval_value), indent);
+        ctx.insert_eeyore_stmt(new EAssignStmt(ee_var, eval_value), indent);
     }
     else 
     {
         value.generate_eeyore(ctx, indent);
-        ctx.insert_eeyore_stmt(new EAssignStmt(ee_name, (ERightVal*)value.e_value), indent);
+        ctx.insert_eeyore_stmt(new EAssignStmt(ee_var, value.e_value), indent);
     }
-
 }
 
 void NArrayDeclare::generate_eeyore(Context& ctx, int indent)
@@ -55,11 +56,12 @@ void NArrayDeclare::generate_eeyore(Context& ctx, int indent)
     vector<int> array_shape = ident.get_shape(ctx);
     int array_size = get_array_size(array_shape);
     string ee_name = ctx.create_eeyore_glob_var();
+    EVariable* ee_var = new EVariable(ee_name, false);
     vector<int> values(array_size, 0);
 
-    ctx.insert_array(ident.name, ee_name, array_shape);
+    ctx.insert_array(ident.name, ee_var, array_shape);
     ctx.assign_array(ident.name, values);
-    ctx.insert_eeyore_decl(new EVarArrayStmt(ee_name, array_size * INT_SIZE));
+    ctx.insert_eeyore_decl(new EVarArrayStmt(ee_var, array_size * INT_SIZE));
 }
 
 void NArrayDeclareWithInit::generate_eeyore(Context& ctx, int indent)
@@ -68,10 +70,10 @@ void NArrayDeclareWithInit::generate_eeyore(Context& ctx, int indent)
     int array_size = get_array_size(array_shape);
 
     string ee_name = ctx.create_eeyore_glob_var();
-    EVariable* ee_var = new EVariable(ee_name);
-    ctx.insert_array(ident.name, ee_name, array_shape, is_const);
+    EVariable* ee_var = new EVariable(ee_name, false);
+    ctx.insert_array(ident.name, ee_var, array_shape, is_const);
 
-    ctx.insert_eeyore_decl(new EVarArrayStmt(ee_name, array_size * INT_SIZE));
+    ctx.insert_eeyore_decl(new EVarArrayStmt(ee_var, array_size * INT_SIZE));
 
     if (is_const)
     {
@@ -184,13 +186,14 @@ void NIdentifier::generate_eeyore(Context& ctx, int indent)
 void NIdentifier::generate_eeyore(Context& ctx, int indent, bool is_lhs)
 {
     auto symbol = ctx.find_symbol(name);
-    e_value = new EVariable(symbol.ee_name);
+    e_value = symbol.ee_var;
 }
 
 void NArrayIdentifier::generate_eeyore(Context& ctx, int indent)
 {
     generate_eeyore(ctx, indent, false);
 }
+
 void NArrayIdentifier::generate_eeyore(Context& ctx, int indent, bool is_lhs)
 {
     auto symbol = ctx.find_symbol(ident.name);
@@ -212,9 +215,10 @@ void NArrayIdentifier::generate_eeyore(Context& ctx, int indent, bool is_lhs)
         ctx.insert_eeyore_stmt(new EBinaryExpr(tmp_name, shape[i]->e_value, MUL, new ERightVal(array_size)),indent);
         ctx.insert_eeyore_stmt(new EBinaryExpr(index_name, index_name, PLUS, tmp_name), indent);
     }
+
     ctx.insert_eeyore_stmt(new EBinaryExpr(index_name, index_name, MUL, new ERightVal(INT_SIZE)), indent);
     
-    ELeftVal* item_name = new ELeftVal(new EVariable(symbol.ee_name), index_name, true);
+    ELeftVal* item_name = new ELeftVal(symbol.ee_var, index_name, true);
     if (!is_lhs)
     {
         e_value = new EVariable(ctx.create_eeyore_temp_var());
@@ -247,17 +251,18 @@ void NFuncDef::generate_eeyore(Context& ctx, int indent)
     for (auto arg : args.args)
     {
         string ee_name = "p" + to_string(args_num++);
+        EVariable* ee_var = new EVariable(ee_name, false);
         if (!arg->is_array)
         {
             string arg_name = arg->ident.name;
-            ctx.insert_var(arg_name, ee_name);
+            ctx.insert_var(arg_name, ee_var);
         }
         else 
         {
             NArrayIdentifier& array_ident = (NArrayIdentifier&)arg->ident;
             vector<int> array_shape = array_ident.get_shape(ctx);
             string arg_name = array_ident.ident.name;
-            ctx.insert_array(arg_name, ee_name, array_shape);
+            ctx.insert_array(arg_name, ee_var, array_shape);
         }
     }
     body.generate_eeyore(ctx, indent);

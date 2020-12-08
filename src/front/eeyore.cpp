@@ -16,7 +16,7 @@ string EValue::to_string()
     return "EValue";
 }
 
-EVariable::EVariable(string name, bool is_array) : name(name), is_array(is_array) {}
+EVariable::EVariable(string name, bool is_temp) : name(name), is_temp(is_temp) {}
 
 string EVariable::to_string()
 {
@@ -55,38 +55,19 @@ string ELeftVal::to_string()
 
 EVarStmt::EVarStmt(EValue* name) : name(name) {}
 
-EVarStmt::EVarStmt(string name) 
-{
-    this->name = new EVariable(name);
-}
-
 string EVarStmt::to_string()
 {
     return "var " + name->to_string();
 }
 
-EVarArrayStmt::EVarArrayStmt(string name, int size) : size(size) 
-{
-    this->name = new EVariable(name, true);
-}
+EVarArrayStmt::EVarArrayStmt(EValue* name, int size) : EVarStmt(name), size(size) {}
 
 string EVarArrayStmt::to_string()
 {
-    return "var " + std::to_string(size) + " " + name->to_string();
+    return "var " + std::to_string(size) + " " + EVarStmt::name->to_string();
 }
 
 EAssignStmt::EAssignStmt(EValue* res, EValue* value) : res(res), value(value) {}
-
-EAssignStmt::EAssignStmt(string name, int value)
-{
-    res = new EVariable(name);
-    this->value = new ERightVal(value);
-}
-
-EAssignStmt::EAssignStmt(string name, EValue* value) : value(value)
-{
-    res = new EVariable(name);
-}
 
 EAssignStmt::EAssignStmt(EValue* res, int value) : res(res)
 {
@@ -156,4 +137,18 @@ string EReturnStmt::to_string()
         return "return " + value->to_string();
     else 
         return "return";
+}
+
+EFuncDef::EFuncDef(string func_name, int args_num) : func_name(func_name), args_num(args_num) {}
+
+string EFuncDef::to_string()
+{
+    return "f_" + func_name + " [ " + std::to_string(args_num) + " ]";
+}
+
+EFuncEnd::EFuncEnd(string func_name) : func_name(func_name) {}
+
+string EFuncEnd::to_string()
+{
+    return "end f_" + func_name;
 }

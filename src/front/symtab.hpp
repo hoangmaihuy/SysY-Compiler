@@ -9,13 +9,13 @@ using namespace std;
 class SymbolInfo
 {
 public:
-    string ee_name; 
+    EVariable* ee_var; 
     bool is_const;
     bool is_array;
     int array_size;
     vector<int> shape;
     vector<int> value;
-    SymbolInfo(string ee_name, vector<int> value={}, bool is_const=false, bool is_array=false, vector<int> shape={});
+    SymbolInfo(EVariable* ee_var, vector<int> value={}, bool is_const=false, bool is_array=false, vector<int> shape={});
 };
 
 class EeyoreList
@@ -43,12 +43,12 @@ public:
     FuncTable func_tabs;
 
     Context();
-    string insert_symbol(string name, SymbolInfo value); // return eeyore_symbol
-    void insert_var(string name, string ee_name, bool is_const=false);
+    void insert_symbol(string name, SymbolInfo value);
+    void insert_var(string name, EVariable* ee_var, bool is_const=false);
     void assign_var(string name, int value);
     int get_var(string name);
 
-    void insert_array(string name, string ee_name, vector<int>& shape, bool is_const=false);
+    void insert_array(string name, EVariable* ee_var, vector<int>& shape, bool is_const=false);
     void assign_array_item(string name, int index, int value);
     void assign_array(string name, vector<int>& value);
 
@@ -72,5 +72,6 @@ public:
     void insert_eeyore_decl(EStmt* decl);
     void insert_eeyore_stmt(EStmt* stmt, int indent=0);
 
+    void fix_eeyore();
     void print_eeyore(ostream& out=cout);
 };
