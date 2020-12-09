@@ -4,12 +4,12 @@
 #include "sysy.tab.hpp"
 #include "util.hpp"
 
-int NExpression::eval(Context& ctx)
+int NExpression::eval(ContextEeyore& ctx)
 {
     return 0;
 }
 
-int NBinaryExpr::eval(Context& ctx)
+int NBinaryExpr::eval(ContextEeyore& ctx)
 {
     int lhs_val = lhs.eval(ctx);
     int rhs_val = rhs.eval(ctx);
@@ -33,7 +33,7 @@ int NBinaryExpr::eval(Context& ctx)
     return 0;
 }
 
-int NUnaryExpr::eval(Context& ctx)
+int NUnaryExpr::eval(ContextEeyore& ctx)
 {
     int rhs_val = rhs.eval(ctx);
     switch (op)
@@ -45,18 +45,18 @@ int NUnaryExpr::eval(Context& ctx)
     return 0;
 }
 
-int NNumber::eval(Context& ctx)
+int NNumber::eval(ContextEeyore& ctx)
 {
     return value;
 }
 
-int NIdentifier::eval(Context& ctx)
+int NIdentifier::eval(ContextEeyore& ctx)
 {
     auto symbol = ctx.find_symbol(name);
     return symbol.value[0];
 }
 
-vector<int> NArrayIdentifier::get_shape(Context& ctx)
+vector<int> NArrayIdentifier::get_shape(ContextEeyore& ctx)
 {
     vector<int> eval_shape;
     for (auto i : shape) 
@@ -67,7 +67,7 @@ vector<int> NArrayIdentifier::get_shape(Context& ctx)
     return eval_shape;
 }
 
-int NArrayIdentifier::eval(Context& ctx)
+int NArrayIdentifier::eval(ContextEeyore& ctx)
 {
     auto symbol = ctx.find_symbol(name);
     auto array_shape = symbol.shape;
@@ -79,7 +79,7 @@ int NArrayIdentifier::eval(Context& ctx)
     return symbol.value[index];
 }
 
-void NArrayDeclareInitValue::write_values(Context& ctx, int start_index, vector<int>& shape, vector<int>& init_values)
+void NArrayDeclareInitValue::write_values(ContextEeyore& ctx, int start_index, vector<int>& shape, vector<int>& init_values)
 {
     int array_size = get_array_size(shape);
     int sub_array_size = array_size /= shape[0];

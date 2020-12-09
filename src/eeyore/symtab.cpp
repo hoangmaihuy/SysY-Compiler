@@ -7,7 +7,7 @@
 SymbolInfo::SymbolInfo(EVariable* ee_var, vector<int> value, bool is_const, bool is_array, vector<int> shape) 
   : ee_var(ee_var), value(value), is_const(is_const), is_array(is_array), shape(shape) {}
 
-Context::Context()
+ContextEeyore::ContextEeyore()
 {
     glob_id = temp_id = jump_id = 0;
     create_scope();
@@ -24,22 +24,22 @@ Context::Context()
     insert_func("_sysy_stoptime", VOID, 0, true);
 }
 
-void Context::create_scope()
+void ContextEeyore::create_scope()
 {
     sym_tabs.push_back({});
 }
 
-void Context::end_scope()
+void ContextEeyore::end_scope()
 {
     sym_tabs.pop_back();
 }
 
-void Context::insert_symbol(string name, SymbolInfo value)
+void ContextEeyore::insert_symbol(string name, SymbolInfo value)
 {
     sym_tabs.back().insert({name, value});
 }
 
-SymbolInfo& Context::find_symbol(string name)
+SymbolInfo& ContextEeyore::find_symbol(string name)
 {
     for (int i = sym_tabs.size()-1; i >= 0; i--)
     {
@@ -50,71 +50,71 @@ SymbolInfo& Context::find_symbol(string name)
     cerr << "No symbol: " << name << "\n";
 }
 
-bool Context::is_global()
+bool ContextEeyore::is_global()
 {
     return sym_tabs.size() == 1; 
 }
 
-string Context::create_eeyore_temp_var()
+string ContextEeyore::create_eeyore_temp_var()
 {
     return "t" + to_string(temp_id++);
 }
 
-string Context::create_eeyore_glob_var()
+string ContextEeyore::create_eeyore_glob_var()
 {
     return "T" + to_string(glob_id++);
 }
 
-void Context::insert_var(string name, EVariable* ee_var, bool is_const)
+void ContextEeyore::insert_var(string name, EVariable* ee_var, bool is_const)
 {
     SymbolInfo symbol(ee_var, {0}, is_const, false);
     insert_symbol(name, symbol);
 }
 
-void Context::insert_array(string name, EVariable* ee_var, vector<int>& shape, bool is_const)
+void ContextEeyore::insert_array(string name, EVariable* ee_var, vector<int>& shape, bool is_const)
 {
     SymbolInfo symbol(ee_var, {}, is_const, true, shape);
     insert_symbol(name, symbol);
 }
 
-void Context::assign_var(string name, int value)
+void ContextEeyore::assign_var(string name, int value)
 {
     SymbolInfo& symbol = find_symbol(name);
     symbol.value[0] = value;
 }
 
-int Context::get_var(string name)
+int ContextEeyore::get_var(string name)
 {
     auto symbol = find_symbol(name);
     return symbol.value[0];
 }
 
-void Context::assign_array_item(string name, int index, int value)
+void ContextEeyore::assign_array_item(string name, int index, int value)
 {
     auto symbol = find_symbol(name);
     symbol.value[index] = value;
 }
 
-void Context::assign_array(string name, vector<int>& value)
+void ContextEeyore::assign_array(string name, vector<int>& value)
 {
     SymbolInfo& symbol = find_symbol(name);
     symbol.value = value;
 }
 
-int Context::get_array_item(string name, int index)
+int ContextEeyore::get_array_item(string name, int index)
 {
     SymbolInfo& symbol = find_symbol(name);
     return symbol.value[index];
 }
 
-void Context::insert_func(string func_name, int return_type, int args_num, bool built_in)
+void ContextEeyore::insert_func(string func_name, int return_type, int args_num, bool built_in)
 {
     func_tabs.insert({func_name, return_type});
     if (!built_in)
         eeyore_lists.push_back(EeyoreList(func_name, args_num));
 }
 
-int Context::get_func_return_type(string name)
+int ContextEeyore::get_func_return_type(string name)
 {
     auto find = func_tabs.find(name);
     if (find != func_tabs.end())
@@ -123,29 +123,29 @@ int Context::get_func_return_type(string name)
         cerr << "No func def";
 }
 
-string Context::create_jump()
+string ContextEeyore::create_jump()
 {
     return "l" + to_string(jump_id++); 
 }
 
-void Context::create_loop(string begin_loop, string end_loop)
+void ContextEeyore::create_loop(string begin_loop, string end_loop)
 {
     loops.push_back(make_pair(begin_loop, end_loop));
 }
 
-void Context::end_loop()
+void ContextEeyore::end_loop()
 {
     loops.pop_back();
 }
 
-pair<string, string> Context::get_current_loop()
+pair<string, string> ContextEeyore::get_current_loop()
 {
     return loops.back();
 }
 
 EeyoreList::EeyoreList(string func_name, int args_num) : func_name(func_name), args_num(args_num) { }
 
-void Context::insert_eeyore_decl(EStmt* decl)
+void ContextEeyore::insert_eeyore_decl(EStmt* decl)
 {
     if (is_global())
         eeyore_lists[0].decls.push_back(decl);
@@ -153,7 +153,7 @@ void Context::insert_eeyore_decl(EStmt* decl)
         eeyore_lists.back().decls.push_back(decl);
 }
 
-void Context::insert_eeyore_stmt(EStmt* stmt, int indent)
+void ContextEeyore::insert_eeyore_stmt(EStmt* stmt, int indent)
 {
     if (is_global())
     {
@@ -167,7 +167,7 @@ void Context::insert_eeyore_stmt(EStmt* stmt, int indent)
     }
 } 
 
-void Context::fix_eeyore()
+void ContextEeyore::fix_eeyore()
 {
     for (EeyoreList& eeyore_list : eeyore_lists)
     {
@@ -201,7 +201,7 @@ void Context::fix_eeyore()
     }
 }
 
-void Context::get_eeyore_list(vector<EStmt*>& ee_list)
+void ContextEeyore::get_eeyore_list(vector<EStmt*>& ee_list)
 {
     for (auto eeyore_list : eeyore_lists)
     {

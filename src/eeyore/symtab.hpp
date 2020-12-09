@@ -33,7 +33,7 @@ public:
 typedef unordered_map<string, SymbolInfo> SymbolTable;
 typedef unordered_map<string, int> FuncTable;
 
-class Context
+class ContextEeyore
 {
 public:
     int glob_id, temp_id, jump_id;
@@ -42,7 +42,7 @@ public:
     vector<EeyoreList> eeyore_lists;
     FuncTable func_tabs;
 
-    Context();
+    ContextEeyore();
     void insert_symbol(string name, SymbolInfo value);
     void insert_var(string name, EVariable* ee_var, bool is_const=false);
     void assign_var(string name, int value);

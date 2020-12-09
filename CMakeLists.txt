@@ -9,19 +9,19 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 find_package(FLEX REQUIRED)
 find_package(BISON REQUIRED)
 
-flex_target(SysYLexer 
-    src/front/sysy.l 
+flex_target(SysYLexer
+        src/eeyore/sysy.l
     ${CMAKE_CURRENT_BINARY_DIR}/lex.yy.cpp
 )
-bison_target(SysYParser 
-    src/front/sysy.y 
+bison_target(SysYParser
+        src/eeyore/sysy.y
     ${CMAKE_CURRENT_BINARY_DIR}/sysy.tab.cpp
 )
 add_flex_bison_dependency(SysYLexer SysYParser)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(src)
-include_directories(src/front)
+include_directories(src/eeyore)
 
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 set(SOURCES ${SOURCES} ${FLEX_SysYLexer_OUTPUTS}

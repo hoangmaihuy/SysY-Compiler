@@ -2,20 +2,21 @@
 #include <iostream>
 #include <fstream>
 #include "globals.hpp"
-#include "front/tree.hpp"
+#include "eeyore/tree.hpp"
 #include "sysy.tab.hpp"
-#include "front/util.hpp"
+#include "eeyore/util.hpp"
 
 extern FILE* yyin;
 extern NCompUnit* parse();
 
 string in_file, out_file, file_prefix;
 vector<EStmt*> ee_list;
+ContextEeyore ctx_eeyore;
 bool DEBUG = false;
 
 bool compileEeyore, compileTigger, compileRISCV;
 
-void print_eeyore(vector<EStmt*> ee_list, ostream& out)
+void print_eeyore(ostream& out)
 {
     for (auto i : ee_list)
         out << i->to_string() << "\n";
@@ -23,7 +24,6 @@ void print_eeyore(vector<EStmt*> ee_list, ostream& out)
 
 void compileToEeyore()
 {
-    Context ctx;
     yyin = fopen(in_file.c_str(), "r");
     ofstream eeyore_out;
     
@@ -38,10 +38,10 @@ void compileToEeyore()
         cerr << "Done parse\n";
         root->print(0, false, cerr);
     }
-    root->generate_eeyore(ctx, 0);
-    ctx.fix_eeyore();
-    ctx.get_eeyore_list(ee_list);
-    print_eeyore(ee_list, eeyore_out);
+    root->generate_eeyore(ctx_eeyore, 0);
+    ctx_eeyore.fix_eeyore();
+    ctx_eeyore.get_eeyore_list(ee_list);
+    print_eeyore(eeyore_out);
     eeyore_out.close();
 }
 

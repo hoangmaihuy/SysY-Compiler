@@ -5,25 +5,25 @@
 #include "sysy.tab.hpp"
 #include "eeyore.hpp"
 
-void TreeNode::generate_eeyore(Context& ctx, int indent)
+void TreeNode::generate_eeyore(ContextEeyore& ctx, int indent)
 {
 }
 
-void NCompUnit::generate_eeyore(Context& ctx, int indent)
+void NCompUnit::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     for (auto i : body)
         i->generate_eeyore(ctx, indent);
 }
 
-void NExpression::generate_eeyore(Context& ctx, int indent) {}
+void NExpression::generate_eeyore(ContextEeyore& ctx, int indent) {}
 
-void NDeclareStmt::generate_eeyore(Context& ctx, int indent)
+void NDeclareStmt::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     for (auto i : decl_list)
         i->generate_eeyore(ctx, indent);
 }
 
-void NVarDeclare::generate_eeyore(Context& ctx, int indent)
+void NVarDeclare::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     string ee_name = ctx.create_eeyore_glob_var();
     EVariable* ee_var = new EVariable(ee_name, false);
@@ -31,7 +31,7 @@ void NVarDeclare::generate_eeyore(Context& ctx, int indent)
     ctx.insert_eeyore_decl(new EVarStmt(ee_var));
 }
 
-void NVarDeclareWithInit::generate_eeyore(Context& ctx, int indent)
+void NVarDeclareWithInit::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     string ee_name = ctx.create_eeyore_glob_var();
     EVariable* ee_var = new EVariable(ee_name, false);
@@ -51,7 +51,7 @@ void NVarDeclareWithInit::generate_eeyore(Context& ctx, int indent)
     }
 }
 
-void NArrayDeclare::generate_eeyore(Context& ctx, int indent)
+void NArrayDeclare::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     vector<int> array_shape = ident.get_shape(ctx);
     int array_size = get_array_size(array_shape);
@@ -64,7 +64,7 @@ void NArrayDeclare::generate_eeyore(Context& ctx, int indent)
     ctx.insert_eeyore_decl(new EVarArrayStmt(ee_var, array_size * INT_SIZE));
 }
 
-void NArrayDeclareWithInit::generate_eeyore(Context& ctx, int indent)
+void NArrayDeclareWithInit::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     vector<int> array_shape = ident.get_shape(ctx);
     int array_size = get_array_size(array_shape);
@@ -99,7 +99,7 @@ void NArrayDeclareWithInit::generate_eeyore(Context& ctx, int indent)
     }
 }
 
-void NArrayDeclareInitValue::generate_eeyore(Context& ctx, EVariable* ee_var, vector<int>& shape, int start_index, int indent)
+void NArrayDeclareInitValue::generate_eeyore(ContextEeyore& ctx, EVariable* ee_var, vector<int>& shape, int start_index, int indent)
 {
     int array_size = get_array_size(shape);
     int sub_array_size = array_size /= shape[0];
@@ -125,13 +125,13 @@ void NArrayDeclareInitValue::generate_eeyore(Context& ctx, EVariable* ee_var, ve
     }
 }
 
-void NCondExpr::generate_eeyore(Context& ctx, int indent)
+void NCondExpr::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     value.generate_eeyore(ctx, indent);
     e_value = value.e_value;
 }
 
-void NBinaryExpr::generate_eeyore(Context& ctx, int indent)
+void NBinaryExpr::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     lhs.generate_eeyore(ctx, indent);
     string ee_name = ctx.create_eeyore_temp_var();
@@ -164,7 +164,7 @@ void NBinaryExpr::generate_eeyore(Context& ctx, int indent)
 
 }
 
-void NUnaryExpr::generate_eeyore(Context& ctx, int indent)
+void NUnaryExpr::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     rhs.generate_eeyore(ctx, indent);
     string ee_name = ctx.create_eeyore_temp_var();
@@ -173,28 +173,28 @@ void NUnaryExpr::generate_eeyore(Context& ctx, int indent)
     ctx.insert_eeyore_stmt(new EUnaryExpr(e_value, op, rhs.e_value), indent);
 }
 
-void NNumber::generate_eeyore(Context& ctx, int indent)
+void NNumber::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     e_value = new ERightVal(value);
 }
 
-void NIdentifier::generate_eeyore(Context& ctx, int indent)
+void NIdentifier::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     generate_eeyore(ctx, indent, false);
 }
 
-void NIdentifier::generate_eeyore(Context& ctx, int indent, bool is_lhs)
+void NIdentifier::generate_eeyore(ContextEeyore& ctx, int indent, bool is_lhs)
 {
     auto symbol = ctx.find_symbol(name);
     e_value = symbol.ee_var;
 }
 
-void NArrayIdentifier::generate_eeyore(Context& ctx, int indent)
+void NArrayIdentifier::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     generate_eeyore(ctx, indent, false);
 }
 
-void NArrayIdentifier::generate_eeyore(Context& ctx, int indent, bool is_lhs)
+void NArrayIdentifier::generate_eeyore(ContextEeyore& ctx, int indent, bool is_lhs)
 {
     auto symbol = ctx.find_symbol(ident.name);
     vector<int> array_shape = symbol.shape;
@@ -231,7 +231,7 @@ void NArrayIdentifier::generate_eeyore(Context& ctx, int indent, bool is_lhs)
     }
 }
 
-void NBlock::generate_eeyore(Context& ctx, int indent)
+void NBlock::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     ctx.create_scope();
     for (auto stmt : body)
@@ -239,7 +239,7 @@ void NBlock::generate_eeyore(Context& ctx, int indent)
     ctx.end_scope();
 }
 
-void NFuncDef::generate_eeyore(Context& ctx, int indent)
+void NFuncDef::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     string func_name = ident.name;
     int args_num = args.args.size();
@@ -273,7 +273,7 @@ void NFuncDef::generate_eeyore(Context& ctx, int indent)
     ctx.end_scope();
 }
 
-void NFuncCall::generate_eeyore(Context& ctx, int indent)
+void NFuncCall::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     string func_name = ident.name;
     for (auto arg : args.args)
@@ -296,14 +296,14 @@ void NFuncCall::generate_eeyore(Context& ctx, int indent)
     }
 }
 
-void NAssignStmt::generate_eeyore(Context& ctx, int indent)
+void NAssignStmt::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     lhs.generate_eeyore(ctx, indent, true);
     rhs.generate_eeyore(ctx, indent);
     ctx.insert_eeyore_stmt(new EAssignStmt(lhs.e_value, rhs.e_value), indent);
 }
 
-void NIfStmt::generate_eeyore(Context& ctx, int indent)
+void NIfStmt::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     cond.generate_eeyore(ctx, indent);
     string else_jump = ctx.create_jump();
@@ -312,7 +312,7 @@ void NIfStmt::generate_eeyore(Context& ctx, int indent)
     ctx.insert_eeyore_stmt(new EJumpLabel(else_jump), indent);
 }
 
-void NIfElseStmt::generate_eeyore(Context& ctx, int indent)
+void NIfElseStmt::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     cond.generate_eeyore(ctx, indent);
     string else_jump = ctx.create_jump();
@@ -326,7 +326,7 @@ void NIfElseStmt::generate_eeyore(Context& ctx, int indent)
     ctx.insert_eeyore_stmt(new EJumpLabel(end_else_jump), indent);
 }
 
-void NReturnStmt::generate_eeyore(Context& ctx, int indent)
+void NReturnStmt::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     if (value) 
     {
@@ -339,7 +339,7 @@ void NReturnStmt::generate_eeyore(Context& ctx, int indent)
     }
 }
 
-void NWhileStmt::generate_eeyore(Context& ctx, int indent)
+void NWhileStmt::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     string begin_loop = ctx.create_jump();
     string end_loop = ctx.create_jump();
@@ -356,24 +356,24 @@ void NWhileStmt::generate_eeyore(Context& ctx, int indent)
     ctx.end_loop();
 }
 
-void NContinueStmt::generate_eeyore(Context& ctx, int indent)
+void NContinueStmt::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     pair<string, string> loop = ctx.get_current_loop();
     ctx.insert_eeyore_stmt(new EUnconditionalJump(loop.first), indent);
 }
 
-void NBreakStmt::generate_eeyore(Context& ctx, int indent)
+void NBreakStmt::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     pair<string, string> loop = ctx.get_current_loop();
     ctx.insert_eeyore_stmt(new EUnconditionalJump(loop.second), indent);
 }
 
-void NVoidStmt::generate_eeyore(Context& ctx, int indent)
+void NVoidStmt::generate_eeyore(ContextEeyore& ctx, int indent)
 {
 
 }
 
-void NEvalStmt::generate_eeyore(Context& ctx, int indent)
+void NEvalStmt::generate_eeyore(ContextEeyore& ctx, int indent)
 {
     value.generate_eeyore(ctx, indent);
 }
