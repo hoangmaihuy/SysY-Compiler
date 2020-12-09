@@ -201,26 +201,22 @@ void Context::fix_eeyore()
     }
 }
 
-void Context::print_eeyore(ostream& out)
+void Context::get_eeyore_list(vector<EStmt*>& ee_list)
 {
     for (auto eeyore_list : eeyore_lists)
     {
         string func_name = eeyore_list.func_name;
         if (func_name != "__global__")
-            out << "f_" + func_name << " [" << std::to_string(eeyore_list.args_num) << "]" << "\n";
+            ee_list.push_back(new EFuncDef(func_name, eeyore_list.args_num));
 
         for (auto decl : eeyore_list.decls)
-        {
-            if (func_name != "__global__") out << "  ";
-            out << decl->to_string() << "\n";
-        }
+            ee_list.push_back(decl);
 
         if (func_name == "__global__") continue;
-        for (int i = 0; i < eeyore_list.stmts.size(); i++)
-        {
-            for (int j = 0; j < eeyore_list.stmt_indents[i]; j++) out << "  ";
-            out << eeyore_list.stmts[i]->to_string() << "\n";
-        }
-        out << "end f_" + func_name << "\n";
+
+        for (auto stmt : eeyore_list.stmts)
+            ee_list.push_back(stmt);
+
+        ee_list.push_back(new EFuncEnd(func_name));
     }
 }

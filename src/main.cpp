@@ -10,9 +10,16 @@ extern FILE* yyin;
 extern NCompUnit* parse();
 
 string in_file, out_file, file_prefix;
+vector<EStmt*> ee_list;
 bool DEBUG = false;
 
 bool compileEeyore, compileTigger, compileRISCV;
+
+void print_eeyore(vector<EStmt*> ee_list, ostream& out)
+{
+    for (auto i : ee_list)
+        out << i->to_string() << "\n";
+}
 
 void compileToEeyore()
 {
@@ -33,10 +40,9 @@ void compileToEeyore()
     }
     root->generate_eeyore(ctx, 0);
     ctx.fix_eeyore();
-    ctx.print_eeyore(eeyore_out);
+    ctx.get_eeyore_list(ee_list);
+    print_eeyore(ee_list, eeyore_out);
     eeyore_out.close();
-
-    return;
 }
 
 int main(int argc, char * argv[]) 
