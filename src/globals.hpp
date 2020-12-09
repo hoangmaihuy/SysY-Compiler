@@ -10,5 +10,7 @@
 
 #define INT_SIZE 4
 
+#define GLOB_NAME "__global__"
+
 using namespace std;
 

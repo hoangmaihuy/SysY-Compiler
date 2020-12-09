@@ -202,22 +202,35 @@ void ContextEeyore::fix_eeyore()
     }
 }
 
-void ContextEeyore::get_eeyore_list(vector<EStmt*>& ee_list)
+void ContextEeyore::print_eeyore(ostream& out)
 {
     for (auto eeyore_list : eeyore_lists)
     {
         string func_name = eeyore_list.func_name;
-        if (func_name != "__global__")
-            ee_list.push_back(new EFuncDef(func_name, eeyore_list.args_num));
+        if (func_name != GLOB_NAME)
+        {
+            auto* func_def = new EFuncDef(func_name, eeyore_list.args_num);
+            out << "\n";
+            out << func_def->to_string() << "\n";
+            delete func_def;
+        }
 
         for (auto decl : eeyore_list.decls)
-            ee_list.push_back(decl);
+        {
+            if (func_name != GLOB_NAME) out << "  ";
+            out << decl->to_string() << "\n";
+        }
 
-        if (func_name == "__global__") continue;
+        if (func_name == GLOB_NAME) continue;
 
-        for (auto stmt : eeyore_list.stmts)
-            ee_list.push_back(stmt);
+        for (auto i = 0; i < eeyore_list.stmts.size(); i++)
+        {
+            for (int j = 0; j < eeyore_list.stmt_indents[i]; j++) out << " ";
+            out << eeyore_list.stmts[i]->to_string() << "\n";
+        }
 
-        ee_list.push_back(new EFuncEnd(func_name));
+        auto* func_end = new EFuncEnd(func_name);
+        out << func_end->to_string() << "\n";
+        delete func_end;
     }
 }

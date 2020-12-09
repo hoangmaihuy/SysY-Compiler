@@ -72,6 +72,6 @@ public:
     void insert_eeyore_decl(EStmt* decl);
     void insert_eeyore_stmt(EStmt* stmt, int indent=0);
 
-    void get_eeyore_list(vector<EStmt*>& ee_list);
     void fix_eeyore();
+    void print_eeyore(ostream& out);
 };

@@ -18,7 +18,7 @@ dirs = [
 #    'sysyruntimelibrary/section2/performance_test',
 ]
 # path to SysY compiler
-compiler = '../build/compiler'
+compiler = '../cmake-build-debug/compiler'
 # path to MiniVM
 minivm = '../MiniVM/build/minivm'
 # temporary Eeyore file
