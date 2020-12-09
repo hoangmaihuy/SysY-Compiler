@@ -1,17 +1,18 @@
 #include <iostream> 
+#include <utility>
 #include "symtab.hpp"
 #include "tree.hpp"
 #include "sysy.tab.hpp"
 
 
 SymbolInfo::SymbolInfo(EVariable* ee_var, vector<int> value, bool is_const, bool is_array, vector<int> shape) 
-  : ee_var(ee_var), value(value), is_const(is_const), is_array(is_array), shape(shape) {}
+  : ee_var(ee_var), value(std::move(value)), is_const(is_const), is_array(is_array), shape(std::move(shape)) {}
 
 ContextEeyore::ContextEeyore()
 {
     glob_id = temp_id = jump_id = 0;
     create_scope();
-    eeyore_lists.push_back(EeyoreList("__global__", 0));
+    eeyore_lists.emplace_back("__global__", 0);
     insert_func("getint", INT, 0, true);
     insert_func("getch", INT, 0, true);
     insert_func("getarray", INT, 1, true);
@@ -26,7 +27,7 @@ ContextEeyore::ContextEeyore()
 
 void ContextEeyore::create_scope()
 {
-    sym_tabs.push_back({});
+    sym_tabs.emplace_back();
 }
 
 void ContextEeyore::end_scope()
@@ -34,12 +35,12 @@ void ContextEeyore::end_scope()
     sym_tabs.pop_back();
 }
 
-void ContextEeyore::insert_symbol(string name, SymbolInfo value)
+void ContextEeyore::insert_symbol(const string& name, SymbolInfo value)
 {
     sym_tabs.back().insert({name, value});
 }
 
-SymbolInfo& ContextEeyore::find_symbol(string name)
+SymbolInfo& ContextEeyore::find_symbol(const string& name)
 {
     for (int i = sym_tabs.size()-1; i >= 0; i--)
     {
@@ -50,7 +51,7 @@ SymbolInfo& ContextEeyore::find_symbol(string name)
     cerr << "No symbol: " << name << "\n";
 }
 
-bool ContextEeyore::is_global()
+bool ContextEeyore::is_global() const
 {
     return sym_tabs.size() == 1; 
 }
@@ -107,14 +108,14 @@ int ContextEeyore::get_array_item(string name, int index)
     return symbol.value[index];
 }
 
-void ContextEeyore::insert_func(string func_name, int return_type, int args_num, bool built_in)
+void ContextEeyore::insert_func(const string& func_name, int return_type, int args_num, bool built_in)
 {
     func_tabs.insert({func_name, return_type});
     if (!built_in)
-        eeyore_lists.push_back(EeyoreList(func_name, args_num));
+        eeyore_lists.emplace_back(func_name, args_num);
 }
 
-int ContextEeyore::get_func_return_type(string name)
+int ContextEeyore::get_func_return_type(const string& name)
 {
     auto find = func_tabs.find(name);
     if (find != func_tabs.end())
@@ -128,9 +129,9 @@ string ContextEeyore::create_jump()
     return "l" + to_string(jump_id++); 
 }
 
-void ContextEeyore::create_loop(string begin_loop, string end_loop)
+void ContextEeyore::create_loop(const string& begin_loop, const string& end_loop)
 {
-    loops.push_back(make_pair(begin_loop, end_loop));
+    loops.emplace_back(begin_loop, end_loop);
 }
 
 void ContextEeyore::end_loop()

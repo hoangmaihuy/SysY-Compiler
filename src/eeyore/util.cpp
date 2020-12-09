@@ -1,4 +1,6 @@
 #include "util.hpp"
+
+#include <utility>
 #include "tree.hpp"
 #include "sysy.tab.hpp"
 
@@ -29,7 +31,7 @@ string get_token_str(int token)
 
 string get_file_prefix(string filename)
 {
-    string prefix = filename;
+    string prefix = std::move(filename);
     while (prefix.back() != '.') prefix.pop_back();
     return prefix;
 }
@@ -51,9 +53,4 @@ int get_array_index(const vector<int>& shape, const vector<int>& indexes)
         index += indexes[i] * array_size;
     }
     return index;
-}
-
-string get_array_item_eeyore(string ee_name, int index)
-{
-    return ee_name + " [" + to_string(index*INT_SIZE) + "]";
 }

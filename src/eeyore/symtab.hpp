@@ -12,7 +12,7 @@ public:
     EVariable* ee_var; 
     bool is_const;
     bool is_array;
-    int array_size;
+    int array_size{};
     vector<int> shape;
     vector<int> value;
     SymbolInfo(EVariable* ee_var, vector<int> value={}, bool is_const=false, bool is_array=false, vector<int> shape={});
@@ -43,7 +43,7 @@ public:
     FuncTable func_tabs;
 
     ContextEeyore();
-    void insert_symbol(string name, SymbolInfo value);
+    void insert_symbol(const string& name, SymbolInfo value);
     void insert_var(string name, EVariable* ee_var, bool is_const=false);
     void assign_var(string name, int value);
     int get_var(string name);
@@ -54,20 +54,20 @@ public:
 
     int get_array_item(string name, int index);
 
-    void insert_func(string func_name, int return_type, int args_num=0, bool built_in=false);
-    int get_func_return_type(string name);
+    void insert_func(const string& func_name, int return_type, int args_num=0, bool built_in=false);
+    int get_func_return_type(const string& name);
 
 
-    SymbolInfo& find_symbol(string name);
+    SymbolInfo& find_symbol(const string& name);
     string create_eeyore_temp_var();
     string create_eeyore_glob_var();
     string create_jump();
     void create_scope();
     void end_scope();
-    void create_loop(string begin_loop, string end_loop);
+    void create_loop(const string& begin_loop, const string& end_loop);
     void end_loop();
     pair<string, string> get_current_loop();
-    bool is_global();
+    bool is_global() const;
 
     void insert_eeyore_decl(EStmt* decl);
     void insert_eeyore_stmt(EStmt* stmt, int indent=0);

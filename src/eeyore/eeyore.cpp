@@ -1,4 +1,6 @@
 #include "eeyore.hpp"
+
+#include <utility>
 #include "util.hpp"
 
 string EBase::to_string()
@@ -22,7 +24,7 @@ string EValue::to_string()
 
 int EValue::get_type() { return E_VALUE; }
 
-EVariable::EVariable(string name, bool is_temp) : name(name), is_temp(is_temp) {}
+EVariable::EVariable(string name, bool is_temp) : name(std::move(name)), is_temp(is_temp) {}
 
 string EVariable::to_string()
 {
@@ -125,7 +127,7 @@ string EParamStmt::to_string()
 
 int EParamStmt::get_type() { return E_PARAM; }
 
-EFuncCall::EFuncCall(string func_name) : func_name(func_name) {}
+EFuncCall::EFuncCall(string func_name) : func_name(std::move(func_name)) {}
 
 string EFuncCall::to_string()
 {
@@ -134,7 +136,7 @@ string EFuncCall::to_string()
 
 int EFuncCall::get_type() { return E_FUNC_CALL; }
 
-EJumpLabel::EJumpLabel(string label) : label(label) {}
+EJumpLabel::EJumpLabel(string label) : label(std::move(label)) {}
 
 string EJumpLabel::to_string()
 {
@@ -143,7 +145,7 @@ string EJumpLabel::to_string()
 
 int EJumpLabel::get_type() { return E_LABEL; }
 
-EUnconditionalJump::EUnconditionalJump(string label) : label(label) {}
+EUnconditionalJump::EUnconditionalJump(string label) : label(std::move(label)) {}
 
 string EUnconditionalJump::to_string()
 {
@@ -152,7 +154,7 @@ string EUnconditionalJump::to_string()
 
 int EUnconditionalJump::get_type() { return E_UNCOND_JUMP; }
 
-EConditionalJump::EConditionalJump(string label, EValue* cond_name, bool cond_value) : label(label), cond_name(cond_name), cond_value(cond_value) {}
+EConditionalJump::EConditionalJump(string label, EValue* cond_name, bool cond_value) : label(std::move(label)), cond_name(cond_name), cond_value(cond_value) {}
 
 string EConditionalJump::to_string()
 {
@@ -173,7 +175,7 @@ string EReturnStmt::to_string()
 
 int EReturnStmt::get_type() { return E_RETURN; }
 
-EFuncDef::EFuncDef(string func_name, int args_num) : func_name(func_name), args_num(args_num) {}
+EFuncDef::EFuncDef(string func_name, int args_num) : func_name(std::move(func_name)), args_num(args_num) {}
 
 string EFuncDef::to_string()
 {
@@ -182,7 +184,7 @@ string EFuncDef::to_string()
 
 int EFuncDef::get_type() { return E_FUNC_DEF; }
 
-EFuncEnd::EFuncEnd(string func_name) : func_name(func_name) {}
+EFuncEnd::EFuncEnd(string func_name) : func_name(std::move(func_name)) {}
 
 string EFuncEnd::to_string()
 {

@@ -86,9 +86,9 @@ void NArrayDeclareInitValue::write_values(ContextEeyore& ctx, int start_index, v
     vector<int> sub_shape = shape;
     sub_shape.erase(sub_shape.begin());
 
-    for (int i = 0; i < value_list.size(); i++)
+    for (auto & i : value_list)
     {
-        NArrayDeclareInitValue* value = (NArrayDeclareInitValue*) value_list[i];
+        auto* value = (NArrayDeclareInitValue*) i;
         if (value->is_number) 
         {
             init_values[start_index++] = value->value->eval(ctx);
