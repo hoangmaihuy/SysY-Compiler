@@ -1,6 +1,6 @@
 #pragma once
 #include "globals.hpp"
-#include "symtab.hpp"
+#include "context_eeyore.hpp"
 
 class TreeNode 
 {

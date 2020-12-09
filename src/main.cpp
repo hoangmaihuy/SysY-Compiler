@@ -5,15 +5,16 @@
 #include "eeyore/tree.hpp"
 #include "sysy.tab.hpp"
 #include "eeyore/util.hpp"
+#include "tigger/context_tigger.hpp"
 
 extern FILE* yyin;
 extern NCompUnit* parse();
 
 string in_file, out_file, file_prefix;
-ContextEeyore ctx_eeyore;
 bool DEBUG = false;
-
 bool compileEeyore, compileTigger, compileRISCV;
+ContextEeyore ctx_eeyore;
+ContextTigger ctx_tigger;
 
 void compileToEeyore()
 {
@@ -35,6 +36,25 @@ void compileToEeyore()
     ctx_eeyore.fix_eeyore();
     ctx_eeyore.print_eeyore(eeyore_out);
     eeyore_out.close();
+}
+
+void compileToTigger()
+{
+    ofstream tigger_out;
+    if (!compileRISCV)
+        tigger_out.open(out_file);
+    else
+        tigger_out.open(file_prefix + "tigger");
+
+    auto& eeyore_lists = ctx_eeyore.eeyore_lists;
+    for (auto& eeyore_list : eeyore_lists)
+    {
+        ctx_tigger.compile_eeyore(eeyore_list);
+    }
+}
+
+void compileToRISCV()
+{
 }
 
 int main(int argc, char * argv[]) 
@@ -76,4 +96,8 @@ int main(int argc, char * argv[])
     file_prefix = get_file_prefix(in_file);
     if (compileEeyore) 
         compileToEeyore();
+    if (compileTigger)
+        compileToTigger();
+    if (compileRISCV)
+        compileToRISCV();
 }

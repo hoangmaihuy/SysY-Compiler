@@ -1,6 +1,6 @@
 #include <iostream> 
 #include <utility>
-#include "symtab.hpp"
+#include "context_eeyore.hpp"
 #include "tree.hpp"
 #include "sysy.tab.hpp"
 
@@ -176,7 +176,7 @@ void ContextEeyore::fix_eeyore()
         int args_num = eeyore_list.args_num;
 
 
-        if (func_name == "__global__")
+        if (func_name == GLOB_NAME)
             continue;
         
 
@@ -185,7 +185,7 @@ void ContextEeyore::fix_eeyore()
             vector<EStmt*> tmp_decls;
             for (auto decl : eeyore_lists[0].decls)
             {
-                EVariable* name = (EVariable*)((EVarStmt*)decl)->name;
+                auto* name = (EVariable*)((EVarStmt*)decl)->name;
                 if (name->is_temp)
                     eeyore_list.decls.push_back(decl);
                 else 

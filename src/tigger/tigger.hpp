@@ -1,0 +1,10 @@
+//
+// Created by mew on 09/12/2020.
+//
+
+#ifndef SYSY_COMPILER_TIGGER_HPP
+#define SYSY_COMPILER_TIGGER_HPP
+
+
+
+#endif //SYSY_COMPILER_TIGGER_HPP

@@ -1,5 +1,5 @@
 #include "globals.hpp"
-#include "symtab.hpp"
+#include "context_eeyore.hpp"
 #include "tree.hpp"
 #include "sysy.tab.hpp"
 #include "util.hpp"
