@@ -2,9 +2,9 @@
 #include <iostream>
 #include <fstream>
 #include "globals.hpp"
-#include "eeyore/tree.hpp"
+#include "eeyore/sysy_tree.hpp"
 #include "sysy.tab.hpp"
-#include "eeyore/util.hpp"
+#include "util/util.hpp"
 #include "tigger/context_tigger.hpp"
 
 extern FILE* yyin;
@@ -46,10 +46,9 @@ void compileToTigger()
     else
         tigger_out.open(file_prefix + "tigger");
 
-    auto& eeyore_lists = ctx_eeyore.eeyore_lists;
-    for (auto& eeyore_list : eeyore_lists)
+    for (auto& eeyore_func : ctx_eeyore.eeyore_funcs)
     {
-        ctx_tigger.compile_eeyore(eeyore_list);
+        ctx_tigger.generate_tigger_func(eeyore_func);
     }
 }
 

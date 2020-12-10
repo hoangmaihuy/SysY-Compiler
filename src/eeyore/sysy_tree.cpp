@@ -1,7 +1,7 @@
 #include "globals.hpp"
-#include "tree.hpp"
+#include "sysy_tree.hpp"
 #include "sysy.tab.hpp"
-#include "util.hpp"
+#include "util/util.hpp"
 
 /* TreeNode */
 void TreeNode::print(int indent, bool end, ostream& out) 

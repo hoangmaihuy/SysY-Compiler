@@ -1,31 +1,31 @@
 #include "util.hpp"
 
 #include <utility>
-#include "tree.hpp"
+#include "sysy_tree.hpp"
 #include "sysy.tab.hpp"
 
 string get_token_str(int token)
 {
     switch (token)
     {
-        case INT: return "int"; break;
-        case VOID: return "void"; break;
-        case ASSIGN: return "="; break;
-        case EQ: return "=="; break;
-        case NE: return "!="; break;
-        case LT: return "<"; break;
-        case GT: return ">"; break;
-        case LE: return "<="; break;
-        case GE: return ">="; break;
-        case AND: return "&&"; break;
-        case OR: return "||"; break;
-        case PLUS: return "+"; break;
-        case MINUS: return "-"; break;
-        case MUL: return "*"; break;
-        case DIV: return "/"; break;
-        case MOD: return "%"; break;
-        case NOT: return "!"; break;
-        default: return ""; break;
+        case INT: return "int";
+        case VOID: return "void";
+        case ASSIGN: return "=";
+        case EQ: return "==";
+        case NE: return "!=";
+        case LT: return "<";
+        case GT: return ">";
+        case LE: return "<=";
+        case GE: return ">=";
+        case AND: return "&&";
+        case OR: return "||";
+        case PLUS: return "+";
+        case MINUS: return "-";
+        case MUL: return "*";
+        case DIV: return "/";
+        case MOD: return "%";
+        case NOT: return "!";
+        default: return "";
     }
 }
 
@@ -53,4 +53,9 @@ int get_array_index(const vector<int>& shape, const vector<int>& indexes)
         index += indexes[i] * array_size;
     }
     return index;
+}
+
+void concat_string_vector(vector<string>& a, const vector<string>& b)
+{
+    a.insert(a.end(), b.begin(), b.end());
 }

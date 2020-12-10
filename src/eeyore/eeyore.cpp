@@ -1,14 +1,7 @@
 #include "eeyore.hpp"
 
 #include <utility>
-#include "util.hpp"
-
-string EBase::to_string()
-{
-    return "EBase";
-}
-
-int EBase::get_type() { return E_BASE; }
+#include "util/util.hpp"
 
 string EStmt::to_string()
 {
@@ -24,6 +17,16 @@ string EValue::to_string()
 
 int EValue::get_type() { return E_VALUE; }
 
+vector<string> EValue::get_use_vars(bool is_lhs)
+{
+    return vector<string>();
+}
+
+vector<string> EValue::get_def_vars(bool is_lhs)
+{
+    return vector<string>();
+}
+
 EVariable::EVariable(string name, bool is_temp) : name(std::move(name)), is_temp(is_temp) {}
 
 string EVariable::to_string()
@@ -33,39 +36,41 @@ string EVariable::to_string()
 
 int EVariable::get_type() { return E_VARIABLE; }
 
-ERightVal::ERightVal(EValue* name) : name(name)
+vector<string> EVariable::get_use_vars(bool is_lhs)
 {
-    is_number = false;
+    vector<string> use_vars = {name};
+    return use_vars;
 }
 
-ERightVal::ERightVal(int value) : value(value)
+vector<string> EVariable::get_def_vars(bool is_lhs)
 {
-    is_number = true;
+    vector<string> def_vars = {name};
+    return def_vars;
 }
 
-string ERightVal::to_string()
+ENumber::ENumber(int value) : value(value) {}
+
+string ENumber::to_string()
 {
-    if (is_number) return std::to_string(value);
-    else 
-    {
-        return name->to_string();
-    }
+    return std::to_string(value);
 }
 
-int ERightVal::get_type() { return E_RIGHT_VAL; }
+int ENumber::get_type() { return E_NUMBER; }
 
-ELeftVal::ELeftVal(EValue* name, EValue* index, bool is_array) : name(name), index(index), is_array(is_array) {}
+EArrayItem::EArrayItem(EValue* name, EValue* index) : name(name), index(index) {}
 
-string ELeftVal::to_string()
+string EArrayItem::to_string()
 {
-    if (!is_array) return name->to_string();
-    else 
-    {
-        return name->to_string() + " [ " + index->to_string() + " ]";
-    }
+    return name->to_string() + " [ " + index->to_string() + " ]";
 }
 
-int ELeftVal::get_type() { return E_LEFT_VAL; }
+int EArrayItem::get_type() { return E_ARRAY_ITEM; }
+
+vector<string> EArrayItem::get_use_vars(bool is_lhs)
+{
+    vector<string> use_vars = {name->to_string(), index->to_string()};
+    return use_vars;
+}
 
 EVarStmt::EVarStmt(EValue* name) : name(name) {}
 
@@ -89,7 +94,7 @@ EAssignStmt::EAssignStmt(EValue* res, EValue* value) : res(res), value(value) {}
 
 EAssignStmt::EAssignStmt(EValue* res, int value) : res(res)
 {
-    this->value = new ERightVal(value);
+    this->value = new ENumber(value);
 }
 
 string EAssignStmt::to_string()

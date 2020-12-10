@@ -23,10 +23,11 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(src)
 include_directories(src/eeyore)
 include_directories(src/tigger)
+include_directories(src/util)
 
-file(GLOB_RECURSE SOURCES "src/*.cpp")
+file(GLOB_RECURSE SOURCES "src/*.cpp" "src/eeyore/*.cpp" "src/tigger/*.cpp" "src/util/*.cpp")
 set(SOURCES ${SOURCES} ${FLEX_SysYLexer_OUTPUTS}
-    ${BISON_SysYParser_OUTPUT_SOURCE} )
+    ${BISON_SysYParser_OUTPUT_SOURCE})
 
 add_executable(compiler
     ${SOURCES}

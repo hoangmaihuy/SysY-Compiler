@@ -4,9 +4,13 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include <utility>
 #include <cstring>
-#include <stdio.h>
+#include <cstdio>
 #include <vector>
+#include <algorithm>
+#include <set>
+#include <map>
 
 #define INT_SIZE 4
 

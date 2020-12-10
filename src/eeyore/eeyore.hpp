@@ -1,14 +1,14 @@
 #pragma once
+
 #include "globals.hpp"
 
 enum EeyoreType
 {
-    E_BASE,
     E_STMT,
     E_VALUE,
     E_VARIABLE,
-    E_RIGHT_VAL,
-    E_LEFT_VAL,
+    E_NUMBER,
+    E_ARRAY_ITEM,
     E_VAR_STMT,
     E_VAR_ARRAY_STMT,
     E_ASSIGN_STMT,
@@ -24,17 +24,11 @@ enum EeyoreType
     E_LABEL
 };
 
-class EBase
-{
-public:
-    virtual string to_string();
-    virtual int get_type();
-};
 
-class EStmt : public EBase
+class EStmt
 {
 public:
-    virtual string to_string();
+    string to_string();
     virtual int get_type();
 };
 
@@ -43,6 +37,8 @@ class EValue : public EStmt
 public:
     virtual string to_string();
     virtual int get_type();
+    virtual vector<string> get_use_vars(bool is_lhs);
+    virtual vector<string> get_def_vars(bool is_lhs);
 };
 
 class EVariable : public EValue
@@ -53,29 +49,28 @@ public:
     EVariable(string name, bool is_temp=true);
     virtual string to_string();
     virtual int get_type();
+    virtual vector<string> get_use_vars(bool is_lhs);
+    virtual vector<string> get_def_vars(bool is_lhs);
 };
 
-class ERightVal : public EValue
+class ENumber : public EValue
 {
 public:
-    bool is_number;
     int value;
-    EValue* name;
-    ERightVal(EValue* name);
-    ERightVal(int value);
+    explicit ENumber(int value);
     virtual string to_string();
     virtual int get_type();
 };
 
-class ELeftVal : public EValue 
+class EArrayItem : public EValue
 {
 public: 
-    bool is_array;
     EValue* name;
     EValue* index;
-    ELeftVal(EValue* name, EValue* index=nullptr, bool is_array=false);
+    EArrayItem(EValue* name, EValue* index);
     virtual string to_string();
     virtual int get_type();
+    virtual vector<string> get_use_vars(bool is_lhs);
 };
 
 class EVarStmt : public EStmt
@@ -204,4 +199,3 @@ public:
     virtual string to_string();
     virtual int get_type();
 };
-

@@ -1,8 +1,8 @@
 #include "globals.hpp"
 #include "context_eeyore.hpp"
-#include "tree.hpp"
+#include "sysy_tree.hpp"
 #include "sysy.tab.hpp"
-#include "util.hpp"
+#include "util/util.hpp"
 
 int NExpression::eval(ContextEeyore& ctx)
 {

@@ -18,7 +18,24 @@ public:
     SymbolInfo(EVariable* ee_var, vector<int> value={}, bool is_const=false, bool is_array=false, vector<int> shape={});
 };
 
-class EeyoreList
+class LiveInterval
+{
+public:
+    string name;
+    int tin, tout;
+    LiveInterval(string name, int tin, int tout);
+    bool operator < (const LiveInterval& other) const;
+};
+
+struct IntervalCmp
+{
+    bool operator() (const LiveInterval& a, const LiveInterval& b) const
+    {
+        return a.tout < b.tout;
+    }
+};
+
+class EeyoreFunc
 {
 public:
     string func_name;
@@ -26,8 +43,14 @@ public:
     vector<EStmt*> decls;
     vector<EStmt*> stmts;
     vector<int> stmt_indents;
-    
-    EeyoreList(string func_name, int args_num);
+    unordered_map<string, int> first_def;
+    unordered_map<string, int> last_use;
+    vector< vector<string> > def_vars;
+    vector< vector<string> > use_vars;
+    vector<LiveInterval> live_intervals;
+
+    EeyoreFunc(string func_name, int args_num);
+    void liveness_analysis();
 };
 
 typedef unordered_map<string, SymbolInfo> SymbolTable;
@@ -39,7 +62,7 @@ public:
     int glob_id, temp_id, jump_id;
     vector<SymbolTable> sym_tabs;
     vector< pair<string, string> > loops;
-    vector<EeyoreList> eeyore_lists;
+    vector<EeyoreFunc> eeyore_funcs;
     FuncTable func_tabs;
 
     ContextEeyore();
@@ -69,8 +92,8 @@ public:
     pair<string, string> get_current_loop();
     bool is_global() const;
 
-    void insert_eeyore_decl(EStmt* decl);
-    void insert_eeyore_stmt(EStmt* stmt, int indent=0);
+    void insert_decl(EStmt* decl);
+    void insert_stmt(EStmt* stmt, int indent= 0);
 
     void fix_eeyore();
     void print_eeyore(ostream& out);
