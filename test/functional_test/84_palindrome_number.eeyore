@@ -1,0 +1,103 @@
+
+f_palindrome [ 1 ]
+  var 16 T0
+  var T1
+  var T2
+  var t0
+  var t1
+  var t2
+  var t3
+  var t4
+  var t5
+  var t6
+  var t7
+  var t8
+  var t9
+  var t10
+  var t11
+  var t12
+  var t13
+  var t14
+  var t15
+  var t16
+  var t17
+  var t18
+  var t19
+  var t20
+ T1 = 0
+ l0:
+  t0 = T1 < 4
+  if t0 == 0 goto l1
+   t1 = 0
+   t2 = T1 * 1
+   t1 = t1 + t2
+   t1 = t1 * 4
+   t3 = p0 % 10
+   T0 [ t1 ] = t3
+   t4 = p0 / 10
+   p0 = t4
+   t5 = T1 + 1
+   T1 = t5
+  goto l0
+ l1:
+ t6 = 0
+ t7 = 0 * 1
+ t6 = t6 + t7
+ t6 = t6 * 4
+ t8 = T0 [ t6 ]
+ t10 = 0
+ t11 = 3 * 1
+ t10 = t10 + t11
+ t10 = t10 * 4
+ t12 = T0 [ t10 ]
+ t9 = t8 == t12
+ t13 = t9
+ if t13 == 0 goto l2
+ t14 = 0
+ t15 = 1 * 1
+ t14 = t14 + t15
+ t14 = t14 * 4
+ t16 = T0 [ t14 ]
+ t18 = 0
+ t19 = 2 * 1
+ t18 = t18 + t19
+ t18 = t18 * 4
+ t20 = T0 [ t18 ]
+ t17 = t16 == t20
+ t13 = t13 && t17
+ l2:
+ if t13 == 0 goto l3
+   T2 = 1
+  goto l4
+ l3:
+   T2 = 0
+ l4:
+ return T2
+ return 0
+end f_palindrome
+
+f_main [ 0 ]
+  var T3
+  var T4
+  var t21
+  var t22
+ T3 = 1221
+ param T3
+ t21 = call f_palindrome
+ T4 = t21
+ t22 = T4 == 1
+ if t22 == 0 goto l5
+  param T3
+  call f_putint
+  goto l6
+ l5:
+   T4 = 0
+   param T4
+   call f_putint
+ l6:
+ T4 = 10
+ param T4
+ call f_putch
+ return 0
+ return 0
+end f_main

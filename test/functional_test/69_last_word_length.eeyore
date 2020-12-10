@@ -1,0 +1,174 @@
+
+f_lengthOfLastWord [ 2 ]
+  var t0
+  var T0
+  var t1
+  var t2
+  var t3
+  var t4
+  var t5
+  var t6
+  var t7
+  var t8
+  var t9
+  var t10
+  var t11
+  var T1
+  var t12
+  var t13
+  var t14
+  var t15
+  var t16
+  var t17
+  var t18
+  var t19
+  var t20
+  var t21
+  var t22
+  var t23
+  var t24
+ t0 = p1 == 0
+ if t0 == 0 goto l0
+  return 0
+ l0:
+ t1 = p1 - 1
+ T0 = t1
+ l1:
+  t3 = -1
+  t2 = T0 > t3
+  t4 = t2
+  if t4 == 0 goto l3
+  t5 = 0
+  t6 = T0 * 1
+  t5 = t5 + t6
+  t5 = t5 * 4
+  t7 = p0 [ t5 ]
+  t8 = t7 == 0
+  t4 = t4 && t8
+  l3:
+  if t4 == 0 goto l2
+   t9 = T0 - 1
+   T0 = t9
+  goto l1
+ l2:
+ t11 = -1
+ t10 = T0 == t11
+ if t10 == 0 goto l4
+  return 0
+ l4:
+ T1 = T0
+ l5:
+  t13 = -1
+  t12 = T1 > t13
+  if t12 == 0 goto l6
+   t14 = 0
+   t15 = T1 * 1
+   t14 = t14 + t15
+   t14 = t14 * 4
+   t16 = p0 [ t14 ]
+   t17 = t16 == 0
+   if t17 == 0 goto l7
+    t18 = p1 - T1
+    t19 = t18 - 1
+    t21 = p1 - 1
+    t22 = t21 - T0
+    t20 = t19 - t22
+    return t20
+   l7:
+   t23 = T1 - 1
+   T1 = t23
+  goto l5
+ l6:
+ t24 = T0 - T1
+ return t24
+ return 0
+end f_lengthOfLastWord
+
+f_main [ 0 ]
+  var T2
+  var 40 T3
+  var t25
+  var t26
+  var t27
+  var t28
+  var t29
+  var t30
+  var t31
+  var t32
+  var t33
+  var t34
+  var t35
+  var t36
+  var t37
+  var t38
+  var t39
+  var t40
+  var t41
+  var t42
+  var t43
+  var t44
+  var t45
+  var t46
+  var t47
+  var t48
+ t25 = 0
+ t26 = 0 * 1
+ t25 = t25 + t26
+ t25 = t25 * 4
+ t27 = -4
+ T3 [ t25 ] = t27
+ t28 = 0
+ t29 = 1 * 1
+ t28 = t28 + t29
+ t28 = t28 * 4
+ T3 [ t28 ] = 3
+ t30 = 0
+ t31 = 2 * 1
+ t30 = t30 + t31
+ t30 = t30 * 4
+ T3 [ t30 ] = 9
+ t32 = 0
+ t33 = 3 * 1
+ t32 = t32 + t33
+ t32 = t32 * 4
+ t34 = -2
+ T3 [ t32 ] = t34
+ t35 = 0
+ t36 = 4 * 1
+ t35 = t35 + t36
+ t35 = t35 * 4
+ T3 [ t35 ] = 0
+ t37 = 0
+ t38 = 5 * 1
+ t37 = t37 + t38
+ t37 = t37 * 4
+ T3 [ t37 ] = 1
+ t39 = 0
+ t40 = 6 * 1
+ t39 = t39 + t40
+ t39 = t39 * 4
+ t41 = -6
+ T3 [ t39 ] = t41
+ t42 = 0
+ t43 = 7 * 1
+ t42 = t42 + t43
+ t42 = t42 * 4
+ T3 [ t42 ] = 5
+ t44 = 0
+ t45 = 8 * 1
+ t44 = t44 + t45
+ t44 = t44 * 4
+ T3 [ t44 ] = 7
+ t46 = 0
+ t47 = 9 * 1
+ t46 = t46 + t47
+ t46 = t46 * 4
+ T3 [ t46 ] = 8
+ T2 = 10
+ param T3
+ param T2
+ t48 = call f_lengthOfLastWord
+ T2 = t48
+ return T2
+ return 0
+end f_main

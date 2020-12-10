@@ -57,6 +57,11 @@ string ENumber::to_string()
 
 int ENumber::get_type() { return E_NUMBER; }
 
+int ENumber::to_int()
+{
+    return value;
+}
+
 EArrayItem::EArrayItem(EValue* name, EValue* index) : name(name), index(index) {}
 
 string EArrayItem::to_string()

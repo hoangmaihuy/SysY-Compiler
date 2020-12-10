@@ -18,11 +18,12 @@ dirs = [
 #    'sysyruntimelibrary/section2/performance_test',
 ]
 # path to SysY compiler
-compiler = '../cmake-build-debug/compiler'
+compiler = '../build/compiler'
 # path to MiniVM
 minivm = '../MiniVM/build/minivm'
 # temporary Eeyore file
 eeyore_file = 'test.eeyore'
+tigger_file = 'test.tigger'
 
 # ===================== end =====================
 
@@ -37,14 +38,15 @@ def eprint(*args, **kwargs):
 def run_case(sy_file, in_file, out_file):
   # compile to executable
   eeyore_cmd = compiler.split(' ') + ['-S -e', sy_file, '-o', eeyore_file]
-  subprocess.run(eeyore_cmd, stdout=subprocess.PIPE)
+  tigger_cmd = compiler.split(' ') + ['-S -t', sy_file, '-o', tigger_file]
+  subprocess.run(tigger_cmd, stdout=subprocess.PIPE)
   # run compiled file
   if in_file:
     with open(in_file) as f:
       inputs = f.read().encode('utf-8')
   else:
     inputs = None
-  result = subprocess.run([minivm, eeyore_file], input=inputs, stdout=subprocess.PIPE)
+  result = subprocess.run([minivm, "-t", tigger_file], input=inputs, stdout=subprocess.PIPE)
   out = f'{result.stdout.decode("utf-8").strip()}\n{result.returncode}'
   out = out.strip()
   # compare to reference

@@ -1,0 +1,54 @@
+var T0
+
+f_f [ 1 ]
+  var t0
+  var t1
+  var T1
+  var T2
+  var t2
+  var t3
+  var T3
+  var t4
+  var t5
+  var t6
+ t0 = p0 == 1
+ if t0 == 0 goto l0
+  return 1
+ l0:
+ t1 = p0 == 2
+ if t1 == 0 goto l1
+  return 1
+ l1:
+ t2 = p0 - 1
+ T1 = t2
+ t3 = p0 - 2
+ T2 = t3
+ param T1
+ t4 = call f_f
+ param T2
+ t6 = call f_f
+ t5 = t4 + t6
+ T3 = t5
+ return T3
+ return 0
+end f_f
+
+f_main [ 0 ]
+  var t7
+  var T4
+  var T5
+  var t8
+  var T6
+ t7 = call f_getint
+ T0 = t7
+ param T0
+ t8 = call f_f
+ T4 = t8
+ param T4
+ call f_putint
+ T6 = 10
+ param T6
+ call f_putch
+ return T4
+ return 0
+end f_main

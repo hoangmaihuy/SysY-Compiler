@@ -73,3 +73,18 @@ public:
     TLoadStack(int loc, string reg_name);
     string to_string() override;
 };
+
+class TReturn : public TStmt
+{
+public:
+    string to_string() override;
+};
+
+class TAssignRegNumber : public TStmt
+{
+public:
+    string reg_name;
+    int value;
+    TAssignRegNumber(string reg_name, int value);
+    string to_string() override;
+};

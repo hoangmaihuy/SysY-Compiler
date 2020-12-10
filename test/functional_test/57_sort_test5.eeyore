@@ -1,0 +1,295 @@
+var T0
+
+f_swap [ 3 ]
+  var T1
+  var t0
+  var t1
+  var t2
+  var t3
+  var t4
+  var t5
+  var t6
+  var t7
+  var t8
+  var t9
+ t0 = 0
+ t1 = p1 * 1
+ t0 = t0 + t1
+ t0 = t0 * 4
+ t2 = p0 [ t0 ]
+ T1 = t2
+ t3 = 0
+ t4 = p1 * 1
+ t3 = t3 + t4
+ t3 = t3 * 4
+ t5 = 0
+ t6 = p2 * 1
+ t5 = t5 + t6
+ t5 = t5 * 4
+ t7 = p0 [ t5 ]
+ p0 [ t3 ] = t7
+ t8 = 0
+ t9 = p2 * 1
+ t8 = t8 + t9
+ t8 = t8 * 4
+ p0 [ t8 ] = T1
+ return 0
+ return 0
+end f_swap
+
+f_heap_ajust [ 3 ]
+  var T2
+  var T3
+  var t10
+  var t11
+  var t12
+  var t13
+  var t14
+  var t15
+  var t16
+  var t17
+  var t18
+  var t19
+  var t20
+  var t21
+  var t22
+  var t23
+  var t24
+  var t25
+  var t26
+  var t27
+  var t28
+  var t29
+  var t30
+  var t31
+  var t32
+  var t33
+  var t34
+ T2 = p1
+ t10 = T2 * 2
+ t11 = t10 + 1
+ T3 = t11
+ l0:
+  t13 = p2 + 1
+  t12 = T3 < t13
+  if t12 == 0 goto l1
+   t14 = T3 < p2
+   t15 = t14
+   if t15 == 0 goto l2
+   t16 = 0
+   t17 = T3 * 1
+   t16 = t16 + t17
+   t16 = t16 * 4
+   t18 = p0 [ t16 ]
+   t20 = T3 + 1
+   t21 = 0
+   t22 = t20 * 1
+   t21 = t21 + t22
+   t21 = t21 * 4
+   t23 = p0 [ t21 ]
+   t19 = t18 < t23
+   t15 = t15 && t19
+   l2:
+   if t15 == 0 goto l3
+    t24 = T3 + 1
+    T3 = t24
+   l3:
+   t25 = 0
+   t26 = T2 * 1
+   t25 = t25 + t26
+   t25 = t25 * 4
+   t27 = p0 [ t25 ]
+   t29 = 0
+   t30 = T3 * 1
+   t29 = t29 + t30
+   t29 = t29 * 4
+   t31 = p0 [ t29 ]
+   t28 = t27 > t31
+   if t28 == 0 goto l4
+    return 0
+    goto l5
+   l4:
+     param p0
+     param T2
+     param T3
+     t32 = call f_swap
+     T2 = t32
+     T2 = T3
+     t33 = T2 * 2
+     t34 = t33 + 1
+     T3 = t34
+   l5:
+  goto l0
+ l1:
+ return 0
+ return 0
+end f_heap_ajust
+
+f_heap_sort [ 2 ]
+  var T4
+  var T5
+  var t35
+  var t36
+  var t37
+  var t38
+  var t39
+  var t40
+  var t41
+  var t42
+  var t43
+  var T6
+  var t44
+  var t45
+  var t46
+  var t47
+ t35 = p1 / 2
+ t36 = t35 - 1
+ T4 = t36
+ l6:
+  t38 = -1
+  t37 = T4 > t38
+  if t37 == 0 goto l7
+   t39 = p1 - 1
+   T5 = t39
+   param p0
+   param T4
+   param T5
+   t40 = call f_heap_ajust
+   T5 = t40
+   t41 = T4 - 1
+   T4 = t41
+  goto l6
+ l7:
+ t42 = p1 - 1
+ T4 = t42
+ l8:
+  t43 = T4 > 0
+  if t43 == 0 goto l9
+   T6 = 0
+   param p0
+   param T6
+   param T4
+   t44 = call f_swap
+   T5 = t44
+   t45 = T4 - 1
+   T5 = t45
+   param p0
+   param T6
+   param T5
+   t46 = call f_heap_ajust
+   T5 = t46
+   t47 = T4 - 1
+   T4 = t47
+  goto l8
+ l9:
+ return 0
+ return 0
+end f_heap_sort
+
+f_main [ 0 ]
+  var 40 T7
+  var t48
+  var t49
+  var t50
+  var t51
+  var t52
+  var t53
+  var t54
+  var t55
+  var t56
+  var t57
+  var t58
+  var t59
+  var t60
+  var t61
+  var t62
+  var t63
+  var t64
+  var t65
+  var t66
+  var t67
+  var T8
+  var t68
+  var t69
+  var T9
+  var t70
+  var t71
+  var t72
+  var t73
+ T0 = 10
+ t48 = 0
+ t49 = 0 * 1
+ t48 = t48 + t49
+ t48 = t48 * 4
+ T7 [ t48 ] = 4
+ t50 = 0
+ t51 = 1 * 1
+ t50 = t50 + t51
+ t50 = t50 * 4
+ T7 [ t50 ] = 3
+ t52 = 0
+ t53 = 2 * 1
+ t52 = t52 + t53
+ t52 = t52 * 4
+ T7 [ t52 ] = 9
+ t54 = 0
+ t55 = 3 * 1
+ t54 = t54 + t55
+ t54 = t54 * 4
+ T7 [ t54 ] = 2
+ t56 = 0
+ t57 = 4 * 1
+ t56 = t56 + t57
+ t56 = t56 * 4
+ T7 [ t56 ] = 0
+ t58 = 0
+ t59 = 5 * 1
+ t58 = t58 + t59
+ t58 = t58 * 4
+ T7 [ t58 ] = 1
+ t60 = 0
+ t61 = 6 * 1
+ t60 = t60 + t61
+ t60 = t60 * 4
+ T7 [ t60 ] = 6
+ t62 = 0
+ t63 = 7 * 1
+ t62 = t62 + t63
+ t62 = t62 * 4
+ T7 [ t62 ] = 5
+ t64 = 0
+ t65 = 8 * 1
+ t64 = t64 + t65
+ t64 = t64 * 4
+ T7 [ t64 ] = 7
+ t66 = 0
+ t67 = 9 * 1
+ t66 = t66 + t67
+ t66 = t66 * 4
+ T7 [ t66 ] = 8
+ T8 = 0
+ param T7
+ param T0
+ t68 = call f_heap_sort
+ T8 = t68
+ l10:
+  t69 = T8 < T0
+  if t69 == 0 goto l11
+   t70 = 0
+   t71 = T8 * 1
+   t70 = t70 + t71
+   t70 = t70 * 4
+   t72 = T7 [ t70 ]
+   T9 = t72
+   param T9
+   call f_putint
+   T9 = 10
+   param T9
+   call f_putch
+   t73 = T8 + 1
+   T8 = t73
+  goto l10
+ l11:
+ return 0
+ return 0
+end f_main

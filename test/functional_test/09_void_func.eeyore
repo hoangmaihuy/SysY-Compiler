@@ -1,0 +1,21 @@
+var T0
+var T1
+var T2
+
+f_add [ 2 ]
+  var t0
+ t0 = p0 + p1
+ T2 = t0
+ return
+ return
+end f_add
+
+f_main [ 0 ]
+ T0 = 3
+ T1 = 2
+ param T0
+ param T1
+ call f_add
+ return T2
+ return 0
+end f_main

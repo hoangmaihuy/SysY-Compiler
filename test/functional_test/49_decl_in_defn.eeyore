@@ -1,0 +1,10 @@
+
+f_main [ 0 ]
+  var T0
+  var T1
+ T0 = 12
+ param T0
+ call f_putint
+ return 0
+ return 0
+end f_main

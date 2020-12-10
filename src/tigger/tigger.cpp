@@ -55,3 +55,17 @@ string TLoadStack::to_string()
 {
     return "load " + std::to_string(loc) + " " + reg_name;
 }
+
+string TReturn::to_string()
+{
+    return "return";
+}
+
+TAssignRegNumber::TAssignRegNumber(string reg_name, int value) : reg_name(std::move(reg_name)), value(value)
+{
+}
+
+string TAssignRegNumber::to_string()
+{
+    return reg_name + " = " + std::to_string(value);
+}

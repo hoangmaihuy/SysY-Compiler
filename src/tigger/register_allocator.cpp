@@ -22,7 +22,8 @@ const vector<string> RegisterAllocator::CALLEE_SAVE_REG = {
 
 RegisterAllocator::RegisterAllocator()
 {
-
+    for (const auto& reg_name : FREE_REG_NAME)
+        free_register.insert(reg_name);
 }
 
 bool RegisterAllocator::has_free_register()

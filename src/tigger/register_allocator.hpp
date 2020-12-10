@@ -3,6 +3,8 @@
 
 #include "globals.hpp"
 
+#define RETURN_REG "a0"
+
 class RegisterAllocator
 {
 public:

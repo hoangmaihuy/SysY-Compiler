@@ -50,6 +50,9 @@ void compileToTigger()
     {
         ctx_tigger.generate_tigger_func(eeyore_func);
     }
+
+    ctx_tigger.print_tigger(tigger_out);
+    tigger_out.close();
 }
 
 void compileToRISCV()
@@ -59,6 +62,7 @@ void compileToRISCV()
 int main(int argc, char * argv[]) 
 {
     char opt;
+    compileEeyore = compileTigger = compileRISCV = true;
     while ((opt = getopt(argc, argv, ":Sethdo:")) != -1)
     {
         switch (opt)
@@ -70,8 +74,8 @@ int main(int argc, char * argv[])
                 printf("-o      : Output file");
                 printf("-d      : Print debug information");
                 break;
-            case 'S':        
-                compileEeyore = compileTigger = compileRISCV = true;
+            case 'S':
+                break;
             case 'e':
                 compileTigger = compileRISCV = false;
                 break;
@@ -93,7 +97,7 @@ int main(int argc, char * argv[])
     }
     in_file = argv[optind];
     file_prefix = get_file_prefix(in_file);
-    if (compileEeyore) 
+    if (compileEeyore)
         compileToEeyore();
     if (compileTigger)
         compileToTigger();

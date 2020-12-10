@@ -1,0 +1,94 @@
+
+f_climbStairs [ 1 ]
+  var t0
+  var 40 T0
+  var t1
+  var t2
+  var t3
+  var t4
+  var t5
+  var t6
+  var T1
+  var t7
+  var t8
+  var t9
+  var t10
+  var t11
+  var t12
+  var t13
+  var t14
+  var t15
+  var t16
+  var t17
+  var t18
+  var t19
+  var t20
+  var t21
+  var t22
+  var t23
+ t0 = p0 < 4
+ if t0 == 0 goto l0
+  return p0
+ l0:
+ t1 = 0
+ t2 = 0 * 1
+ t1 = t1 + t2
+ t1 = t1 * 4
+ T0 [ t1 ] = 0
+ t3 = 0
+ t4 = 1 * 1
+ t3 = t3 + t4
+ t3 = t3 * 4
+ T0 [ t3 ] = 1
+ t5 = 0
+ t6 = 2 * 1
+ t5 = t5 + t6
+ t5 = t5 * 4
+ T0 [ t5 ] = 2
+ T1 = 3
+ l1:
+  t8 = p0 + 1
+  t7 = T1 < t8
+  if t7 == 0 goto l2
+   t9 = 0
+   t10 = T1 * 1
+   t9 = t9 + t10
+   t9 = t9 * 4
+   t11 = T1 - 1
+   t12 = 0
+   t13 = t11 * 1
+   t12 = t12 + t13
+   t12 = t12 * 4
+   t14 = T0 [ t12 ]
+   t16 = T1 - 2
+   t17 = 0
+   t18 = t16 * 1
+   t17 = t17 + t18
+   t17 = t17 * 4
+   t19 = T0 [ t17 ]
+   t15 = t14 + t19
+   T0 [ t9 ] = t15
+   t20 = T1 + 1
+   T1 = t20
+  goto l1
+ l2:
+ t21 = 0
+ t22 = p0 * 1
+ t21 = t21 + t22
+ t21 = t21 * 4
+ t23 = T0 [ t21 ]
+ return t23
+ return 0
+end f_climbStairs
+
+f_main [ 0 ]
+  var T2
+  var T3
+  var t24
+ T3 = 5
+ param T3
+ t24 = call f_climbStairs
+ T2 = t24
+ return T2
+ return 0
+end f_main

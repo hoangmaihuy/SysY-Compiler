@@ -51,5 +51,7 @@ public:
     void generate_tigger_func(EeyoreFunc& eeyore_func);
 
     TiggerFunc& get_current_func();
+
+    void print_tigger(ostream& out);
 };
 

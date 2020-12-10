@@ -1,0 +1,156 @@
+
+f_maxSubArray [ 2 ]
+  var t0
+  var t1
+  var t2
+  var t3
+  var t4
+  var T0
+  var t5
+  var t6
+  var t7
+  var T1
+  var T2
+  var t8
+  var t9
+  var t10
+  var t11
+  var t12
+  var t13
+  var t14
+  var t15
+ t0 = p1 == 0
+ if t0 == 0 goto l0
+  return 0
+ l0:
+ t1 = p1 == 1
+ if t1 == 0 goto l1
+  t2 = 0
+  t3 = 0 * 1
+  t2 = t2 + t3
+  t2 = t2 * 4
+  t4 = p0 [ t2 ]
+  return t4
+ l1:
+ t5 = 0
+ t6 = 0 * 1
+ t5 = t5 + t6
+ t5 = t5 * 4
+ t7 = p0 [ t5 ]
+ T0 = t7
+ T1 = T0
+ T2 = 1
+ l2:
+  t8 = T2 < p1
+  if t8 == 0 goto l3
+   t9 = T0 < 0
+   if t9 == 0 goto l4
+    T0 = 0
+   l4:
+   t11 = 0
+   t12 = T2 * 1
+   t11 = t11 + t12
+   t11 = t11 * 4
+   t13 = p0 [ t11 ]
+   t10 = T0 + t13
+   T0 = t10
+   t14 = T1 < T0
+   if t14 == 0 goto l5
+    T1 = T0
+   l5:
+   t15 = T2 + 1
+   T2 = t15
+  goto l2
+ l3:
+ return T1
+ return 0
+end f_maxSubArray
+
+f_main [ 0 ]
+  var T3
+  var 40 T4
+  var t16
+  var t17
+  var t18
+  var t19
+  var t20
+  var t21
+  var t22
+  var t23
+  var t24
+  var t25
+  var t26
+  var t27
+  var t28
+  var t29
+  var t30
+  var t31
+  var t32
+  var t33
+  var t34
+  var t35
+  var t36
+  var t37
+  var t38
+  var t39
+ t16 = 0
+ t17 = 0 * 1
+ t16 = t16 + t17
+ t16 = t16 * 4
+ t18 = -4
+ T4 [ t16 ] = t18
+ t19 = 0
+ t20 = 1 * 1
+ t19 = t19 + t20
+ t19 = t19 * 4
+ T4 [ t19 ] = 3
+ t21 = 0
+ t22 = 2 * 1
+ t21 = t21 + t22
+ t21 = t21 * 4
+ T4 [ t21 ] = 9
+ t23 = 0
+ t24 = 3 * 1
+ t23 = t23 + t24
+ t23 = t23 * 4
+ t25 = -2
+ T4 [ t23 ] = t25
+ t26 = 0
+ t27 = 4 * 1
+ t26 = t26 + t27
+ t26 = t26 * 4
+ T4 [ t26 ] = 0
+ t28 = 0
+ t29 = 5 * 1
+ t28 = t28 + t29
+ t28 = t28 * 4
+ T4 [ t28 ] = 1
+ t30 = 0
+ t31 = 6 * 1
+ t30 = t30 + t31
+ t30 = t30 * 4
+ t32 = -6
+ T4 [ t30 ] = t32
+ t33 = 0
+ t34 = 7 * 1
+ t33 = t33 + t34
+ t33 = t33 * 4
+ T4 [ t33 ] = 5
+ t35 = 0
+ t36 = 8 * 1
+ t35 = t35 + t36
+ t35 = t35 * 4
+ T4 [ t35 ] = 7
+ t37 = 0
+ t38 = 9 * 1
+ t37 = t37 + t38
+ t37 = t37 * 4
+ T4 [ t37 ] = 8
+ T3 = 10
+ param T4
+ param T3
+ t39 = call f_maxSubArray
+ T3 = t39
+ return T3
+ return 0
+end f_main

@@ -41,7 +41,6 @@ void TiggerFunc::register_allocation(EeyoreFunc &eeyore_func)
             new_stack_var(ee_name, size);
         }
     }
-
     // linear scan register allocation
     set<LiveInterval, IntervalCmp> active_heap;
 

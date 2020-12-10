@@ -1,0 +1,186 @@
+
+f_maxArea [ 2 ]
+  var T0
+  var T1
+  var t0
+  var T2
+  var t1
+  var t2
+  var T3
+  var t3
+  var t4
+  var t5
+  var t6
+  var t7
+  var t8
+  var t9
+  var t10
+  var t11
+  var t12
+  var t13
+  var t14
+  var t15
+  var t16
+  var t17
+  var t18
+  var t19
+  var t20
+  var t21
+  var t22
+  var t23
+  var t24
+  var t25
+  var t26
+  var t27
+  var t28
+  var t29
+ T0 = 0
+ t0 = p1 - 1
+ T1 = t0
+ t1 = -1
+ T2 = t1
+ l0:
+  t2 = T0 < T1
+  if t2 == 0 goto l1
+   t3 = 0
+   t4 = T0 * 1
+   t3 = t3 + t4
+   t3 = t3 * 4
+   t5 = p0 [ t3 ]
+   t7 = 0
+   t8 = T1 * 1
+   t7 = t7 + t8
+   t7 = t7 * 4
+   t9 = p0 [ t7 ]
+   t6 = t5 < t9
+   if t6 == 0 goto l2
+    t10 = T1 - T0
+    t12 = 0
+    t13 = T0 * 1
+    t12 = t12 + t13
+    t12 = t12 * 4
+    t14 = p0 [ t12 ]
+    t11 = t10 * t14
+    T3 = t11
+    goto l3
+   l2:
+    t15 = T1 - T0
+    t17 = 0
+    t18 = T1 * 1
+    t17 = t17 + t18
+    t17 = t17 * 4
+    t19 = p0 [ t17 ]
+    t16 = t15 * t19
+    T3 = t16
+   l3:
+   t20 = T3 > T2
+   if t20 == 0 goto l4
+     T2 = T3
+   l4:
+   t21 = 0
+   t22 = T0 * 1
+   t21 = t21 + t22
+   t21 = t21 * 4
+   t23 = p0 [ t21 ]
+   t25 = 0
+   t26 = T1 * 1
+   t25 = t25 + t26
+   t25 = t25 * 4
+   t27 = p0 [ t25 ]
+   t24 = t23 > t27
+   if t24 == 0 goto l5
+    t28 = T1 - 1
+    T1 = t28
+    goto l6
+   l5:
+    t29 = T0 + 1
+    T0 = t29
+   l6:
+  goto l0
+ l1:
+ return T2
+ return 0
+end f_maxArea
+
+f_main [ 0 ]
+  var T4
+  var 40 T5
+  var t30
+  var t31
+  var t32
+  var t33
+  var t34
+  var t35
+  var t36
+  var t37
+  var t38
+  var t39
+  var t40
+  var t41
+  var t42
+  var t43
+  var t44
+  var t45
+  var t46
+  var t47
+  var t48
+  var t49
+  var t50
+ t30 = 0
+ t31 = 0 * 1
+ t30 = t30 + t31
+ t30 = t30 * 4
+ T5 [ t30 ] = 3
+ t32 = 0
+ t33 = 1 * 1
+ t32 = t32 + t33
+ t32 = t32 * 4
+ T5 [ t32 ] = 3
+ t34 = 0
+ t35 = 2 * 1
+ t34 = t34 + t35
+ t34 = t34 * 4
+ T5 [ t34 ] = 9
+ t36 = 0
+ t37 = 3 * 1
+ t36 = t36 + t37
+ t36 = t36 * 4
+ T5 [ t36 ] = 0
+ t38 = 0
+ t39 = 4 * 1
+ t38 = t38 + t39
+ t38 = t38 * 4
+ T5 [ t38 ] = 0
+ t40 = 0
+ t41 = 5 * 1
+ t40 = t40 + t41
+ t40 = t40 * 4
+ T5 [ t40 ] = 1
+ t42 = 0
+ t43 = 6 * 1
+ t42 = t42 + t43
+ t42 = t42 * 4
+ T5 [ t42 ] = 1
+ t44 = 0
+ t45 = 7 * 1
+ t44 = t44 + t45
+ t44 = t44 * 4
+ T5 [ t44 ] = 5
+ t46 = 0
+ t47 = 8 * 1
+ t46 = t46 + t47
+ t46 = t46 * 4
+ T5 [ t46 ] = 7
+ t48 = 0
+ t49 = 9 * 1
+ t48 = t48 + t49
+ t48 = t48 * 4
+ T5 [ t48 ] = 8
+ T4 = 10
+ param T5
+ param T4
+ t50 = call f_maxArea
+ T4 = t50
+ return T4
+ return 0
+end f_main

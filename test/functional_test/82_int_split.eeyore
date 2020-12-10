@@ -1,0 +1,74 @@
+var T0
+var T1
+
+f_split [ 2 ]
+  var T2
+  var t0
+  var t1
+  var t2
+  var t3
+  var t4
+  var t5
+  var t6
+  var t7
+ t0 = T0 - 1
+ T2 = t0
+ l0:
+  t2 = -1
+  t1 = T2 != t2
+  if t1 == 0 goto l1
+   t3 = 0
+   t4 = T2 * 1
+   t3 = t3 + t4
+   t3 = t3 * 4
+   t5 = p0 % 10
+   p1 [ t3 ] = t5
+   t6 = p0 / 10
+   p0 = t6
+   t7 = T2 - 1
+   T2 = t7
+  goto l0
+ l1:
+ return 0
+ return 0
+end f_split
+
+f_main [ 0 ]
+  var T3
+  var T4
+  var 16 T5
+  var t8
+  var T6
+  var t9
+  var t10
+  var t11
+  var t12
+  var t13
+ T0 = 4
+ T1 = 10
+ T4 = 1478
+ param T4
+ param T5
+ t8 = call f_split
+ T4 = t8
+ T3 = 0
+ l2:
+  t9 = T3 < 4
+  if t9 == 0 goto l3
+   t10 = 0
+   t11 = T3 * 1
+   t10 = t10 + t11
+   t10 = t10 * 4
+   t12 = T5 [ t10 ]
+   T6 = t12
+   param T6
+   call f_putint
+   param T1
+   call f_putch
+   t13 = T3 + 1
+   T3 = t13
+  goto l2
+ l3:
+ return 0
+ return 0
+end f_main

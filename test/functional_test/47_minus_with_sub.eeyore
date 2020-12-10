@@ -1,0 +1,30 @@
+
+f_main [ 0 ]
+  var T0
+  var T1
+  var t0
+  var t1
+  var t2
+  var t3
+  var t4
+  var t5
+  var t6
+  var t7
+  var t8
+ t0 = -2
+ T0 = t0
+ T1 = 1
+ t2 = -T1
+ t1 = T0 - t2
+ t4 = T0 + T1
+ t5 = -t4
+ t7 = T0 - T1
+ t8 = -t7
+ t6 = t5 % t8
+ t3 = t1 + t6
+ T0 = t3
+ param T0
+ call f_putint
+ return 0
+ return 0
+end f_main

@@ -1,0 +1,198 @@
+var T0
+
+f_bubblesort [ 1 ]
+  var T1
+  var T2
+  var t0
+  var t1
+  var t2
+  var t3
+  var t4
+  var t5
+  var t6
+  var t7
+  var t8
+  var t9
+  var t10
+  var t11
+  var t12
+  var T3
+  var t13
+  var t14
+  var t15
+  var t16
+  var t17
+  var t18
+  var t19
+  var t20
+  var t21
+  var t22
+  var t23
+  var t24
+  var t25
+  var t26
+ T1 = 0
+ l0:
+  t1 = T0 - 1
+  t0 = T1 < t1
+  if t0 == 0 goto l1
+   T2 = 0
+   l2:
+    t3 = T0 - T1
+    t4 = t3 - 1
+    t2 = T2 < t4
+    if t2 == 0 goto l3
+     t5 = 0
+     t6 = T2 * 1
+     t5 = t5 + t6
+     t5 = t5 * 4
+     t7 = p0 [ t5 ]
+     t9 = T2 + 1
+     t10 = 0
+     t11 = t9 * 1
+     t10 = t10 + t11
+     t10 = t10 * 4
+     t12 = p0 [ t10 ]
+     t8 = t7 > t12
+     if t8 == 0 goto l4
+       t13 = T2 + 1
+       t14 = 0
+       t15 = t13 * 1
+       t14 = t14 + t15
+       t14 = t14 * 4
+       t16 = p0 [ t14 ]
+       T3 = t16
+       t17 = T2 + 1
+       t18 = 0
+       t19 = t17 * 1
+       t18 = t18 + t19
+       t18 = t18 * 4
+       t20 = 0
+       t21 = T2 * 1
+       t20 = t20 + t21
+       t20 = t20 * 4
+       t22 = p0 [ t20 ]
+       p0 [ t18 ] = t22
+       t23 = 0
+       t24 = T2 * 1
+       t23 = t23 + t24
+       t23 = t23 * 4
+       p0 [ t23 ] = T3
+     l4:
+     t25 = T2 + 1
+     T2 = t25
+    goto l2
+   l3:
+   t26 = T1 + 1
+   T1 = t26
+  goto l0
+ l1:
+ return 0
+ return 0
+end f_bubblesort
+
+f_main [ 0 ]
+  var 40 T4
+  var t27
+  var t28
+  var t29
+  var t30
+  var t31
+  var t32
+  var t33
+  var t34
+  var t35
+  var t36
+  var t37
+  var t38
+  var t39
+  var t40
+  var t41
+  var t42
+  var t43
+  var t44
+  var t45
+  var t46
+  var T5
+  var t47
+  var t48
+  var T6
+  var t49
+  var t50
+  var t51
+  var t52
+ T0 = 10
+ t27 = 0
+ t28 = 0 * 1
+ t27 = t27 + t28
+ t27 = t27 * 4
+ T4 [ t27 ] = 4
+ t29 = 0
+ t30 = 1 * 1
+ t29 = t29 + t30
+ t29 = t29 * 4
+ T4 [ t29 ] = 3
+ t31 = 0
+ t32 = 2 * 1
+ t31 = t31 + t32
+ t31 = t31 * 4
+ T4 [ t31 ] = 9
+ t33 = 0
+ t34 = 3 * 1
+ t33 = t33 + t34
+ t33 = t33 * 4
+ T4 [ t33 ] = 2
+ t35 = 0
+ t36 = 4 * 1
+ t35 = t35 + t36
+ t35 = t35 * 4
+ T4 [ t35 ] = 0
+ t37 = 0
+ t38 = 5 * 1
+ t37 = t37 + t38
+ t37 = t37 * 4
+ T4 [ t37 ] = 1
+ t39 = 0
+ t40 = 6 * 1
+ t39 = t39 + t40
+ t39 = t39 * 4
+ T4 [ t39 ] = 6
+ t41 = 0
+ t42 = 7 * 1
+ t41 = t41 + t42
+ t41 = t41 * 4
+ T4 [ t41 ] = 5
+ t43 = 0
+ t44 = 8 * 1
+ t43 = t43 + t44
+ t43 = t43 * 4
+ T4 [ t43 ] = 7
+ t45 = 0
+ t46 = 9 * 1
+ t45 = t45 + t46
+ t45 = t45 * 4
+ T4 [ t45 ] = 8
+ param T4
+ t47 = call f_bubblesort
+ T5 = t47
+ l5:
+  t48 = T5 < T0
+  if t48 == 0 goto l6
+   t49 = 0
+   t50 = T5 * 1
+   t49 = t49 + t50
+   t49 = t49 * 4
+   t51 = T4 [ t49 ]
+   T6 = t51
+   param T6
+   call f_putint
+   T6 = 10
+   param T6
+   call f_putch
+   t52 = T5 + 1
+   T5 = t52
+  goto l5
+ l6:
+ return 0
+ return 0
+end f_main

@@ -29,13 +29,28 @@ void ContextTigger::generate_tigger_func(EeyoreFunc& eeyore_func)
 
         tigger_func.register_allocation(eeyore_func);
         tigger_func.save_callee_register();
-
         for (auto stmt : eeyore_func.stmts)
         {
             tigger_func.generate_tigger_stmt(*this, stmt);
         }
-
         tigger_func.restore_callee_register();
+    }
+}
+
+void ContextTigger::print_tigger(ostream &out)
+{
+    for (auto& tigger_func : tigger_funcs)
+    {
+        string func_name = tigger_func.func_name;
+        int args_num = tigger_func.args_num;
+        int stack_size = tigger_func.stack_size;
+
+        if (tigger_func.func_name != GLOB_NAME)
+            out << "f_" << func_name << " [ " << args_num << " ] [ " << stack_size << " ]\n";
+        for (auto stmt : tigger_func.stmts)
+            out << stmt->to_string() << "\n";
+        if (tigger_func.func_name == GLOB_NAME) continue;
+        out << "end f_" << func_name << "\n";
     }
 }
 
@@ -64,4 +79,14 @@ void TiggerFunc::generate_tigger_decl(ContextTigger& ctx, EStmt *eeyore_decl)
 void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
 {
     int e_type = eeyore_stmt->get_type();
+    if (e_type == E_RETURN)
+    {
+        auto* stmt = (EReturnStmt*)eeyore_stmt;
+        if (stmt->value)
+        {
+            if (stmt->value->get_type() == E_NUMBER)
+                stmts.emplace_back(new TAssignRegNumber(RETURN_REG, ((ENumber*)stmt->value)->to_int()));
+        }
+        stmts.emplace_back(new TReturn());
+    }
 }

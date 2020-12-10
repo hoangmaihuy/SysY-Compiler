@@ -1,0 +1,45 @@
+
+f_fsqrt [ 1 ]
+  var T0
+  var T1
+  var t0
+  var t1
+  var t2
+  var t3
+  var t4
+  var t5
+ T0 = 0
+ t0 = p0 / 2
+ T1 = t0
+ l0:
+  t1 = T0 - T1
+  t2 = t1 != 0
+  if t2 == 0 goto l1
+   T0 = T1
+   t4 = p0 / T0
+   t3 = T0 + t4
+   T1 = t3
+   t5 = T1 / 2
+   T1 = t5
+  goto l0
+ l1:
+ return T1
+ return 0
+end f_fsqrt
+
+f_main [ 0 ]
+  var T2
+  var T3
+  var t6
+ T2 = 400
+ param T2
+ t6 = call f_fsqrt
+ T3 = t6
+ param T3
+ call f_putint
+ T3 = 10
+ param T3
+ call f_putch
+ return 0
+ return 0
+end f_main

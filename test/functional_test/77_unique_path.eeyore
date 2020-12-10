@@ -1,0 +1,156 @@
+
+f_uniquePaths [ 2 ]
+  var t0
+  var t1
+  var t2
+  var 36 T0
+  var T1
+  var T2
+  var t3
+  var t4
+  var t5
+  var t6
+  var t7
+  var t8
+  var t9
+  var t10
+  var t11
+  var t12
+  var t13
+  var t14
+  var t15
+  var t16
+  var t17
+  var t18
+  var t19
+  var t20
+  var t21
+  var t22
+  var t23
+  var t24
+  var t25
+  var t26
+  var t27
+  var t28
+  var t29
+  var t30
+  var t31
+  var t32
+  var t33
+  var t34
+  var t35
+  var t36
+  var t37
+  var t38
+  var t39
+  var t40
+  var t41
+  var t42
+  var t43
+  var t44
+ t0 = p0 == 1
+ t1 = t0
+ if t1 != 0 goto l0
+ t2 = p1 == 1
+ t1 = t1 || t2
+ l0:
+ if t1 == 0 goto l1
+  return 1
+ l1:
+ T1 = 0
+ l2:
+  t3 = T1 < p0
+  if t3 == 0 goto l3
+   t4 = T1 * 3
+   t5 = t4 + p1
+   t6 = t5 - 1
+   t7 = 0
+   t8 = t6 * 1
+   t7 = t7 + t8
+   t7 = t7 * 4
+   T0 [ t7 ] = 1
+   t9 = T1 + 1
+   T1 = t9
+  goto l2
+ l3:
+ T1 = 0
+ l4:
+  t10 = T1 < p1
+  if t10 == 0 goto l5
+   t11 = p0 - 1
+   t12 = t11 * 3
+   t13 = t12 + T1
+   t14 = 0
+   t15 = t13 * 1
+   t14 = t14 + t15
+   t14 = t14 * 4
+   T0 [ t14 ] = 1
+   t16 = T1 + 1
+   T1 = t16
+  goto l4
+ l5:
+ t17 = p0 - 2
+ T1 = t17
+ l6:
+  t19 = -1
+  t18 = T1 > t19
+  if t18 == 0 goto l7
+   t20 = p1 - 2
+   T2 = t20
+   l8:
+    t22 = -1
+    t21 = T2 > t22
+    if t21 == 0 goto l9
+     t23 = T1 * 3
+     t24 = t23 + T2
+     t25 = 0
+     t26 = t24 * 1
+     t25 = t25 + t26
+     t25 = t25 * 4
+     t27 = T1 + 1
+     t28 = t27 * 3
+     t29 = t28 + T2
+     t30 = 0
+     t31 = t29 * 1
+     t30 = t30 + t31
+     t30 = t30 * 4
+     t32 = T0 [ t30 ]
+     t34 = T1 * 3
+     t35 = t34 + T2
+     t36 = t35 + 1
+     t37 = 0
+     t38 = t36 * 1
+     t37 = t37 + t38
+     t37 = t37 * 4
+     t39 = T0 [ t37 ]
+     t33 = t32 + t39
+     T0 [ t25 ] = t33
+     t40 = T2 - 1
+     T2 = t40
+    goto l8
+   l9:
+   t41 = T1 - 1
+   T1 = t41
+  goto l6
+ l7:
+ t42 = 0
+ t43 = 0 * 1
+ t42 = t42 + t43
+ t42 = t42 * 4
+ t44 = T0 [ t42 ]
+ return t44
+ return 0
+end f_uniquePaths
+
+f_main [ 0 ]
+  var T3
+  var T4
+  var t45
+ T4 = 3
+ param T4
+ param T4
+ t45 = call f_uniquePaths
+ T3 = t45
+ return T3
+ return 0
+end f_main

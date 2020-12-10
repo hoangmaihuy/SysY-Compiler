@@ -1,0 +1,261 @@
+
+f_testParam8 [ 8 ]
+  var t0
+  var t1
+  var t2
+  var t3
+  var t4
+  var t5
+  var t6
+ t0 = p0 + p1
+ t1 = t0 - p2
+ t2 = t1 - p3
+ t3 = t2 - p4
+ t4 = t3 + p5
+ t5 = t4 + p6
+ t6 = t5 + p7
+ return t6
+ return 0
+end f_testParam8
+
+f_testParam16 [ 16 ]
+  var t7
+  var t8
+  var t9
+  var t10
+  var t11
+  var t12
+  var t13
+  var t14
+  var t15
+  var t16
+  var t17
+  var t18
+  var t19
+  var t20
+  var t21
+ t7 = p0 + p1
+ t8 = t7 + p2
+ t9 = t8 + p3
+ t10 = t9 + p4
+ t11 = t10 + p5
+ t12 = t11 + p6
+ t13 = t12 + p7
+ t14 = t13 - p8
+ t15 = t14 + p9
+ t16 = t15 + p10
+ t17 = t16 + p11
+ t18 = t17 + p12
+ t19 = t18 + p13
+ t20 = t19 + p14
+ t21 = t20 + p15
+ return t21
+ return 0
+end f_testParam16
+
+f_testParam32 [ 32 ]
+  var t22
+  var t23
+  var t24
+  var t25
+  var t26
+  var t27
+  var t28
+  var t29
+  var t30
+  var t31
+  var t32
+  var t33
+  var t34
+  var t35
+  var t36
+  var t37
+  var t38
+  var t39
+  var t40
+  var t41
+  var t42
+  var t43
+  var t44
+  var t45
+  var t46
+  var t47
+  var t48
+  var t49
+  var t50
+  var t51
+  var t52
+ t22 = p0 + p1
+ t23 = t22 + p2
+ t24 = t23 + p3
+ t25 = t24 + p4
+ t26 = t25 + p5
+ t27 = t26 + p6
+ t28 = t27 + p7
+ t29 = t28 + p8
+ t30 = t29 + p9
+ t31 = t30 + p10
+ t32 = t31 + p11
+ t33 = t32 - p12
+ t34 = t33 - p13
+ t35 = t34 - p14
+ t36 = t35 - p15
+ t37 = t36 - p16
+ t38 = t37 - p17
+ t39 = t38 - p18
+ t40 = t39 - p19
+ t41 = t40 - p20
+ t42 = t41 - p21
+ t43 = t42 + p22
+ t44 = t43 + p23
+ t45 = t44 + p24
+ t46 = t45 + p25
+ t47 = t46 + p26
+ t48 = t47 + p27
+ t49 = t48 + p28
+ t50 = t49 + p29
+ t51 = t50 + p30
+ t52 = t51 + p31
+ return t52
+ return 0
+end f_testParam32
+
+f_main [ 0 ]
+  var T0
+  var T1
+  var T2
+  var T3
+  var T4
+  var T5
+  var T6
+  var T7
+  var T8
+  var T9
+  var T10
+  var T11
+  var T12
+  var T13
+  var T14
+  var T15
+  var T16
+  var T17
+  var T18
+  var T19
+  var T20
+  var T21
+  var T22
+  var T23
+  var T24
+  var T25
+  var T26
+  var T27
+  var T28
+  var T29
+  var T30
+  var T31
+  var t53
+  var t54
+  var t55
+ T0 = 0
+ T1 = 1
+ T2 = 2
+ T3 = 3
+ T4 = 4
+ T5 = 5
+ T6 = 6
+ T7 = 7
+ T8 = 8
+ T9 = 9
+ T10 = 0
+ T11 = 1
+ T12 = 2
+ T13 = 3
+ T14 = 4
+ T15 = 5
+ T16 = 6
+ T17 = 7
+ T18 = 8
+ T19 = 9
+ T20 = 0
+ T21 = 1
+ T22 = 2
+ T23 = 3
+ T24 = 4
+ T25 = 5
+ T26 = 6
+ T27 = 7
+ T28 = 8
+ T29 = 9
+ T30 = 0
+ T31 = 1
+ param T0
+ param T1
+ param T2
+ param T3
+ param T4
+ param T5
+ param T6
+ param T7
+ t53 = call f_testParam8
+ T0 = t53
+ param T0
+ call f_putint
+ param T0
+ param T1
+ param T2
+ param T3
+ param T4
+ param T5
+ param T6
+ param T7
+ param T8
+ param T9
+ param T10
+ param T11
+ param T12
+ param T13
+ param T14
+ param T15
+ t54 = call f_testParam16
+ T0 = t54
+ param T0
+ call f_putint
+ param T0
+ param T1
+ param T2
+ param T3
+ param T4
+ param T5
+ param T6
+ param T7
+ param T8
+ param T9
+ param T10
+ param T11
+ param T12
+ param T13
+ param T14
+ param T15
+ param T16
+ param T17
+ param T18
+ param T19
+ param T20
+ param T21
+ param T22
+ param T23
+ param T24
+ param T25
+ param T26
+ param T27
+ param T28
+ param T29
+ param T30
+ param T31
+ t55 = call f_testParam32
+ T0 = t55
+ param T0
+ call f_putint
+ return 0
+ return 0
+end f_main

@@ -28,7 +28,7 @@ enum EeyoreType
 class EStmt
 {
 public:
-    string to_string();
+    virtual string to_string();
     virtual int get_type();
 };
 
@@ -59,6 +59,7 @@ public:
     int value;
     explicit ENumber(int value);
     virtual string to_string();
+    int to_int();
     virtual int get_type();
 };
 

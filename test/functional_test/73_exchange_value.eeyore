@@ -1,0 +1,28 @@
+var T0
+
+f_main [ 0 ]
+  var T1
+  var T2
+  var t0
+  var t1
+  var T3
+ t0 = call f_getint
+ T1 = t0
+ t1 = call f_getint
+ T2 = t1
+ T3 = T1
+ T1 = T2
+ T2 = T3
+ param T1
+ call f_putint
+ T3 = 10
+ param T3
+ call f_putch
+ param T2
+ call f_putint
+ T3 = 10
+ param T3
+ call f_putch
+ return 0
+ return 0
+end f_main

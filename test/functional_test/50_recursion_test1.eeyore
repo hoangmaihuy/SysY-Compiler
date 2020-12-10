@@ -1,0 +1,29 @@
+
+f_fact [ 1 ]
+  var t0
+  var T0
+  var t1
+  var t2
+  var t3
+ t0 = p0 == 0
+ if t0 == 0 goto l0
+   return 1
+ l0:
+ t1 = p0 - 1
+ T0 = t1
+ param T0
+ t3 = call f_fact
+ t2 = p0 * t3
+ return t2
+ return 0
+end f_fact
+
+f_main [ 0 ]
+  var T1
+  var t4
+ T1 = 4
+ param T1
+ t4 = call f_fact
+ return t4
+ return 0
+end f_main

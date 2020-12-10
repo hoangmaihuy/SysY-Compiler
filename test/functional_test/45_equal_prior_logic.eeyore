@@ -1,0 +1,63 @@
+
+f_main [ 0 ]
+  var T0
+  var T1
+  var T2
+  var T3
+  var T4
+  var t0
+  var t1
+  var t2
+  var t3
+  var t4
+  var t5
+  var t6
+  var t7
+  var t8
+  var t9
+  var t10
+  var t11
+  var t12
+  var t13
+  var t14
+ T0 = 10
+ T1 = 6
+ T2 = 4
+ T3 = 5
+ t0 = T1 + T2
+ t1 = t0 == T0
+ t2 = t1
+ if t2 == 0 goto l0
+ t4 = T0 / 2
+ t3 = T3 != t4
+ t2 = t2 && t3
+ l0:
+ if t2 == 0 goto l1
+   t6 = T2 / T3
+   t7 = t6 * 2
+   t5 = T1 + t7
+   T4 = t5
+   param T4
+   call f_putint
+ l1:
+ t8 = T2 < 0
+ t9 = t8
+ if t9 != 0 goto l2
+ t10 = T0 - T2
+ t11 = t10 == T1
+ t12 = t11
+ if t12 == 0 goto l3
+ t14 = T3 * 2
+ t13 = T0 != t14
+ t12 = t12 && t13
+ l3:
+ t9 = t9 || t12
+ l2:
+ if t9 == 0 goto l4
+   T4 = 1
+   param T4
+   call f_putint
+ l4:
+ return 0
+ return 0
+end f_main

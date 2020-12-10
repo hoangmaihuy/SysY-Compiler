@@ -1,0 +1,19 @@
+var 20 T0
+
+f_main [ 0 ]
+  var t0
+  var t1
+  var t2
+T0 [ 0 ] = 0
+T0 [ 4 ] = 1
+T0 [ 8 ] = 2
+T0 [ 12 ] = 3
+T0 [ 16 ] = 4
+ t0 = 0
+ t1 = 4 * 1
+ t0 = t0 + t1
+ t0 = t0 * 4
+ t2 = T0 [ t0 ]
+ return t2
+ return 0
+end f_main

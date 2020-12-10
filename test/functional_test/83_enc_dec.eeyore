@@ -1,0 +1,55 @@
+
+f_enc [ 1 ]
+  var t0
+  var t1
+  var t2
+ t0 = p0 > 25
+ if t0 == 0 goto l0
+  t1 = p0 + 60
+  p0 = t1
+  goto l1
+ l0:
+   t2 = p0 - 15
+   p0 = t2
+ l1:
+ return p0
+ return 0
+end f_enc
+
+f_dec [ 1 ]
+  var t3
+  var t4
+  var t5
+ t3 = p0 > 85
+ if t3 == 0 goto l2
+  t4 = p0 - 59
+  p0 = t4
+  goto l3
+ l2:
+   t5 = p0 + 14
+   p0 = t5
+ l3:
+ return p0
+ return 0
+end f_dec
+
+f_main [ 0 ]
+  var T0
+  var T1
+  var t6
+  var t7
+ T0 = 400
+ param T0
+ t6 = call f_enc
+ T1 = t6
+ param T1
+ t7 = call f_dec
+ T1 = t7
+ param T1
+ call f_putint
+ T1 = 10
+ param T1
+ call f_putch
+ return 0
+ return 0
+end f_main
