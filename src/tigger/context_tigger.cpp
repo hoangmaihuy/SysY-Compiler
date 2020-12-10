@@ -12,6 +12,10 @@ ContextTigger::ContextTigger()
 TiggerFunc::TiggerFunc(string func_name, int args_num) : func_name(std::move(func_name)), args_num(args_num)
 {
     stack_size = 0;
+    // callee save register
+    if (has_to_save_callee_register())
+        for (const auto& reg_name : RegisterAllocator::CALLEE_SAVE_REG)
+            new_stack_var(CALLEE_SAVE_NAME + reg_name);
 }
 
 void TiggerFunc::register_allocation(EeyoreFunc &eeyore_func)
@@ -91,6 +95,61 @@ void TiggerFunc::new_stack_var(const string& name, int size)
 bool TiggerFunc::check_var_in_stack(const string& name)
 {
     return stack_map.find(name) != stack_map.end();
+}
+
+bool TiggerFunc::has_to_save_callee_register() const
+{
+    return func_name != GLOB_NAME && func_name != MAIN_NAME;
+}
+
+bool TiggerFunc::has_to_save_caller_register() const
+{
+    return has_func_call;
+}
+
+void TiggerFunc::save_callee_register()
+{
+    if (!has_to_save_callee_register()) return;
+    for (const auto& reg_name : RegisterAllocator::CALLEE_SAVE_REG)
+    {
+        int stack_loc = get_stack_loc(CALLEE_SAVE_NAME + reg_name);
+        stmts.emplace_back(new TStoreStack(reg_name, stack_loc));
+    }
+}
+
+void TiggerFunc::restore_callee_register()
+{
+    if (!has_to_save_callee_register()) return;
+    for (const auto& reg_name : RegisterAllocator::CALLEE_SAVE_REG)
+    {
+        int stack_loc = get_stack_loc(CALLEE_SAVE_NAME + reg_name);
+        stmts.emplace_back(new TLoadStack(stack_loc, reg_name));
+    }
+}
+
+void TiggerFunc::save_caller_register()
+{
+    if (!has_to_save_caller_register()) return;
+    for (const auto& reg_name : RegisterAllocator::CALLER_SAVE_REG)
+    {
+        int stack_loc = get_stack_loc(CALLER_SAVE_NAME + reg_name);
+        stmts.emplace_back(new TStoreStack(reg_name, stack_loc));
+    }
+}
+
+void TiggerFunc::restore_caller_register()
+{
+    if (!has_to_save_caller_register()) return;
+    for (const auto& reg_name : RegisterAllocator::CALLER_SAVE_REG)
+    {
+        int stack_loc = get_stack_loc(CALLER_SAVE_NAME + reg_name);
+        stmts.emplace_back(new TLoadStack(stack_loc, reg_name));
+    }
+}
+
+int TiggerFunc::get_stack_loc(const string &name)
+{
+    return stack_map[name];
 }
 
 void ContextTigger::insert_func(string func_name, int args_num)

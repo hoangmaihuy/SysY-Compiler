@@ -15,6 +15,9 @@
 #define INT_SIZE 4
 
 #define GLOB_NAME "__global__"
+#define MAIN_NAME "main"
+#define CALLER_SAVE_NAME "__caller_save_"
+#define CALLEE_SAVE_NAME "__callee_save_"
 
 using namespace std;
 

@@ -18,9 +18,24 @@ void ContextTigger::generate_tigger_func(EeyoreFunc& eeyore_func)
     else
     {
         eeyore_func.liveness_analysis();
+        tigger_func.has_func_call = eeyore_func.has_func_call;
+
+        // allocate stack for caller save registers
+        if (tigger_func.has_to_save_caller_register())
+        {
+            for (const auto& reg_name : RegisterAllocator::CALLER_SAVE_REG)
+                tigger_func.new_stack_var(CALLER_SAVE_NAME + reg_name);
+        }
+
         tigger_func.register_allocation(eeyore_func);
+        tigger_func.save_callee_register();
+
         for (auto stmt : eeyore_func.stmts)
+        {
             tigger_func.generate_tigger_stmt(*this, stmt);
+        }
+
+        tigger_func.restore_callee_register();
     }
 }
 
@@ -49,5 +64,4 @@ void TiggerFunc::generate_tigger_decl(ContextTigger& ctx, EStmt *eeyore_decl)
 void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
 {
     int e_type = eeyore_stmt->get_type();
-
 }

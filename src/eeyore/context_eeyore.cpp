@@ -145,7 +145,10 @@ pair<string, string> ContextEeyore::get_current_loop()
     return loops.back();
 }
 
-EeyoreFunc::EeyoreFunc(string func_name, int args_num) : func_name(std::move(func_name)), args_num(args_num) { }
+EeyoreFunc::EeyoreFunc(string func_name, int args_num) : func_name(std::move(func_name)), args_num(args_num)
+{
+    has_func_call = false;
+}
 
 void EeyoreFunc::liveness_analysis()
 {
@@ -168,6 +171,8 @@ void EeyoreFunc::liveness_analysis()
             case E_ASSIGN_STMT:
                 assign_stmt = (EAssignStmt*)stmts[i];
                 concat_string_vector(def_vars.back(), assign_stmt->res->get_def_vars(true));
+                if (assign_stmt->value->get_type() == E_FUNC_CALL)
+                    has_func_call = true;
                 break;
             case E_BINARY_EXPR:
                 binary_expr = (EBinaryExpr*)stmts[i];
@@ -176,6 +181,9 @@ void EeyoreFunc::liveness_analysis()
             case E_UNARY_EXPR:
                 unary_expr = (EUnaryExpr*)stmts[i];
                 concat_string_vector(def_vars.back(), unary_expr->res->get_def_vars(true));
+                break;
+            case E_FUNC_CALL:
+                has_func_call = true;
                 break;
             default:
                 break;

@@ -27,3 +27,31 @@ string TVariable::to_string()
 {
     return name;
 }
+
+TNumber::TNumber(int value) : value(value) {}
+
+string TNumber::to_string()
+{
+    return std::to_string(value);
+}
+
+TRegister::TRegister(string reg_name) : reg_name(std::move(reg_name)) {}
+
+string TRegister::to_string()
+{
+    return reg_name;
+}
+
+TStoreStack::TStoreStack(string reg_name, int loc) : reg_name(std::move(reg_name)), loc(loc) {}
+
+string TStoreStack::to_string()
+{
+    return "store " + reg_name + " " + std::to_string(loc);
+}
+
+TLoadStack::TLoadStack(int loc, string reg_name) : loc(loc), reg_name(std::move(reg_name)) {}
+
+string TLoadStack::to_string()
+{
+    return "load " + std::to_string(loc) + " " + reg_name;
+}

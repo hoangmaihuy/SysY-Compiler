@@ -40,6 +40,7 @@ class EeyoreFunc
 public:
     string func_name;
     int args_num;
+    bool has_func_call;
     vector<EStmt*> decls;
     vector<EStmt*> stmts;
     vector<int> stmt_indents;
