@@ -94,8 +94,18 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
         auto* e_stmt = (EReturnStmt*)eeyore_stmt;
         if (e_stmt->value)
         {
-            if (e_stmt->value->get_type() == E_NUMBER)
+            int value_type = e_stmt->value->get_type();
+            if (value_type == E_NUMBER)
+            {
                 stmts.emplace_back(new TAssignNumber(RETURN_REG, ((ENumber*)e_stmt->value)->to_int()));
+            }
+            else if (value_type == E_VARIABLE)
+            {
+                string value_name = e_stmt->value->to_string();
+                string value_reg = register_allocator.get_variable_register(ctx, *this, value_name);
+                register_allocator.load_variable(ctx, *this, value_name, value_reg);
+                stmts.emplace_back(new TCopyReg(RETURN_REG, value_reg));
+            }
         }
         stmts.emplace_back(new TReturn());
     }
@@ -103,14 +113,18 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
     {
         auto* e_stmt = (EAssignStmt*)eeyore_stmt;
         int res_type = e_stmt->res->get_type();
-        int value_type = e_stmt->res->get_type();
+        int value_type = e_stmt->value->get_type();
         if (res_type == E_VARIABLE)
         {
-            string res_reg = register_allocator.get_register(stmts, e_stmt->res);
+            string res_name = e_stmt->res->to_string();
             if (value_type == E_VARIABLE) // x = y
             {
-                string value_reg = register_allocator.get_register(stmts, e_stmt->value);
+                string value_name = e_stmt->value->to_string();
+                string value_reg = register_allocator.get_variable_register(ctx, *this, value_name);
+                register_allocator.load_variable(ctx, *this, value_name, value_reg);
+                string res_reg = register_allocator.get_variable_register(ctx, *this, res_name);
                 stmts.emplace_back(new TCopyReg(res_reg, value_reg));
+                register_allocator.store_register(ctx, *this, res_reg, res_name);
             }
             else if (value_type == E_ARRAY_ITEM) // x = a[i]
             {
@@ -118,7 +132,10 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
             }
             else if (value_type == E_NUMBER) // x = const
             {
-
+                string res_reg = register_allocator.get_variable_register(ctx, *this, res_name);
+                int value = ((ENumber*)e_stmt->value)->value;
+                stmts.emplace_back(new TAssignNumber(res_reg, value));
+                register_allocator.store_register(ctx, *this, res_reg, res_name);
             }
         }
         else if (res_type == E_ARRAY_ITEM)
@@ -135,11 +152,6 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
     }
     else if (e_type == E_BINARY_EXPR)
     {
-        auto* e_stmt = (EBinaryExpr*)eeyore_stmt;
-        string res_reg = register_allocator.get_register(stmts, e_stmt->res);
-        string lhs_reg = register_allocator.get_register(stmts, e_stmt->lhs);
-        string rhs_reg = register_allocator.get_register(stmts, e_stmt->rhs);
-        stmts.emplace_back(new TAssignRegOpReg(res_reg, lhs_reg, e_stmt->op, rhs_reg));
-        write_back(ctx, e_stmt->res, res_reg);
+
     }
 }

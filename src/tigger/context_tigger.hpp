@@ -32,8 +32,6 @@ public:
     bool check_var_in_stack(const string& name);
     void generate_tigger_decl(ContextTigger&, EStmt* eeyore_decl);
     void generate_tigger_stmt(ContextTigger& ctx, EStmt* eeyore_stmt);
-
-    void write_back(ContextTigger& ctx, EValue* res, string reg_name, bool force=false);
 };
 
 class ContextTigger {

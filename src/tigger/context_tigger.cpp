@@ -148,26 +148,9 @@ void TiggerFunc::restore_caller_register()
 
 int TiggerFunc::get_stack_loc(const string &name)
 {
+    if (!check_var_in_stack(name))
+        new_stack_var(name);
     return stack_map[name];
-}
-
-void TiggerFunc::write_back(ContextTigger &ctx, EValue* res, string reg_name, bool force)
-{
-    int res_type = res->get_type();
-    if (res_type == E_VARIABLE)
-    {
-        auto* e_var = (EVariable*)res;
-        string e_name = e_var->to_string();
-        if (e_var->is_temp && !force) return;
-        // global var
-        auto it = ctx.find_var(e_name);
-        if (it)
-        {
-            string t_name = it->to_string();
-            stmts.emplace_back(new TLoadaddrGlobal(t_name, ADDRESS_REG));
-            stmts.emplace_back(new TStoreRegArray(ADDRESS_REG, 0, reg_name));
-        }
-    }
 }
 
 void ContextTigger::insert_func(string func_name, int args_num)

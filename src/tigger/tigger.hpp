@@ -72,6 +72,7 @@ public:
 
 class TArrayWrite : public TStmt
 {
+public:
     string array_reg;
     int index;
     string value_reg;

@@ -3,6 +3,7 @@
 //
 
 #include "register_allocator.hpp"
+#include "context_tigger.hpp"
 
 const vector<string> RegisterAllocator::FREE_REG_NAME = {
         "s0", "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9",
@@ -69,43 +70,73 @@ bool RegisterAllocator::is_in_register(const string& var_name)
     return register_map.find(var_name) != register_map.end();
 }
 
-string RegisterAllocator::get_register(vector<TStmt*>& stmts, EValue *e_var)
-{
-    int value_type = e_var->get_type();
-    if (value_type == E_VARIABLE)
-    {
-        string var_name = ((EVariable*)e_var)->name;
-        if (is_in_register(var_name))
-            return register_map[var_name];
-        else if (is_allocated(var_name))
-            return allocated_register_map[var_name];
-    }
-    else if (value_type == E_NUMBER)
-    {
-        int value = ((ENumber*)e_var)->to_int();
-        if (value == 0) return ZERO_REG;
-        else
-        {
-            if (register_value.find(CONST_REG) != register_value.end()
-            && register_value[CONST_REG] == std::to_string(value))
-                return CONST_REG;
-            else
-            {
-                register_value[CONST_REG] = std::to_string(value);
-                stmts.emplace_back(new TAssignNumber(CONST_REG, value));
-                return CONST_REG;
-            }
-        }
-    }
-}
-
 bool RegisterAllocator::is_allocated(const string &var_name)
 {
     return allocated_register_map.find(var_name) != allocated_register_map.end();
 }
 
-string RegisterAllocator::get_allocated_register(const string &var_name)
+string RegisterAllocator::get_variable_register(ContextTigger &ctx, TiggerFunc &func, const string& e_name, const string& exclude_reg)
 {
-    return allocated_register_map[var_name];
+    // already in register
+    if (is_in_register(e_name))
+        return register_map[e_name];
+    // not in register
+    string reg_name;
+    if (is_allocated(e_name) && allocated_register_map[e_name] != exclude_reg)
+    {
+        reg_name = allocated_register_map[e_name];
+    }
+    else
+    {
+        // TODO: choose a register
+    }
+
+    return reg_name;
+}
+
+bool RegisterAllocator::register_has_value(const string &reg_name)
+{
+    return register_value.find(reg_name) != register_value.end();
+}
+
+void RegisterAllocator::load_variable(ContextTigger &ctx, TiggerFunc &func, const string &e_name,
+                                      const string &reg_name, bool load_addr)
+{
+    // TODO: spill register
+    if (register_has_value(reg_name))
+    {
+        string spill_name = register_value[reg_name];
+        store_register(ctx, func, reg_name, spill_name, true);
+    }
+
+    if (ctx.is_global_var(e_name))
+    {
+        string t_name = ctx.find_var(e_name);
+        if (!load_addr)
+            func.stmts.emplace_back(new TLoadGlobal(t_name, reg_name));
+        else
+            func.stmts.emplace_back(new TLoadaddrGlobal(t_name, reg_name));
+    }
+    else // stack variable
+    {
+        int stack_loc = func.get_stack_loc(e_name);
+        func.stmts.emplace_back(new TLoadStack(stack_loc, reg_name));
+    }
+}
+
+void RegisterAllocator::store_register(ContextTigger &ctx, TiggerFunc &func, const string &reg_name, const string &e_name, bool is_spill)
+{
+    if (ctx.is_global_var(e_name))
+    {
+        if (is_spill) return;
+        string t_name = ctx.find_var(e_name);
+        func.stmts.emplace_back(new TLoadaddrGlobal(t_name, ADDRESS_REG));
+        func.stmts.emplace_back(new TArrayWrite(ADDRESS_REG, 0, reg_name));
+    }
+    if (func.check_var_in_stack(e_name))
+    {
+        int stack_loc = func.get_stack_loc(e_name);
+        func.stmts.emplace_back(new TStoreStack(reg_name, stack_loc));
+    }
 }
 
