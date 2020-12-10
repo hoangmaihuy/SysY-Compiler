@@ -46,12 +46,22 @@ void ContextTigger::print_tigger(ostream &out)
         int stack_size = tigger_func.stack_size;
 
         if (tigger_func.func_name != GLOB_NAME)
-            out << "f_" << func_name << " [ " << args_num << " ] [ " << stack_size << " ]\n";
+            out << "\nf_" << func_name << " [ " << args_num << " ] [ " << stack_size << " ]\n";
         for (auto stmt : tigger_func.stmts)
-            out << stmt->to_string() << "\n";
+            out << "  " << stmt->to_string() << "\n";
         if (tigger_func.func_name == GLOB_NAME) continue;
         out << "end f_" << func_name << "\n";
     }
+}
+
+string ContextTigger::find_var(const string &ee_name)
+{
+    return global_var_map[ee_name];
+}
+
+bool ContextTigger::is_global_var(const string& ee_name)
+{
+    return (global_var_map.find(ee_name) != global_var_map.end());
 }
 
 void TiggerFunc::generate_tigger_decl(ContextTigger& ctx, EStmt *eeyore_decl)
@@ -61,18 +71,18 @@ void TiggerFunc::generate_tigger_decl(ContextTigger& ctx, EStmt *eeyore_decl)
     {
         auto stmt = (EVarStmt*)eeyore_decl;
         string e_name = stmt->name->to_string();
-        auto* t_var = new TVariable(ctx.new_global_var(), false);
-        ctx.insert_var(e_name, t_var);
-        stmts.emplace_back(new TVarDecl(t_var));
+        string t_name = ctx.new_global_var();
+        ctx.insert_var(e_name, t_name);
+        stmts.emplace_back(new TVarDecl(t_name));
     }
     else if (e_type == E_VAR_ARRAY_STMT)
     {
         auto stmt = (EVarArrayStmt*)eeyore_decl;
         string e_name = stmt->name->to_string();
         int size = stmt->size;
-        auto* t_var = new TVariable(ctx.new_global_var(), true);
-        ctx.insert_var(e_name, t_var);
-        stmts.emplace_back(new TArrayDecl(t_var, size));
+        string t_name = ctx.new_global_var();
+        ctx.insert_var(e_name, t_name);
+        stmts.emplace_back(new TArrayDecl(t_name, size));
     }
 }
 
@@ -81,12 +91,55 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
     int e_type = eeyore_stmt->get_type();
     if (e_type == E_RETURN)
     {
-        auto* stmt = (EReturnStmt*)eeyore_stmt;
-        if (stmt->value)
+        auto* e_stmt = (EReturnStmt*)eeyore_stmt;
+        if (e_stmt->value)
         {
-            if (stmt->value->get_type() == E_NUMBER)
-                stmts.emplace_back(new TAssignRegNumber(RETURN_REG, ((ENumber*)stmt->value)->to_int()));
+            if (e_stmt->value->get_type() == E_NUMBER)
+                stmts.emplace_back(new TAssignNumber(RETURN_REG, ((ENumber*)e_stmt->value)->to_int()));
         }
         stmts.emplace_back(new TReturn());
+    }
+    else if (e_type == E_ASSIGN_STMT)
+    {
+        auto* e_stmt = (EAssignStmt*)eeyore_stmt;
+        int res_type = e_stmt->res->get_type();
+        int value_type = e_stmt->res->get_type();
+        if (res_type == E_VARIABLE)
+        {
+            string res_reg = register_allocator.get_register(stmts, e_stmt->res);
+            if (value_type == E_VARIABLE) // x = y
+            {
+                string value_reg = register_allocator.get_register(stmts, e_stmt->value);
+                stmts.emplace_back(new TCopyReg(res_reg, value_reg));
+            }
+            else if (value_type == E_ARRAY_ITEM) // x = a[i]
+            {
+
+            }
+            else if (value_type == E_NUMBER) // x = const
+            {
+
+            }
+        }
+        else if (res_type == E_ARRAY_ITEM)
+        {
+            if (value_type == E_NUMBER) // a[i] = const
+            {
+
+            }
+            else if (value_type == E_VARIABLE) // a[i] = x
+            {
+
+            }
+        }
+    }
+    else if (e_type == E_BINARY_EXPR)
+    {
+        auto* e_stmt = (EBinaryExpr*)eeyore_stmt;
+        string res_reg = register_allocator.get_register(stmts, e_stmt->res);
+        string lhs_reg = register_allocator.get_register(stmts, e_stmt->lhs);
+        string rhs_reg = register_allocator.get_register(stmts, e_stmt->rhs);
+        stmts.emplace_back(new TAssignRegOpReg(res_reg, lhs_reg, e_stmt->op, rhs_reg));
+        write_back(ctx, e_stmt->res, res_reg);
     }
 }

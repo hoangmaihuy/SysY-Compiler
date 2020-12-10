@@ -32,22 +32,24 @@ public:
     bool check_var_in_stack(const string& name);
     void generate_tigger_decl(ContextTigger&, EStmt* eeyore_decl);
     void generate_tigger_stmt(ContextTigger& ctx, EStmt* eeyore_stmt);
+
+    void write_back(ContextTigger& ctx, EValue* res, string reg_name, bool force=false);
 };
 
 class ContextTigger {
 public:
     int var_id;
     vector<TiggerFunc> tigger_funcs;
-    unordered_map<string, TVariable*> symtab;
+    unordered_map<string, string> global_var_map;
 
     ContextTigger();
 
     string new_global_var();
+    bool is_global_var(const string& e_name);
 
     void insert_func(string func_name, int args_num);
-    void insert_var(const string& ee_name, TVariable* t_var);
-    void insert_decl(TStmt* decl);
-    void insert_stmt(TStmt* stmt);
+    void insert_var(const string& ee_name, string t_name);
+    string find_var(const string& ee_name);
     void generate_tigger_func(EeyoreFunc& eeyore_func);
 
     TiggerFunc& get_current_func();

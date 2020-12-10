@@ -3,43 +3,23 @@
 //
 
 #include "tigger.hpp"
+#include "util.hpp"
 
 #include <utility>
 
-TVarDecl::TVarDecl(TVariable* name, int value) : name(name), value(value) {}
+TVarDecl::TVarDecl(string name, int value) : name(std::move(name)), value(value) {}
 
 string TVarDecl::to_string()
 {
-    return name->to_string() + " = " + std::to_string(value);
+    return name + " = " + std::to_string(value);
 }
 
 
-TArrayDecl::TArrayDecl(TVariable* name, int size) : name(name), size(size) {}
+TArrayDecl::TArrayDecl(string name, int size) : name(std::move(name)), size(size) {}
 
 string TArrayDecl::to_string()
 {
-    return name->to_string() + " = malloc " + std::to_string(size);
-}
-
-TVariable::TVariable(string name, bool is_array) : name(std::move(name)), is_array(is_array) {}
-
-string TVariable::to_string()
-{
-    return name;
-}
-
-TNumber::TNumber(int value) : value(value) {}
-
-string TNumber::to_string()
-{
-    return std::to_string(value);
-}
-
-TRegister::TRegister(string reg_name) : reg_name(std::move(reg_name)) {}
-
-string TRegister::to_string()
-{
-    return reg_name;
+    return name + " = malloc " + std::to_string(size);
 }
 
 TStoreStack::TStoreStack(string reg_name, int loc) : reg_name(std::move(reg_name)), loc(loc) {}
@@ -61,11 +41,109 @@ string TReturn::to_string()
     return "return";
 }
 
-TAssignRegNumber::TAssignRegNumber(string reg_name, int value) : reg_name(std::move(reg_name)), value(value)
+TAssignNumber::TAssignNumber(string reg_name, int value) : reg_name(std::move(reg_name)), value(value)
 {
 }
 
-string TAssignRegNumber::to_string()
+string TAssignNumber::to_string()
 {
     return reg_name + " = " + std::to_string(value);
+}
+
+TCopyReg::TCopyReg(string res_reg, string value_reg) : res_reg(std::move(res_reg)), value_reg(std::move(value_reg)) {}
+
+string TCopyReg::to_string()
+{
+    return res_reg + " = " + value_reg;
+}
+
+TAssignRegOpReg::TAssignRegOpReg(string res_reg, string lhs_reg, int op, string rhs_reg) : res_reg(res_reg), lhs_reg(lhs_reg), op(op), rhs_reg(rhs_reg)
+{
+}
+
+string TAssignRegOpReg::to_string()
+{
+    return res_reg + " = " + lhs_reg + " "  + get_token_str(op) + " " + rhs_reg;
+}
+
+TLoadaddrGlobal::TLoadaddrGlobal(string var_name, string reg_name) : var_name(var_name), reg_name(reg_name)
+{
+}
+
+string TLoadaddrGlobal::to_string()
+{
+    return "loadaddr " + var_name + " " + reg_name;
+}
+
+TStoreRegArray::TStoreRegArray(string res_reg, int index, string value_reg) : res_reg(res_reg), index(index), value_reg(value_reg)
+{
+
+}
+
+string TStoreRegArray::to_string()
+{
+    return res_reg + " [ " + std::to_string(index) + " ] = " + value_reg;
+}
+
+TAssignOpReg::TAssignOpReg(string res_reg, int op, string rhs_reg) : res_reg(res_reg), op(op), rhs_reg(rhs_reg) {}
+
+string TAssignOpReg::to_string()
+{
+    return res_reg + " = " + get_token_str(op) + " " + rhs_reg;
+}
+
+TArrayWrite::TArrayWrite(string array_reg, int index, string value_reg) : array_reg(array_reg), index(index), value_reg(value_reg) {}
+
+string TArrayWrite::to_string()
+{
+    return array_reg + " [ " + std::to_string(index) + " ] = " + value_reg;
+}
+
+TArrayRead::TArrayRead(string res_reg, string array_reg, int index) : res_reg(res_reg), array_reg(array_reg), index(index) {}
+
+string TArrayRead::to_string()
+{
+    return res_reg + " = " + array_reg + " [ " + std::to_string(index) + " ]";
+}
+
+TConditionalJump::TConditionalJump(const string &reg1, int op, const string &reg2, const string& label) : reg_1(reg1), op(op), reg_2(reg2), label(label) {}
+
+string TConditionalJump::to_string()
+{
+    return "if " + reg_1 + " " + get_token_str(op) + " " + reg_2 + " goto " + label;
+}
+
+TUnconditionalJump::TUnconditionalJump(string label) : label(label) {}
+
+string TUnconditionalJump::to_string()
+{
+    return "goto " + label;
+}
+
+TLabel::TLabel(string label) : label(label) {}
+
+string TLabel::to_string()
+{
+    return label + ":";
+}
+
+TFuncCall::TFuncCall(string func_name) : func_name(func_name) {}
+
+string TFuncCall::to_string()
+{
+    return "call f_" + func_name;
+}
+
+TLoadGlobal::TLoadGlobal(string var_name, string reg_name) : var_name(var_name), reg_name(reg_name) {}
+
+string TLoadGlobal::to_string()
+{
+    return "load " + var_name + " " + reg_name;
+}
+
+TLoadaddrStack::TLoadaddrStack(int loc, string reg_name) : loc(loc), reg_name(reg_name) {}
+
+string TLoadaddrStack::to_string()
+{
+    return "loadaddr " + std::to_string(loc) + " " + reg_name;
 }

@@ -151,6 +151,25 @@ int TiggerFunc::get_stack_loc(const string &name)
     return stack_map[name];
 }
 
+void TiggerFunc::write_back(ContextTigger &ctx, EValue* res, string reg_name, bool force)
+{
+    int res_type = res->get_type();
+    if (res_type == E_VARIABLE)
+    {
+        auto* e_var = (EVariable*)res;
+        string e_name = e_var->to_string();
+        if (e_var->is_temp && !force) return;
+        // global var
+        auto it = ctx.find_var(e_name);
+        if (it)
+        {
+            string t_name = it->to_string();
+            stmts.emplace_back(new TLoadaddrGlobal(t_name, ADDRESS_REG));
+            stmts.emplace_back(new TStoreRegArray(ADDRESS_REG, 0, reg_name));
+        }
+    }
+}
+
 void ContextTigger::insert_func(string func_name, int args_num)
 {
     tigger_funcs.emplace_back(TiggerFunc(func_name, args_num));
@@ -161,9 +180,9 @@ string ContextTigger::new_global_var()
     return "v" + to_string(var_id++);
 }
 
-void ContextTigger::insert_var(const string& ee_name, TVariable *t_var)
+void ContextTigger::insert_var(const string& e_name, string t_name)
 {
-    symtab.insert({ee_name, t_var});
+    global_var_map.insert({e_name, t_name});
 }
 
 TiggerFunc &ContextTigger::get_current_func()
