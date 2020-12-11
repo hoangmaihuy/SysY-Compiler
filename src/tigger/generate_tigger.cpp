@@ -111,6 +111,7 @@ void TiggerFunc::generate_tigger_decl(ContextTigger& ctx, EStmt *eeyore_decl)
 void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
 {
     int e_type = eeyore_stmt->get_type();
+    stmts.emplace_back(new TComment(eeyore_stmt->to_string()));
     if (e_type == E_RETURN)
     {
         auto* e_stmt = (EReturnStmt*)eeyore_stmt;
@@ -235,7 +236,7 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
                 stmts.emplace_back(new TAssignNumber(CONST_REG, ((ENumber*)e_stmt->value)->value));
                 value_reg = CONST_REG;
             }
-            else
+            else if (value_type == E_VARIABLE)
             {
                 string value_name = e_stmt->value->to_string();
                 value_reg = register_allocator.get_variable_register(ctx, *this, value_name);
@@ -245,7 +246,7 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
             if (index_type == E_NUMBER)
             {
                 int index = ((ENumber*)array_item->index)->value;
-                if (ctx.is_global_var(array_name))
+                if (ctx.is_global_var(array_name) || is_param(array_name))
                 {
                     array_reg = register_allocator.get_variable_register(ctx, *this, array_name);
                     register_allocator.load_variable(ctx, *this, array_name, array_reg);
@@ -263,7 +264,7 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
                 string index_reg = register_allocator.get_variable_register(ctx, *this, index_name);
                 register_allocator.load_variable(ctx, *this, index_name, index_reg);
 
-                if (ctx.is_global_var(array_name))
+                if (ctx.is_global_var(array_name) || is_param(array_name))
                 {
                     array_reg = register_allocator.get_variable_register(ctx, *this, array_name);
                     register_allocator.load_variable(ctx, *this, array_name, array_reg);

@@ -13,6 +13,14 @@ public:
     virtual string to_string() = 0;
 };
 
+class TComment : public TStmt
+{
+public:
+    string comment;
+    TComment(string comment);
+    string to_string() override;
+};
+
 class TVarDecl : public TStmt
 {
 public:

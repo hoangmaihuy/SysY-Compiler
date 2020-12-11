@@ -147,3 +147,10 @@ string TLoadaddrStack::to_string()
 {
     return "loadaddr " + std::to_string(loc) + " " + reg_name;
 }
+
+TComment::TComment(string comment) : comment(comment) {}
+
+string TComment::to_string()
+{
+    return "// " + comment;
+}
