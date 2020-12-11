@@ -220,7 +220,8 @@ void EeyoreFunc::liveness_analysis()
                 break;
             case E_RETURN:
                 return_stmt = (EReturnStmt*)stmts[i];
-                concat_string_vector(use_vars.back(), return_stmt->value->get_use_vars(false));
+                if (return_stmt->value)
+                    concat_string_vector(use_vars.back(), return_stmt->value->get_use_vars(false));
                 break;
             case E_PARAM:
                 param_stmt = (EParamStmt*)stmts[i];
