@@ -17,6 +17,7 @@ public:
     vector<TStmt*> stmts;
     unordered_map<string, int> stack_map;
     RegisterAllocator register_allocator;
+    unordered_map<string, pair<int, int>> live_interval;
 
     TiggerFunc(string func_name, int args_num);
 

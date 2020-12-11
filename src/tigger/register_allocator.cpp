@@ -102,7 +102,22 @@ string RegisterAllocator::get_variable_register(ContextTigger &ctx, TiggerFunc &
         {
             if (!register_has_value(reg) && reg != exclude_reg) return reg;
         }
-        cerr << "No available register\n";
+        int last_use = 0;
+        for (auto& reg : FREE_REG_NAME)
+        {
+            string reg_value = register_value[reg];
+            auto it = func.live_interval.find(reg_value);
+            if (it == func.live_interval.end())
+            {
+                reg_name = reg;
+                break;
+            }
+            else if (it->second.second > last_use)
+            {
+                reg_name = reg;
+                last_use = it->second.second;
+            }
+        }
     }
     clear_register(ctx, func, reg_name, e_name);
     return reg_name;

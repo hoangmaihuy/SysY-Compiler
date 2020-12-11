@@ -49,6 +49,7 @@ void TiggerFunc::register_allocation(EeyoreFunc &eeyore_func)
     {
         string ee_name = interval.name;
         if (name_is_number(ee_name)) continue;
+        live_interval[ee_name] = make_pair(interval.tin, interval.tout);
         // expire old intervals
         while (!active_heap.empty())
         {
