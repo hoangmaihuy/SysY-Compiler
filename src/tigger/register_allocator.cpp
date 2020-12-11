@@ -85,6 +85,12 @@ string RegisterAllocator::get_variable_register(ContextTigger &ctx, TiggerFunc &
         return register_map[e_name];
     // not in register
     string reg_name;
+    if (e_name[0] == 'p')
+    {
+        reg_name = e_name;
+        reg_name[0] = 'a';
+        return reg_name;
+    }
     if (is_allocated(e_name) && allocated_register_map[e_name] != exclude_reg)
     {
         reg_name = allocated_register_map[e_name];
@@ -108,7 +114,8 @@ bool RegisterAllocator::register_has_value(const string &reg_name)
 void RegisterAllocator::load_variable(ContextTigger &ctx, TiggerFunc &func, const string &e_name,
                                       const string &reg_name, bool load_addr)
 {
-    if (is_in_register(e_name)) return;
+    if (is_in_register(e_name) && register_map[e_name] == reg_name) return;
+    if (e_name[0] == 'p') return;
     if (ctx.is_global_var(e_name))
     {
         string t_name = ctx.find_var(e_name);
