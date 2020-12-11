@@ -82,7 +82,7 @@ string RegisterAllocator::get_variable_register(ContextTigger &ctx, TiggerFunc &
 {
     // already in register
     if (e_name == "0") return ZERO_REG;
-    if (is_in_register(e_name))
+    if (is_in_register(e_name) && register_map[e_name] != exclude_reg)
         return register_map[e_name];
     // not in register
     string reg_name;
@@ -105,6 +105,7 @@ string RegisterAllocator::get_variable_register(ContextTigger &ctx, TiggerFunc &
         int last_use = 0;
         for (auto& reg : FREE_REG_NAME)
         {
+            if (reg == exclude_reg) continue;
             string reg_value = register_value[reg];
             auto it = func.live_interval.find(reg_value);
             if (it == func.live_interval.end())
@@ -181,14 +182,21 @@ RegisterAllocator::clear_register(ContextTigger &ctx, TiggerFunc &func, const st
     if (register_has_value(reg_name))
     {
         string spill_name = register_value[reg_name];
-        if (spill_name == e_name) return;
-        store_register(ctx, func, reg_name, spill_name, true);
+        register_map.erase(spill_name);
+        if (spill_name != e_name)
+            store_register(ctx, func, reg_name, spill_name, true);
     }
+    register_value.erase(reg_name);
 }
 
 void RegisterAllocator::map_reg_var(const string &reg_name, const string &var_name)
 {
-    if (name_is_number(var_name)) return;
+    if (name_is_number(var_name))
+    {
+        register_map.erase(var_name);
+        register_value.erase(reg_name);
+        return;
+    }
     register_map[var_name] = reg_name;
     register_value[reg_name] = var_name;
 }
