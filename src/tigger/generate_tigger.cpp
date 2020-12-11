@@ -287,4 +287,35 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
         string value_reg = "a" + std::to_string(param_count++);
         register_allocator.load_variable(ctx, *this, value_name, value_reg);
     }
+    else if (e_type == E_LABEL)
+    {
+        auto* e_stmt = (EJumpLabel*)eeyore_stmt;
+        stmts.emplace_back(new TLabel(e_stmt->label));
+    }
+    else if (e_type == E_UNCOND_JUMP)
+    {
+        auto* e_stmt = (EUnconditionalJump*)eeyore_stmt;
+        stmts.emplace_back(new TUnconditionalJump(e_stmt->label));
+    }
+    else if (e_type == E_COND_JUMP)
+    {
+        auto* e_stmt = (EConditionalJump*)eeyore_stmt;
+        string cond_name = e_stmt->cond_name->to_string();
+        string cond_reg = register_allocator.get_variable_register(ctx, *this, cond_name);
+        register_allocator.load_variable(ctx, *this, cond_name, cond_reg);
+        int op = (e_stmt->cond_value ? NE : EQ);
+        stmts.emplace_back(new TConditionalJump(cond_reg, op, ZERO_REG, e_stmt->label));
+    }
+    else if (e_type == E_UNARY_EXPR)
+    {
+        auto* e_stmt = (EUnaryExpr*)eeyore_stmt;
+        string res_name = e_stmt->res->to_string();
+        string rhs_name = e_stmt->rhs->to_string();
+        string rhs_reg = register_allocator.get_variable_register(ctx, *this, rhs_name);
+        register_allocator.load_variable(ctx, *this, rhs_name, rhs_reg);
+        string res_reg = register_allocator.get_variable_register(ctx, *this, res_name);
+        stmts.emplace_back(new TAssignOpReg(res_reg, e_stmt->op, rhs_reg));
+        register_allocator.map_reg_var(res_reg, res_name);
+        register_allocator.store_register(ctx, *this, res_reg, res_name);
+    }
 }
