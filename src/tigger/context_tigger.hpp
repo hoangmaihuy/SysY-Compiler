@@ -40,6 +40,7 @@ public:
     int var_id;
     vector<TiggerFunc> tigger_funcs;
     unordered_map<string, string> global_var_map;
+    set<string> array_names;
 
     ContextTigger();
 
@@ -48,6 +49,8 @@ public:
 
     void insert_func(string func_name, int args_num);
     void insert_var(const string& ee_name, string t_name);
+    void insert_array(const string& ee_name);
+    bool is_array(const string& ee_name);
     string find_var(const string& ee_name);
     void generate_tigger_func(EeyoreFunc& eeyore_func);
 

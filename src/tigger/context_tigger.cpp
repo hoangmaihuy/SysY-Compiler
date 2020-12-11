@@ -1,5 +1,5 @@
 #include "context_tigger.hpp"
-
+#include "util.hpp"
 #include <utility>
 
 
@@ -48,6 +48,7 @@ void TiggerFunc::register_allocation(EeyoreFunc &eeyore_func)
     for (auto& interval : live_intervals)
     {
         string ee_name = interval.name;
+        if (name_is_number(ee_name)) continue;
         // expire old intervals
         while (!active_heap.empty())
         {
@@ -80,6 +81,7 @@ void TiggerFunc::register_allocation(EeyoreFunc &eeyore_func)
             // alloc free register
             auto reg_name = register_allocator.get_free_register();
             register_allocator.alloc_register(ee_name, reg_name);
+            active_heap.insert(interval);
         }
     }
 }

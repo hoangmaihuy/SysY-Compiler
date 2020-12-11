@@ -37,7 +37,7 @@ public:
     void free_all();
 
     string get_variable_register(ContextTigger& ctx, TiggerFunc& func, const string& e_name, const string& exclude_reg="");
-    void load_variable(ContextTigger& ctx, TiggerFunc& func, const string& e_name, const string& reg_name, bool load_addr= false);
+    void load_variable(ContextTigger& ctx, TiggerFunc& func, const string& e_name, const string& reg_name);
     void store_register(ContextTigger& ctx, TiggerFunc& func, const string& reg_name, const string& e_name, bool is_spill=false);
     void clear_register(ContextTigger& ctx, TiggerFunc& func, const string& reg_name, const string& e_name);
     void map_reg_var(const string& reg_name, const string& var_name);

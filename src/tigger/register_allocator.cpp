@@ -81,6 +81,7 @@ bool RegisterAllocator::is_allocated(const string &var_name)
 string RegisterAllocator::get_variable_register(ContextTigger &ctx, TiggerFunc &func, const string& e_name, const string& exclude_reg)
 {
     // already in register
+    if (e_name == "0") return ZERO_REG;
     if (is_in_register(e_name))
         return register_map[e_name];
     // not in register
@@ -99,8 +100,9 @@ string RegisterAllocator::get_variable_register(ContextTigger &ctx, TiggerFunc &
     {
         for (auto& reg : FREE_REG_NAME)
         {
-            if (!register_has_value(reg)) return reg;
+            if (!register_has_value(reg) && reg != exclude_reg) return reg;
         }
+        cerr << "No available register\n";
     }
     clear_register(ctx, func, reg_name, e_name);
     return reg_name;
@@ -112,14 +114,15 @@ bool RegisterAllocator::register_has_value(const string &reg_name)
 }
 
 void RegisterAllocator::load_variable(ContextTigger &ctx, TiggerFunc &func, const string &e_name,
-                                      const string &reg_name, bool load_addr)
+                                      const string &reg_name)
 {
     if (is_in_register(e_name) && register_map[e_name] == reg_name) return;
     if (e_name[0] == 'p') return;
+    bool is_array = ctx.is_array(e_name);
     if (ctx.is_global_var(e_name))
     {
         string t_name = ctx.find_var(e_name);
-        if (!load_addr)
+        if (!is_array)
             func.stmts.emplace_back(new TLoadGlobal(t_name, reg_name));
         else
             func.stmts.emplace_back(new TLoadaddrGlobal(t_name, reg_name));
@@ -131,7 +134,10 @@ void RegisterAllocator::load_variable(ContextTigger &ctx, TiggerFunc &func, cons
     else // stack variable
     {
         int stack_loc = func.get_stack_loc(e_name);
-        func.stmts.emplace_back(new TLoadStack(stack_loc, reg_name));
+        if (!is_array)
+            func.stmts.emplace_back(new TLoadStack(stack_loc, reg_name));
+        else
+            func.stmts.emplace_back(new TLoadaddrStack(stack_loc, reg_name));
     }
     map_reg_var(reg_name, e_name);
 }
@@ -166,6 +172,7 @@ RegisterAllocator::clear_register(ContextTigger &ctx, TiggerFunc &func, const st
 
 void RegisterAllocator::map_reg_var(const string &reg_name, const string &var_name)
 {
+    if (name_is_number(var_name)) return;
     register_map[var_name] = reg_name;
     register_value[reg_name] = var_name;
 }

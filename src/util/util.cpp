@@ -64,3 +64,8 @@ bool name_is_number(const string &name)
 {
     return isdigit(name[0]);
 }
+
+bool is_param(const string &name)
+{
+    return name[0] == 'p';
+}

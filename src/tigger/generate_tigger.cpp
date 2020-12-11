@@ -4,6 +4,7 @@
 #include "tigger.hpp"
 #include "sysy_tree.hpp"
 #include "sysy.tab.hpp"
+#include "util.hpp"
 
 
 void ContextTigger::generate_tigger_func(EeyoreFunc& eeyore_func)
@@ -12,6 +13,16 @@ void ContextTigger::generate_tigger_func(EeyoreFunc& eeyore_func)
     int args_num = eeyore_func.args_num;
     insert_func(func_name, args_num);
     auto& tigger_func = get_current_func();
+
+    for (auto decl : eeyore_func.decls)
+    {
+        if (decl->get_type() == E_VAR_ARRAY_STMT)
+        {
+            string ee_name = ((EVarArrayStmt*)decl)->name->to_string();
+            insert_array(ee_name);
+        }
+    }
+
     if (func_name == GLOB_NAME)
     {
         for (auto decl : eeyore_func.decls)
@@ -63,6 +74,16 @@ string ContextTigger::find_var(const string &ee_name)
 bool ContextTigger::is_global_var(const string& ee_name)
 {
     return (global_var_map.find(ee_name) != global_var_map.end());
+}
+
+void ContextTigger::insert_array(const string &ee_name)
+{
+    array_names.insert(ee_name);
+}
+
+bool ContextTigger::is_array(const string &ee_name)
+{
+    return array_names.find(ee_name) != array_names.end();
 }
 
 void TiggerFunc::generate_tigger_decl(ContextTigger& ctx, EStmt *eeyore_decl)
@@ -136,11 +157,13 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
                 string array_index = array_item->index->to_string();
                 int index_type = array_item->index->get_type();
 
+
                 // global array
-                if (ctx.is_global_var(array_name))
+                if (ctx.is_global_var(array_name) || is_param(array_name))
                 {
                     string array_reg = register_allocator.get_variable_register(ctx, *this, array_name);
-                    register_allocator.load_variable(ctx, *this, array_name, array_reg, true);
+                    if (!is_param(array_name))
+                        register_allocator.load_variable(ctx, *this, array_name, array_reg);
                     res_reg = register_allocator.get_variable_register(ctx, *this, res_name);
 
                     if (index_type == E_NUMBER)
@@ -223,7 +246,7 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
                 if (ctx.is_global_var(array_name))
                 {
                     array_reg = register_allocator.get_variable_register(ctx, *this, array_name);
-                    register_allocator.load_variable(ctx, *this, array_name, array_reg, true);
+                    register_allocator.load_variable(ctx, *this, array_name, array_reg);
                     stmts.emplace_back(new TArrayWrite(array_reg, index, value_reg));
                 }
                 else
@@ -241,7 +264,7 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
                 if (ctx.is_global_var(array_name))
                 {
                     array_reg = register_allocator.get_variable_register(ctx, *this, array_name);
-                    register_allocator.load_variable(ctx, *this, array_name, array_reg, true);
+                    register_allocator.load_variable(ctx, *this, array_name, array_reg);
                     stmts.emplace_back(new TAssignRegOpReg(ADDRESS_REG, array_reg, PLUS, index_reg));
                     stmts.emplace_back(new TArrayWrite(ADDRESS_REG, 0, value_reg));
                 }
@@ -284,8 +307,14 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
     {
         auto* e_stmt = (EParamStmt*)eeyore_stmt;
         string value_name = e_stmt->name->to_string();
-        string value_reg = "a" + std::to_string(param_count++);
-        register_allocator.load_variable(ctx, *this, value_name, value_reg);
+        string param_reg = "a" + std::to_string(param_count++);
+        if (register_allocator.is_in_register(value_name))
+        {
+            stmts.emplace_back(new TCopyReg(param_reg, register_allocator.register_map[value_name]));
+            register_allocator.map_reg_var(param_reg, value_name);
+        }
+        else
+            register_allocator.load_variable(ctx, *this, value_name, param_reg);
     }
     else if (e_type == E_LABEL)
     {
