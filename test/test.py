@@ -52,8 +52,8 @@ def run_case(sy_file, in_file, out_file):
   # compare to reference
   with open(out_file) as f:
     ref = f.read().strip()
-  # if out != ref:
-  #  print("\nexpected:\n{0}\nreturned:\n{1}".format(ref, out))
+  if out != ref:
+    print("\nexpected:\n{0}\nreturned:\n{1}".format(ref, out))
   return out == ref
 
 

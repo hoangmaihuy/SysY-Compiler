@@ -166,7 +166,6 @@ void TiggerFunc::push_func_call_params(ContextTigger &ctx)
         if (register_allocator.is_in_register(value_name))
         {
             stmts.emplace_back(new TCopyReg(param_reg, register_allocator.register_map[value_name]));
-            register_allocator.map_reg_var(param_reg, value_name);
         }
         else
             register_allocator.load_variable(ctx, *this, value_name, param_reg);

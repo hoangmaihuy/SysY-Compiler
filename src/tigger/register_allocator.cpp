@@ -70,6 +70,12 @@ void RegisterAllocator::free_all()
 
 bool RegisterAllocator::is_in_register(const string& var_name)
 {
+    if (is_param(var_name))
+    {
+        string reg_name = var_name;
+        reg_name[0] = 'a';
+        map_reg_var(reg_name, var_name);
+    }
     return register_map.find(var_name) != register_map.end();
 }
 
