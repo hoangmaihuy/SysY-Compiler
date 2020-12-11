@@ -163,7 +163,7 @@ void TiggerFunc::push_func_call_params(ContextTigger &ctx)
     for (auto& value_name : func_call_params)
     {
         string param_reg = "a" + std::to_string(param_count++);
-        if (register_allocator.is_in_register(value_name))
+        if (register_allocator.is_in_register(value_name) && !is_param(value_name))
         {
             stmts.emplace_back(new TCopyReg(param_reg, register_allocator.register_map[value_name]));
         }

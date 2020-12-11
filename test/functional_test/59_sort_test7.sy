@@ -1,4 +1,5 @@
 int n;
+
 int Merge(int array[], int low, int middle, int high)
 {
     int n1;

@@ -135,11 +135,15 @@ bool RegisterAllocator::register_has_value(const string &reg_name)
     return register_value.find(reg_name) != register_value.end();
 }
 
-void RegisterAllocator::load_variable(ContextTigger &ctx, TiggerFunc &func, const string &e_name,
+void RegisterAllocator::load_variable(ContextTigger &ctx, TiggerFunc &func, string e_name,
                                       const string &reg_name)
 {
     if (is_in_register(e_name) && register_map[e_name] == reg_name) return;
-    if (e_name[0] == 'p') return;
+    if (e_name[0] == 'p')
+    {
+        e_name[0] = 'a';
+        e_name = CALLER_SAVE_NAME + e_name;
+    }
     bool is_array = ctx.is_array(e_name);
     if (ctx.is_global_var(e_name))
     {
