@@ -1,6 +1,6 @@
 %{
 #include "globals.hpp"
-#include "tree.hpp"
+#include "sysy_tree.hpp"
 
 extern int yylex();
 extern int yyget_lineno();
