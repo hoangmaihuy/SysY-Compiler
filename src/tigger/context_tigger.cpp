@@ -12,6 +12,7 @@ ContextTigger::ContextTigger()
 TiggerFunc::TiggerFunc(string func_name, int args_num) : func_name(std::move(func_name)), args_num(args_num)
 {
     stack_size = 0;
+    param_count = 0;
     // callee save register
     if (has_to_save_callee_register())
         for (const auto& reg_name : RegisterAllocator::CALLEE_SAVE_REG)

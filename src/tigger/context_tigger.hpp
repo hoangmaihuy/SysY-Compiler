@@ -11,6 +11,7 @@ class TiggerFunc {
 public:
     string func_name;
     int args_num;
+    int param_count;
     int stack_size;
     bool has_func_call;
     vector<TStmt*> stmts;

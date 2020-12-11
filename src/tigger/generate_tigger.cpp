@@ -2,6 +2,8 @@
 #include "context_eeyore.hpp"
 #include "eeyore.hpp"
 #include "tigger.hpp"
+#include "sysy_tree.hpp"
+#include "sysy.tab.hpp"
 
 
 void ContextTigger::generate_tigger_func(EeyoreFunc& eeyore_func)
@@ -33,7 +35,6 @@ void ContextTigger::generate_tigger_func(EeyoreFunc& eeyore_func)
         {
             tigger_func.generate_tigger_stmt(*this, stmt);
         }
-        tigger_func.restore_callee_register();
     }
 }
 
@@ -107,6 +108,7 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
                 stmts.emplace_back(new TCopyReg(RETURN_REG, value_reg));
             }
         }
+        restore_callee_register();
         stmts.emplace_back(new TReturn());
     }
     else if (e_type == E_ASSIGN_STMT)
@@ -117,41 +119,172 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
         if (res_type == E_VARIABLE)
         {
             string res_name = e_stmt->res->to_string();
+            string res_reg;
             if (value_type == E_VARIABLE) // x = y
             {
                 string value_name = e_stmt->value->to_string();
                 string value_reg = register_allocator.get_variable_register(ctx, *this, value_name);
                 register_allocator.load_variable(ctx, *this, value_name, value_reg);
-                string res_reg = register_allocator.get_variable_register(ctx, *this, res_name);
+                res_reg = register_allocator.get_variable_register(ctx, *this, res_name);
                 stmts.emplace_back(new TCopyReg(res_reg, value_reg));
                 register_allocator.store_register(ctx, *this, res_reg, res_name);
             }
             else if (value_type == E_ARRAY_ITEM) // x = a[i]
             {
+                auto* array_item = (EArrayItem*)e_stmt->value;
+                string array_name = array_item->name->to_string();
+                string array_index = array_item->index->to_string();
+                int index_type = array_item->index->get_type();
 
+                // global array
+                if (ctx.is_global_var(array_name))
+                {
+                    string array_reg = register_allocator.get_variable_register(ctx, *this, array_name);
+                    register_allocator.load_variable(ctx, *this, array_name, array_reg, true);
+                    res_reg = register_allocator.get_variable_register(ctx, *this, res_name);
+
+                    if (index_type == E_NUMBER)
+                    {
+                        int index = ((ENumber*)array_item->index)->value;
+                        stmts.emplace_back(new TArrayRead(res_reg, array_reg, index));
+                    }
+                    else if (index_type == E_VARIABLE)
+                    {
+                        string index_name = array_item->index->to_string();
+                        string index_reg = register_allocator.get_variable_register(ctx, *this, index_name);
+                        register_allocator.load_variable(ctx, *this, index_name, index_reg);
+                        stmts.emplace_back(new TAssignRegOpReg(ADDRESS_REG, array_reg, PLUS, index_reg));
+                        stmts.emplace_back(new TArrayRead(res_reg, ADDRESS_REG, 0));
+                    }
+                    register_allocator.store_register(ctx, *this, res_reg, res_name);
+                }
+                else // stack array
+                {
+                    res_reg = register_allocator.get_variable_register(ctx, *this, res_name);
+                    int array_loc = get_stack_loc(array_name);
+                    if (index_type == E_NUMBER)
+                    {
+                        int index = ((ENumber*)array_item->index)->value;
+                        stmts.emplace_back(new TLoadStack(array_loc + index / 4, res_reg));
+                    }
+                    else if (index_type == E_VARIABLE)
+                    {
+                        string index_name = array_item->index->to_string();
+                        string index_reg = register_allocator.get_variable_register(ctx, *this, index_name);
+                        register_allocator.load_variable(ctx, *this, index_name, index_reg);
+                        stmts.emplace_back(new TLoadaddrStack(array_loc, ADDRESS_REG));
+                        stmts.emplace_back(new TAssignRegOpReg(ADDRESS_REG, ADDRESS_REG, PLUS, index_reg));
+                        stmts.emplace_back(new TArrayRead(res_reg, ADDRESS_REG, 0));
+                    }
+                    register_allocator.store_register(ctx, *this, res_reg, res_name);
+                }
             }
             else if (value_type == E_NUMBER) // x = const
             {
-                string res_reg = register_allocator.get_variable_register(ctx, *this, res_name);
+                res_reg = register_allocator.get_variable_register(ctx, *this, res_name);
                 int value = ((ENumber*)e_stmt->value)->value;
                 stmts.emplace_back(new TAssignNumber(res_reg, value));
                 register_allocator.store_register(ctx, *this, res_reg, res_name);
             }
+            else if (value_type == E_FUNC_CALL)
+            {
+                param_count = 0;
+                auto* func_call = (EFuncCall*)e_stmt->value;
+                save_caller_register();
+                stmts.emplace_back(new TFuncCall(func_call->func_name));
+                res_reg = register_allocator.get_variable_register(ctx, *this, res_name);
+                stmts.emplace_back(new TCopyReg(res_reg, RETURN_REG));
+                restore_caller_register();
+            }
+            register_allocator.map_reg_var(res_reg, res_name);
         }
         else if (res_type == E_ARRAY_ITEM)
         {
-            if (value_type == E_NUMBER) // a[i] = const
-            {
+            auto* array_item = (EArrayItem*)e_stmt->res;
+            string array_name = array_item->name->to_string();
+            int index_type = array_item->index->get_type();
+            string array_reg, value_reg;
 
+            if (value_type == E_NUMBER)
+            {
+                stmts.emplace_back(new TAssignNumber(CONST_REG, ((ENumber*)e_stmt->value)->value));
+                value_reg = CONST_REG;
             }
-            else if (value_type == E_VARIABLE) // a[i] = x
+            else
             {
+                string value_name = e_stmt->value->to_string();
+                value_reg = register_allocator.get_variable_register(ctx, *this, value_name);
+                register_allocator.load_variable(ctx, *this, value_name, value_reg);
+            }
 
+            if (index_type == E_NUMBER)
+            {
+                int index = ((ENumber*)array_item->index)->value;
+                if (ctx.is_global_var(array_name))
+                {
+                    array_reg = register_allocator.get_variable_register(ctx, *this, array_name);
+                    register_allocator.load_variable(ctx, *this, array_name, array_reg, true);
+                    stmts.emplace_back(new TArrayWrite(array_reg, index, value_reg));
+                }
+                else
+                {
+                    int stack_loc = get_stack_loc(array_name);
+                    stmts.emplace_back(new TStoreStack(value_reg, stack_loc + index / 4));
+                }
+            }
+            else if (index_type == E_VARIABLE)
+            {
+                string index_name = array_item->index->to_string();
+                string index_reg = register_allocator.get_variable_register(ctx, *this, index_name);
+                register_allocator.load_variable(ctx, *this, index_name, index_reg);
+
+                if (ctx.is_global_var(array_name))
+                {
+                    array_reg = register_allocator.get_variable_register(ctx, *this, array_name);
+                    register_allocator.load_variable(ctx, *this, array_name, array_reg, true);
+                    stmts.emplace_back(new TAssignRegOpReg(ADDRESS_REG, array_reg, PLUS, index_reg));
+                    stmts.emplace_back(new TArrayWrite(ADDRESS_REG, 0, value_reg));
+                }
+                else
+                {
+                    int stack_loc = get_stack_loc(array_name);
+                    stmts.emplace_back(new TLoadaddrStack(stack_loc, ADDRESS_REG));
+                    stmts.emplace_back(new TAssignRegOpReg(ADDRESS_REG, ADDRESS_REG, PLUS, index_reg));
+                    stmts.emplace_back(new TArrayWrite(ADDRESS_REG, 0, value_reg));
+                }
             }
         }
     }
     else if (e_type == E_BINARY_EXPR)
     {
+        auto* e_stmt = (EBinaryExpr*)eeyore_stmt;
+        string res_name = e_stmt->res->to_string();
+        string lhs_name = e_stmt->lhs->to_string();
+        string rhs_name = e_stmt->rhs->to_string();
 
+        string lhs_reg = register_allocator.get_variable_register(ctx, *this, lhs_name);
+        register_allocator.load_variable(ctx, *this, lhs_name, lhs_reg);
+        string rhs_reg = register_allocator.get_variable_register(ctx, *this, rhs_name, lhs_reg);
+        register_allocator.load_variable(ctx, *this, rhs_name, rhs_reg);
+        string res_reg = register_allocator.get_variable_register(ctx, *this, res_name);
+
+        stmts.emplace_back(new TAssignRegOpReg(res_reg, lhs_reg, e_stmt->op, rhs_reg));
+        register_allocator.map_reg_var(res_reg, res_name);
+        register_allocator.store_register(ctx, *this, res_reg, res_name);
+    }
+    else if (e_type == E_FUNC_CALL)
+    {
+        param_count = 0;
+        auto* func_call = (EFuncCall*)eeyore_stmt;
+        save_caller_register();
+        stmts.emplace_back(new TFuncCall(func_call->func_name));
+        restore_caller_register();
+    }
+    else if (e_type == E_PARAM)
+    {
+        auto* e_stmt = (EParamStmt*)eeyore_stmt;
+        string value_name = e_stmt->name->to_string();
+        string value_reg = "a" + std::to_string(param_count++);
+        register_allocator.load_variable(ctx, *this, value_name, value_reg);
     }
 }

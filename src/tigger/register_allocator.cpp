@@ -4,6 +4,7 @@
 
 #include "register_allocator.hpp"
 #include "context_tigger.hpp"
+#include "util.hpp"
 
 const vector<string> RegisterAllocator::FREE_REG_NAME = {
         "s0", "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9",
@@ -62,6 +63,8 @@ void RegisterAllocator::free_all()
     register_map.clear();
     register_value.clear();
     free_register.clear();
+    register_map["0"] = ZERO_REG;
+    register_value[ZERO_REG] = "0";
     for (const auto& reg_name : FREE_REG_NAME) free_register.insert(reg_name);
 }
 
@@ -88,9 +91,12 @@ string RegisterAllocator::get_variable_register(ContextTigger &ctx, TiggerFunc &
     }
     else
     {
-        // TODO: choose a register
+        for (auto& reg : FREE_REG_NAME)
+        {
+            if (!register_has_value(reg)) return reg;
+        }
     }
-
+    clear_register(ctx, func, reg_name, e_name);
     return reg_name;
 }
 
@@ -102,13 +108,7 @@ bool RegisterAllocator::register_has_value(const string &reg_name)
 void RegisterAllocator::load_variable(ContextTigger &ctx, TiggerFunc &func, const string &e_name,
                                       const string &reg_name, bool load_addr)
 {
-    // TODO: spill register
-    if (register_has_value(reg_name))
-    {
-        string spill_name = register_value[reg_name];
-        store_register(ctx, func, reg_name, spill_name, true);
-    }
-
+    if (is_in_register(e_name)) return;
     if (ctx.is_global_var(e_name))
     {
         string t_name = ctx.find_var(e_name);
@@ -117,15 +117,21 @@ void RegisterAllocator::load_variable(ContextTigger &ctx, TiggerFunc &func, cons
         else
             func.stmts.emplace_back(new TLoadaddrGlobal(t_name, reg_name));
     }
+    else if (name_is_number(e_name))
+    {
+        func.stmts.emplace_back(new TAssignNumber(reg_name, stoi(e_name)));
+    }
     else // stack variable
     {
         int stack_loc = func.get_stack_loc(e_name);
         func.stmts.emplace_back(new TLoadStack(stack_loc, reg_name));
     }
+    map_reg_var(reg_name, e_name);
 }
 
 void RegisterAllocator::store_register(ContextTigger &ctx, TiggerFunc &func, const string &reg_name, const string &e_name, bool is_spill)
 {
+    if (name_is_number(e_name)) return; // number not need to spill
     if (ctx.is_global_var(e_name))
     {
         if (is_spill) return;
@@ -133,10 +139,27 @@ void RegisterAllocator::store_register(ContextTigger &ctx, TiggerFunc &func, con
         func.stmts.emplace_back(new TLoadaddrGlobal(t_name, ADDRESS_REG));
         func.stmts.emplace_back(new TArrayWrite(ADDRESS_REG, 0, reg_name));
     }
-    if (func.check_var_in_stack(e_name))
+    else if (is_spill)
     {
         int stack_loc = func.get_stack_loc(e_name);
         func.stmts.emplace_back(new TStoreStack(reg_name, stack_loc));
     }
+}
+
+void
+RegisterAllocator::clear_register(ContextTigger &ctx, TiggerFunc &func, const string &reg_name, const string &e_name)
+{
+    if (register_has_value(reg_name))
+    {
+        string spill_name = register_value[reg_name];
+        if (spill_name == e_name) return;
+        store_register(ctx, func, reg_name, spill_name, true);
+    }
+}
+
+void RegisterAllocator::map_reg_var(const string &reg_name, const string &var_name)
+{
+    register_map[var_name] = reg_name;
+    register_value[reg_name] = var_name;
 }
 

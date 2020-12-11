@@ -59,3 +59,8 @@ void concat_string_vector(vector<string>& a, const vector<string>& b)
 {
     a.insert(a.end(), b.begin(), b.end());
 }
+
+bool name_is_number(const string &name)
+{
+    return isdigit(name[0]);
+}
