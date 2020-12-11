@@ -1,0 +1,11 @@
+var T0
+
+f_main [ 0 ]
+  var t0
+ t0 = call f_getint
+ T0 = t0
+ param T0
+ call f_putint
+ return 0
+ return 0
+end f_main

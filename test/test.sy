@@ -1,0 +1,19 @@
+int a[3]; 
+int main()
+{
+    a[0] = getint();
+    a[1] = getint();
+    a[2] = getint();
+    //a[3] = getint();
+    //a[4] = getint();
+    //a[5] = getint();
+
+    putint(a[0]);
+    putint(a[1]);
+    putint(a[2]);
+    //putint(a[3]);
+    //putint(a[4]);
+    //putint(a[5]);
+
+    return 0;
+}

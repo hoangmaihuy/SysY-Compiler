@@ -154,7 +154,9 @@ void RegisterAllocator::load_variable(ContextTigger &ctx, TiggerFunc &func, cons
         else
             func.stmts.emplace_back(new TLoadaddrStack(stack_loc, reg_name));
     }
-    map_reg_var(reg_name, e_name);
+    // don't map param
+    if (reg_name[0] != 'a')
+        map_reg_var(reg_name, e_name);
 }
 
 void RegisterAllocator::store_register(ContextTigger &ctx, TiggerFunc &func, const string &reg_name, const string &e_name, bool is_spill)
@@ -162,12 +164,11 @@ void RegisterAllocator::store_register(ContextTigger &ctx, TiggerFunc &func, con
     if (name_is_number(e_name)) return; // number not need to spill
     if (ctx.is_global_var(e_name))
     {
-        if (is_spill) return;
         string t_name = ctx.find_var(e_name);
         func.stmts.emplace_back(new TLoadaddrGlobal(t_name, ADDRESS_REG));
         func.stmts.emplace_back(new TArrayWrite(ADDRESS_REG, 0, reg_name));
     }
-    else if (is_spill)
+    else
     {
         int stack_loc = func.get_stack_loc(e_name);
         func.stmts.emplace_back(new TStoreStack(reg_name, stack_loc));

@@ -211,13 +211,15 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
             }
             else if (value_type == E_FUNC_CALL)
             {
-                param_count = 0;
                 auto* func_call = (EFuncCall*)e_stmt->value;
                 save_caller_register();
+                push_func_call_params(ctx);
                 stmts.emplace_back(new TFuncCall(func_call->func_name));
+                restore_caller_register(RETURN_REG);
                 res_reg = register_allocator.get_variable_register(ctx, *this, res_name);
                 stmts.emplace_back(new TCopyReg(res_reg, RETURN_REG));
-                restore_caller_register();
+                int stack_loc = get_stack_loc(CALLER_SAVE_NAME + RETURN_REG);
+                stmts.emplace_back(new TLoadStack(stack_loc, RETURN_REG));
             }
             register_allocator.map_reg_var(res_reg, res_name);
         }
@@ -297,9 +299,9 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
     }
     else if (e_type == E_FUNC_CALL)
     {
-        param_count = 0;
         auto* func_call = (EFuncCall*)eeyore_stmt;
         save_caller_register();
+        push_func_call_params(ctx);
         stmts.emplace_back(new TFuncCall(func_call->func_name));
         restore_caller_register();
     }
@@ -307,17 +309,11 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
     {
         auto* e_stmt = (EParamStmt*)eeyore_stmt;
         string value_name = e_stmt->name->to_string();
-        string param_reg = "a" + std::to_string(param_count++);
-        if (register_allocator.is_in_register(value_name))
-        {
-            stmts.emplace_back(new TCopyReg(param_reg, register_allocator.register_map[value_name]));
-            register_allocator.map_reg_var(param_reg, value_name);
-        }
-        else
-            register_allocator.load_variable(ctx, *this, value_name, param_reg);
+        func_call_params.push_back(value_name);
     }
     else if (e_type == E_LABEL)
     {
+        register_allocator.free_all();
         auto* e_stmt = (EJumpLabel*)eeyore_stmt;
         stmts.emplace_back(new TLabel(e_stmt->label));
     }
@@ -325,6 +321,7 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
     {
         auto* e_stmt = (EUnconditionalJump*)eeyore_stmt;
         stmts.emplace_back(new TUnconditionalJump(e_stmt->label));
+        register_allocator.free_all();
     }
     else if (e_type == E_COND_JUMP)
     {
@@ -334,6 +331,7 @@ void TiggerFunc::generate_tigger_stmt(ContextTigger &ctx, EStmt* eeyore_stmt)
         register_allocator.load_variable(ctx, *this, cond_name, cond_reg);
         int op = (e_stmt->cond_value ? NE : EQ);
         stmts.emplace_back(new TConditionalJump(cond_reg, op, ZERO_REG, e_stmt->label));
+        register_allocator.free_all();
     }
     else if (e_type == E_UNARY_EXPR)
     {

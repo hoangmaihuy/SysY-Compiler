@@ -12,7 +12,6 @@ ContextTigger::ContextTigger()
 TiggerFunc::TiggerFunc(string func_name, int args_num) : func_name(std::move(func_name)), args_num(args_num)
 {
     stack_size = 0;
-    param_count = 0;
     // callee save register
     if (has_to_save_callee_register())
         for (const auto& reg_name : RegisterAllocator::CALLEE_SAVE_REG)
@@ -140,10 +139,11 @@ void TiggerFunc::save_caller_register()
     }
 }
 
-void TiggerFunc::restore_caller_register()
+void TiggerFunc::restore_caller_register(string except_reg)
 {
     if (!has_to_save_caller_register()) return;
     for (const auto& reg_name : RegisterAllocator::CALLER_SAVE_REG)
+    if (reg_name != except_reg)
     {
         int stack_loc = get_stack_loc(CALLER_SAVE_NAME + reg_name);
         stmts.emplace_back(new TLoadStack(stack_loc, reg_name));
@@ -155,6 +155,23 @@ int TiggerFunc::get_stack_loc(const string &name)
     if (!check_var_in_stack(name))
         new_stack_var(name);
     return stack_map[name];
+}
+
+void TiggerFunc::push_func_call_params(ContextTigger &ctx)
+{
+    int param_count = 0;
+    for (auto& value_name : func_call_params)
+    {
+        string param_reg = "a" + std::to_string(param_count++);
+        if (register_allocator.is_in_register(value_name))
+        {
+            stmts.emplace_back(new TCopyReg(param_reg, register_allocator.register_map[value_name]));
+            register_allocator.map_reg_var(param_reg, value_name);
+        }
+        else
+            register_allocator.load_variable(ctx, *this, value_name, param_reg);
+    }
+    func_call_params.clear();
 }
 
 void ContextTigger::insert_func(string func_name, int args_num)
