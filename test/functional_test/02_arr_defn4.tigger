@@ -1,0 +1,156 @@
+
+f_main [ 0 ] [ 22 ]
+  // T0 [ 0 ] = 0
+  s11 = 0
+  store s11 0
+  // T0 [ 4 ] = 0
+  s11 = 0
+  store s11 1
+  // T0 [ 8 ] = 0
+  s11 = 0
+  store s11 2
+  // T0 [ 12 ] = 0
+  s11 = 0
+  store s11 3
+  // T0 [ 16 ] = 0
+  s11 = 0
+  store s11 4
+  // T0 [ 20 ] = 0
+  s11 = 0
+  store s11 5
+  // T0 [ 24 ] = 0
+  s11 = 0
+  store s11 6
+  // T0 [ 28 ] = 0
+  s11 = 0
+  store s11 7
+  // T0 [ 0 ] = 1
+  s11 = 1
+  store s11 0
+  // T0 [ 4 ] = 2
+  s11 = 2
+  store s11 1
+  // T0 [ 8 ] = 3
+  s11 = 3
+  store s11 2
+  // T0 [ 12 ] = 4
+  s11 = 4
+  store s11 3
+  // T0 [ 16 ] = 5
+  s11 = 5
+  store s11 4
+  // T0 [ 20 ] = 6
+  s11 = 6
+  store s11 5
+  // T0 [ 24 ] = 7
+  s11 = 7
+  store s11 6
+  // T0 [ 28 ] = 8
+  s11 = 8
+  store s11 7
+  // T1 [ 0 ] = 0
+  s11 = 0
+  store s11 8
+  // T1 [ 4 ] = 0
+  s11 = 0
+  store s11 9
+  // T1 [ 8 ] = 0
+  s11 = 0
+  store s11 10
+  // T1 [ 12 ] = 0
+  s11 = 0
+  store s11 11
+  // T1 [ 16 ] = 0
+  s11 = 0
+  store s11 12
+  // T1 [ 20 ] = 0
+  s11 = 0
+  store s11 13
+  // T1 [ 24 ] = 0
+  s11 = 0
+  store s11 14
+  // T1 [ 28 ] = 0
+  s11 = 0
+  store s11 15
+  // t0 = 0
+  s2 = 0
+  store s2 16
+  // t1 = 0 * 2
+  s0 = 2
+  s3 = x0 * s0
+  store s3 17
+  // t0 = t0 + t1
+  s2 = s2 + s3
+  store s2 16
+  // t1 = 0 * 1
+  s0 = 1
+  s3 = x0 * s0
+  store s3 17
+  // t0 = t0 + t1
+  s2 = s2 + s3
+  store s2 16
+  // t0 = t0 * 4
+  s0 = 4
+  s2 = s2 * s0
+  store s2 16
+  // t2 = T0 [ t0 ]
+  loadaddr 0 s10
+  s10 = s10 + s2
+  s4 = s10 [ 0 ]
+  store s4 18
+  // T1 [ 0 ] = t2
+  store s4 8
+  // t3 = 0
+  s5 = 0
+  store s5 19
+  // t4 = 0 * 2
+  s0 = 2
+  s6 = x0 * s0
+  store s6 20
+  // t3 = t3 + t4
+  s5 = s5 + s6
+  store s5 19
+  // t4 = 1 * 1
+  s0 = 1
+  s1 = 1
+  s6 = s0 * s1
+  store s6 20
+  // t3 = t3 + t4
+  s5 = s5 + s6
+  store s5 19
+  // t3 = t3 * 4
+  s0 = 4
+  s5 = s5 * s0
+  store s5 19
+  // t5 = T0 [ t3 ]
+  loadaddr 0 s10
+  s10 = s10 + s5
+  s7 = s10 [ 0 ]
+  store s7 21
+  // T1 [ 4 ] = t5
+  store s7 9
+  // T1 [ 8 ] = 3
+  s11 = 3
+  store s11 10
+  // T1 [ 12 ] = 4
+  s11 = 4
+  store s11 11
+  // T1 [ 16 ] = 5
+  s11 = 5
+  store s11 12
+  // T1 [ 20 ] = 6
+  s11 = 6
+  store s11 13
+  // T1 [ 24 ] = 7
+  s11 = 7
+  store s11 14
+  // T1 [ 28 ] = 8
+  s11 = 8
+  store s11 15
+  // return 0
+  a0 = 0
+  return
+  // return 0
+  a0 = 0
+  return
+end f_main

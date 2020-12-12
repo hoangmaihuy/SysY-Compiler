@@ -179,5 +179,5 @@ void TArrayWrite::generate_riscv(vector<string> &riscv_list)
 
 void TArrayRead::generate_riscv(vector<string> &riscv_list)
 {
-    riscv_list.emplace_back("\tlw  \t" + res_reg + ",(" + std::to_string(index) + ")" + array_reg);
+    riscv_list.emplace_back("\tlw  \t" + res_reg + "," + std::to_string(index) + "(" + array_reg + ")");
 }
