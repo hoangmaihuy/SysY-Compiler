@@ -1,0 +1,133 @@
+  v0 = malloc 48
+
+f_main [ 0 ] [ 16 ]
+  // T1 = 0
+  t6 = 0
+  store t6 0
+  // T2 = 0
+  t5 = 0
+  store t5 1
+  // l0:
+  l0:
+  // t1 = 3 + 4
+  s0 = 3
+  s1 = 4
+  t2 = s0 + s1
+  store t2 3
+  // t2 = t1 - 2
+  s0 = 2
+  s8 = t2 - s0
+  store s8 4
+  // t0 = T1 <= t2
+  load 0 t6
+  t3 = t6 <= s8
+  store t3 5
+  // if t0 == 0 goto l1
+  if t3 == x0 goto l1
+  // T3 = T1
+  load 0 t6
+  t4 = t6
+  store t4 2
+  // l2:
+  l2:
+  // t3 = T3 >= 0
+  load 2 t4
+  s7 = t4 >= x0
+  store s7 6
+  // if t3 == 0 goto l3
+  if s7 == x0 goto l3
+  // t4 = T3 < 4
+  load 2 t4
+  s0 = 4
+  s6 = t4 < s0
+  store s6 7
+  // t5 = t4
+  s5 = s6
+  store s5 8
+  // if t5 == 0 goto l4
+  if s5 == x0 goto l4
+  // t6 = T1 - T3
+  load 0 t6
+  load 2 t4
+  s4 = t6 - t4
+  store s4 9
+  // t7 = t6 < 3
+  s0 = 3
+  s3 = s4 < s0
+  store s3 10
+  // t5 = t5 && t7
+  load 8 s5
+  s5 = s5 && s3
+  store s5 8
+  // l4:
+  l4:
+  // if t5 == 0 goto l5
+  load 8 s5
+  if s5 == x0 goto l5
+  // t8 = T1 - T3
+  load 0 t6
+  load 2 t4
+  s2 = t6 - t4
+  store s2 11
+  // t9 = 0
+  s1 = 0
+  store s1 12
+  // t10 = t8 * 4
+  s0 = 4
+  t1 = s2 * s0
+  store t1 13
+  // t9 = t9 + t10
+  s1 = s1 + t1
+  store s1 12
+  // t10 = T3 * 1
+  s0 = 1
+  t1 = t4 * s0
+  store t1 13
+  // t9 = t9 + t10
+  s1 = s1 + t1
+  store s1 12
+  // t9 = t9 * 4
+  s0 = 4
+  s1 = s1 * s0
+  store s1 12
+  // T0 [ t9 ] = T2
+  load 1 t5
+  loadaddr v0 s9
+  s10 = s9 + s1
+  s10 [ 0 ] = t5
+  // T2 = 1
+  t5 = 1
+  store t5 1
+  // l5:
+  l5:
+  // t11 = T3 - 1
+  load 2 t4
+  s0 = 1
+  t0 = t4 - s0
+  store t0 14
+  // T3 = t11
+  t4 = t0
+  store t4 2
+  // goto l2
+  goto l2
+  // l3:
+  l3:
+  // t12 = T1 + 1
+  load 0 t6
+  s0 = 1
+  s0 = t6 + s0
+  store s0 15
+  // T1 = t12
+  t6 = s0
+  store t6 0
+  // goto l0
+  goto l0
+  // l1:
+  l1:
+  // return 0
+  a0 = 0
+  return
+  // return 0
+  a0 = 0
+  return
+end f_main

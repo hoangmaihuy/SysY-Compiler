@@ -58,9 +58,17 @@ void TAssignRegOpReg::generate_riscv(vector<string> &riscv_list)
     else if (op == GT)
         riscv_list.emplace_back("\tsgt \t" + res_reg + "," + lhs_reg + "," + rhs_reg);
     else if (op == LE)
-        riscv_list.emplace_back("\tsle \t" + res_reg + "," + lhs_reg + "," + rhs_reg);
+    {
+        riscv_list.emplace_back("\taddi\t" + rhs_reg + "," + rhs_reg + ",1");
+        riscv_list.emplace_back("\tslt \t" + res_reg + "," + lhs_reg + "," + rhs_reg);
+        riscv_list.emplace_back("\taddi\t" + rhs_reg + "," + rhs_reg + ",-1");
+    }
     else if (op == GE)
-        riscv_list.emplace_back("\tsge \t" + res_reg + "," + lhs_reg + "," + rhs_reg);
+    {
+        riscv_list.emplace_back("\taddi\t" + lhs_reg + "," + lhs_reg + ",-1");
+        riscv_list.emplace_back("\tsgt \t" + res_reg + "," + lhs_reg + "," + rhs_reg);
+        riscv_list.emplace_back("\taddi\t" + lhs_reg + "," + lhs_reg + ",1");
+    }
     else if (op == EQ)
     {
         riscv_list.emplace_back("\txor \t" + res_reg + "," + lhs_reg + "," + rhs_reg);
@@ -104,7 +112,7 @@ void TConditionalJump::generate_riscv(vector<string> &riscv_list)
     else if (op == LE)
         riscv_list.emplace_back("\tble \t" + reg_1 + "," + reg_2 + ",." + label);
     else if (op == GE)
-        riscv_list.emplace_back("\tbge \t" + reg_1 + "," + reg_2 + ",." + label);
+        riscv_list.emplace_back("\tble \t" + reg_2 + "," + reg_1 + ",." + label);
     else if (op == EQ)
         riscv_list.emplace_back("\tbeq \t" + reg_1 + "," + reg_2 + ",." + label);
     else if (op == NE)
