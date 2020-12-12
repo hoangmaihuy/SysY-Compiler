@@ -1,111 +1,105 @@
-	.comm	v0,192,4
+	.global	v0
+	.section	.sdata
+	.align	2
+	.type	v0, @object
+	.size	v0, 4
+v0:
+	.word	0
+	.comm	v1,160,4
 	.text
 	.align	2
 	.global	main
 	.type	main, @function
 main:
-	addi 	sp,sp,-80
-	sw  	ra,76(sp)
-	li  	t6,0
-	sw  	t6,0(sp)
-	li  	t5,0
-	sw  	t5,4(sp)
+	addi 	sp,sp,-32
+	sw  	ra,28(sp)
+	li  	s7,5
+	lui 	s10,%hi(v0)
+	add 	s10,s10,%lo(v0)
+	sw  	s7,0(s10)
+	li  	s11,0
+	lui 	s6,%hi(v1)
+	add 	s6,s6,%lo(v1)
+	sw  	s11,0(s6)
+	li  	s11,0
+	sw  	s11,4(s6)
+	li  	s11,0
+	sw  	s11,8(s6)
+	li  	s11,0
+	sw  	s11,12(s6)
+	li  	s11,0
+	sw  	s11,16(s6)
+	li  	s11,0
+	sw  	s11,20(s6)
+	li  	s11,0
+	sw  	s11,24(s6)
+	li  	s11,0
+	sw  	s11,28(s6)
+	li  	s11,0
+	sw  	s11,32(s6)
+	li  	s11,0
+	sw  	s11,36(s6)
+	li  	s11,0
+	sw  	s11,0(s6)
+	li  	s11,1
+	sw  	s11,4(s6)
+	li  	s11,2
+	sw  	s11,8(s6)
+	li  	s11,3
+	sw  	s11,12(s6)
+	li  	s11,4
+	sw  	s11,16(s6)
+	li  	s11,5
+	sw  	s11,20(s6)
+	li  	s11,6
+	sw  	s11,24(s6)
+	li  	s11,7
+	sw  	s11,28(s6)
+	li  	s11,8
+	sw  	s11,32(s6)
+	li  	s11,9
+	sw  	s11,36(s6)
+	li  	s5,0
+	sw  	s5,0(sp)
 .l0:
-	li  	s0,3
-	li  	s1,4
-	add 	t2,s0,s1
-	sw  	t2,12(sp)
-	li  	s0,2
-	sub 	s8,t2,s0
-	sw  	s8,16(sp)
-	lw  	t6,0(sp)
-	addi	s8,s8,1
-	slt 	t3,t6,s8
-	addi	s8,s8,-1
-	sw  	t3,20(sp)
-	beq 	t3,x0,.l1
-	lw  	t6,0(sp)
-	mv  	t4,t6
-	sw  	t4,8(sp)
-.l2:
-	lw  	t4,8(sp)
-	addi	t4,t4,-1
-	sgt 	s7,t4,x0
-	addi	t4,t4,1
-	sw  	s7,24(sp)
-	beq 	s7,x0,.l3
-	lw  	t4,8(sp)
-	li  	s0,4
-	slt 	s6,t4,s0
-	sw  	s6,28(sp)
-	mv  	s5,s6
-	sw  	s5,32(sp)
-	beq 	s5,x0,.l4
-	lw  	t6,0(sp)
-	lw  	t4,8(sp)
-	sub 	s4,t6,t4
-	sw  	s4,36(sp)
-	li  	s0,3
-	slt 	s3,s4,s0
-	sw  	s3,40(sp)
-	lw  	s5,32(sp)
-	seqz	s5,s5
-	addi	s5,s5,-1
-	and 	s5,s5,s3
-	snez	s5,s5
-	sw  	s5,32(sp)
-.l4:
-	lw  	s5,32(sp)
-	beq 	s5,x0,.l5
-	lw  	t6,0(sp)
-	lw  	t4,8(sp)
-	sub 	s2,t6,t4
-	sw  	s2,44(sp)
-	li  	s1,0
-	sw  	s1,48(sp)
-	li  	s0,4
-	mul 	t1,s2,s0
-	sw  	t1,52(sp)
-	add 	s1,s1,t1
-	sw  	s1,48(sp)
+	li  	s4,0
+	sw  	s4,4(sp)
+	lw  	s5,0(sp)
 	li  	s0,1
-	mul 	t1,t4,s0
-	sw  	t1,52(sp)
-	add 	s1,s1,t1
-	sw  	s1,48(sp)
+	mul 	s3,s5,s0
+	sw  	s3,8(sp)
+	add 	s4,s4,s3
+	sw  	s4,4(sp)
 	li  	s0,4
-	mul 	s1,s1,s0
-	sw  	s1,48(sp)
-	lw  	t5,4(sp)
-	lui 	s9,%hi(v0)
-	add 	s9,s9,%lo(v0)
-	add 	s10,s9,s1
-	sw  	t5,0(s10)
-	li  	t5,1
-	sw  	t5,4(sp)
-.l5:
-	lw  	t4,8(sp)
+	mul 	s4,s4,s0
+	sw  	s4,4(sp)
+	lui 	s6,%hi(v1)
+	add 	s6,s6,%lo(v1)
+	add 	s10,s6,s4
+	lw  	s2,0(s10)
+	sw  	s2,12(sp)
+	lui 	s7,%hi(v0)
+	lw  	s7,%lo(v0)(s7)
+	addi	s7,s7,1
+	slt 	s1,s2,s7
+	addi	s7,s7,-1
+	sw  	s1,16(sp)
+	beq 	s1,x0,.l1
+	lw  	s5,0(sp)
 	li  	s0,1
-	sub 	t0,t4,s0
-	sw  	t0,56(sp)
-	mv  	t4,t0
-	sw  	t4,8(sp)
-	j   	.l2
-.l3:
-	lw  	t6,0(sp)
-	li  	s0,1
-	add 	s0,t6,s0
-	sw  	s0,60(sp)
-	mv  	t6,s0
-	sw  	t6,0(sp)
+	add 	s0,s5,s0
+	sw  	s0,20(sp)
+	mv  	s5,s0
+	sw  	s5,0(sp)
 	j   	.l0
 .l1:
-	li  	a0,0
-	lw  	ra,76(sp)
-	addi	sp,sp,80
+	lw  	s5,0(sp)
+	mv  	a0,s5
+	lw  	ra,28(sp)
+	addi	sp,sp,32
 	jr  	ra
 	li  	a0,0
-	lw  	ra,76(sp)
-	addi	sp,sp,80
+	lw  	ra,28(sp)
+	addi	sp,sp,32
 	jr  	ra
 	.size	main, .-main

@@ -65,9 +65,9 @@ void TAssignRegOpReg::generate_riscv(vector<string> &riscv_list)
     }
     else if (op == GE)
     {
-        riscv_list.emplace_back("\taddi\t" + lhs_reg + "," + lhs_reg + ",-1");
-        riscv_list.emplace_back("\tsgt \t" + res_reg + "," + lhs_reg + "," + rhs_reg);
         riscv_list.emplace_back("\taddi\t" + lhs_reg + "," + lhs_reg + ",1");
+        riscv_list.emplace_back("\tsgt \t" + res_reg + "," + lhs_reg + "," + rhs_reg);
+        riscv_list.emplace_back("\taddi\t" + lhs_reg + "," + lhs_reg + ",-1");
     }
     else if (op == EQ)
     {
