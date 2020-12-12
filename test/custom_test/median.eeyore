@@ -1,0 +1,237 @@
+var 400020 T3
+
+f_median [ 4 ]
+  var t0
+  var t1
+  var t2
+  var t3
+  var t4
+  var t5
+  var t6
+  var t7
+  var t8
+  var t9
+  var t10
+  var t11
+  var T0
+  var T1
+  var t12
+  var t13
+  var t14
+  var T2
+  var t15
+  var t16
+  var t17
+  var t18
+  var t19
+  var t20
+  var t21
+  var t22
+  var t23
+  var t24
+  var t25
+  var t26
+  var t27
+  var t28
+  var t29
+  var t30
+  var t31
+  var t32
+  var t33
+  var t34
+  var t35
+  var t36
+  var t37
+  var t38
+  var t39
+  var t40
+  var t41
+  var t42
+  var t43
+  var t44
+  var t45
+  var t46
+  var t47
+  var t48
+  var t49
+  var t50
+  var t51
+  var t52
+  var t53
+  var t54
+  var t55
+  var t56
+  var t57
+  var t58
+  var t59
+  var t60
+  var t61
+  var t62
+ t1 = p1 / 2
+ t0 = p2 == t1
+ t2 = t0
+ if t2 != 0 goto l0
+ t4 = p1 + 1
+ t5 = t4 / 2
+ t3 = p2 == t5
+ t2 = t2 || t3
+ l0:
+ if t2 == 0 goto l1
+   return p2
+ l1:
+ t7 = p1 / 2
+ t6 = p3 == t7
+ t8 = t6
+ if t8 != 0 goto l2
+ t10 = p1 + 1
+ t11 = t10 / 2
+ t9 = p3 == t11
+ t8 = t8 || t9
+ l2:
+ if t8 == 0 goto l3
+   return p3
+ l3:
+ T0 = p2
+ t12 = 0
+ t13 = p2 * 1
+ t12 = t12 + t13
+ t12 = t12 * 4
+ t14 = p0 [ t12 ]
+ T1 = t14
+ t15 = p2 + 1
+ T2 = t15
+ l4:
+  t16 = T2 <= p3
+  if t16 == 0 goto l5
+   t17 = 0
+   t18 = T2 * 1
+   t17 = t17 + t18
+   t17 = t17 * 4
+   t19 = p0 [ t17 ]
+   t20 = t19 < T1
+   if t20 == 0 goto l6
+     t22 = T0 + 1
+     t21 = T2 == t22
+     if t21 == 0 goto l7
+       t23 = 0
+       t24 = T0 * 1
+       t23 = t23 + t24
+       t23 = t23 * 4
+       t25 = 0
+       t26 = T2 * 1
+       t25 = t25 + t26
+       t25 = t25 * 4
+       t27 = p0 [ t25 ]
+       p0 [ t23 ] = t27
+       t28 = T0 + 1
+       t29 = 0
+       t30 = t28 * 1
+       t29 = t29 + t30
+       t29 = t29 * 4
+       p0 [ t29 ] = T1
+       t31 = T0 + 1
+       T0 = t31
+       t32 = T2 + 1
+       T2 = t32
+       goto l4
+     l7:
+     t33 = 0
+     t34 = T0 * 1
+     t33 = t33 + t34
+     t33 = t33 * 4
+     t35 = 0
+     t36 = T2 * 1
+     t35 = t35 + t36
+     t35 = t35 * 4
+     t37 = p0 [ t35 ]
+     p0 [ t33 ] = t37
+     t38 = 0
+     t39 = T2 * 1
+     t38 = t38 + t39
+     t38 = t38 * 4
+     t40 = T0 + 1
+     t41 = 0
+     t42 = t40 * 1
+     t41 = t41 + t42
+     t41 = t41 * 4
+     t43 = p0 [ t41 ]
+     p0 [ t38 ] = t43
+     t44 = T0 + 1
+     t45 = 0
+     t46 = t44 * 1
+     t45 = t45 + t46
+     t45 = t45 * 4
+     p0 [ t45 ] = T1
+     t47 = T0 + 1
+     T0 = t47
+     t48 = T2 + 1
+     T2 = t48
+     goto l4
+   l6:
+   t49 = T2 + 1
+   T2 = t49
+  goto l4
+ l5:
+ t51 = p1 - 1
+ t52 = t51 / 2
+ t50 = T0 == t52
+ t53 = t50
+ if t53 != 0 goto l8
+ t55 = p1 / 2
+ t54 = T0 == t55
+ t53 = t53 || t54
+ l8:
+ if t53 == 0 goto l9
+   return T0
+ l9:
+ t57 = p1 + 1
+ t58 = t57 / 2
+ t56 = T0 > t58
+ if t56 == 0 goto l10
+   t59 = T0 - 1
+   param p0
+   param p1
+   param p2
+   param t59
+   t60 = call f_median
+   return t60
+  goto l11
+ l10:
+   t61 = T0 + 1
+   param p0
+   param p1
+   param t61
+   param p3
+   t62 = call f_median
+   return t62
+ l11:
+ return 0
+end f_median
+
+f_main [ 0 ]
+  var T4
+  var t63
+  var T5
+  var t64
+  var t65
+ param T3
+ t63 = call f_getarray
+ T4 = t63
+ param 48
+ call f__sysy_starttime
+ t64 = T4 - 1
+ param T3
+ param T4
+ param 0
+ param t64
+ t65 = call f_median
+ T5 = t65
+ param 50
+ call f__sysy_stoptime
+ param T5
+ call f_putint
+ param 10
+ call f_putch
+ return 0
+ return 0
+end f_main

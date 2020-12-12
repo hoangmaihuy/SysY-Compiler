@@ -1,0 +1,43 @@
+
+f_test [ 1 ]
+  var T0
+  var T1
+  var t0
+  var t1
+  var t2
+ T0 = 0
+ T1 = 0
+ l0:
+  t0 = T0 < p0
+  if t0 == 0 goto l1
+   t1 = T1 + T0
+   T1 = t1
+   t2 = T0 + 1
+   T0 = t2
+  goto l0
+ l1:
+ param T1
+ call f_putint
+ param 10
+ call f_putch
+ return
+end f_test
+
+f_main [ 0 ]
+  var t3
+ t3 = -1
+ param t3
+ call f_test
+ param 0
+ call f_test
+ param 1
+ call f_test
+ param 2
+ call f_test
+ param 100
+ call f_test
+ param 101
+ call f_test
+ return 0
+ return 0
+end f_main

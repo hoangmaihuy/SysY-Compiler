@@ -1,0 +1,44 @@
+
+f_f [ 0 ]
+ param 0
+ call f_putint
+ return 0
+ return 0
+end f_f
+
+f_g [ 0 ]
+ param 1
+ call f_putint
+ return 1
+ return 0
+end f_g
+
+f_main [ 0 ]
+  var t0
+  var t1
+  var t2
+  var t3
+  var t4
+  var t5
+  var t6
+  var t7
+ t0 = call f_f
+ t1 = t0
+ if t1 == 0 goto l0
+ t2 = call f_g
+ t1 = t1 && t2
+ l0:
+ t3 = t1
+ if t3 != 0 goto l1
+ t4 = call f_f
+ t5 = !t4
+ t6 = t5
+ if t6 == 0 goto l2
+ t7 = call f_g
+ t6 = t6 && t7
+ l2:
+ t3 = t3 || t6
+ l1:
+ return t3
+ return 0
+end f_main

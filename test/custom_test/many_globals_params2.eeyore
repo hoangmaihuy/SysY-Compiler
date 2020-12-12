@@ -1,0 +1,712 @@
+var T0
+var T1
+var T2
+var T3
+var T4
+var T5
+var T6
+var T7
+var T8
+var T9
+var T10
+var T11
+var T12
+var T13
+var T14
+var T15
+var T16
+var T17
+var T18
+var T19
+var T20
+var T21
+var T22
+var T23
+var T24
+var T25
+var T26
+var T27
+var T28
+var T29
+var T30
+var T31
+var T32
+var T33
+var T34
+var T35
+var T36
+var T37
+var T38
+var T39
+var T40
+var T41
+var T42
+var T43
+var T44
+var T45
+var T46
+var T47
+var T48
+var T49
+var T50
+var T51
+var T52
+var T53
+var T54
+var T55
+var T56
+var T57
+var T58
+var T59
+var T60
+var T61
+var T62
+var T63
+var T64
+var T65
+var T66
+var T67
+var T68
+var T69
+var T70
+var T71
+var T72
+var T73
+var T74
+var T75
+var T76
+var T77
+var T78
+var T79
+var T80
+var T81
+var T82
+var T83
+var T84
+var T85
+var T86
+var T87
+var T88
+var T89
+var T90
+var T91
+var T92
+var T93
+var T94
+var T95
+var T96
+var T97
+var T98
+var T99
+
+f_func [ 100 ]
+  var t0
+  var t1
+  var t2
+  var t3
+  var t4
+  var t5
+  var t6
+  var t7
+  var t8
+  var t9
+  var t10
+  var t11
+  var t12
+  var t13
+  var t14
+  var t15
+  var t16
+  var t17
+  var t18
+  var t19
+  var t20
+  var t21
+  var t22
+  var t23
+  var t24
+  var t25
+  var t26
+  var t27
+  var t28
+  var t29
+  var t30
+  var t31
+  var t32
+  var t33
+  var t34
+  var t35
+  var t36
+  var t37
+  var t38
+  var t39
+  var t40
+  var t41
+  var t42
+  var t43
+  var t44
+  var t45
+  var t46
+  var t47
+  var t48
+  var t49
+  var t50
+  var t51
+  var t52
+  var t53
+  var t54
+  var t55
+  var t56
+  var t57
+  var t58
+  var t59
+  var t60
+  var t61
+  var t62
+  var t63
+  var t64
+  var t65
+  var t66
+  var t67
+  var t68
+  var t69
+  var t70
+  var t71
+  var t72
+  var t73
+  var t74
+  var t75
+  var t76
+  var t77
+  var t78
+  var t79
+  var t80
+  var t81
+  var t82
+  var t83
+  var t84
+  var t85
+  var t86
+  var t87
+  var t88
+  var t89
+  var t90
+  var t91
+  var t92
+  var t93
+  var t94
+  var t95
+  var t96
+  var t97
+  var t98
+  var t99
+  var t100
+  var t101
+  var t102
+  var t103
+  var t104
+  var t105
+  var t106
+  var t107
+  var t108
+  var t109
+  var t110
+  var t111
+  var t112
+  var t113
+  var t114
+  var t115
+  var t116
+  var t117
+  var t118
+  var t119
+  var t120
+  var t121
+  var t122
+  var t123
+  var t124
+  var t125
+  var t126
+  var t127
+  var t128
+  var t129
+  var t130
+  var t131
+  var t132
+  var t133
+  var t134
+  var t135
+  var t136
+  var t137
+  var t138
+  var t139
+  var t140
+  var t141
+  var t142
+  var t143
+  var t144
+  var t145
+  var t146
+  var t147
+  var t148
+  var t149
+  var t150
+  var t151
+  var t152
+  var t153
+  var t154
+  var t155
+  var t156
+  var t157
+  var t158
+  var t159
+  var t160
+  var t161
+  var t162
+  var t163
+  var t164
+  var t165
+  var t166
+  var t167
+  var t168
+  var t169
+  var t170
+  var t171
+  var t172
+  var t173
+  var t174
+  var t175
+  var t176
+  var t177
+  var t178
+  var t179
+  var t180
+  var t181
+  var t182
+  var t183
+  var t184
+  var t185
+  var t186
+  var t187
+  var t188
+  var t189
+  var t190
+  var t191
+  var t192
+  var t193
+  var t194
+  var t195
+  var t196
+  var t197
+  var t198
+ t0 = T0 + T1
+ t1 = t0 + T2
+ t2 = t1 + T3
+ t3 = t2 + T4
+ t4 = t3 + T5
+ t5 = t4 + T6
+ t6 = t5 + T7
+ t7 = t6 + T8
+ t8 = t7 + T9
+ t9 = t8 + T10
+ t10 = t9 + T11
+ t11 = t10 + T12
+ t12 = t11 + T13
+ t13 = t12 + T14
+ t14 = t13 + T15
+ t15 = t14 + T16
+ t16 = t15 + T17
+ t17 = t16 + T18
+ t18 = t17 + T19
+ t19 = t18 + T20
+ t20 = t19 + T21
+ t21 = t20 + T22
+ t22 = t21 + T23
+ t23 = t22 + T24
+ t24 = t23 + T25
+ t25 = t24 + T26
+ t26 = t25 + T27
+ t27 = t26 + T28
+ t28 = t27 + T29
+ t29 = t28 + T30
+ t30 = t29 + T31
+ t31 = t30 + T32
+ t32 = t31 + T33
+ t33 = t32 + T34
+ t34 = t33 + T35
+ t35 = t34 + T36
+ t36 = t35 + T37
+ t37 = t36 + T38
+ t38 = t37 + T39
+ t39 = t38 + T40
+ t40 = t39 + T41
+ t41 = t40 + T42
+ t42 = t41 + T43
+ t43 = t42 + T44
+ t44 = t43 + T45
+ t45 = t44 + T46
+ t46 = t45 + T47
+ t47 = t46 + T48
+ t48 = t47 + T49
+ t49 = t48 + T50
+ t50 = t49 + T51
+ t51 = t50 + T52
+ t52 = t51 + T53
+ t53 = t52 + T54
+ t54 = t53 + T55
+ t55 = t54 + T56
+ t56 = t55 + T57
+ t57 = t56 + T58
+ t58 = t57 + T59
+ t59 = t58 + T60
+ t60 = t59 + T61
+ t61 = t60 + T62
+ t62 = t61 + T63
+ t63 = t62 + T64
+ t64 = t63 + T65
+ t65 = t64 + T66
+ t66 = t65 + T67
+ t67 = t66 + T68
+ t68 = t67 + T69
+ t69 = t68 + T70
+ t70 = t69 + T71
+ t71 = t70 + T72
+ t72 = t71 + T73
+ t73 = t72 + T74
+ t74 = t73 + T75
+ t75 = t74 + T76
+ t76 = t75 + T77
+ t77 = t76 + T78
+ t78 = t77 + T79
+ t79 = t78 + T80
+ t80 = t79 + T81
+ t81 = t80 + T82
+ t82 = t81 + T83
+ t83 = t82 + T84
+ t84 = t83 + T85
+ t85 = t84 + T86
+ t86 = t85 + T87
+ t87 = t86 + T88
+ t88 = t87 + T89
+ t89 = t88 + T90
+ t90 = t89 + T91
+ t91 = t90 + T92
+ t92 = t91 + T93
+ t93 = t92 + T94
+ t94 = t93 + T95
+ t95 = t94 + T96
+ t96 = t95 + T97
+ t97 = t96 + T98
+ t98 = t97 + T99
+ t99 = t98 + p0
+ t100 = t99 + p1
+ t101 = t100 + p2
+ t102 = t101 + p3
+ t103 = t102 + p4
+ t104 = t103 + p5
+ t105 = t104 + p6
+ t106 = t105 + p7
+ t107 = t106 + p8
+ t108 = t107 + p9
+ t109 = t108 + p10
+ t110 = t109 + p11
+ t111 = t110 + p12
+ t112 = t111 + p13
+ t113 = t112 + p14
+ t114 = t113 + p15
+ t115 = t114 + p16
+ t116 = t115 + p17
+ t117 = t116 + p18
+ t118 = t117 + p19
+ t119 = t118 + p20
+ t120 = t119 + p21
+ t121 = t120 + p22
+ t122 = t121 + p23
+ t123 = t122 + p24
+ t124 = t123 + p25
+ t125 = t124 + p26
+ t126 = t125 + p27
+ t127 = t126 + p28
+ t128 = t127 + p29
+ t129 = t128 + p30
+ t130 = t129 + p31
+ t131 = t130 + p32
+ t132 = t131 + p33
+ t133 = t132 + p34
+ t134 = t133 + p35
+ t135 = t134 + p36
+ t136 = t135 + p37
+ t137 = t136 + p38
+ t138 = t137 + p39
+ t139 = t138 + p40
+ t140 = t139 + p41
+ t141 = t140 + p42
+ t142 = t141 + p43
+ t143 = t142 + p44
+ t144 = t143 + p45
+ t145 = t144 + p46
+ t146 = t145 + p47
+ t147 = t146 + p48
+ t148 = t147 + p49
+ t149 = t148 + p50
+ t150 = t149 + p51
+ t151 = t150 + p52
+ t152 = t151 + p53
+ t153 = t152 + p54
+ t154 = t153 + p55
+ t155 = t154 + p56
+ t156 = t155 + p57
+ t157 = t156 + p58
+ t158 = t157 + p59
+ t159 = t158 + p60
+ t160 = t159 + p61
+ t161 = t160 + p62
+ t162 = t161 + p63
+ t163 = t162 + p64
+ t164 = t163 + p65
+ t165 = t164 + p66
+ t166 = t165 + p67
+ t167 = t166 + p68
+ t168 = t167 + p69
+ t169 = t168 + p70
+ t170 = t169 + p71
+ t171 = t170 + p72
+ t172 = t171 + p73
+ t173 = t172 + p74
+ t174 = t173 + p75
+ t175 = t174 + p76
+ t176 = t175 + p77
+ t177 = t176 + p78
+ t178 = t177 + p79
+ t179 = t178 + p80
+ t180 = t179 + p81
+ t181 = t180 + p82
+ t182 = t181 + p83
+ t183 = t182 + p84
+ t184 = t183 + p85
+ t185 = t184 + p86
+ t186 = t185 + p87
+ t187 = t186 + p88
+ t188 = t187 + p89
+ t189 = t188 + p90
+ t190 = t189 + p91
+ t191 = t190 + p92
+ t192 = t191 + p93
+ t193 = t192 + p94
+ t194 = t193 + p95
+ t195 = t194 + p96
+ t196 = t195 + p97
+ t197 = t196 + p98
+ t198 = t197 + p99
+ return t198
+ return 0
+end f_func
+
+f_main [ 0 ]
+  var t199
+ T0 = 1
+ T1 = 1
+ T2 = 1
+ T3 = 1
+ T4 = 1
+ T5 = 1
+ T6 = 1
+ T7 = 1
+ T8 = 1
+ T9 = 1
+ T10 = 1
+ T11 = 1
+ T12 = 1
+ T13 = 1
+ T14 = 1
+ T15 = 1
+ T16 = 1
+ T17 = 1
+ T18 = 1
+ T19 = 1
+ T20 = 1
+ T21 = 1
+ T22 = 1
+ T23 = 1
+ T24 = 1
+ T25 = 1
+ T26 = 1
+ T27 = 1
+ T28 = 1
+ T29 = 1
+ T30 = 1
+ T31 = 1
+ T32 = 1
+ T33 = 1
+ T34 = 1
+ T35 = 1
+ T36 = 1
+ T37 = 1
+ T38 = 1
+ T39 = 1
+ T40 = 1
+ T41 = 1
+ T42 = 1
+ T43 = 1
+ T44 = 1
+ T45 = 1
+ T46 = 1
+ T47 = 1
+ T48 = 1
+ T49 = 1
+ T50 = 1
+ T51 = 1
+ T52 = 1
+ T53 = 1
+ T54 = 1
+ T55 = 1
+ T56 = 1
+ T57 = 1
+ T58 = 1
+ T59 = 1
+ T60 = 1
+ T61 = 1
+ T62 = 1
+ T63 = 1
+ T64 = 1
+ T65 = 1
+ T66 = 1
+ T67 = 1
+ T68 = 1
+ T69 = 1
+ T70 = 1
+ T71 = 1
+ T72 = 1
+ T73 = 1
+ T74 = 1
+ T75 = 1
+ T76 = 1
+ T77 = 1
+ T78 = 1
+ T79 = 1
+ T80 = 1
+ T81 = 1
+ T82 = 1
+ T83 = 1
+ T84 = 1
+ T85 = 1
+ T86 = 1
+ T87 = 1
+ T88 = 1
+ T89 = 1
+ T90 = 1
+ T91 = 1
+ T92 = 1
+ T93 = 1
+ T94 = 1
+ T95 = 1
+ T96 = 1
+ T97 = 1
+ T98 = 1
+ T99 = 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ param 1
+ t199 = call f_func
+ param t199
+ call f_putint
+ return 0
+ return 0
+end f_main

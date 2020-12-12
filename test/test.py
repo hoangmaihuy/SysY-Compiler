@@ -12,8 +12,8 @@ import sys
 
 # directories that storing test cases
 dirs = [
-    './functional_test',
-#    './custom_test',
+#     './functional_test',
+    './custom_test',
 #     'sysyruntimelibrary/section1/performance_test',
 #    'sysyruntimelibrary/section2/performance_test',
 ]
@@ -24,6 +24,9 @@ minivm = '../MiniVM/build/minivm'
 # temporary Eeyore file
 eeyore_file = 'test.eeyore'
 tigger_file = 'test.tigger'
+
+test_eeyore = False
+test_tigger = False
 
 # ===================== end =====================
 
@@ -39,14 +42,20 @@ def run_case(sy_file, in_file, out_file):
   # compile to executable
   eeyore_cmd = compiler.split(' ') + ['-S -e', sy_file, '-o', eeyore_file]
   tigger_cmd = compiler.split(' ') + ['-S -t', sy_file, '-o', tigger_file]
-  subprocess.run(tigger_cmd, stdout=subprocess.PIPE)
+  if test_eeyore:
+    compile_cmd = eeyore_cmd
+    run_cmd = [minivm, eeyore_file]
+  elif test_tigger:
+    compile_cmd = tigger_cmd
+    run_cmd = [minivm, '-t', tigger_file]
+  subprocess.run(compile_cmd, stdout=subprocess.PIPE)
   # run compiled file
   if in_file:
     with open(in_file) as f:
       inputs = f.read().encode('utf-8')
   else:
     inputs = None
-  result = subprocess.run([minivm, "-t", tigger_file], input=inputs, stdout=subprocess.PIPE)
+  result = subprocess.run(run_cmd, input=inputs, stdout=subprocess.PIPE)
   out = f'{result.stdout.decode("utf-8").strip()}\n{result.returncode}'
   out = out.strip()
   # compare to reference
@@ -116,15 +125,21 @@ if __name__ == '__main__':
   # initialize argument parser
   parser = argparse.ArgumentParser()
   parser.formatter_class = argparse.RawTextHelpFormatter
-  parser.description = 'An auto-test tool for MimiC project.'
+  parser.description = 'An auto-test tool for SysY-Compiler project.'
   parser.add_argument('-i', '--input', default='',
                       help='specify input SysY source file, ' +
                            'default to empty, that means run ' +
                            'files in script configuration')
+  parser.add_argument('-e', '--eeyore', dest='test_eeyore', action='store_true',
+                      help='test in Eeyore mode')
+  parser.add_argument('-t', '--tigger', dest='test_tigger', action='store_true',
+                      help='test in Tigger mode')
   # parse arguments
   args = parser.parse_args()
   # check if is cross-compile mode
   # start running
+  test_tigger = args.test_tigger
+  test_eeyore = args.test_eeyore
   if args.input:
     # check if input test cast is valid
     if not args.input.endswith('.sy'):

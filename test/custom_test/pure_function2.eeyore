@@ -1,0 +1,120 @@
+var T0
+
+f_f1 [ 0 ]
+ param 1
+ call f_putint
+ param 10
+ call f_putch
+ return
+end f_f1
+
+f_f2 [ 1 ]
+  var t0
+  var t1
+  var t2
+  var t3
+ t0 = 0
+ t1 = 0 * 1
+ t0 = t0 + t1
+ t0 = t0 * 4
+ t2 = p0 [ t0 ]
+ t3 = t2 + T0
+ return t3
+ return 0
+end f_f2
+
+f_f3 [ 1 ]
+  var t4
+  var t5
+  var t6
+  var t7
+  var t8
+  var t9
+  var t10
+ t4 = 0
+ t5 = 0 * 1
+ t4 = t4 + t5
+ t4 = t4 * 4
+ t6 = p0 [ t4 ]
+ t8 = 0
+ t9 = 1 * 1
+ t8 = t8 + t9
+ t8 = t8 * 4
+ t10 = p0 [ t8 ]
+ t7 = t6 + t10
+ return t7
+ return 0
+end f_f3
+
+f_main [ 0 ]
+  var T1
+  var 8 T2
+  var t11
+  var t12
+  var t13
+  var t14
+  var t15
+  var t16
+  var t17
+  var t18
+  var t19
+  var t20
+  var t21
+  var t22
+  var t23
+  var t24
+  var t25
+  var t26
+  var t27
+  var t28
+  var t29
+ call f_f1
+ T1 = 0
+ T2 [ 0 ] = 0
+ T2 [ 4 ] = 0
+ t11 = call f_getint
+ T2 [ 0 ] = t11
+ t12 = call f_getint
+ T2 [ 4 ] = t12
+ param T2
+ t13 = call f_f2
+ l0:
+  param T2
+  t15 = call f_f3
+  t14 = T1 < t15
+  if t14 == 0 goto l1
+   t16 = 0
+   t17 = 0 * 1
+   t16 = t16 + t17
+   t16 = t16 * 4
+   t18 = 0
+   t19 = 0 * 1
+   t18 = t18 + t19
+   t18 = t18 * 4
+   t20 = T2 [ t18 ]
+   t21 = t20 + 1
+   T2 [ t16 ] = t21
+   t22 = 0
+   t23 = 1 * 1
+   t22 = t22 + t23
+   t22 = t22 * 4
+   t24 = 0
+   t25 = 1 * 1
+   t24 = t24 + t25
+   t24 = t24 * 4
+   t26 = T2 [ t24 ]
+   t27 = t26 * 2
+   T2 [ t22 ] = t27
+   param T2
+   t29 = call f_f2
+   t28 = T1 + t29
+   T1 = t28
+  goto l0
+ l1:
+ param T1
+ call f_putint
+ param 10
+ call f_putch
+ return 0
+ return 0
+end f_main

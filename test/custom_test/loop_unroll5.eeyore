@@ -1,0 +1,107 @@
+
+f_test5 [ 1 ]
+  var T0
+  var T1
+  var T2
+  var T3
+  var T4
+  var t0
+  var t1
+  var t2
+  var t3
+  var t4
+  var t5
+  var t6
+  var t7
+  var t8
+  var t9
+  var t10
+  var t11
+ T0 = 0
+ T1 = 0
+ T2 = 0
+ T3 = 0
+ T4 = 0
+ T0 = 0
+ l0:
+  t0 = T0 < p0
+  if t0 == 0 goto l1
+   T1 = 0
+   l2:
+    t1 = T1 < p0
+    if t1 == 0 goto l3
+     T2 = 0
+     l4:
+      t2 = T2 < p0
+      if t2 == 0 goto l5
+       T3 = 0
+       l6:
+        t3 = T3 < p0
+        if t3 == 0 goto l7
+         t4 = T4 + T0
+         t5 = t4 + T1
+         t6 = t5 + T2
+         t7 = t6 + T3
+         T4 = t7
+         t8 = T3 + 1
+         T3 = t8
+        goto l6
+       l7:
+       t9 = T2 + 1
+       T2 = t9
+      goto l4
+     l5:
+     t10 = T1 + 1
+     T1 = t10
+    goto l2
+   l3:
+   t11 = T0 + 1
+   T0 = t11
+  goto l0
+ l1:
+ param p0
+ call f_putint
+ param 10
+ call f_putch
+ param T0
+ call f_putint
+ param 10
+ call f_putch
+ param T1
+ call f_putint
+ param 10
+ call f_putch
+ param T2
+ call f_putint
+ param 10
+ call f_putch
+ param T3
+ call f_putint
+ param 10
+ call f_putch
+ param T4
+ call f_putint
+ param 10
+ call f_putch
+ return
+end f_test5
+
+f_main [ 0 ]
+  var T5
+  var t12
+  var t13
+  var t14
+ t12 = -1
+ T5 = t12
+ l8:
+  t13 = T5 < 10
+  if t13 == 0 goto l9
+   t14 = T5 + 1
+   T5 = t14
+   param T5
+   call f_test5
+  goto l8
+ l9:
+ return 0
+ return 0
+end f_main

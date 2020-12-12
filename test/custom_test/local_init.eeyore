@@ -1,0 +1,49 @@
+
+f_main [ 0 ]
+  var T0
+  var 8 T1
+  var 8 T2
+  var 8 T3
+  var t0
+  var t1
+  var t2
+  var t3
+  var t4
+  var t5
+  var t6
+  var t7
+  var t8
+  var t9
+  var t10
+  var t11
+ T0 = 1
+ T1 [ 0 ] = 0
+ T1 [ 4 ] = 0
+ T2 [ 0 ] = 0
+ T2 [ 4 ] = 0
+ T2 [ 0 ] = 1
+ T3 [ 0 ] = 0
+ T3 [ 4 ] = 0
+ T3 [ 0 ] = 1
+ T3 [ 4 ] = 2
+ t1 = 0
+ t2 = 0 * 1
+ t1 = t1 + t2
+ t1 = t1 * 4
+ t3 = T1 [ t1 ]
+ t0 = T0 + t3
+ t5 = 0
+ t6 = 1 * 1
+ t5 = t5 + t6
+ t5 = t5 * 4
+ t7 = T2 [ t5 ]
+ t4 = t0 + t7
+ t9 = 0
+ t10 = 1 * 1
+ t9 = t9 + t10
+ t9 = t9 * 4
+ t11 = T3 [ t9 ]
+ t8 = t4 + t11
+ return t8
+ return 0
+end f_main

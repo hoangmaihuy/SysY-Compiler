@@ -1,0 +1,276 @@
+
+f_main [ 0 ]
+  var 80 T0
+  var T1
+  var t0
+  var T2
+  var t1
+  var t2
+  var t3
+  var t4
+  var t5
+  var t6
+  var t7
+  var t8
+  var t9
+  var t10
+  var t11
+  var t12
+  var t13
+  var t14
+  var t15
+  var t16
+  var t17
+  var t18
+  var t19
+  var t20
+  var t21
+  var t22
+  var t23
+  var t24
+  var t25
+  var t26
+  var t27
+  var t28
+  var t29
+  var t30
+  var t31
+  var t32
+  var t33
+  var t34
+  var t35
+  var t36
+  var t37
+  var t38
+  var t39
+  var t40
+  var t41
+  var t42
+  var t43
+  var t44
+  var t45
+  var t46
+  var t47
+  var t48
+  var t49
+  var t50
+  var t51
+  var t52
+  var t53
+  var t54
+  var t55
+  var t56
+  var t57
+  var t58
+  var t59
+  var t60
+  var t61
+  var t62
+  var t63
+  var t64
+  var t65
+  var t66
+  var t67
+  var t68
+  var t69
+  var t70
+  var t71
+  var t72
+  var t73
+  var t74
+  var t75
+ param T0
+ t0 = call f_getarray
+ T1 = t0
+ T2 = 0
+ l0:
+  t1 = T2 < T1
+  if t1 == 0 goto l1
+   t2 = 0
+   t3 = T2 * 1
+   t2 = t2 + t3
+   t2 = t2 * 4
+   t4 = T0 [ t2 ]
+   t5 = t4 / 1
+   param t5
+   call f_putint
+   param 10
+   call f_putch
+   t6 = 0
+   t7 = T2 * 1
+   t6 = t6 + t7
+   t6 = t6 * 4
+   t8 = T0 [ t6 ]
+   t9 = t8 / 3
+   param t9
+   call f_putint
+   param 10
+   call f_putch
+   t10 = 0
+   t11 = T2 * 1
+   t10 = t10 + t11
+   t10 = t10 * 4
+   t12 = T0 [ t10 ]
+   t13 = t12 / 6
+   param t13
+   call f_putint
+   param 10
+   call f_putch
+   t14 = 0
+   t15 = T2 * 1
+   t14 = t14 + t15
+   t14 = t14 * 4
+   t16 = T0 [ t14 ]
+   t17 = t16 / 7
+   param t17
+   call f_putint
+   param 10
+   call f_putch
+   t18 = 0
+   t19 = T2 * 1
+   t18 = t18 + t19
+   t18 = t18 * 4
+   t20 = T0 [ t18 ]
+   t21 = t20 / 14
+   param t21
+   call f_putint
+   param 10
+   call f_putch
+   t22 = 0
+   t23 = T2 * 1
+   t22 = t22 + t23
+   t22 = t22 * 4
+   t24 = T0 [ t22 ]
+   t25 = t24 / 31
+   param t25
+   call f_putint
+   param 10
+   call f_putch
+   t26 = 0
+   t27 = T2 * 1
+   t26 = t26 + t27
+   t26 = t26 * 4
+   t28 = T0 [ t26 ]
+   t29 = t28 / 641
+   param t29
+   call f_putint
+   param 10
+   call f_putch
+   t30 = 0
+   t31 = T2 * 1
+   t30 = t30 + t31
+   t30 = t30 * 4
+   t32 = T0 [ t30 ]
+   t33 = t32 / 2147483647
+   param t33
+   call f_putint
+   param 10
+   call f_putch
+   t34 = 0
+   t35 = T2 * 1
+   t34 = t34 + t35
+   t34 = t34 * 4
+   t36 = T0 [ t34 ]
+   t38 = --2147483648
+   t37 = t36 / t38
+   param t37
+   call f_putint
+   param 10
+   call f_putch
+   t39 = 0
+   t40 = T2 * 1
+   t39 = t39 + t40
+   t39 = t39 * 4
+   t41 = T0 [ t39 ]
+   t42 = t41 / 1000000007
+   param t42
+   call f_putint
+   param 10
+   call f_putch
+   t43 = 0
+   t44 = T2 * 1
+   t43 = t43 + t44
+   t43 = t43 * 4
+   t45 = T0 [ t43 ]
+   t46 = t45 > 0
+   if t46 == 0 goto l2
+     t47 = 0
+     t48 = T2 * 1
+     t47 = t47 + t48
+     t47 = t47 * 4
+     t49 = T0 [ t47 ]
+     t50 = t49 / 2
+     param t50
+     call f_putint
+     param 10
+     call f_putch
+     t51 = 0
+     t52 = T2 * 1
+     t51 = t51 + t52
+     t51 = t51 * 4
+     t53 = T0 [ t51 ]
+     t54 = t53 / 4
+     param t54
+     call f_putint
+     param 10
+     call f_putch
+     t55 = 0
+     t56 = T2 * 1
+     t55 = t55 + t56
+     t55 = t55 * 4
+     t57 = T0 [ t55 ]
+     t58 = t57 / 16
+     param t58
+     call f_putint
+     param 10
+     call f_putch
+     t59 = 0
+     t60 = T2 * 1
+     t59 = t59 + t60
+     t59 = t59 * 4
+     t61 = T0 [ t59 ]
+     t62 = t61 / 32
+     param t62
+     call f_putint
+     param 10
+     call f_putch
+     t63 = 0
+     t64 = T2 * 1
+     t63 = t63 + t64
+     t63 = t63 * 4
+     t65 = T0 [ t63 ]
+     t66 = t65 / 1024
+     param t66
+     call f_putint
+     param 10
+     call f_putch
+     t67 = 0
+     t68 = T2 * 1
+     t67 = t67 + t68
+     t67 = t67 * 4
+     t69 = T0 [ t67 ]
+     t70 = t69 / 65536
+     param t70
+     call f_putint
+     param 10
+     call f_putch
+     t71 = 0
+     t72 = T2 * 1
+     t71 = t71 + t72
+     t71 = t71 * 4
+     t73 = T0 [ t71 ]
+     t74 = t73 / 1048576
+     param t74
+     call f_putint
+     param 10
+     call f_putch
+   l2:
+   param 10
+   call f_putch
+   t75 = T2 + 1
+   T2 = t75
+  goto l0
+ l1:
+ return 0
+ return 0
+end f_main

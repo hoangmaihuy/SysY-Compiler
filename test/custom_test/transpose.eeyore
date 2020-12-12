@@ -1,0 +1,154 @@
+var T0
+var 4194304 T3
+var 4194304 T4
+
+f_transpose [ 3 ]
+  var T1
+  var t0
+  var T2
+  var t1
+  var t2
+  var t3
+  var t4
+  var t5
+  var t6
+  var t7
+  var t8
+ T1 = 0
+ T1 = 0
+ l0:
+  t0 = T1 < p0
+  if t0 == 0 goto l1
+   T2 = 0
+   l2:
+    t1 = T2 < p0
+    if t1 == 0 goto l3
+     t2 = 0
+     t3 = T1 * 1024
+     t2 = t2 + t3
+     t3 = T2 * 1
+     t2 = t2 + t3
+     t2 = t2 * 4
+     t4 = 0
+     t5 = T2 * 1024
+     t4 = t4 + t5
+     t5 = T1 * 1
+     t4 = t4 + t5
+     t4 = t4 * 4
+     t6 = p1 [ t4 ]
+     p2 [ t2 ] = t6
+     t7 = T2 + 1
+     T2 = t7
+    goto l2
+   l3:
+   t8 = T1 + 1
+   T1 = t8
+  goto l0
+ l1:
+ return
+end f_transpose
+
+f_main [ 0 ]
+  var T5
+  var t9
+  var T6
+  var T7
+  var t10
+  var t11
+  var t12
+  var t13
+  var t14
+  var t15
+  var t16
+  var t17
+  var t18
+  var T8
+  var t19
+  var t20
+  var t21
+  var t22
+  var t23
+  var t24
+  var t25
+  var t26
+T0 = 1024
+ t9 = call f_getint
+ T5 = t9
+ T6 = 0
+ T7 = 0
+ l4:
+  t10 = T6 < T5
+  if t10 == 0 goto l5
+   T7 = 0
+   l6:
+    t11 = T7 < T5
+    if t11 == 0 goto l7
+     t12 = 0
+     t13 = T6 * 1024
+     t12 = t12 + t13
+     t13 = T7 * 1
+     t12 = t12 + t13
+     t12 = t12 * 4
+     t14 = call f_getint
+     T3 [ t12 ] = t14
+     t15 = T7 + 1
+     T7 = t15
+    goto l6
+   l7:
+   t16 = T6 + 1
+   T6 = t16
+  goto l4
+ l5:
+ param 34
+ call f__sysy_starttime
+ T6 = 0
+ l8:
+  t17 = T6 < 500
+  if t17 == 0 goto l9
+   param T5
+   param T3
+   param T4
+   call f_transpose
+   param T5
+   param T4
+   param T3
+   call f_transpose
+   t18 = T6 + 1
+   T6 = t18
+  goto l8
+ l9:
+ T8 = 0
+ T6 = 0
+ l10:
+  t19 = T6 < T5
+  if t19 == 0 goto l11
+   T7 = 0
+   l12:
+    t20 = T7 < T5
+    if t20 == 0 goto l13
+     t22 = 0
+     t23 = T6 * 1024
+     t22 = t22 + t23
+     t23 = T7 * 1
+     t22 = t22 + t23
+     t22 = t22 * 4
+     t24 = T4 [ t22 ]
+     t21 = T8 + t24
+     T8 = t21
+     t25 = T7 + 1
+     T7 = t25
+    goto l12
+   l13:
+   t26 = T6 + 1
+   T6 = t26
+  goto l10
+ l11:
+ param 51
+ call f__sysy_stoptime
+ param T8
+ call f_putint
+ param 10
+ call f_putch
+ return 0
+ return 0
+end f_main
