@@ -12,8 +12,8 @@ import sys
 
 # directories that storing test cases
 dirs = [
-#     './functional_test',
-    './custom_test',
+    './functional_test',
+#    './custom_test',
 #     'sysyruntimelibrary/section1/performance_test',
 #    'sysyruntimelibrary/section2/performance_test',
 ]
