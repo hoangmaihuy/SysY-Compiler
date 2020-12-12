@@ -25,7 +25,7 @@ include_directories(src/eeyore)
 include_directories(src/tigger)
 include_directories(src/util)
 
-file(GLOB_RECURSE SOURCES "src/*.cpp" "src/eeyore/*.cpp" "src/tigger/*.cpp" "src/util/*.cpp")
+file(GLOB_RECURSE SOURCES "src/*.cpp" "src/eeyore/*.cpp" "src/tigger/*.cpp" "src/riscv/*.cpp" "src/util/*.cpp")
 set(SOURCES ${SOURCES} ${FLEX_SysYLexer_OUTPUTS}
     ${BISON_SysYParser_OUTPUT_SOURCE})
 

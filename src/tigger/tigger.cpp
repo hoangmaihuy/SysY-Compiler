@@ -75,16 +75,6 @@ string TLoadaddrGlobal::to_string()
     return "loadaddr " + var_name + " " + reg_name;
 }
 
-TStoreRegArray::TStoreRegArray(string res_reg, int index, string value_reg) : res_reg(res_reg), index(index), value_reg(value_reg)
-{
-
-}
-
-string TStoreRegArray::to_string()
-{
-    return res_reg + " [ " + std::to_string(index) + " ] = " + value_reg;
-}
-
 TAssignOpReg::TAssignOpReg(string res_reg, int op, string rhs_reg) : res_reg(res_reg), op(op), rhs_reg(rhs_reg) {}
 
 string TAssignOpReg::to_string()
@@ -153,4 +143,23 @@ TComment::TComment(string comment) : comment(comment) {}
 string TComment::to_string()
 {
     return "// " + comment;
+}
+
+
+TFuncDef::TFuncDef(string func_name, int args_num, int stack_size) : func_name(func_name), args_num(args_num), stack_size(stack_size)
+{
+}
+
+string TFuncDef::to_string()
+{
+    return "f_" + func_name + " [ " + std::to_string(args_num) + " ] [ " + std::to_string(stack_size) + " ]";
+}
+
+TFuncEnd::TFuncEnd(string func_name) : func_name(func_name)
+{
+}
+
+string TFuncEnd::to_string()
+{
+    return "end f_" + func_name;
 }

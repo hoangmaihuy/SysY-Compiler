@@ -15,6 +15,7 @@ bool DEBUG = false;
 bool compileEeyore, compileTigger, compileRISCV;
 ContextEeyore ctx_eeyore;
 ContextTigger ctx_tigger;
+vector<string> riscv_list;
 
 void compileToEeyore()
 {
@@ -57,6 +58,27 @@ void compileToTigger()
 
 void compileToRISCV()
 {
+    ofstream riscv_out;
+    riscv_out.open(out_file);
+    riscv_list.clear();
+    for (const auto& func : ctx_tigger.tigger_funcs)
+    {
+        if (func.func_name != GLOB_NAME)
+        {
+            auto* func_def = new TFuncDef(func.func_name, func.args_num, func.stack_size);
+            func_def->generate_riscv(riscv_list);
+        }
+        for (auto stmt : func.stmts)
+            stmt->generate_riscv(riscv_list);
+        if (func.func_name != GLOB_NAME)
+        {
+            auto* func_end = new TFuncEnd(func.func_name);
+            func_end->generate_riscv(riscv_list);
+        }
+    }
+    for (const auto& line : riscv_list)
+        riscv_out << line << "\n";
+    riscv_out.close();
 }
 
 int main(int argc, char * argv[]) 

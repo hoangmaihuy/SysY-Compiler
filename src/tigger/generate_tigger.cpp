@@ -58,11 +58,15 @@ void ContextTigger::print_tigger(ostream &out)
         int stack_size = tigger_func.stack_size;
 
         if (tigger_func.func_name != GLOB_NAME)
-            out << "\nf_" << func_name << " [ " << args_num << " ] [ " << stack_size << " ]\n";
+        {
+            auto* func_def = new TFuncDef(func_name, args_num, stack_size);
+            out << "\n" << func_def->to_string() << "\n";
+        }
         for (auto stmt : tigger_func.stmts)
             out << "  " << stmt->to_string() << "\n";
         if (tigger_func.func_name == GLOB_NAME) continue;
-        out << "end f_" << func_name << "\n";
+        auto* func_end = new TFuncEnd(func_name);
+        out << func_end->to_string() << "\n";
     }
 }
 
