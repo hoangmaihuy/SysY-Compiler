@@ -1,0 +1,126 @@
+
+f_if_ifElse_ [ 0 ] [ 17 ]
+  store s0 0
+  store s1 1
+  store s2 2
+  store s3 3
+  store s4 4
+  store s5 5
+  store s6 6
+  store s7 7
+  store s8 8
+  store s9 9
+  store s10 10
+  store s11 11
+  // T0 = 5
+  s0 = 5
+  store s0 12
+  // T1 = 10
+  s1 = 10
+  store s1 13
+  // t0 = T0 == 5
+  s2 = 5
+  s2 = s0 == s2
+  store s2 14
+  // if t0 == 0 goto l0
+  if s2 == x0 goto l0
+  // t1 = T1 == 10
+  load 13 s1
+  s0 = 10
+  s3 = s1 == s0
+  store s3 15
+  // if t1 == 0 goto l1
+  if s3 == x0 goto l1
+  // T0 = 25
+  s0 = 25
+  store s0 12
+  // goto l2
+  goto l2
+  // l1:
+  l1:
+  // t2 = T0 + 15
+  load 12 s0
+  s1 = 15
+  s4 = s0 + s1
+  store s4 16
+  // T0 = t2
+  s0 = s4
+  store s0 12
+  // l2:
+  l2:
+  // l0:
+  l0:
+  // return T0
+  load 12 s0
+  a0 = s0
+  load 0 s0
+  load 1 s1
+  load 2 s2
+  load 3 s3
+  load 4 s4
+  load 5 s5
+  load 6 s6
+  load 7 s7
+  load 8 s8
+  load 9 s9
+  load 10 s10
+  load 11 s11
+  return
+  // return 0
+  a0 = 0
+  load 0 s0
+  load 1 s1
+  load 2 s2
+  load 3 s3
+  load 4 s4
+  load 5 s5
+  load 6 s6
+  load 7 s7
+  load 8 s8
+  load 9 s9
+  load 10 s10
+  load 11 s11
+  return
+end f_if_ifElse_
+
+f_main [ 0 ] [ 15 ]
+  // t3 = call f_if_ifElse_
+  store t0 0
+  store t1 1
+  store t2 2
+  store t3 3
+  store t4 4
+  store t5 5
+  store t6 6
+  store a0 7
+  store a1 8
+  store a2 9
+  store a3 10
+  store a4 11
+  store a5 12
+  store a6 13
+  store a7 14
+  call f_if_ifElse_
+  load 0 t0
+  load 1 t1
+  load 2 t2
+  load 3 t3
+  load 4 t4
+  load 5 t5
+  load 6 t6
+  load 8 a1
+  load 9 a2
+  load 10 a3
+  load 11 a4
+  load 12 a5
+  load 13 a6
+  load 14 a7
+  s0 = a0
+  load 7 a0
+  // return t3
+  a0 = s0
+  return
+  // return 0
+  a0 = 0
+  return
+end f_main

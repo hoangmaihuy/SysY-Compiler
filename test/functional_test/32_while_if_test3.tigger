@@ -1,0 +1,167 @@
+
+f_deepWhileBr [ 2 ] [ 23 ]
+  store s0 0
+  store s1 1
+  store s2 2
+  store s3 3
+  store s4 4
+  store s5 5
+  store s6 6
+  store s7 7
+  store s8 8
+  store s9 9
+  store s10 10
+  store s11 11
+  // t0 = p0 + p1
+  s3 = a0 + a1
+  store s3 15
+  // T0 = t0
+  s0 = s3
+  store s0 12
+  // l0:
+  l0:
+  // t1 = T0 < 75
+  load 12 s0
+  s1 = 75
+  s4 = s0 < s1
+  store s4 16
+  // if t1 == 0 goto l1
+  if s4 == x0 goto l1
+  // T1 = 42
+  s1 = 42
+  store s1 13
+  // t2 = T0 < 100
+  load 12 s0
+  s2 = 100
+  s5 = s0 < s2
+  store s5 17
+  // if t2 == 0 goto l2
+  if s5 == x0 goto l2
+  // t3 = T0 + T1
+  load 12 s0
+  load 13 s1
+  s6 = s0 + s1
+  store s6 18
+  // T0 = t3
+  s0 = s6
+  store s0 12
+  // t4 = T0 > 99
+  s2 = 99
+  s7 = s0 > s2
+  store s7 19
+  // if t4 == 0 goto l3
+  if s7 == x0 goto l3
+  // t5 = T1 * 2
+  load 13 s1
+  s0 = 2
+  s8 = s1 * s0
+  store s8 20
+  // T2 = t5
+  s2 = s8
+  store s2 14
+  // t6 = 1 == 1
+  s0 = 1
+  s3 = 1
+  s9 = s0 == s3
+  store s9 21
+  // if t6 == 0 goto l4
+  if s9 == x0 goto l4
+  // t7 = T2 * 2
+  load 14 s2
+  s0 = 2
+  t0 = s2 * s0
+  store t0 22
+  // T0 = t7
+  s0 = t0
+  store s0 12
+  // l4:
+  l4:
+  // l3:
+  l3:
+  // l2:
+  l2:
+  // goto l0
+  goto l0
+  // l1:
+  l1:
+  // return T0
+  load 12 s0
+  a0 = s0
+  load 0 s0
+  load 1 s1
+  load 2 s2
+  load 3 s3
+  load 4 s4
+  load 5 s5
+  load 6 s6
+  load 7 s7
+  load 8 s8
+  load 9 s9
+  load 10 s10
+  load 11 s11
+  return
+  // return 0
+  a0 = 0
+  load 0 s0
+  load 1 s1
+  load 2 s2
+  load 3 s3
+  load 4 s4
+  load 5 s5
+  load 6 s6
+  load 7 s7
+  load 8 s8
+  load 9 s9
+  load 10 s10
+  load 11 s11
+  return
+end f_deepWhileBr
+
+f_main [ 0 ] [ 17 ]
+  // T3 = 2
+  s0 = 2
+  store s0 15
+  // param T3
+  // param T3
+  // t8 = call f_deepWhileBr
+  store t0 0
+  store t1 1
+  store t2 2
+  store t3 3
+  store t4 4
+  store t5 5
+  store t6 6
+  store a0 7
+  store a1 8
+  store a2 9
+  store a3 10
+  store a4 11
+  store a5 12
+  store a6 13
+  store a7 14
+  a0 = s0
+  a1 = s0
+  call f_deepWhileBr
+  load 0 t0
+  load 1 t1
+  load 2 t2
+  load 3 t3
+  load 4 t4
+  load 5 t5
+  load 6 t6
+  load 8 a1
+  load 9 a2
+  load 10 a3
+  load 11 a4
+  load 12 a5
+  load 13 a6
+  load 14 a7
+  s1 = a0
+  load 7 a0
+  // return t8
+  a0 = s1
+  return
+  // return 0
+  a0 = 0
+  return
+end f_main

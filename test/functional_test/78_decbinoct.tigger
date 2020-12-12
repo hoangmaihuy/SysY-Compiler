@@ -1,0 +1,221 @@
+
+f_dec2bin [ 1 ] [ 22 ]
+  store s0 0
+  store s1 1
+  store s2 2
+  store s3 3
+  store s4 4
+  store s5 5
+  store s6 6
+  store s7 7
+  store s8 8
+  store s9 9
+  store s10 10
+  store s11 11
+  // T0 = 0
+  s0 = 0
+  store s0 12
+  // T1 = 1
+  s1 = 1
+  store s1 13
+  // T3 = p0
+  s3 = a0
+  store s3 15
+  // l0:
+  l0:
+  // t0 = T3 != 0
+  load 15 s3
+  s4 = s3 != x0
+  store s4 16
+  // if t0 == 0 goto l1
+  if s4 == x0 goto l1
+  // t1 = T3 % 2
+  load 15 s3
+  s0 = 2
+  s5 = s3 % s0
+  store s5 17
+  // T2 = t1
+  s2 = s5
+  store s2 14
+  // t2 = T1 * T2
+  load 13 s1
+  s6 = s1 * s2
+  store s6 18
+  // t3 = t2 + T0
+  load 12 s0
+  s7 = s6 + s0
+  store s7 19
+  // T0 = t3
+  s0 = s7
+  store s0 12
+  // t4 = T1 * 10
+  s4 = 10
+  s8 = s1 * s4
+  store s8 20
+  // T1 = t4
+  s1 = s8
+  store s1 13
+  // t5 = T3 / 2
+  s4 = 2
+  s9 = s3 / s4
+  store s9 21
+  // T3 = t5
+  s3 = s9
+  store s3 15
+  // goto l0
+  goto l0
+  // l1:
+  l1:
+  // return T0
+  load 12 s0
+  a0 = s0
+  load 0 s0
+  load 1 s1
+  load 2 s2
+  load 3 s3
+  load 4 s4
+  load 5 s5
+  load 6 s6
+  load 7 s7
+  load 8 s8
+  load 9 s9
+  load 10 s10
+  load 11 s11
+  return
+  // return 0
+  a0 = 0
+  load 0 s0
+  load 1 s1
+  load 2 s2
+  load 3 s3
+  load 4 s4
+  load 5 s5
+  load 6 s6
+  load 7 s7
+  load 8 s8
+  load 9 s9
+  load 10 s10
+  load 11 s11
+  return
+end f_dec2bin
+
+f_main [ 0 ] [ 17 ]
+  // T4 = 400
+  s0 = 400
+  store s0 15
+  // param T4
+  // t6 = call f_dec2bin
+  store t0 0
+  store t1 1
+  store t2 2
+  store t3 3
+  store t4 4
+  store t5 5
+  store t6 6
+  store a0 7
+  store a1 8
+  store a2 9
+  store a3 10
+  store a4 11
+  store a5 12
+  store a6 13
+  store a7 14
+  a0 = s0
+  call f_dec2bin
+  load 0 t0
+  load 1 t1
+  load 2 t2
+  load 3 t3
+  load 4 t4
+  load 5 t5
+  load 6 t6
+  load 8 a1
+  load 9 a2
+  load 10 a3
+  load 11 a4
+  load 12 a5
+  load 13 a6
+  load 14 a7
+  s2 = a0
+  load 7 a0
+  // T5 = t6
+  s1 = s2
+  store s1 16
+  // param T5
+  // call f_putint
+  store t0 0
+  store t1 1
+  store t2 2
+  store t3 3
+  store t4 4
+  store t5 5
+  store t6 6
+  store a0 7
+  store a1 8
+  store a2 9
+  store a3 10
+  store a4 11
+  store a5 12
+  store a6 13
+  store a7 14
+  a0 = s1
+  call f_putint
+  load 0 t0
+  load 1 t1
+  load 2 t2
+  load 3 t3
+  load 4 t4
+  load 5 t5
+  load 6 t6
+  load 7 a0
+  load 8 a1
+  load 9 a2
+  load 10 a3
+  load 11 a4
+  load 12 a5
+  load 13 a6
+  load 14 a7
+  // T5 = 10
+  s1 = 10
+  store s1 16
+  // param T5
+  // call f_putch
+  store t0 0
+  store t1 1
+  store t2 2
+  store t3 3
+  store t4 4
+  store t5 5
+  store t6 6
+  store a0 7
+  store a1 8
+  store a2 9
+  store a3 10
+  store a4 11
+  store a5 12
+  store a6 13
+  store a7 14
+  a0 = s1
+  call f_putch
+  load 0 t0
+  load 1 t1
+  load 2 t2
+  load 3 t3
+  load 4 t4
+  load 5 t5
+  load 6 t6
+  load 7 a0
+  load 8 a1
+  load 9 a2
+  load 10 a3
+  load 11 a4
+  load 12 a5
+  load 13 a6
+  load 14 a7
+  // return 0
+  a0 = 0
+  return
+  // return 0
+  a0 = 0
+  return
+end f_main

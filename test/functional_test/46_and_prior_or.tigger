@@ -1,0 +1,140 @@
+
+f_main [ 0 ] [ 34 ]
+  // T0 = 3
+  t0 = 3
+  store t0 15
+  // T1 = 8
+  s0 = 8
+  store s0 16
+  // t0 = -4
+  s1 = 4
+  t4 = - s1
+  store t4 20
+  // T2 = t0
+  s1 = t4
+  store s1 17
+  // T3 = 15
+  t6 = 15
+  store t6 18
+  // t2 = T1 - T0
+  s8 = s0 - t0
+  store s8 21
+  // t1 = T3 % t2
+  t3 = t6 % s8
+  store t3 22
+  // t3 = t1 != 0
+  s7 = t3 != x0
+  store s7 23
+  // t4 = t3
+  s6 = s7
+  store s6 24
+  // if t4 == 0 goto l0
+  if s6 == x0 goto l0
+  // t5 = T0 > 0
+  load 15 t0
+  s5 = t0 > x0
+  store s5 25
+  // t4 = t4 && t5
+  load 24 s6
+  s6 = s6 && s5
+  store s6 24
+  // l0:
+  l0:
+  // t6 = t4
+  load 24 s6
+  s4 = s6
+  store s4 26
+  // if t6 != 0 goto l1
+  if s4 != x0 goto l1
+  // t7 = T3 % 3
+  load 18 t6
+  s0 = 3
+  s3 = t6 % s0
+  store s3 27
+  // t8 = t7 == 0
+  s2 = s3 == x0
+  store s2 28
+  // t9 = t8
+  s1 = s2
+  store s1 29
+  // if t9 == 0 goto l2
+  if s1 == x0 goto l2
+  // t10 = T2 > 0
+  load 17 s0
+  t2 = s0 > x0
+  store t2 30
+  // t9 = t9 && t10
+  load 29 s1
+  s1 = s1 && t2
+  store s1 29
+  // l2:
+  l2:
+  // t6 = t6 || t9
+  load 26 s4
+  load 29 s1
+  s4 = s4 || s1
+  store s4 26
+  // l1:
+  l1:
+  // if t6 == 0 goto l3
+  load 26 s4
+  if s4 == x0 goto l3
+  // t11 = T3 + T2
+  load 18 t6
+  load 17 s0
+  t1 = t6 + s0
+  store t1 31
+  // t13 = -T1
+  load 16 s1
+  s9 = - s1
+  store s9 32
+  // t12 = t11 - t13
+  store s0 17
+  s0 = t1 - s9
+  store s0 33
+  // T4 = t12
+  t5 = s0
+  store t5 19
+  // param T4
+  // call f_putint
+  store t0 0
+  store t1 1
+  store t2 2
+  store t3 3
+  store t4 4
+  store t5 5
+  store t6 6
+  store a0 7
+  store a1 8
+  store a2 9
+  store a3 10
+  store a4 11
+  store a5 12
+  store a6 13
+  store a7 14
+  a0 = t5
+  call f_putint
+  load 0 t0
+  load 1 t1
+  load 2 t2
+  load 3 t3
+  load 4 t4
+  load 5 t5
+  load 6 t6
+  load 7 a0
+  load 8 a1
+  load 9 a2
+  load 10 a3
+  load 11 a4
+  load 12 a5
+  load 13 a6
+  load 14 a7
+  // l3:
+  l3:
+  // return 0
+  a0 = 0
+  return
+  // return 0
+  a0 = 0
+  return
+end f_main

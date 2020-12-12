@@ -1,0 +1,812 @@
+  v0 = 0
+
+f_QuickSort [ 3 ] [ 69 ]
+  store s0 0
+  store s1 1
+  store s2 2
+  store s3 3
+  store s4 4
+  store s5 5
+  store s6 6
+  store s7 7
+  store s8 8
+  store s9 9
+  store s10 10
+  store s11 11
+  // t0 = p1 < p2
+  s0 = a1 < a2
+  store s0 37
+  // if t0 == 0 goto l0
+  if s0 == x0 goto l0
+  // T1 = p1
+  s0 = a1
+  store s0 27
+  // T2 = p2
+  s1 = a2
+  store s1 28
+  // t1 = 0
+  s2 = 0
+  store s2 38
+  // t2 = p1 * 1
+  s3 = 1
+  s3 = a1 * s3
+  store s3 48
+  // t1 = t1 + t2
+  s2 = s2 + s3
+  store s2 38
+  // t1 = t1 * 4
+  s4 = 4
+  s2 = s2 * s4
+  store s2 38
+  // t3 = p0 [ t1 ]
+  s10 = a0 + s2
+  s5 = s10 [ 0 ]
+  store s5 54
+  // T3 = t3
+  s4 = s5
+  store s4 29
+  // l1:
+  l1:
+  // t4 = T1 < T2
+  load 27 s0
+  load 28 s1
+  t6 = s0 < s1
+  store t6 55
+  // if t4 == 0 goto l2
+  if t6 == x0 goto l2
+  // l3:
+  l3:
+  // t5 = T1 < T2
+  load 27 s0
+  load 28 s1
+  s2 = s0 < s1
+  store s2 31
+  // t6 = t5
+  s3 = s2
+  store s3 32
+  // if t6 == 0 goto l5
+  if s3 == x0 goto l5
+  // t7 = 0
+  s0 = 0
+  store s0 33
+  // t8 = T2 * 1
+  load 28 s1
+  s2 = 1
+  s2 = s1 * s2
+  store s2 34
+  // t7 = t7 + t8
+  s0 = s0 + s2
+  store s0 33
+  // t7 = t7 * 4
+  s3 = 4
+  s0 = s0 * s3
+  store s0 33
+  // t9 = p0 [ t7 ]
+  s10 = a0 + s0
+  s3 = s10 [ 0 ]
+  store s3 35
+  // t11 = T3 - 1
+  load 29 s4
+  s5 = 1
+  s5 = s4 - s5
+  store s5 40
+  // t10 = t9 > t11
+  s6 = s3 > s5
+  store s6 39
+  // t6 = t6 && t10
+  load 32 s7
+  s7 = s7 && s6
+  store s7 32
+  // l5:
+  l5:
+  // if t6 == 0 goto l4
+  load 32 s0
+  if s0 == x0 goto l4
+  // t12 = T2 - 1
+  load 28 s0
+  s1 = 1
+  s1 = s0 - s1
+  store s1 41
+  // T2 = t12
+  s0 = s1
+  store s0 28
+  // goto l3
+  goto l3
+  // l4:
+  l4:
+  // t13 = T1 < T2
+  load 27 s0
+  load 28 s1
+  s2 = s0 < s1
+  store s2 42
+  // if t13 == 0 goto l6
+  if s2 == x0 goto l6
+  // t14 = 0
+  s0 = 0
+  store s0 43
+  // t15 = T1 * 1
+  load 27 s1
+  s2 = 1
+  s2 = s1 * s2
+  store s2 36
+  // t14 = t14 + t15
+  s0 = s0 + s2
+  store s0 43
+  // t14 = t14 * 4
+  s3 = 4
+  s0 = s0 * s3
+  store s0 43
+  // t16 = 0
+  s3 = 0
+  store s3 44
+  // t17 = T2 * 1
+  load 28 s4
+  s5 = 1
+  s5 = s4 * s5
+  store s5 45
+  // t16 = t16 + t17
+  s3 = s3 + s5
+  store s3 44
+  // t16 = t16 * 4
+  s6 = 4
+  s3 = s3 * s6
+  store s3 44
+  // t18 = p0 [ t16 ]
+  s10 = a0 + s3
+  s6 = s10 [ 0 ]
+  store s6 46
+  // p0 [ t14 ] = t18
+  s10 = a0 + s0
+  s10 [ 0 ] = s6
+  // t19 = T1 + 1
+  s7 = 1
+  s7 = s1 + s7
+  store s7 47
+  // T1 = t19
+  s1 = s7
+  store s1 27
+  // l6:
+  l6:
+  // l7:
+  l7:
+  // t20 = T1 < T2
+  load 27 s0
+  load 28 s1
+  s2 = s0 < s1
+  store s2 49
+  // t21 = t20
+  s3 = s2
+  store s3 50
+  // if t21 == 0 goto l9
+  if s3 == x0 goto l9
+  // t22 = 0
+  s0 = 0
+  store s0 51
+  // t23 = T1 * 1
+  load 27 s1
+  s2 = 1
+  s2 = s1 * s2
+  store s2 52
+  // t22 = t22 + t23
+  s0 = s0 + s2
+  store s0 51
+  // t22 = t22 * 4
+  s3 = 4
+  s0 = s0 * s3
+  store s0 51
+  // t24 = p0 [ t22 ]
+  s10 = a0 + s0
+  s3 = s10 [ 0 ]
+  store s3 53
+  // t25 = t24 < T3
+  load 29 s4
+  t1 = s3 < s4
+  store t1 56
+  // t21 = t21 && t25
+  load 50 s5
+  s5 = s5 && t1
+  store s5 50
+  // l9:
+  l9:
+  // if t21 == 0 goto l8
+  load 50 s0
+  if s0 == x0 goto l8
+  // t26 = T1 + 1
+  load 27 s0
+  s1 = 1
+  s1 = s0 + s1
+  store s1 57
+  // T1 = t26
+  s0 = s1
+  store s0 27
+  // goto l7
+  goto l7
+  // l8:
+  l8:
+  // t27 = T1 < T2
+  load 27 s0
+  load 28 s1
+  s2 = s0 < s1
+  store s2 58
+  // if t27 == 0 goto l10
+  if s2 == x0 goto l10
+  // t28 = 0
+  s3 = 0
+  store s3 59
+  // t29 = T2 * 1
+  load 28 s0
+  s1 = 1
+  s4 = s0 * s1
+  store s4 60
+  // t28 = t28 + t29
+  s3 = s3 + s4
+  store s3 59
+  // t28 = t28 * 4
+  s1 = 4
+  s3 = s3 * s1
+  store s3 59
+  // t30 = 0
+  s6 = 0
+  store s6 61
+  // t31 = T1 * 1
+  load 27 s1
+  s2 = 1
+  s7 = s1 * s2
+  store s7 62
+  // t30 = t30 + t31
+  s6 = s6 + s7
+  store s6 61
+  // t30 = t30 * 4
+  s2 = 4
+  s6 = s6 * s2
+  store s6 61
+  // t32 = p0 [ t30 ]
+  s10 = a0 + s6
+  s8 = s10 [ 0 ]
+  store s8 63
+  // p0 [ t28 ] = t32
+  s10 = a0 + s3
+  s10 [ 0 ] = s8
+  // t33 = T2 - 1
+  s2 = 1
+  s9 = s0 - s2
+  store s9 64
+  // T2 = t33
+  s0 = s9
+  store s0 28
+  // l10:
+  l10:
+  // goto l1
+  goto l1
+  // l2:
+  l2:
+  // t34 = 0
+  t0 = 0
+  store t0 65
+  // t35 = T1 * 1
+  load 27 s0
+  s1 = 1
+  store s0 27
+  s0 = s0 * s1
+  store s0 66
+  // t34 = t34 + t35
+  t0 = t0 + s0
+  store t0 65
+  // t34 = t34 * 4
+  s1 = 4
+  t0 = t0 * s1
+  store t0 65
+  // p0 [ t34 ] = T3
+  load 29 s1
+  s10 = a0 + t0
+  s10 [ 0 ] = s1
+  // t36 = T1 - 1
+  load 27 s2
+  s3 = 1
+  t2 = s2 - s3
+  store t2 67
+  // T4 = t36
+  s3 = t2
+  store s3 30
+  // param p0
+  // param p1
+  // param T4
+  // t37 = call f_QuickSort
+  store t0 12
+  store t1 13
+  store t2 14
+  store t3 15
+  store t4 16
+  store t5 17
+  store t6 18
+  store a0 19
+  store a1 20
+  store a2 21
+  store a3 22
+  store a4 23
+  store a5 24
+  store a6 25
+  store a7 26
+  a2 = s3
+  call f_QuickSort
+  load 12 t0
+  load 13 t1
+  load 14 t2
+  load 15 t3
+  load 16 t4
+  load 17 t5
+  load 18 t6
+  load 20 a1
+  load 21 a2
+  load 22 a3
+  load 23 a4
+  load 24 a5
+  load 25 a6
+  load 26 a7
+  t3 = a0
+  load 19 a0
+  // T4 = t37
+  s3 = t3
+  store s3 30
+  // t38 = T1 + 1
+  s4 = 1
+  t4 = s2 + s4
+  store t4 68
+  // T4 = t38
+  s3 = t4
+  store s3 30
+  // param p0
+  // param T4
+  // param p2
+  // t39 = call f_QuickSort
+  store t0 12
+  store t1 13
+  store t2 14
+  store t3 15
+  store t4 16
+  store t5 17
+  store t6 18
+  store a0 19
+  store a1 20
+  store a2 21
+  store a3 22
+  store a4 23
+  store a5 24
+  store a6 25
+  store a7 26
+  a1 = s3
+  call f_QuickSort
+  load 12 t0
+  load 13 t1
+  load 14 t2
+  load 15 t3
+  load 16 t4
+  load 17 t5
+  load 18 t6
+  load 20 a1
+  load 21 a2
+  load 22 a3
+  load 23 a4
+  load 24 a5
+  load 25 a6
+  load 26 a7
+  t5 = a0
+  load 19 a0
+  // T4 = t39
+  s3 = t5
+  store s3 30
+  // l0:
+  l0:
+  // return 0
+  a0 = 0
+  load 0 s0
+  load 1 s1
+  load 2 s2
+  load 3 s3
+  load 4 s4
+  load 5 s5
+  load 6 s6
+  load 7 s7
+  load 8 s8
+  load 9 s9
+  load 10 s10
+  load 11 s11
+  return
+  // return 0
+  a0 = 0
+  load 0 s0
+  load 1 s1
+  load 2 s2
+  load 3 s3
+  load 4 s4
+  load 5 s5
+  load 6 s6
+  load 7 s7
+  load 8 s8
+  load 9 s9
+  load 10 s10
+  load 11 s11
+  return
+end f_QuickSort
+
+f_main [ 0 ] [ 53 ]
+  // T0 = 10
+  t6 = 10
+  loadaddr v0 s10
+  s10 [ 0 ] = t6
+  // t40 = 0
+  s0 = 0
+  store s0 37
+  // t41 = 0 * 1
+  s1 = 1
+  s1 = x0 * s1
+  store s1 36
+  // t40 = t40 + t41
+  s0 = s0 + s1
+  store s0 37
+  // t40 = t40 * 4
+  s2 = 4
+  s0 = s0 * s2
+  store s0 37
+  // T5 [ t40 ] = 4
+  s11 = 4
+  loadaddr 15 s10
+  s10 = s10 + s0
+  s10 [ 0 ] = s11
+  // t42 = 0
+  s2 = 0
+  store s2 35
+  // t43 = 1 * 1
+  s3 = 1
+  s4 = 1
+  s3 = s3 * s4
+  store s3 34
+  // t42 = t42 + t43
+  s2 = s2 + s3
+  store s2 35
+  // t42 = t42 * 4
+  s4 = 4
+  s2 = s2 * s4
+  store s2 35
+  // T5 [ t42 ] = 3
+  s11 = 3
+  loadaddr 15 s10
+  s10 = s10 + s2
+  s10 [ 0 ] = s11
+  // t44 = 0
+  s4 = 0
+  store s4 33
+  // t45 = 2 * 1
+  s5 = 2
+  s6 = 1
+  s5 = s5 * s6
+  store s5 32
+  // t44 = t44 + t45
+  s4 = s4 + s5
+  store s4 33
+  // t44 = t44 * 4
+  s6 = 4
+  s4 = s4 * s6
+  store s4 33
+  // T5 [ t44 ] = 9
+  s11 = 9
+  loadaddr 15 s10
+  s10 = s10 + s4
+  s10 [ 0 ] = s11
+  // t46 = 0
+  s6 = 0
+  store s6 31
+  // t47 = 3 * 1
+  s7 = 3
+  s8 = 1
+  s7 = s7 * s8
+  store s7 30
+  // t46 = t46 + t47
+  s6 = s6 + s7
+  store s6 31
+  // t46 = t46 * 4
+  s8 = 4
+  s6 = s6 * s8
+  store s6 31
+  // T5 [ t46 ] = 2
+  s11 = 2
+  loadaddr 15 s10
+  s10 = s10 + s6
+  s10 [ 0 ] = s11
+  // t48 = 0
+  s8 = 0
+  store s8 29
+  // t49 = 4 * 1
+  s9 = 4
+  t0 = 1
+  s9 = s9 * t0
+  store s9 28
+  // t48 = t48 + t49
+  s8 = s8 + s9
+  store s8 29
+  // t48 = t48 * 4
+  t0 = 4
+  s8 = s8 * t0
+  store s8 29
+  // T5 [ t48 ] = 0
+  s11 = 0
+  loadaddr 15 s10
+  s10 = s10 + s8
+  s10 [ 0 ] = s11
+  // t50 = 0
+  store s0 37
+  s0 = 0
+  store s0 38
+  // t51 = 5 * 1
+  t0 = 5
+  t1 = 1
+  t5 = t0 * t1
+  store t5 39
+  // t50 = t50 + t51
+  s0 = s0 + t5
+  store s0 38
+  // t50 = t50 * 4
+  t0 = 4
+  s0 = s0 * t0
+  store s0 38
+  // T5 [ t50 ] = 1
+  s11 = 1
+  loadaddr 15 s10
+  s10 = s10 + s0
+  s10 [ 0 ] = s11
+  // t52 = 0
+  t4 = 0
+  store t4 40
+  // t53 = 6 * 1
+  t0 = 6
+  t1 = 1
+  t3 = t0 * t1
+  store t3 41
+  // t52 = t52 + t53
+  t4 = t4 + t3
+  store t4 40
+  // t52 = t52 * 4
+  t0 = 4
+  t4 = t4 * t0
+  store t4 40
+  // T5 [ t52 ] = 6
+  s11 = 6
+  loadaddr 15 s10
+  s10 = s10 + t4
+  s10 [ 0 ] = s11
+  // t54 = 0
+  t2 = 0
+  store t2 42
+  // t55 = 7 * 1
+  t0 = 7
+  t1 = 1
+  t1 = t0 * t1
+  store t1 43
+  // t54 = t54 + t55
+  t2 = t2 + t1
+  store t2 42
+  // t54 = t54 * 4
+  t0 = 4
+  t2 = t2 * t0
+  store t2 42
+  // T5 [ t54 ] = 5
+  s11 = 5
+  loadaddr 15 s10
+  s10 = s10 + t2
+  s10 [ 0 ] = s11
+  // t56 = 0
+  t0 = 0
+  store t0 44
+  // t57 = 8 * 1
+  store s0 38
+  s0 = 8
+  store s1 36
+  s1 = 1
+  store s9 28
+  s9 = s0 * s1
+  store s9 45
+  // t56 = t56 + t57
+  t0 = t0 + s9
+  store t0 44
+  // t56 = t56 * 4
+  s0 = 4
+  t0 = t0 * s0
+  store t0 44
+  // T5 [ t56 ] = 7
+  s11 = 7
+  loadaddr 15 s10
+  s10 = s10 + t0
+  s10 [ 0 ] = s11
+  // t58 = 0
+  store s8 29
+  s8 = 0
+  store s8 46
+  // t59 = 9 * 1
+  s0 = 9
+  s1 = 1
+  store s7 30
+  s7 = s0 * s1
+  store s7 47
+  // t58 = t58 + t59
+  s8 = s8 + s7
+  store s8 46
+  // t58 = t58 * 4
+  s0 = 4
+  s8 = s8 * s0
+  store s8 46
+  // T5 [ t58 ] = 8
+  s11 = 8
+  loadaddr 15 s10
+  s10 = s10 + s8
+  s10 [ 0 ] = s11
+  // T6 = 0
+  s0 = 0
+  store s0 25
+  // T7 = 9
+  s1 = 9
+  store s1 26
+  // param T5
+  // param T6
+  // param T7
+  // t60 = call f_QuickSort
+  store t0 0
+  store t1 1
+  store t2 2
+  store t3 3
+  store t4 4
+  store t5 5
+  store t6 6
+  store a0 7
+  store a1 8
+  store a2 9
+  store a3 10
+  store a4 11
+  store a5 12
+  store a6 13
+  store a7 14
+  loadaddr 15 a0
+  a1 = s0
+  a2 = s1
+  call f_QuickSort
+  load 0 t0
+  load 1 t1
+  load 2 t2
+  load 3 t3
+  load 4 t4
+  load 5 t5
+  load 6 t6
+  load 8 a1
+  load 9 a2
+  load 10 a3
+  load 11 a4
+  load 12 a5
+  load 13 a6
+  load 14 a7
+  store s6 31
+  s6 = a0
+  load 7 a0
+  // T6 = t60
+  s0 = s6
+  store s0 25
+  // l11:
+  l11:
+  // t61 = T6 < T0
+  load 25 s0
+  load v0 t6
+  s5 = s0 < t6
+  store s5 48
+  // if t61 == 0 goto l12
+  if s5 == x0 goto l12
+  // t62 = 0
+  s4 = 0
+  store s4 49
+  // t63 = T6 * 1
+  load 25 s0
+  s1 = 1
+  s3 = s0 * s1
+  store s3 50
+  // t62 = t62 + t63
+  s4 = s4 + s3
+  store s4 49
+  // t62 = t62 * 4
+  s1 = 4
+  s4 = s4 * s1
+  store s4 49
+  // t64 = T5 [ t62 ]
+  loadaddr 15 s10
+  s10 = s10 + s4
+  s2 = s10 [ 0 ]
+  store s2 51
+  // T8 = t64
+  s1 = s2
+  store s1 27
+  // param T8
+  // call f_putint
+  store t0 0
+  store t1 1
+  store t2 2
+  store t3 3
+  store t4 4
+  store t5 5
+  store t6 6
+  store a0 7
+  store a1 8
+  store a2 9
+  store a3 10
+  store a4 11
+  store a5 12
+  store a6 13
+  store a7 14
+  a0 = s1
+  call f_putint
+  load 0 t0
+  load 1 t1
+  load 2 t2
+  load 3 t3
+  load 4 t4
+  load 5 t5
+  load 6 t6
+  load 7 a0
+  load 8 a1
+  load 9 a2
+  load 10 a3
+  load 11 a4
+  load 12 a5
+  load 13 a6
+  load 14 a7
+  // T8 = 10
+  s1 = 10
+  store s1 27
+  // param T8
+  // call f_putch
+  store t0 0
+  store t1 1
+  store t2 2
+  store t3 3
+  store t4 4
+  store t5 5
+  store t6 6
+  store a0 7
+  store a1 8
+  store a2 9
+  store a3 10
+  store a4 11
+  store a5 12
+  store a6 13
+  store a7 14
+  a0 = s1
+  call f_putch
+  load 0 t0
+  load 1 t1
+  load 2 t2
+  load 3 t3
+  load 4 t4
+  load 5 t5
+  load 6 t6
+  load 7 a0
+  load 8 a1
+  load 9 a2
+  load 10 a3
+  load 11 a4
+  load 12 a5
+  load 13 a6
+  load 14 a7
+  // t65 = T6 + 1
+  s5 = 1
+  store s1 27
+  s1 = s0 + s5
+  store s1 52
+  // T6 = t65
+  s0 = s1
+  store s0 25
+  // goto l11
+  goto l11
+  // l12:
+  l12:
+  // return 0
+  a0 = 0
+  return
+  // return 0
+  a0 = 0
+  return
+end f_main

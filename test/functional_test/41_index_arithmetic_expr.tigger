@@ -1,0 +1,144 @@
+
+f_main [ 0 ] [ 34 ]
+  // T0 = 56
+  s9 = 56
+  store s9 15
+  // T1 = 12
+  t6 = 12
+  store t6 16
+  // t0 = 0
+  t3 = 0
+  store t3 21
+  // t1 = 0 * 1
+  s0 = 1
+  t2 = x0 * s0
+  store t2 22
+  // t0 = t0 + t1
+  t3 = t3 + t2
+  store t3 21
+  // t0 = t0 * 4
+  s0 = 4
+  t3 = t3 * s0
+  store t3 21
+  // T2 [ t0 ] = 1
+  s11 = 1
+  loadaddr 17 s10
+  s10 = s10 + t3
+  s10 [ 0 ] = s11
+  // t2 = 0
+  s8 = 0
+  store s8 23
+  // t3 = 1 * 1
+  s0 = 1
+  s1 = 1
+  s7 = s0 * s1
+  store s7 24
+  // t2 = t2 + t3
+  s8 = s8 + s7
+  store s8 23
+  // t2 = t2 * 4
+  s0 = 4
+  s8 = s8 * s0
+  store s8 23
+  // T2 [ t2 ] = 2
+  s11 = 2
+  loadaddr 17 s10
+  s10 = s10 + s8
+  s10 [ 0 ] = s11
+  // t4 = 0
+  s6 = 0
+  store s6 25
+  // t5 = 2 * 1
+  s0 = 2
+  s1 = 1
+  s5 = s0 * s1
+  store s5 26
+  // t4 = t4 + t5
+  s6 = s6 + s5
+  store s6 25
+  // t4 = t4 * 4
+  s0 = 4
+  s6 = s6 * s0
+  store s6 25
+  // T2 [ t4 ] = 3
+  s11 = 3
+  loadaddr 17 s10
+  s10 = s10 + s6
+  s10 [ 0 ] = s11
+  // t6 = T0 % T1
+  s4 = s9 % t6
+  store s4 27
+  // t7 = t6 + T1
+  s3 = s4 + t6
+  store s3 28
+  // t8 = t7 / 5
+  s0 = 5
+  s2 = s3 / s0
+  store s2 29
+  // t9 = t8 - 2
+  s0 = 2
+  s1 = s2 - s0
+  store s1 30
+  // t10 = 0
+  t1 = 0
+  store t1 31
+  // t11 = t9 * 1
+  s0 = 1
+  t0 = s1 * s0
+  store t0 32
+  // t10 = t10 + t11
+  t1 = t1 + t0
+  store t1 31
+  // t10 = t10 * 4
+  s0 = 4
+  t1 = t1 * s0
+  store t1 31
+  // t12 = T2 [ t10 ]
+  loadaddr 17 s10
+  s10 = s10 + t1
+  s0 = s10 [ 0 ]
+  store s0 33
+  // T3 = t12
+  t4 = s0
+  store t4 20
+  // param T3
+  // call f_putint
+  store t0 0
+  store t1 1
+  store t2 2
+  store t3 3
+  store t4 4
+  store t5 5
+  store t6 6
+  store a0 7
+  store a1 8
+  store a2 9
+  store a3 10
+  store a4 11
+  store a5 12
+  store a6 13
+  store a7 14
+  a0 = t4
+  call f_putint
+  load 0 t0
+  load 1 t1
+  load 2 t2
+  load 3 t3
+  load 4 t4
+  load 5 t5
+  load 6 t6
+  load 7 a0
+  load 8 a1
+  load 9 a2
+  load 10 a3
+  load 11 a4
+  load 12 a5
+  load 13 a6
+  load 14 a7
+  // return 0
+  a0 = 0
+  return
+  // return 0
+  a0 = 0
+  return
+end f_main

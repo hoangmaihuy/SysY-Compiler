@@ -1,0 +1,407 @@
+
+f_removeElement [ 3 ] [ 27 ]
+  store s0 0
+  store s1 1
+  store s2 2
+  store s3 3
+  store s4 4
+  store s5 5
+  store s6 6
+  store s7 7
+  store s8 8
+  store s9 9
+  store s10 10
+  store s11 11
+  // T0 = 0
+  s0 = 0
+  store s0 12
+  // l0:
+  l0:
+  // t0 = T0 < p1
+  load 12 s0
+  s1 = s0 < a1
+  store s1 13
+  // if t0 == 0 goto l1
+  if s1 == x0 goto l1
+  // t1 = 0
+  s2 = 0
+  store s2 14
+  // t2 = T0 * 1
+  load 12 s0
+  s1 = 1
+  s6 = s0 * s1
+  store s6 15
+  // t1 = t1 + t2
+  s2 = s2 + s6
+  store s2 14
+  // t1 = t1 * 4
+  s1 = 4
+  s2 = s2 * s1
+  store s2 14
+  // t3 = p0 [ t1 ]
+  s10 = a0 + s2
+  s7 = s10 [ 0 ]
+  store s7 16
+  // t4 = t3 == p2
+  s8 = s7 == a2
+  store s8 17
+  // if t4 == 0 goto l2
+  if s8 == x0 goto l2
+  // t5 = 0
+  s9 = 0
+  store s9 18
+  // t6 = T0 * 1
+  load 12 s0
+  s1 = 1
+  t0 = s0 * s1
+  store t0 19
+  // t5 = t5 + t6
+  s9 = s9 + t0
+  store s9 18
+  // t5 = t5 * 4
+  s1 = 4
+  s9 = s9 * s1
+  store s9 18
+  // t7 = p1 - 1
+  s1 = 1
+  t1 = a1 - s1
+  store t1 20
+  // t8 = 0
+  t2 = 0
+  store t2 21
+  // t9 = t7 * 1
+  s1 = 1
+  t3 = t1 * s1
+  store t3 22
+  // t8 = t8 + t9
+  t2 = t2 + t3
+  store t2 21
+  // t8 = t8 * 4
+  s1 = 4
+  t2 = t2 * s1
+  store t2 21
+  // t10 = p0 [ t8 ]
+  s10 = a0 + t2
+  s3 = s10 [ 0 ]
+  store s3 23
+  // p0 [ t5 ] = t10
+  s10 = a0 + s9
+  s10 [ 0 ] = s3
+  // t11 = p1 - 1
+  s1 = 1
+  s4 = a1 - s1
+  store s4 24
+  // p1 = t11
+  a1 = s4
+  store a1 25
+  // goto l3
+  goto l3
+  // l2:
+  l2:
+  // t12 = T0 + 1
+  load 12 s0
+  s1 = 1
+  s5 = s0 + s1
+  store s5 26
+  // T0 = t12
+  s0 = s5
+  store s0 12
+  // l3:
+  l3:
+  // goto l0
+  goto l0
+  // l1:
+  l1:
+  // return p1
+  a0 = a1
+  load 0 s0
+  load 1 s1
+  load 2 s2
+  load 3 s3
+  load 4 s4
+  load 5 s5
+  load 6 s6
+  load 7 s7
+  load 8 s8
+  load 9 s9
+  load 10 s10
+  load 11 s11
+  return
+  // return 0
+  a0 = 0
+  load 0 s0
+  load 1 s1
+  load 2 s2
+  load 3 s3
+  load 4 s4
+  load 5 s5
+  load 6 s6
+  load 7 s7
+  load 8 s8
+  load 9 s9
+  load 10 s10
+  load 11 s11
+  return
+end f_removeElement
+
+f_main [ 0 ] [ 47 ]
+  // t13 = 0
+  s0 = 0
+  store s0 31
+  // t14 = 0 * 1
+  s1 = 1
+  s1 = x0 * s1
+  store s1 30
+  // t13 = t13 + t14
+  s0 = s0 + s1
+  store s0 31
+  // t13 = t13 * 4
+  s2 = 4
+  s0 = s0 * s2
+  store s0 31
+  // T2 [ t13 ] = 3
+  s11 = 3
+  loadaddr 16 s10
+  s10 = s10 + s0
+  s10 [ 0 ] = s11
+  // t15 = 0
+  s2 = 0
+  store s2 29
+  // t16 = 1 * 1
+  s3 = 1
+  s4 = 1
+  s3 = s3 * s4
+  store s3 28
+  // t15 = t15 + t16
+  s2 = s2 + s3
+  store s2 29
+  // t15 = t15 * 4
+  s4 = 4
+  s2 = s2 * s4
+  store s2 29
+  // T2 [ t15 ] = 3
+  s11 = 3
+  loadaddr 16 s10
+  s10 = s10 + s2
+  s10 [ 0 ] = s11
+  // t17 = 0
+  s4 = 0
+  store s4 27
+  // t18 = 2 * 1
+  s5 = 2
+  s6 = 1
+  t6 = s5 * s6
+  store t6 32
+  // t17 = t17 + t18
+  s4 = s4 + t6
+  store s4 27
+  // t17 = t17 * 4
+  s5 = 4
+  s4 = s4 * s5
+  store s4 27
+  // T2 [ t17 ] = 9
+  s11 = 9
+  loadaddr 16 s10
+  s10 = s10 + s4
+  s10 [ 0 ] = s11
+  // t19 = 0
+  t5 = 0
+  store t5 33
+  // t20 = 3 * 1
+  s5 = 3
+  s6 = 1
+  t4 = s5 * s6
+  store t4 34
+  // t19 = t19 + t20
+  t5 = t5 + t4
+  store t5 33
+  // t19 = t19 * 4
+  s5 = 4
+  t5 = t5 * s5
+  store t5 33
+  // T2 [ t19 ] = 0
+  s11 = 0
+  loadaddr 16 s10
+  s10 = s10 + t5
+  s10 [ 0 ] = s11
+  // t21 = 0
+  t3 = 0
+  store t3 35
+  // t22 = 4 * 1
+  s5 = 4
+  s6 = 1
+  store s0 31
+  s0 = s5 * s6
+  store s0 36
+  // t21 = t21 + t22
+  t3 = t3 + s0
+  store t3 35
+  // t21 = t21 * 4
+  s5 = 4
+  t3 = t3 * s5
+  store t3 35
+  // T2 [ t21 ] = 0
+  s11 = 0
+  loadaddr 16 s10
+  s10 = s10 + t3
+  s10 [ 0 ] = s11
+  // t23 = 0
+  t1 = 0
+  store t1 37
+  // t24 = 5 * 1
+  s5 = 5
+  s6 = 1
+  t0 = s5 * s6
+  store t0 38
+  // t23 = t23 + t24
+  t1 = t1 + t0
+  store t1 37
+  // t23 = t23 * 4
+  s5 = 4
+  t1 = t1 * s5
+  store t1 37
+  // T2 [ t23 ] = 1
+  s11 = 1
+  loadaddr 16 s10
+  s10 = s10 + t1
+  s10 [ 0 ] = s11
+  // t25 = 0
+  s9 = 0
+  store s9 39
+  // t26 = 6 * 1
+  s5 = 6
+  s6 = 1
+  s8 = s5 * s6
+  store s8 40
+  // t25 = t25 + t26
+  s9 = s9 + s8
+  store s9 39
+  // t25 = t25 * 4
+  s5 = 4
+  s9 = s9 * s5
+  store s9 39
+  // T2 [ t25 ] = 1
+  s11 = 1
+  loadaddr 16 s10
+  s10 = s10 + s9
+  s10 [ 0 ] = s11
+  // t27 = 0
+  s7 = 0
+  store s7 41
+  // t28 = 7 * 1
+  s5 = 7
+  s6 = 1
+  s6 = s5 * s6
+  store s6 42
+  // t27 = t27 + t28
+  s7 = s7 + s6
+  store s7 41
+  // t27 = t27 * 4
+  s5 = 4
+  s7 = s7 * s5
+  store s7 41
+  // T2 [ t27 ] = 5
+  s11 = 5
+  loadaddr 16 s10
+  s10 = s10 + s7
+  s10 [ 0 ] = s11
+  // t29 = 0
+  s5 = 0
+  store s5 43
+  // t30 = 8 * 1
+  t2 = 8
+  store s0 36
+  s0 = 1
+  store s4 27
+  s4 = t2 * s0
+  store s4 44
+  // t29 = t29 + t30
+  s5 = s5 + s4
+  store s5 43
+  // t29 = t29 * 4
+  s0 = 4
+  s5 = s5 * s0
+  store s5 43
+  // T2 [ t29 ] = 7
+  s11 = 7
+  loadaddr 16 s10
+  s10 = s10 + s5
+  s10 [ 0 ] = s11
+  // t31 = 0
+  store s3 28
+  s3 = 0
+  store s3 45
+  // t32 = 9 * 1
+  s0 = 9
+  t2 = 1
+  store s2 29
+  s2 = s0 * t2
+  store s2 46
+  // t31 = t31 + t32
+  s3 = s3 + s2
+  store s3 45
+  // t31 = t31 * 4
+  s0 = 4
+  s3 = s3 * s0
+  store s3 45
+  // T2 [ t31 ] = 8
+  s11 = 8
+  loadaddr 16 s10
+  s10 = s10 + s3
+  s10 [ 0 ] = s11
+  // T1 = 10
+  t2 = 10
+  store t2 15
+  // T3 = 3
+  s0 = 3
+  store s0 26
+  // param T2
+  // param T1
+  // param T3
+  // t33 = call f_removeElement
+  store t0 0
+  store t1 1
+  store t2 2
+  store t3 3
+  store t4 4
+  store t5 5
+  store t6 6
+  store a0 7
+  store a1 8
+  store a2 9
+  store a3 10
+  store a4 11
+  store a5 12
+  store a6 13
+  store a7 14
+  loadaddr 16 a0
+  a1 = t2
+  a2 = s0
+  call f_removeElement
+  load 0 t0
+  load 1 t1
+  load 2 t2
+  load 3 t3
+  load 4 t4
+  load 5 t5
+  load 6 t6
+  load 8 a1
+  load 9 a2
+  load 10 a3
+  load 11 a4
+  load 12 a5
+  load 13 a6
+  load 14 a7
+  store s1 30
+  s1 = a0
+  load 7 a0
+  // T1 = t33
+  t2 = s1
+  store t2 15
+  // return T1
+  a0 = t2
+  return
+  // return 0
+  a0 = 0
+  return
+end f_main

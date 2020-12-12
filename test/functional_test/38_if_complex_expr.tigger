@@ -1,0 +1,221 @@
+
+f_main [ 0 ] [ 41 ]
+  // T0 = 5
+  t3 = 5
+  store t3 15
+  // T1 = 5
+  s0 = 5
+  store s0 16
+  // T2 = 1
+  s1 = 1
+  store s1 17
+  // t0 = -2
+  s2 = 2
+  s2 = - s2
+  store s2 24
+  // T3 = t0
+  s3 = s2
+  store s3 18
+  // T4 = 2
+  s4 = 2
+  store s4 19
+  // t1 = T3 * 1
+  s5 = 1
+  s5 = s3 * s5
+  store s5 23
+  // t2 = t1 / 2
+  s6 = 2
+  s9 = s5 / s6
+  store s9 25
+  // t3 = t2 < 0
+  s7 = s9 < x0
+  store s7 26
+  // t4 = t3
+  s6 = s7
+  store s6 27
+  // if t4 != 0 goto l0
+  if s6 != x0 goto l0
+  // t5 = T0 - T1
+  load 15 t3
+  load 16 s0
+  s5 = t3 - s0
+  store s5 28
+  // t6 = t5 != 0
+  s4 = s5 != x0
+  store s4 29
+  // t7 = t6
+  s3 = s4
+  store s3 30
+  // if t7 == 0 goto l1
+  if s3 == x0 goto l1
+  // t8 = T2 + 3
+  load 17 s0
+  s1 = 3
+  s2 = s0 + s1
+  store s2 31
+  // t9 = t8 % 2
+  s1 = 2
+  s1 = s2 % s1
+  store s1 32
+  // t10 = t9 != 0
+  s3 = s1 != x0
+  store s3 22
+  // t7 = t7 && t10
+  store s3 22
+  load 30 s3
+  load 22 s4
+  s3 = s3 && s4
+  store s3 30
+  // l1:
+  l1:
+  // t4 = t4 || t7
+  load 27 s6
+  load 30 s3
+  s6 = s6 || s3
+  store s6 27
+  // l0:
+  l0:
+  // if t4 == 0 goto l2
+  load 27 s6
+  if s6 == x0 goto l2
+  // param T4
+  // call f_putint
+  store t0 0
+  store t1 1
+  store t2 2
+  store t3 3
+  store t4 4
+  store t5 5
+  store t6 6
+  store a0 7
+  store a1 8
+  store a2 9
+  store a3 10
+  store a4 11
+  store a5 12
+  store a6 13
+  store a7 14
+  load 19 a0
+  call f_putint
+  load 0 t0
+  load 1 t1
+  load 2 t2
+  load 3 t3
+  load 4 t4
+  load 5 t5
+  load 6 t6
+  load 7 a0
+  load 8 a1
+  load 9 a2
+  load 10 a3
+  load 11 a4
+  load 12 a5
+  load 13 a6
+  load 14 a7
+  // l2:
+  l2:
+  // t11 = T3 % 2
+  load 18 s0
+  s1 = 2
+  s1 = s0 % s1
+  store s1 21
+  // t12 = t11 + 67
+  s2 = 67
+  s2 = s1 + s2
+  store s2 20
+  // t13 = t12 < 0
+  t6 = s2 < x0
+  store t6 33
+  // t14 = t13
+  t5 = t6
+  store t5 34
+  // if t14 != 0 goto l3
+  if t5 != x0 goto l3
+  // t15 = T0 - T1
+  load 15 t3
+  load 16 s0
+  t4 = t3 - s0
+  store t4 35
+  // t16 = t15 != 0
+  store s0 16
+  s0 = t4 != x0
+  store s0 36
+  // t17 = t16
+  t2 = s0
+  store t2 37
+  // if t17 == 0 goto l4
+  if t2 == x0 goto l4
+  // t18 = T2 + 2
+  load 17 s0
+  s1 = 2
+  t1 = s0 + s1
+  store t1 38
+  // t19 = t18 % 2
+  s1 = 2
+  t0 = t1 % s1
+  store t0 39
+  // t20 = t19 != 0
+  s8 = t0 != x0
+  store s8 40
+  // t17 = t17 && t20
+  load 37 t2
+  t2 = t2 && s8
+  store t2 37
+  // l4:
+  l4:
+  // t14 = t14 || t17
+  load 34 t5
+  load 37 t2
+  t5 = t5 || t2
+  store t5 34
+  // l3:
+  l3:
+  // if t14 == 0 goto l5
+  load 34 t5
+  if t5 == x0 goto l5
+  // T4 = 4
+  s0 = 4
+  store s0 19
+  // param T4
+  // call f_putint
+  store t0 0
+  store t1 1
+  store t2 2
+  store t3 3
+  store t4 4
+  store t5 5
+  store t6 6
+  store a0 7
+  store a1 8
+  store a2 9
+  store a3 10
+  store a4 11
+  store a5 12
+  store a6 13
+  store a7 14
+  a0 = s0
+  call f_putint
+  load 0 t0
+  load 1 t1
+  load 2 t2
+  load 3 t3
+  load 4 t4
+  load 5 t5
+  load 6 t6
+  load 7 a0
+  load 8 a1
+  load 9 a2
+  load 10 a3
+  load 11 a4
+  load 12 a5
+  load 13 a6
+  load 14 a7
+  // l5:
+  l5:
+  // return 0
+  a0 = 0
+  return
+  // return 0
+  a0 = 0
+  return
+end f_main

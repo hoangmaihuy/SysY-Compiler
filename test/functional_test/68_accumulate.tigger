@@ -1,0 +1,77 @@
+
+f_main [ 0 ] [ 20 ]
+  // T1 = 0
+  s1 = 0
+  store s1 16
+  // T0 = 0
+  s0 = 0
+  store s0 15
+  // l0:
+  l0:
+  // t0 = T0 < 21
+  load 15 s0
+  s1 = 21
+  s2 = s0 < s1
+  store s2 17
+  // if t0 == 0 goto l1
+  if s2 == x0 goto l1
+  // t1 = T1 + T0
+  load 16 s1
+  load 15 s0
+  s3 = s1 + s0
+  store s3 18
+  // T1 = t1
+  s1 = s3
+  store s1 16
+  // t2 = T0 + 1
+  s2 = 1
+  s4 = s0 + s2
+  store s4 19
+  // T0 = t2
+  s0 = s4
+  store s0 15
+  // goto l0
+  goto l0
+  // l1:
+  l1:
+  // param T1
+  // call f_putint
+  store t0 0
+  store t1 1
+  store t2 2
+  store t3 3
+  store t4 4
+  store t5 5
+  store t6 6
+  store a0 7
+  store a1 8
+  store a2 9
+  store a3 10
+  store a4 11
+  store a5 12
+  store a6 13
+  store a7 14
+  load 16 a0
+  call f_putint
+  load 0 t0
+  load 1 t1
+  load 2 t2
+  load 3 t3
+  load 4 t4
+  load 5 t5
+  load 6 t6
+  load 7 a0
+  load 8 a1
+  load 9 a2
+  load 10 a3
+  load 11 a4
+  load 12 a5
+  load 13 a6
+  load 14 a7
+  // return 0
+  a0 = 0
+  return
+  // return 0
+  a0 = 0
+  return
+end f_main

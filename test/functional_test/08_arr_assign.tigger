@@ -1,0 +1,29 @@
+  v0 = malloc 40
+
+f_main [ 0 ] [ 2 ]
+  // t0 = 0
+  s1 = 0
+  store s1 0
+  // t1 = 0 * 1
+  s0 = 1
+  s2 = x0 * s0
+  store s2 1
+  // t0 = t0 + t1
+  s1 = s1 + s2
+  store s1 0
+  // t0 = t0 * 4
+  s0 = 4
+  s1 = s1 * s0
+  store s1 0
+  // T0 [ t0 ] = 1
+  s11 = 1
+  loadaddr v0 s0
+  s10 = s0 + s1
+  s10 [ 0 ] = s11
+  // return 0
+  a0 = 0
+  return
+  // return 0
+  a0 = 0
+  return
+end f_main

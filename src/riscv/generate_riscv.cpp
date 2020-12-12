@@ -2,7 +2,7 @@
 #include "sysy_tree.hpp"
 #include "sysy.tab.hpp"
 
-int stk;
+long long stk;
 
 void TStmt::generate_riscv(vector<string>& riscv_list)
 {
@@ -85,8 +85,7 @@ void TAssignOpReg::generate_riscv(vector<string> &riscv_list)
         riscv_list.emplace_back("\tsub \t" + res_reg + ",x0," + rhs_reg);
     else if (op == NOT)
     {
-        riscv_list.emplace_back("\txori\t" + res_reg + "," + rhs_reg + ",-1");
-        riscv_list.emplace_back("\tsnez\t" + res_reg + "," + res_reg);
+        riscv_list.emplace_back("\txori\t" + res_reg + "," + rhs_reg + ",1");
     }
 
 }

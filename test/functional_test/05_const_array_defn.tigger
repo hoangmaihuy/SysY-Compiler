@@ -1,0 +1,45 @@
+  v0 = malloc 20
+
+f_main [ 0 ] [ 3 ]
+  // T0 [ 0 ] = 0
+  s11 = 0
+  loadaddr v0 s0
+  s0 [ 0 ] = s11
+  // T0 [ 4 ] = 1
+  s11 = 1
+  s0 [ 4 ] = s11
+  // T0 [ 8 ] = 2
+  s11 = 2
+  s0 [ 8 ] = s11
+  // T0 [ 12 ] = 3
+  s11 = 3
+  s0 [ 12 ] = s11
+  // T0 [ 16 ] = 4
+  s11 = 4
+  s0 [ 16 ] = s11
+  // t0 = 0
+  s1 = 0
+  store s1 0
+  // t1 = 4 * 1
+  s2 = 4
+  s3 = 1
+  s2 = s2 * s3
+  store s2 1
+  // t0 = t0 + t1
+  s1 = s1 + s2
+  store s1 0
+  // t0 = t0 * 4
+  s3 = 4
+  s1 = s1 * s3
+  store s1 0
+  // t2 = T0 [ t0 ]
+  s10 = s0 + s1
+  s3 = s10 [ 0 ]
+  store s3 2
+  // return t2
+  a0 = s3
+  return
+  // return 0
+  a0 = 0
+  return
+end f_main

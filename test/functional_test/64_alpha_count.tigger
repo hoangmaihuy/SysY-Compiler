@@ -1,0 +1,176 @@
+
+f_main [ 0 ] [ 528 ]
+  // T3 = 0
+  s2 = 0
+  store s2 517
+  // T2 = 0
+  s1 = 0
+  store s1 516
+  // T1 = 0
+  s0 = 0
+  store s0 515
+  // l0:
+  l0:
+  // t0 = T1 != 10
+  load 515 s0
+  s1 = 10
+  s3 = s0 != s1
+  store s3 518
+  // if t0 == 0 goto l1
+  if s3 == x0 goto l1
+  // t1 = call f_getch
+  store t0 0
+  store t1 1
+  store t2 2
+  store t3 3
+  store t4 4
+  store t5 5
+  store t6 6
+  store a0 7
+  store a1 8
+  store a2 9
+  store a3 10
+  store a4 11
+  store a5 12
+  store a6 13
+  store a7 14
+  call f_getch
+  load 0 t0
+  load 1 t1
+  load 2 t2
+  load 3 t3
+  load 4 t4
+  load 5 t5
+  load 6 t6
+  load 8 a1
+  load 9 a2
+  load 10 a3
+  load 11 a4
+  load 12 a5
+  load 13 a6
+  load 14 a7
+  s4 = a0
+  load 7 a0
+  // T1 = t1
+  s0 = s4
+  store s0 515
+  // t2 = T1 > 40
+  s1 = 40
+  s6 = s0 > s1
+  store s6 519
+  // t3 = t2
+  s7 = s6
+  store s7 520
+  // if t3 == 0 goto l2
+  if s7 == x0 goto l2
+  // t4 = T1 < 91
+  load 515 s0
+  s1 = 91
+  s8 = s0 < s1
+  store s8 521
+  // t3 = t3 && t4
+  load 520 s7
+  s7 = s7 && s8
+  store s7 520
+  // l2:
+  l2:
+  // t5 = t3
+  load 520 s7
+  s9 = s7
+  store s9 522
+  // if t5 != 0 goto l3
+  if s9 != x0 goto l3
+  // t6 = T1 > 96
+  load 515 s0
+  s1 = 96
+  t0 = s0 > s1
+  store t0 523
+  // t7 = t6
+  t1 = t0
+  store t1 524
+  // if t7 == 0 goto l4
+  if t1 == x0 goto l4
+  // t8 = T1 < 123
+  load 515 s0
+  s1 = 123
+  t2 = s0 < s1
+  store t2 525
+  // t7 = t7 && t8
+  load 524 t1
+  t1 = t1 && t2
+  store t1 524
+  // l4:
+  l4:
+  // t5 = t5 || t7
+  load 522 s9
+  load 524 t1
+  s9 = s9 || t1
+  store s9 522
+  // l3:
+  l3:
+  // if t5 == 0 goto l5
+  load 522 s9
+  if s9 == x0 goto l5
+  // t9 = T3 + 1
+  load 517 s2
+  s0 = 1
+  t3 = s2 + s0
+  store t3 526
+  // T3 = t9
+  s2 = t3
+  store s2 517
+  // l5:
+  l5:
+  // t10 = T2 + 1
+  load 516 s1
+  s0 = 1
+  s5 = s1 + s0
+  store s5 527
+  // T2 = t10
+  s1 = s5
+  store s1 516
+  // goto l0
+  goto l0
+  // l1:
+  l1:
+  // param T3
+  // call f_putint
+  store t0 0
+  store t1 1
+  store t2 2
+  store t3 3
+  store t4 4
+  store t5 5
+  store t6 6
+  store a0 7
+  store a1 8
+  store a2 9
+  store a3 10
+  store a4 11
+  store a5 12
+  store a6 13
+  store a7 14
+  load 517 a0
+  call f_putint
+  load 0 t0
+  load 1 t1
+  load 2 t2
+  load 3 t3
+  load 4 t4
+  load 5 t5
+  load 6 t6
+  load 7 a0
+  load 8 a1
+  load 9 a2
+  load 10 a3
+  load 11 a4
+  load 12 a5
+  load 13 a6
+  load 14 a7
+  // return 0
+  a0 = 0
+  return
+  // return 0
+  a0 = 0
+  return
+end f_main

@@ -1,0 +1,520 @@
+
+f_maxArea [ 2 ] [ 46 ]
+  store s0 0
+  store s1 1
+  store s2 2
+  store s3 3
+  store s4 4
+  store s5 5
+  store s6 6
+  store s7 7
+  store s8 8
+  store s9 9
+  store s10 10
+  store s11 11
+  // T0 = 0
+  s0 = 0
+  store s0 12
+  // t0 = p1 - 1
+  s1 = 1
+  s1 = a1 - s1
+  store s1 17
+  // T1 = t0
+  s2 = s1
+  store s2 13
+  // t1 = -1
+  s3 = 1
+  s3 = - s3
+  store s3 18
+  // T2 = t1
+  s4 = s3
+  store s4 14
+  // l0:
+  l0:
+  // t2 = T0 < T1
+  load 12 s0
+  load 13 s1
+  s2 = s0 < s1
+  store s2 28
+  // if t2 == 0 goto l1
+  if s2 == x0 goto l1
+  // t3 = 0
+  t0 = 0
+  store t0 29
+  // t4 = T0 * 1
+  load 12 s0
+  s1 = 1
+  t1 = s0 * s1
+  store t1 30
+  // t3 = t3 + t4
+  t0 = t0 + t1
+  store t0 29
+  // t3 = t3 * 4
+  s1 = 4
+  t0 = t0 * s1
+  store t0 29
+  // t5 = p0 [ t3 ]
+  s10 = a0 + t0
+  t2 = s10 [ 0 ]
+  store t2 31
+  // t7 = 0
+  t4 = 0
+  store t4 32
+  // t8 = T1 * 1
+  load 13 s1
+  s2 = 1
+  t5 = s1 * s2
+  store t5 33
+  // t7 = t7 + t8
+  t4 = t4 + t5
+  store t4 32
+  // t7 = t7 * 4
+  s2 = 4
+  t4 = t4 * s2
+  store t4 32
+  // t9 = p0 [ t7 ]
+  s10 = a0 + t4
+  t6 = s10 [ 0 ]
+  store t6 34
+  // t6 = t5 < t9
+  t3 = t2 < t6
+  store t3 35
+  // if t6 == 0 goto l2
+  if t3 == x0 goto l2
+  // t10 = T1 - T0
+  load 13 s0
+  load 12 s1
+  s2 = s0 - s1
+  store s2 19
+  // t12 = 0
+  s3 = 0
+  store s3 21
+  // t13 = T0 * 1
+  s4 = 1
+  s4 = s1 * s4
+  store s4 16
+  // t12 = t12 + t13
+  s3 = s3 + s4
+  store s3 21
+  // t12 = t12 * 4
+  s5 = 4
+  s3 = s3 * s5
+  store s3 21
+  // t14 = p0 [ t12 ]
+  s10 = a0 + s3
+  s5 = s10 [ 0 ]
+  store s5 22
+  // t11 = t10 * t14
+  s6 = s2 * s5
+  store s6 20
+  // T3 = t11
+  s7 = s6
+  store s7 15
+  // goto l3
+  goto l3
+  // l2:
+  l2:
+  // t15 = T1 - T0
+  load 13 s0
+  load 12 s1
+  s2 = s0 - s1
+  store s2 23
+  // t17 = 0
+  s3 = 0
+  store s3 25
+  // t18 = T1 * 1
+  s4 = 1
+  s4 = s0 * s4
+  store s4 26
+  // t17 = t17 + t18
+  s3 = s3 + s4
+  store s3 25
+  // t17 = t17 * 4
+  s5 = 4
+  s3 = s3 * s5
+  store s3 25
+  // t19 = p0 [ t17 ]
+  s10 = a0 + s3
+  s5 = s10 [ 0 ]
+  store s5 27
+  // t16 = t15 * t19
+  s6 = s2 * s5
+  store s6 24
+  // T3 = t16
+  s7 = s6
+  store s7 15
+  // l3:
+  l3:
+  // t20 = T3 > T2
+  load 15 s0
+  load 14 s1
+  s9 = s0 > s1
+  store s9 36
+  // if t20 == 0 goto l4
+  if s9 == x0 goto l4
+  // T2 = T3
+  load 15 s0
+  s1 = s0
+  store s1 14
+  // l4:
+  l4:
+  // t21 = 0
+  s1 = 0
+  store s1 37
+  // t22 = T0 * 1
+  load 12 s0
+  s2 = 1
+  s2 = s0 * s2
+  store s2 38
+  // t21 = t21 + t22
+  s1 = s1 + s2
+  store s1 37
+  // t21 = t21 * 4
+  s3 = 4
+  s1 = s1 * s3
+  store s1 37
+  // t23 = p0 [ t21 ]
+  s10 = a0 + s1
+  s3 = s10 [ 0 ]
+  store s3 39
+  // t25 = 0
+  s5 = 0
+  store s5 40
+  // t26 = T1 * 1
+  load 13 s4
+  s6 = 1
+  s6 = s4 * s6
+  store s6 41
+  // t25 = t25 + t26
+  s5 = s5 + s6
+  store s5 40
+  // t25 = t25 * 4
+  s7 = 4
+  s5 = s5 * s7
+  store s5 40
+  // t27 = p0 [ t25 ]
+  s10 = a0 + s5
+  s7 = s10 [ 0 ]
+  store s7 42
+  // t24 = t23 > t27
+  store s4 13
+  s4 = s3 > s7
+  store s4 43
+  // if t24 == 0 goto l5
+  if s4 == x0 goto l5
+  // t28 = T1 - 1
+  load 13 s0
+  s1 = 1
+  s8 = s0 - s1
+  store s8 44
+  // T1 = t28
+  s0 = s8
+  store s0 13
+  // goto l6
+  goto l6
+  // l5:
+  l5:
+  // t29 = T0 + 1
+  load 12 s0
+  s1 = 1
+  store s0 12
+  s0 = s0 + s1
+  store s0 45
+  // T0 = t29
+  s1 = s0
+  store s1 12
+  // l6:
+  l6:
+  // goto l0
+  goto l0
+  // l1:
+  l1:
+  // return T2
+  load 14 s0
+  a0 = s0
+  load 0 s0
+  load 1 s1
+  load 2 s2
+  load 3 s3
+  load 4 s4
+  load 5 s5
+  load 6 s6
+  load 7 s7
+  load 8 s8
+  load 9 s9
+  load 10 s10
+  load 11 s11
+  return
+  // return 0
+  a0 = 0
+  load 0 s0
+  load 1 s1
+  load 2 s2
+  load 3 s3
+  load 4 s4
+  load 5 s5
+  load 6 s6
+  load 7 s7
+  load 8 s8
+  load 9 s9
+  load 10 s10
+  load 11 s11
+  return
+end f_maxArea
+
+f_main [ 0 ] [ 46 ]
+  // t30 = 0
+  s0 = 0
+  store s0 30
+  // t31 = 0 * 1
+  s1 = 1
+  s1 = x0 * s1
+  store s1 29
+  // t30 = t30 + t31
+  s0 = s0 + s1
+  store s0 30
+  // t30 = t30 * 4
+  s2 = 4
+  s0 = s0 * s2
+  store s0 30
+  // T5 [ t30 ] = 3
+  s11 = 3
+  loadaddr 16 s10
+  s10 = s10 + s0
+  s10 [ 0 ] = s11
+  // t32 = 0
+  s2 = 0
+  store s2 28
+  // t33 = 1 * 1
+  s3 = 1
+  s4 = 1
+  s3 = s3 * s4
+  store s3 27
+  // t32 = t32 + t33
+  s2 = s2 + s3
+  store s2 28
+  // t32 = t32 * 4
+  s4 = 4
+  s2 = s2 * s4
+  store s2 28
+  // T5 [ t32 ] = 3
+  s11 = 3
+  loadaddr 16 s10
+  s10 = s10 + s2
+  s10 [ 0 ] = s11
+  // t34 = 0
+  s4 = 0
+  store s4 26
+  // t35 = 2 * 1
+  s5 = 2
+  s6 = 1
+  t6 = s5 * s6
+  store t6 31
+  // t34 = t34 + t35
+  s4 = s4 + t6
+  store s4 26
+  // t34 = t34 * 4
+  s5 = 4
+  s4 = s4 * s5
+  store s4 26
+  // T5 [ t34 ] = 9
+  s11 = 9
+  loadaddr 16 s10
+  s10 = s10 + s4
+  s10 [ 0 ] = s11
+  // t36 = 0
+  t5 = 0
+  store t5 32
+  // t37 = 3 * 1
+  s5 = 3
+  s6 = 1
+  t4 = s5 * s6
+  store t4 33
+  // t36 = t36 + t37
+  t5 = t5 + t4
+  store t5 32
+  // t36 = t36 * 4
+  s5 = 4
+  t5 = t5 * s5
+  store t5 32
+  // T5 [ t36 ] = 0
+  s11 = 0
+  loadaddr 16 s10
+  s10 = s10 + t5
+  s10 [ 0 ] = s11
+  // t38 = 0
+  t3 = 0
+  store t3 34
+  // t39 = 4 * 1
+  s5 = 4
+  s6 = 1
+  store s0 30
+  s0 = s5 * s6
+  store s0 35
+  // t38 = t38 + t39
+  t3 = t3 + s0
+  store t3 34
+  // t38 = t38 * 4
+  s5 = 4
+  t3 = t3 * s5
+  store t3 34
+  // T5 [ t38 ] = 0
+  s11 = 0
+  loadaddr 16 s10
+  s10 = s10 + t3
+  s10 [ 0 ] = s11
+  // t40 = 0
+  t1 = 0
+  store t1 36
+  // t41 = 5 * 1
+  s5 = 5
+  s6 = 1
+  t0 = s5 * s6
+  store t0 37
+  // t40 = t40 + t41
+  t1 = t1 + t0
+  store t1 36
+  // t40 = t40 * 4
+  s5 = 4
+  t1 = t1 * s5
+  store t1 36
+  // T5 [ t40 ] = 1
+  s11 = 1
+  loadaddr 16 s10
+  s10 = s10 + t1
+  s10 [ 0 ] = s11
+  // t42 = 0
+  s9 = 0
+  store s9 38
+  // t43 = 6 * 1
+  s5 = 6
+  s6 = 1
+  s8 = s5 * s6
+  store s8 39
+  // t42 = t42 + t43
+  s9 = s9 + s8
+  store s9 38
+  // t42 = t42 * 4
+  s5 = 4
+  s9 = s9 * s5
+  store s9 38
+  // T5 [ t42 ] = 1
+  s11 = 1
+  loadaddr 16 s10
+  s10 = s10 + s9
+  s10 [ 0 ] = s11
+  // t44 = 0
+  s7 = 0
+  store s7 40
+  // t45 = 7 * 1
+  s5 = 7
+  s6 = 1
+  s6 = s5 * s6
+  store s6 41
+  // t44 = t44 + t45
+  s7 = s7 + s6
+  store s7 40
+  // t44 = t44 * 4
+  s5 = 4
+  s7 = s7 * s5
+  store s7 40
+  // T5 [ t44 ] = 5
+  s11 = 5
+  loadaddr 16 s10
+  s10 = s10 + s7
+  s10 [ 0 ] = s11
+  // t46 = 0
+  s5 = 0
+  store s5 42
+  // t47 = 8 * 1
+  t2 = 8
+  store s0 35
+  s0 = 1
+  store s4 26
+  s4 = t2 * s0
+  store s4 43
+  // t46 = t46 + t47
+  s5 = s5 + s4
+  store s5 42
+  // t46 = t46 * 4
+  s0 = 4
+  s5 = s5 * s0
+  store s5 42
+  // T5 [ t46 ] = 7
+  s11 = 7
+  loadaddr 16 s10
+  s10 = s10 + s5
+  s10 [ 0 ] = s11
+  // t48 = 0
+  store s3 27
+  s3 = 0
+  store s3 44
+  // t49 = 9 * 1
+  s0 = 9
+  t2 = 1
+  store s2 28
+  s2 = s0 * t2
+  store s2 45
+  // t48 = t48 + t49
+  s3 = s3 + s2
+  store s3 44
+  // t48 = t48 * 4
+  s0 = 4
+  s3 = s3 * s0
+  store s3 44
+  // T5 [ t48 ] = 8
+  s11 = 8
+  loadaddr 16 s10
+  s10 = s10 + s3
+  s10 [ 0 ] = s11
+  // T4 = 10
+  t2 = 10
+  store t2 15
+  // param T5
+  // param T4
+  // t50 = call f_maxArea
+  store t0 0
+  store t1 1
+  store t2 2
+  store t3 3
+  store t4 4
+  store t5 5
+  store t6 6
+  store a0 7
+  store a1 8
+  store a2 9
+  store a3 10
+  store a4 11
+  store a5 12
+  store a6 13
+  store a7 14
+  loadaddr 16 a0
+  a1 = t2
+  call f_maxArea
+  load 0 t0
+  load 1 t1
+  load 2 t2
+  load 3 t3
+  load 4 t4
+  load 5 t5
+  load 6 t6
+  load 8 a1
+  load 9 a2
+  load 10 a3
+  load 11 a4
+  load 12 a5
+  load 13 a6
+  load 14 a7
+  store s1 29
+  s1 = a0
+  load 7 a0
+  // T4 = t50
+  t2 = s1
+  store t2 15
+  // return T4
+  a0 = t2
+  return
+  // return 0
+  a0 = 0
+  return
+end f_main
