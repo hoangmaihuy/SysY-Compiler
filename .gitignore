@@ -35,3 +35,4 @@ cmake-build-debug/*
 .vscode
 
 test/test.eeyore
+test/test.tigger
