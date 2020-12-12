@@ -26,7 +26,7 @@ void TArrayDecl::generate_riscv(vector<string> &riscv_list)
 
 void TAssignNumber::generate_riscv(vector<string> &riscv_list)
 {
-    riscv_list.emplace_back("\tli\t" + reg_name + "," + std::to_string(value));
+    riscv_list.emplace_back("\tli  \t" + reg_name + "," + std::to_string(value));
 }
 
 void TAssignRegOpReg::generate_riscv(vector<string> &riscv_list)
@@ -87,7 +87,7 @@ void TAssignOpReg::generate_riscv(vector<string> &riscv_list)
 
 void TCopyReg::generate_riscv(vector<string> &riscv_list)
 {
-    riscv_list.emplace_back("\tmv \t" + res_reg + "," + value_reg);
+    riscv_list.emplace_back("\tmv  \t" + res_reg + "," + value_reg);
 }
 
 void TLabel::generate_riscv(vector<string> &riscv_list)
