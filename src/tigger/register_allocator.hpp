@@ -5,10 +5,12 @@
 #include "eeyore.hpp"
 #include "tigger.hpp"
 
-#define RETURN_REG "a0"
-#define ADDRESS_REG "s10"
-#define CONST_REG  "s11"
-#define ZERO_REG   "x0"
+const string RETURN_REG = "a0";
+const string ADDRESS_REG = "s10";
+const string CONST_REG = "s11";
+const string ZERO_REG = "x0";
+const string SP_REG = "sp";
+const string RA_REG = "ra";
 
 class ContextTigger;
 class TiggerFunc;

@@ -1,8 +1,55 @@
 #include "tigger.hpp"
 #include "sysy_tree.hpp"
 #include "sysy.tab.hpp"
+#include "register_allocator.hpp"
 
-long long stk;
+int stk;
+
+bool is_in_imm_range(int value)
+{
+    return value >= -2048 && value < 2048;
+}
+
+void add_imm(vector<string>& riscv_list, string res_reg, string lhs_reg, int value)
+{
+    if (is_in_imm_range(value))
+    {
+        riscv_list.emplace_back("\tadd \t" + res_reg + "," + lhs_reg + "," + std::to_string(value));
+    }
+    else
+    {
+        riscv_list.emplace_back("\tli  \t" + CONST_REG + "," + std::to_string(value));
+        riscv_list.emplace_back("\tadd \t" + res_reg + "," + lhs_reg + "," + CONST_REG);
+    }
+}
+
+void lw_imm(vector<string>& riscv_list, string res_reg, string array_reg, int index)
+{
+    if (is_in_imm_range(index))
+    {
+        riscv_list.emplace_back("\tlw  \t" + res_reg + "," + std::to_string(index) + "(" + array_reg + ")");
+    }
+    else
+    {
+        riscv_list.emplace_back("\tli  \t" + CONST_REG + "," + std::to_string(index));
+        riscv_list.emplace_back("\tadd \t" + res_reg + "," + array_reg + "," + CONST_REG);
+        riscv_list.emplace_back("\tlw  \t" + res_reg + "," + std::to_string(0) + "(" + res_reg + ")");
+    }
+}
+
+void sw_imm(vector<string>& riscv_list, string array_reg, int index, string value_reg)
+{
+    if (is_in_imm_range(index))
+    {
+        riscv_list.emplace_back("\tsw  \t" + value_reg + "," + std::to_string(index) + "(" + array_reg + ")");
+    }
+    else
+    {
+        riscv_list.emplace_back("\tli  \t" + CONST_REG + "," + std::to_string(index));
+        riscv_list.emplace_back("\tadd \t" + CONST_REG + "," + array_reg + "," + CONST_REG);
+        riscv_list.emplace_back("\tsw  \t" + value_reg + "," + std::to_string(0) + "(" + CONST_REG + ")");
+    }
+}
 
 void TStmt::generate_riscv(vector<string>& riscv_list)
 {
@@ -44,7 +91,7 @@ void TAssignRegOpReg::generate_riscv(vector<string> &riscv_list)
     else if (op == AND)
     {
         riscv_list.emplace_back("\tseqz\t" + res_reg + "," + lhs_reg);
-        riscv_list.emplace_back("\taddi\t" + res_reg + "," + res_reg + ",-1");
+        riscv_list.emplace_back("\tadd \t" + res_reg + "," + res_reg + ",-1");
         riscv_list.emplace_back("\tand \t" + res_reg + "," + res_reg + "," + rhs_reg);
         riscv_list.emplace_back("\tsnez\t" + res_reg + "," + res_reg);
     }
@@ -134,8 +181,8 @@ void TFuncDef::generate_riscv(vector<string> &riscv_list)
     riscv_list.emplace_back("\t.type\t" + func_name + ", @function");
     riscv_list.emplace_back(func_name + ":");
     stk = (stack_size / 4 + 1) * 16;
-    riscv_list.emplace_back("\taddi \tsp,sp,-" + std::to_string(stk));
-    riscv_list.emplace_back("\tsw  \tra," + std::to_string(stk-4) + "(sp)");
+    add_imm(riscv_list, SP_REG, SP_REG, -stk);
+    sw_imm(riscv_list, SP_REG, stk-4, RA_REG);
 }
 
 void TFuncEnd::generate_riscv(vector<string> &riscv_list)
@@ -145,12 +192,12 @@ void TFuncEnd::generate_riscv(vector<string> &riscv_list)
 
 void TStoreStack::generate_riscv(vector<string> &riscv_list)
 {
-    riscv_list.emplace_back("\tsw  \t" + reg_name + "," + std::to_string(loc * 4) + "(sp)");
+    sw_imm(riscv_list, SP_REG, loc*4, reg_name);
 }
 
 void TLoadStack::generate_riscv(vector<string> &riscv_list)
 {
-    riscv_list.emplace_back("\tlw  \t" + reg_name + "," + std::to_string(loc * 4) + "(sp)");
+    lw_imm(riscv_list, reg_name, SP_REG, loc*4);
 }
 
 void TLoadGlobal::generate_riscv(vector<string> &riscv_list)
@@ -161,7 +208,7 @@ void TLoadGlobal::generate_riscv(vector<string> &riscv_list)
 
 void TLoadaddrStack::generate_riscv(vector<string> &riscv_list)
 {
-    riscv_list.emplace_back("\taddi\t" + reg_name + ",sp," + std::to_string(loc * 4));
+    add_imm(riscv_list, reg_name, SP_REG, loc*4);
 }
 
 void TLoadaddrGlobal::generate_riscv(vector<string> &riscv_list)
@@ -172,17 +219,17 @@ void TLoadaddrGlobal::generate_riscv(vector<string> &riscv_list)
 
 void TReturn::generate_riscv(vector<string> &riscv_list)
 {
-    riscv_list.emplace_back("\tlw  \tra," + std::to_string(stk-4) + "(sp)");
-    riscv_list.emplace_back("\taddi\tsp,sp," + std::to_string(stk));
+    lw_imm(riscv_list, RA_REG, SP_REG, stk-4);
+    add_imm(riscv_list, SP_REG, SP_REG, stk);
     riscv_list.emplace_back("\tjr  \tra");
 }
 
 void TArrayWrite::generate_riscv(vector<string> &riscv_list)
 {
-    riscv_list.emplace_back("\tsw  \t" + value_reg + "," + std::to_string(index) + "(" + array_reg + ")");
+    sw_imm(riscv_list, array_reg, index, value_reg);
 }
 
 void TArrayRead::generate_riscv(vector<string> &riscv_list)
 {
-    riscv_list.emplace_back("\tlw  \t" + res_reg + "," + std::to_string(index) + "(" + array_reg + ")");
+    lw_imm(riscv_list, res_reg, array_reg, index);
 }
